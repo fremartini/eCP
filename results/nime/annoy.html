@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>annoy</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for annoy</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.85488 , y: 1186.27812699, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.85898 , y: 1164.09506065, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.87144 , y: 959.750755646, label: "Annoy(n_trees=200, search_k=200)" },
+                                                                    { x: 0.87536 , y: 943.77929028, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.94022 , y: 822.86188001, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.94717 , y: 700.630682273, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.97273 , y: 609.276460961, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.97658 , y: 534.353680392, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.97886 , y: 435.311558152, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.98773 , y: 425.109251696, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.98949 , y: 383.784559221, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.99043 , y: 331.139457896, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.99636 , y: 244.471812604, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.99666 , y: 214.517046092, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.99683 , y: 212.833980829, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.99856 , y: 154.488680672, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.99867 , y: 145.891530858, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.99868 , y: 144.067146554, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.99963 , y: 92.2669366362, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99992 , y: 46.0088243992, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99998 , y: 44.1387911694, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99999 , y: 25.2984578847, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 1.0 , y: 23.725286467, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.9173 , y: 4316.13555841, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.9706 , y: 3902.71644363, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9925 , y: 3424.13406873, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9997 , y: 2654.62782524, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 1.0 , y: 1935.08388677, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").click(function() {
+                        $("#plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").toggle();
+                    });
+                </script>
+                <div id="plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot coordinates {
+                                                (0.85488, 1186.27812699)
+                                    (0.85898, 1164.09506065)
+                                    (0.87144, 959.750755646)
+                                    (0.87536, 943.77929028)
+                                    (0.94022, 822.86188001)
+                                    (0.94717, 700.630682273)
+                                    (0.97273, 609.276460961)
+                                    (0.97658, 534.353680392)
+                                    (0.97886, 435.311558152)
+                                    (0.98773, 425.109251696)
+                                    (0.98949, 383.784559221)
+                                    (0.99043, 331.139457896)
+                                    (0.99636, 244.471812604)
+                                    (0.99666, 214.517046092)
+                                    (0.99683, 212.833980829)
+                                    (0.99856, 154.488680672)
+                                    (0.99867, 145.891530858)
+                                    (0.99868, 144.067146554)
+                                    (0.99963, 92.2669366362)
+                                    (0.99992, 46.0088243992)
+                                    (0.99998, 44.1387911694)
+                                    (0.99999, 25.2984578847)
+                                    (1.0, 23.725286467)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.9173, 4316.13555841)
+                                    (0.9706, 3902.71644363)
+                                    (0.9925, 3424.13406873)
+                                    (0.9997, 2654.62782524)
+                                    (1.0, 1935.08388677)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+                                                        <h2>Scatterplots for annoy</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)Scatterplot ">
+            <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)Scatterplot ");
+                var chart = new Chart(ctx, {
+                                        type: "bubble",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.85488 , y: 1186.27812699, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.85898 , y: 1164.09506065, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.85488 , y: 1162.44169782, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.87144 , y: 959.750755646, label: "Annoy(n_trees=200, search_k=200)" },
+                                                                    { x: 0.87144 , y: 958.923245198, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.87536 , y: 943.77929028, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.94022 , y: 822.86188001, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.94717 , y: 700.630682273, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.88589 , y: 696.231451462, label: "Annoy(n_trees=400, search_k=100)" },
+                                                                    { x: 0.88589 , y: 695.182958346, label: "Annoy(n_trees=400, search_k=200)" },
+                                                                    { x: 0.88839 , y: 690.718733796, label: "Annoy(n_trees=400, search_k=400)" },
+                                                                    { x: 0.97273 , y: 609.276460961, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9544 , y: 542.745948451, label: "Annoy(n_trees=400, search_k=1000)" },
+                                                                    { x: 0.97658 , y: 534.353680392, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.97886 , y: 435.311558152, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.98773 , y: 425.109251696, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.98949 , y: 383.784559221, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.99043 , y: 331.139457896, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.99636 , y: 244.471812604, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.99666 , y: 214.517046092, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.99683 , y: 212.833980829, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.99856 , y: 154.488680672, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.99867 , y: 145.891530858, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.99868 , y: 144.067146554, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.99963 , y: 92.2669366362, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99953 , y: 92.2424014253, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 0.99951 , y: 90.8732722912, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.99992 , y: 46.0088243992, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99998 , y: 44.1387911694, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99998 , y: 42.2795758261, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99999 , y: 25.2984578847, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 1.0 , y: 23.725286467, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 1.0 , y: 22.1016795718, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 13.2178331061, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                                    { x: 1.0 , y: 12.3106285787, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 1.0 , y: 11.7249900769, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.9173 , y: 4316.13555841, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.9706 , y: 3902.71644363, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9925 , y: 3424.13406873, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9997 , y: 2654.62782524, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.9198 , y: 2237.35948838, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.9722 , y: 2102.72948997, label: "Annoy(n_trees=200, search_k=200)" },
+                                                                    { x: 0.9923 , y: 1936.86481534, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 1.0 , y: 1935.08388677, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9997 , y: 1614.87828843, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0 , y: 1282.16145626, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 1.0 , y: 1235.86591856, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9224 , y: 1111.44370153, label: "Annoy(n_trees=400, search_k=100)" },
+                                                                    { x: 0.9721 , y: 1068.65604713, label: "Annoy(n_trees=400, search_k=200)" },
+                                                                    { x: 0.9918 , y: 1003.53700819, label: "Annoy(n_trees=400, search_k=400)" },
+                                                                    { x: 1.0 , y: 921.662599252, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.9997 , y: 887.537999066, label: "Annoy(n_trees=400, search_k=1000)" },
+                                                                    { x: 0.9999 , y: 765.721110409, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 1.0 , y: 609.949808579, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 1.0 , y: 548.782351476, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 1.0 , y: 494.13391048, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 1.0 , y: 381.461062779, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 1.0 , y: 266.097578028, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 1.0 , y: 259.564882216, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 1.0 , y: 237.01161431, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 1.0 , y: 131.186029356, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 1.0 , y: 127.289049019, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 1.0 , y: 126.548458135, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 1.0 , y: 53.5065469267, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 1.0 , y: 51.2853727416, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 1.0 , y: 49.2765136656, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0 , y: 27.0321532149, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 25.9886278562, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 1.0 , y: 24.9232705318, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 1.0 , y: 13.535206755, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 1.0 , y: 13.0501130959, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 1.0 , y: 12.5747400034, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").click(function() {
+                        $("#plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").toggle();
+                    });
+                </script>
+                <div id="plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot [only marks] coordinates {
+                                                (0.85488, 1186.27812699)
+                                    (0.85898, 1164.09506065)
+                                    (0.85488, 1162.44169782)
+                                    (0.87144, 959.750755646)
+                                    (0.87144, 958.923245198)
+                                    (0.87536, 943.77929028)
+                                    (0.94022, 822.86188001)
+                                    (0.94717, 700.630682273)
+                                    (0.88589, 696.231451462)
+                                    (0.88589, 695.182958346)
+                                    (0.88839, 690.718733796)
+                                    (0.97273, 609.276460961)
+                                    (0.9544, 542.745948451)
+                                    (0.97658, 534.353680392)
+                                    (0.97886, 435.311558152)
+                                    (0.98773, 425.109251696)
+                                    (0.98949, 383.784559221)
+                                    (0.99043, 331.139457896)
+                                    (0.99636, 244.471812604)
+                                    (0.99666, 214.517046092)
+                                    (0.99683, 212.833980829)
+                                    (0.99856, 154.488680672)
+                                    (0.99867, 145.891530858)
+                                    (0.99868, 144.067146554)
+                                    (0.99963, 92.2669366362)
+                                    (0.99953, 92.2424014253)
+                                    (0.99951, 90.8732722912)
+                                    (0.99992, 46.0088243992)
+                                    (0.99998, 44.1387911694)
+                                    (0.99998, 42.2795758261)
+                                    (0.99999, 25.2984578847)
+                                    (1.0, 23.725286467)
+                                    (1.0, 22.1016795718)
+                                    (1.0, 13.2178331061)
+                                    (1.0, 12.3106285787)
+                                    (1.0, 11.7249900769)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.9173, 4316.13555841)
+                                    (0.9706, 3902.71644363)
+                                    (0.9925, 3424.13406873)
+                                    (0.9997, 2654.62782524)
+                                    (0.9198, 2237.35948838)
+                                    (0.9722, 2102.72948997)
+                                    (0.9923, 1936.86481534)
+                                    (1.0, 1935.08388677)
+                                    (0.9997, 1614.87828843)
+                                    (1.0, 1282.16145626)
+                                    (1.0, 1235.86591856)
+                                    (0.9224, 1111.44370153)
+                                    (0.9721, 1068.65604713)
+                                    (0.9918, 1003.53700819)
+                                    (1.0, 921.662599252)
+                                    (0.9997, 887.537999066)
+                                    (0.9999, 765.721110409)
+                                    (1.0, 609.949808579)
+                                    (1.0, 548.782351476)
+                                    (1.0, 494.13391048)
+                                    (1.0, 381.461062779)
+                                    (1.0, 266.097578028)
+                                    (1.0, 259.564882216)
+                                    (1.0, 237.01161431)
+                                    (1.0, 131.186029356)
+                                    (1.0, 127.289049019)
+                                    (1.0, 126.548458135)
+                                    (1.0, 53.5065469267)
+                                    (1.0, 51.2853727416)
+                                    (1.0, 49.2765136656)
+                                    (1.0, 27.0321532149)
+                                    (1.0, 25.9886278562)
+                                    (1.0, 24.9232705318)
+                                    (1.0, 13.535206755)
+                                    (1.0, 13.0501130959)
+                                    (1.0, 12.5747400034)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

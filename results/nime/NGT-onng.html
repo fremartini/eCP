@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>NGT-onng</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for NGT-onng</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.11278 , y: 24697.1607978, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.51262 , y: 15367.5899987, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.82732 , y: 10291.8790102, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.96362 , y: 6728.74610707, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.99348 , y: 4113.95435744, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.99768 , y: 3171.1945154, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.99919 , y: 2661.84886211, label: "ONNG-NGT(100, 10, 120, -2, 1.070)" },
+                                                                    { x: 0.9998 , y: 2032.66922756, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0 , y: 809.714729643, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.2057 , y: 29845.4751163, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.708 , y: 24524.6515109, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.966 , y: 20686.766657, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.9867 , y: 19163.886414, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9909 , y: 18577.1155737, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.9929 , y: 17830.7266536, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.996 , y: 17304.5907064, label: "ONNG-NGT(100, 10, 120, -2, 1.070)" },
+                                                                    { x: 0.999 , y: 16026.9006205, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0 , y: 13622.558413, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").click(function() {
+                        $("#plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").toggle();
+                    });
+                </script>
+                <div id="plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot coordinates {
+                                                (0.11278, 24697.1607978)
+                                    (0.51262, 15367.5899987)
+                                    (0.82732, 10291.8790102)
+                                    (0.96362, 6728.74610707)
+                                    (0.99348, 4113.95435744)
+                                    (0.99768, 3171.1945154)
+                                    (0.99919, 2661.84886211)
+                                    (0.9998, 2032.66922756)
+                                    (1.0, 809.714729643)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.2057, 29845.4751163)
+                                    (0.708, 24524.6515109)
+                                    (0.966, 20686.766657)
+                                    (0.9867, 19163.886414)
+                                    (0.9909, 18577.1155737)
+                                    (0.9929, 17830.7266536)
+                                    (0.996, 17304.5907064)
+                                    (0.999, 16026.9006205)
+                                    (1.0, 13622.558413)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+                                                        <h2>Scatterplots for NGT-onng</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)Scatterplot ">
+            <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)Scatterplot ");
+                var chart = new Chart(ctx, {
+                                        type: "bubble",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.11278 , y: 24697.1607978, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.51262 , y: 15367.5899987, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.82732 , y: 10291.8790102, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.96362 , y: 6728.74610707, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.99348 , y: 4113.95435744, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.99768 , y: 3171.1945154, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.99919 , y: 2661.84886211, label: "ONNG-NGT(100, 10, 120, -2, 1.070)" },
+                                                                    { x: 0.9998 , y: 2032.66922756, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0 , y: 809.714729643, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.2057 , y: 29845.4751163, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.708 , y: 24524.6515109, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.966 , y: 20686.766657, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.9867 , y: 19163.886414, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9909 , y: 18577.1155737, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.9929 , y: 17830.7266536, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.996 , y: 17304.5907064, label: "ONNG-NGT(100, 10, 120, -2, 1.070)" },
+                                                                    { x: 0.999 , y: 16026.9006205, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0 , y: 13622.558413, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").click(function() {
+                        $("#plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").toggle();
+                    });
+                </script>
+                <div id="plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot [only marks] coordinates {
+                                                (0.11278, 24697.1607978)
+                                    (0.51262, 15367.5899987)
+                                    (0.82732, 10291.8790102)
+                                    (0.96362, 6728.74610707)
+                                    (0.99348, 4113.95435744)
+                                    (0.99768, 3171.1945154)
+                                    (0.99919, 2661.84886211)
+                                    (0.9998, 2032.66922756)
+                                    (1.0, 809.714729643)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.2057, 29845.4751163)
+                                    (0.708, 24524.6515109)
+                                    (0.966, 20686.766657)
+                                    (0.9867, 19163.886414)
+                                    (0.9909, 18577.1155737)
+                                    (0.9929, 17830.7266536)
+                                    (0.996, 17304.5907064)
+                                    (0.999, 16026.9006205)
+                                    (1.0, 13622.558413)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

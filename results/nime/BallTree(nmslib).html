@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>BallTree(nmslib)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for BallTree(nmslib)</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.23125 , y: 16504.761991, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.33542 , y: 9407.04898892, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.43029 , y: 5689.80956256, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.52898 , y: 3804.73560002, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.63044 , y: 2388.21376096, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.74033 , y: 1410.98019617, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.82487 , y: 875.325531132, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.86781 , y: 675.81035938, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.92165 , y: 414.978678874, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                                    { x: 0.9608 , y: 301.001801187, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.97488 , y: 237.390472033, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                                    { x: 0.9509 , y: 28397.646565, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.9719 , y: 25947.947019, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.9919 , y: 24059.9792344, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").click(function() {
+                        $("#plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").toggle();
+                    });
+                </script>
+                <div id="plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot coordinates {
+                                                (0.23125, 16504.761991)
+                                    (0.33542, 9407.04898892)
+                                    (0.43029, 5689.80956256)
+                                    (0.52898, 3804.73560002)
+                                    (0.63044, 2388.21376096)
+                                    (0.74033, 1410.98019617)
+                                    (0.82487, 875.325531132)
+                                    (0.86781, 675.81035938)
+                                    (0.92165, 414.978678874)
+                                    (0.9608, 301.001801187)
+                                    (0.97488, 237.390472033)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.1394, 66543.5103362)
+                                    (0.2007, 60190.3449859)
+                                    (0.3001, 53943.2569385)
+                                    (0.4068, 48674.7591969)
+                                    (0.5013, 44230.6491753)
+                                    (0.6, 41328.0781964)
+                                    (0.7056, 37138.7688602)
+                                    (0.8001, 34001.0700563)
+                                    (0.8541, 31130.0256058)
+                                    (0.9074, 29926.1817274)
+                                    (0.9509, 28397.646565)
+                                    (0.9719, 25947.947019)
+                                    (0.9919, 24059.9792344)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+                                                        <h2>Scatterplots for BallTree(nmslib)</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)Scatterplot ">
+            <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)Scatterplot ");
+                var chart = new Chart(ctx, {
+                                        type: "bubble",
+                                        data: { datasets: [
+                                                {
+                            label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.23125 , y: 16504.761991, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.33542 , y: 9407.04898892, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.43029 , y: 5689.80956256, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.52898 , y: 3804.73560002, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.63044 , y: 2388.21376096, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.74033 , y: 1410.98019617, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.82487 , y: 875.325531132, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.86781 , y: 675.81035938, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.92165 , y: 414.978678874, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                                    { x: 0.9608 , y: 301.001801187, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.97488 , y: 237.390472033, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                                    { x: 0.9509 , y: 28397.646565, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.9719 , y: 25947.947019, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.9919 , y: 24059.9792344, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").click(function() {
+                        $("#plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").toggle();
+                    });
+                </script>
+                <div id="plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot [only marks] coordinates {
+                                                (0.23125, 16504.761991)
+                                    (0.33542, 9407.04898892)
+                                    (0.43029, 5689.80956256)
+                                    (0.52898, 3804.73560002)
+                                    (0.63044, 2388.21376096)
+                                    (0.74033, 1410.98019617)
+                                    (0.82487, 875.325531132)
+                                    (0.86781, 675.81035938)
+                                    (0.92165, 414.978678874)
+                                    (0.9608, 301.001801187)
+                                    (0.97488, 237.390472033)
+                            };
+            \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.1394, 66543.5103362)
+                                    (0.2007, 60190.3449859)
+                                    (0.3001, 53943.2569385)
+                                    (0.4068, 48674.7591969)
+                                    (0.5013, 44230.6491753)
+                                    (0.6, 41328.0781964)
+                                    (0.7056, 37138.7688602)
+                                    (0.8001, 34001.0700563)
+                                    (0.8541, 31130.0256058)
+                                    (0.9074, 29926.1817274)
+                                    (0.9509, 28397.646565)
+                                    (0.9719, 25947.947019)
+                                    (0.9919, 24059.9792344)
+                            };
+            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>
