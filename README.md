@@ -3,6 +3,25 @@ Extended Cluster-Pruning
 
 The extended cluster-pruning algorithm is implemented in C++ and provides a python wrapper for usage within the [ANN-benchmarking tool](https://github.com/erikbern/ann-benchmarks/) to compare with other state of the art ANN algorithms. This was proposed as a bachelors project at the IT-University of Copenhagen in spring 2020.
 
+ANN-Benchmarks embedding
+---
+1. Clone down this repository and [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/) 
+2. Merge the contents of eCP/ANN-Benchmarks with the cloned ANN-Benchmarks repository
+3. From ANN-Benchmarks run the command: ```python3 install.py```  (installs all algorithms containers - may take a while)
+4. Test that everything is working: ```python3 run.py --dataset random-xs-20-euclidean --algorithm eCP```
+
+This will create results in the ANN-Benchmarks/result directory that can be plotted using: 
+
+```python3 plot.py --dataset random-xs-20-euclidean```
+
+or 
+
+```python3 create_website.py --plottype recall/time --latex --scatter --outputdir website/```
+
+If an earlier version of eCP has been installed, remember to remove the docker container before running install.py again
+
+```docker rmi ann-benchmarks-ecp```
+
 Results
 ---
 mnist-784-euclidean - 4gb RAM
