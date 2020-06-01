@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>kd</title>
+        <title>puffinn</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,7 +47,7 @@
             </nav>
 
                     <div class="container">
-                                                        <h2>Plots for kd</h2>
+                                                        <h2>Plots for puffinn</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)">
             <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
@@ -57,48 +57,13 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
                             label: "random-xs-20-angular (k = 10)",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
+                                                                    { x: 0.9997 , y: 588.753489768, label: "PUFFINN(space=268435456, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 316.357586688, label: "PUFFINN(space=536870912, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
                                                             ]
                         },
                                                 ]},
@@ -187,25 +152,10 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (1.0, 4.62911975232)
-                            };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4.89783638483)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 28.456358692)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 3219.01861585)
+                                                (0.9997, 588.753489768)
+                                    (0.9998, 316.357586688)
                             };
             \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4518.84763731)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -215,7 +165,7 @@
                 </div>
             
                         <hr />
-                                                        <h2>Scatterplots for kd</h2>
+                                                        <h2>Scatterplots for puffinn</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)Scatterplot ">
             <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
@@ -225,64 +175,39 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                                    { x: 1.0 , y: 4.68461266452, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 4.42164474929, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 3.99235862963, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3.36653484182, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 2.54060435553, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 1.70765434473, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 26.208382932, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
                             label: "random-xs-20-angular (k = 10)",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 3093.11260798, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 2602.49061521, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 1678.54878884, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 4450.88411667, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 4377.32887492, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 4058.1215568, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3157.72894887, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 2366.25293151, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 1877.16850058, label: "KDTree(leaf_size=1000)" },
+                                                                    { x: 0.9997 , y: 588.753489768, label: "PUFFINN(space=268435456, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 586.750281148, label: "PUFFINN(space=268435456, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 585.054299119, label: "PUFFINN(space=268435456, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 584.355021355, label: "PUFFINN(space=268435456, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 583.436744197, label: "PUFFINN(space=268435456, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 579.408027162, label: "PUFFINN(space=268435456, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 579.25535037, label: "PUFFINN(space=268435456, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 316.357586688, label: "PUFFINN(space=536870912, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 315.165823893, label: "PUFFINN(space=536870912, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 314.615705717, label: "PUFFINN(space=536870912, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 312.21919802, label: "PUFFINN(space=536870912, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 312.201047666, label: "PUFFINN(space=536870912, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 310.482702689, label: "PUFFINN(space=536870912, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 278.198763717, label: "PUFFINN(space=536870912, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 153.783823481, label: "PUFFINN(space=1073741824, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 153.272277602, label: "PUFFINN(space=1073741824, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.996749802, label: "PUFFINN(space=1073741824, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.907518582, label: "PUFFINN(space=1073741824, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.88298403, label: "PUFFINN(space=1073741824, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.56427259, label: "PUFFINN(space=1073741824, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 145.86797693, label: "PUFFINN(space=1073741824, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.5019248311, label: "PUFFINN(space=2147483648, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.4586102798, label: "PUFFINN(space=2147483648, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.3495290997, label: "PUFFINN(space=2147483648, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.2963486381, label: "PUFFINN(space=2147483648, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.2870071169, label: "PUFFINN(space=2147483648, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.1737000573, label: "PUFFINN(space=2147483648, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 73.6020523692, label: "PUFFINN(space=2147483648, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
                                                             ]
                         },
                                                 ]},
@@ -371,41 +296,36 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (1.0, 4.62911975232)
-                            };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4.89783638483)
-                                    (1.0, 4.68461266452)
-                                    (1.0, 4.42164474929)
-                                    (1.0, 3.99235862963)
-                                    (1.0, 3.36653484182)
-                                    (1.0, 2.54060435553)
-                                    (1.0, 1.70765434473)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 28.456358692)
-                                    (1.0, 26.208382932)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 3219.01861585)
-                                    (1.0, 3093.11260798)
-                                    (1.0, 2602.49061521)
-                                    (1.0, 1678.54878884)
+                                                (0.9997, 588.753489768)
+                                    (0.9997, 586.750281148)
+                                    (0.9997, 585.054299119)
+                                    (0.9997, 584.355021355)
+                                    (0.9997, 583.436744197)
+                                    (0.9997, 579.408027162)
+                                    (0.9997, 579.25535037)
+                                    (0.9998, 316.357586688)
+                                    (0.9998, 315.165823893)
+                                    (0.9998, 314.615705717)
+                                    (0.9998, 312.21919802)
+                                    (0.9998, 312.201047666)
+                                    (0.9998, 310.482702689)
+                                    (0.9998, 278.198763717)
+                                    (0.9995, 153.783823481)
+                                    (0.9995, 153.272277602)
+                                    (0.9995, 152.996749802)
+                                    (0.9995, 152.907518582)
+                                    (0.9995, 152.88298403)
+                                    (0.9995, 152.56427259)
+                                    (0.9995, 145.86797693)
+                                    (0.9998, 74.5019248311)
+                                    (0.9998, 74.4586102798)
+                                    (0.9998, 74.3495290997)
+                                    (0.9998, 74.2963486381)
+                                    (0.9998, 74.2870071169)
+                                    (0.9998, 74.1737000573)
+                                    (0.9998, 73.6020523692)
                             };
             \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4518.84763731)
-                                    (1.0, 4450.88411667)
-                                    (1.0, 4377.32887492)
-                                    (1.0, 4058.1215568)
-                                    (1.0, 3157.72894887)
-                                    (1.0, 2366.25293151)
-                                    (1.0, 1877.16850058)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }

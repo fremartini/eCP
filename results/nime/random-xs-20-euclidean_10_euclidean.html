@@ -59,8 +59,8 @@
                                                 {
                             label: "annoy",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(204, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 255, 178, 1)",
                             data: [
                                                                     { x: 0.9173 , y: 4316.13555841, label: "Annoy(n_trees=100, search_k=100)" },
                                                                     { x: 0.9706 , y: 3902.71644363, label: "Annoy(n_trees=100, search_k=200)" },
@@ -72,16 +72,9 @@
                                                 {
                             label: "BallTree(nmslib)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(255, 204, 102, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 255, 255, 1)",
                             data: [
-                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
-                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
-                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
-                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
-                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
-                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
-                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
                                                                     { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
                                                                     { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
                                                                     { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
@@ -94,36 +87,31 @@
                             label: "bruteforce-blas",
                             fill: false,
                             pointStyle: "star",
-                            borderColor: "rgba(255, 153, 178, 1)",
+                            borderColor: "rgba(153, 229, 229, 1)",
                             data: [
                                                                     { x: 1.0 , y: 662.860787673, label: "BruteForceBLAS()" },
                                                             ]
                         },
                                                 {
-                            label: "eCP-release_1_3",
+                            label: "eCP",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(229, 102, 102, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(255, 204, 102, 1)",
                             data: [
-                                                                    { x: 0.1499 , y: 34666.2479027, label: "eCP(L=5, b=1)" },
-                                                                    { x: 0.1578 , y: 33881.0452765, label: "eCP(L=4, b=1)" },
-                                                                    { x: 0.187 , y: 29915.9361783, label: "eCP(L=3, b=1)" },
-                                                                    { x: 0.2639 , y: 24975.1636011, label: "eCP(L=4, b=2)" },
-                                                                    { x: 0.2828 , y: 24383.7871776, label: "eCP(L=5, b=2)" },
-                                                                    { x: 0.3626 , y: 22724.6100417, label: "eCP(L=3, b=2)" },
-                                                                    { x: 0.4807 , y: 18218.1238517, label: "eCP(L=3, b=3)" },
-                                                                    { x: 0.7394 , y: 17456.482653, label: "eCP(L=1, b=1)" },
-                                                                    { x: 0.8828 , y: 13517.1498091, label: "eCP(L=1, b=2)" },
-                                                                    { x: 0.9308 , y: 10858.7864619, label: "eCP(L=1, b=3)" },
-                                                                    { x: 0.9575 , y: 8951.99270916, label: "eCP(L=1, b=4)" },
-                                                                    { x: 0.9691 , y: 7898.40160292, label: "eCP(L=1, b=5)" },
+                                                                    { x: 0.8485 , y: 20801.5711636, label: "eCP(L=1, b=1)" },
+                                                                    { x: 0.9625 , y: 16342.8874238, label: "eCP(L=1, b=2)" },
+                                                                    { x: 0.9882 , y: 13408.8145216, label: "eCP(L=1, b=3)" },
+                                                                    { x: 0.9942 , y: 11312.0790979, label: "eCP(L=1, b=4)" },
+                                                                    { x: 0.9977 , y: 9708.85724338, label: "eCP(L=1, b=5)" },
+                                                                    { x: 0.9999 , y: 5677.26915263, label: "eCP(L=1, b=10)" },
+                                                                    { x: 1.0 , y: 3165.45511628, label: "eCP(L=1, b=20)" },
                                                             ]
                         },
                                                 {
                             label: "faiss-ivf",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(178, 255, 178, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(178, 178, 102, 1)",
                             data: [
                                                                     { x: 0.9043 , y: 14905.0255506, label: "FaissIVF(n_list=128, n_probe=1)" },
                                                                     { x: 0.9872 , y: 14019.5202824, label: "FaissIVF(n_list=64, n_probe=1)" },
@@ -135,8 +123,8 @@
                                                 {
                             label: "hnsw(faiss)",
                             fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.8066 , y: 11836.1124829, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 10)" },
                                                                     { x: 0.9386 , y: 10817.505861, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
@@ -153,33 +141,10 @@
                                                             ]
                         },
                                                 {
-                            label: "hnsw(nmslib)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(204, 102, 229, 1)",
-                            data: [
-                                                                    { x: 0.169 , y: 72259.522784, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.3539 , y: 63713.205025, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.4282 , y: 58523.2666843, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.6322 , y: 49852.6636081, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.6912 , y: 46756.635639, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.8513 , y: 45574.9041084, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.8822 , y: 43675.1983672, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9547 , y: 43260.3166417, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9691 , y: 40145.3320316, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.993 , y: 35828.5411648, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9954 , y: 34382.3592098, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9983 , y: 31684.0586498, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9994 , y: 29978.800506, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9996 , y: 27815.1626081, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 27088.8623373, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                            ]
-                        },
-                                                {
                             label: "hnswlib",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
                             data: [
                                                                     { x: 0.8215 , y: 30970.9585238, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
                                                                     { x: 0.9549 , y: 29532.15279, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
@@ -198,44 +163,18 @@
                                                 {
                             label: "kd",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(178, 178, 102, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(153, 102, 127, 1)",
                             data: [
                                                                     { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
                                                             ]
                         },
                                                 {
-                            label: "kgraph",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(127, 178, 255, 1)",
-                            data: [
-                                                                    { x: 0.009 , y: 25872.5588166, label: "KGraph(euclidean)" },
-                                                                    { x: 0.021 , y: 25467.8729735, label: "KGraph(euclidean)" },
-                                                                    { x: 0.033 , y: 24224.228248, label: "KGraph(euclidean)" },
-                                                                    { x: 0.042 , y: 23798.4146888, label: "KGraph(euclidean)" },
-                                                                    { x: 0.101 , y: 19794.4434219, label: "KGraph(euclidean)" },
-                                                                    { x: 0.202 , y: 15659.503293, label: "KGraph(euclidean)" },
-                                                                    { x: 0.28 , y: 12817.3672823, label: "KGraph(euclidean)" },
-                                                                    { x: 0.357 , y: 9205.52467029, label: "KGraph(euclidean)" },
-                                                                    { x: 0.475 , y: 8184.40704425, label: "KGraph(euclidean)" },
-                                                                    { x: 0.476 , y: 7120.6000292, label: "KGraph(euclidean)" },
-                                                                    { x: 0.583 , y: 6263.10916791, label: "KGraph(euclidean)" },
-                                                                    { x: 0.596 , y: 5604.15163516, label: "KGraph(euclidean)" },
-                                                            ]
-                        },
-                                                {
                             label: "mrpt",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 255, 178, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 153, 102, 1)",
                             data: [
-                                                                    { x: 0.2577 , y: 37329.1562834, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.3932 , y: 35493.513637, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.378)" },
-                                                                    { x: 0.4444 , y: 35061.223125, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
-                                                                    { x: 0.5769 , y: 33150.7880052, label: "MRPT(target recall=0.500, trees=3, depth=9, vote threshold=1, estimated recall=0.555)" },
-                                                                    { x: 0.6192 , y: 32437.0408179, label: "MRPT(target recall=0.600, trees=2, depth=8, vote threshold=1, estimated recall=0.610)" },
-                                                                    { x: 0.7565 , y: 30903.1858772, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.745)" },
                                                                     { x: 0.8385 , y: 28052.7304953, label: "MRPT(target recall=0.800, trees=5, depth=7, vote threshold=2, estimated recall=0.825)" },
                                                                     { x: 0.907 , y: 27668.1904837, label: "MRPT(target recall=0.850, trees=6, depth=7, vote threshold=2, estimated recall=0.896)" },
                                                                     { x: 0.9173 , y: 26632.8689534, label: "MRPT(target recall=0.900, trees=9, depth=9, vote threshold=1, estimated recall=0.902)" },
@@ -250,8 +189,8 @@
                                                 {
                             label: "n2",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
                             data: [
                                                                     { x: 0.7621 , y: 29886.7322217, label: "N2 (M4_efCon500)" },
                                                                     { x: 0.9114 , y: 26356.7263221, label: "N2 (M8_efCon500)" },
@@ -264,11 +203,9 @@
                                                 {
                             label: "NGT-onng",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(102, 229, 153, 1)",
+                            pointStyle: "star",
+                            borderColor: "rgba(204, 102, 229, 1)",
                             data: [
-                                                                    { x: 0.2057 , y: 29845.4751163, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
-                                                                    { x: 0.708 , y: 24524.6515109, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
                                                                     { x: 0.966 , y: 20686.766657, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
                                                                     { x: 0.9867 , y: 19163.886414, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
                                                                     { x: 0.9909 , y: 18577.1155737, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
@@ -281,11 +218,9 @@
                                                 {
                             label: "NGT-panng",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(229, 204, 204, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 127, 153, 1)",
                             data: [
-                                                                    { x: 0.2248 , y: 29105.6860922, label: "PANNG-NGT(20, 40, 60, 0.600)" },
-                                                                    { x: 0.5371 , y: 26181.6729089, label: "PANNG-NGT(20, 40, 60, 0.800)" },
                                                                     { x: 0.717 , y: 24572.3525414, label: "PANNG-NGT(20, 40, 60, 0.900)" },
                                                                     { x: 0.9633 , y: 20250.7942332, label: "PANNG-NGT(20, 40, 60, 1.000)" },
                                                                     { x: 0.984 , y: 19226.2565607, label: "PANNG-NGT(20, 40, 60, 1.020)" },
@@ -297,8 +232,8 @@
                                                 {
                             label: "pynndescent",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
                             data: [
                                                                     { x: 0.9182 , y: 9793.04870019, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.9388 , y: 9745.62826167, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
@@ -316,27 +251,12 @@
                                                             ]
                         },
                                                 {
-                            label: "sptag",
-                            fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(102, 153, 102, 1)",
-                            data: [
-                                                                    { x: 0.003 , y: 150268.844941, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
-                                                            ]
-                        },
-                                                {
                             label: "SW-graph(nmslib)",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(153, 102, 127, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(127, 178, 255, 1)",
                             data: [
-                                                                    { x: 0.5412 , y: 28127.7931275, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.6477 , y: 26100.0491596, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7118 , y: 24235.425996, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7603 , y: 23843.0587847, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7889 , y: 22714.3955723, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.8632 , y: 19658.3427072, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.892 , y: 17989.4147216, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
+                                                                    { x: 0.7706 , y: 21620.7923956, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
                                                                     { x: 0.9006 , y: 17387.0133316, label: "Nmslib(method_name=sw-graph, index_param=['NN=16'])" },
                                                                     { x: 0.9527 , y: 17115.0674311, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
                                                                     { x: 0.9813 , y: 15193.0654515, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
@@ -440,14 +360,7 @@
                             };
             \addlegendentry{ annoy };
                                 \addplot coordinates {
-                                                (0.1394, 66543.5103362)
-                                    (0.2007, 60190.3449859)
-                                    (0.3001, 53943.2569385)
-                                    (0.4068, 48674.7591969)
-                                    (0.5013, 44230.6491753)
-                                    (0.6, 41328.0781964)
-                                    (0.7056, 37138.7688602)
-                                    (0.8001, 34001.0700563)
+                                                (0.8001, 34001.0700563)
                                     (0.8541, 31130.0256058)
                                     (0.9074, 29926.1817274)
                                     (0.9509, 28397.646565)
@@ -460,20 +373,15 @@
                             };
             \addlegendentry{ bruteforce-blas };
                                 \addplot coordinates {
-                                                (0.1499, 34666.2479027)
-                                    (0.1578, 33881.0452765)
-                                    (0.187, 29915.9361783)
-                                    (0.2639, 24975.1636011)
-                                    (0.2828, 24383.7871776)
-                                    (0.3626, 22724.6100417)
-                                    (0.4807, 18218.1238517)
-                                    (0.7394, 17456.482653)
-                                    (0.8828, 13517.1498091)
-                                    (0.9308, 10858.7864619)
-                                    (0.9575, 8951.99270916)
-                                    (0.9691, 7898.40160292)
+                                                (0.8485, 20801.5711636)
+                                    (0.9625, 16342.8874238)
+                                    (0.9882, 13408.8145216)
+                                    (0.9942, 11312.0790979)
+                                    (0.9977, 9708.85724338)
+                                    (0.9999, 5677.26915263)
+                                    (1.0, 3165.45511628)
                             };
-            \addlegendentry{ eCP-release_1_3 };
+            \addlegendentry{ eCP };
                                 \addplot coordinates {
                                                 (0.9043, 14905.0255506)
                                     (0.9872, 14019.5202824)
@@ -498,24 +406,6 @@
                             };
             \addlegendentry{ hnsw(faiss) };
                                 \addplot coordinates {
-                                                (0.169, 72259.522784)
-                                    (0.3539, 63713.205025)
-                                    (0.4282, 58523.2666843)
-                                    (0.6322, 49852.6636081)
-                                    (0.6912, 46756.635639)
-                                    (0.8513, 45574.9041084)
-                                    (0.8822, 43675.1983672)
-                                    (0.9547, 43260.3166417)
-                                    (0.9691, 40145.3320316)
-                                    (0.993, 35828.5411648)
-                                    (0.9954, 34382.3592098)
-                                    (0.9983, 31684.0586498)
-                                    (0.9994, 29978.800506)
-                                    (0.9996, 27815.1626081)
-                                    (1.0, 27088.8623373)
-                            };
-            \addlegendentry{ hnsw(nmslib) };
-                                \addplot coordinates {
                                                 (0.8215, 30970.9585238)
                                     (0.9549, 29532.15279)
                                     (0.9725, 27941.5362068)
@@ -535,28 +425,7 @@
                             };
             \addlegendentry{ kd };
                                 \addplot coordinates {
-                                                (0.009, 25872.5588166)
-                                    (0.021, 25467.8729735)
-                                    (0.033, 24224.228248)
-                                    (0.042, 23798.4146888)
-                                    (0.101, 19794.4434219)
-                                    (0.202, 15659.503293)
-                                    (0.28, 12817.3672823)
-                                    (0.357, 9205.52467029)
-                                    (0.475, 8184.40704425)
-                                    (0.476, 7120.6000292)
-                                    (0.583, 6263.10916791)
-                                    (0.596, 5604.15163516)
-                            };
-            \addlegendentry{ kgraph };
-                                \addplot coordinates {
-                                                (0.2577, 37329.1562834)
-                                    (0.3932, 35493.513637)
-                                    (0.4444, 35061.223125)
-                                    (0.5769, 33150.7880052)
-                                    (0.6192, 32437.0408179)
-                                    (0.7565, 30903.1858772)
-                                    (0.8385, 28052.7304953)
+                                                (0.8385, 28052.7304953)
                                     (0.907, 27668.1904837)
                                     (0.9173, 26632.8689534)
                                     (0.9455, 25970.2793739)
@@ -577,9 +446,7 @@
                             };
             \addlegendentry{ n2 };
                                 \addplot coordinates {
-                                                (0.2057, 29845.4751163)
-                                    (0.708, 24524.6515109)
-                                    (0.966, 20686.766657)
+                                                (0.966, 20686.766657)
                                     (0.9867, 19163.886414)
                                     (0.9909, 18577.1155737)
                                     (0.9929, 17830.7266536)
@@ -589,9 +456,7 @@
                             };
             \addlegendentry{ NGT-onng };
                                 \addplot coordinates {
-                                                (0.2248, 29105.6860922)
-                                    (0.5371, 26181.6729089)
-                                    (0.717, 24572.3525414)
+                                                (0.717, 24572.3525414)
                                     (0.9633, 20250.7942332)
                                     (0.984, 19226.2565607)
                                     (0.9923, 18083.5733379)
@@ -616,17 +481,7 @@
                             };
             \addlegendentry{ pynndescent };
                                 \addplot coordinates {
-                                                (0.003, 150268.844941)
-                            };
-            \addlegendentry{ sptag };
-                                \addplot coordinates {
-                                                (0.5412, 28127.7931275)
-                                    (0.6477, 26100.0491596)
-                                    (0.7118, 24235.425996)
-                                    (0.7603, 23843.0587847)
-                                    (0.7889, 22714.3955723)
-                                    (0.8632, 19658.3427072)
-                                    (0.892, 17989.4147216)
+                                                (0.7706, 21620.7923956)
                                     (0.9006, 17387.0133316)
                                     (0.9527, 17115.0674311)
                                     (0.9813, 15193.0654515)
@@ -657,8 +512,8 @@
                                                 {
                             label: "annoy",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(204, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 255, 178, 1)",
                             data: [
                                                                     { x: 0.9173 , y: 4316.13555841, label: "Annoy(n_trees=100, search_k=100)" },
                                                                     { x: 0.9706 , y: 3902.71644363, label: "Annoy(n_trees=100, search_k=200)" },
@@ -701,16 +556,9 @@
                                                 {
                             label: "BallTree(nmslib)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(255, 204, 102, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 255, 255, 1)",
                             data: [
-                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
-                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
-                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
-                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
-                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
-                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
-                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
                                                                     { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
                                                                     { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
                                                                     { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
@@ -723,49 +571,31 @@
                             label: "bruteforce-blas",
                             fill: false,
                             pointStyle: "star",
-                            borderColor: "rgba(255, 153, 178, 1)",
+                            borderColor: "rgba(153, 229, 229, 1)",
                             data: [
                                                                     { x: 1.0 , y: 662.860787673, label: "BruteForceBLAS()" },
                                                             ]
                         },
                                                 {
-                            label: "eCP-release_1_3",
+                            label: "eCP",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(229, 102, 102, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(255, 204, 102, 1)",
                             data: [
-                                                                    { x: 0.1499 , y: 34666.2479027, label: "eCP(L=5, b=1)" },
-                                                                    { x: 0.1578 , y: 33881.0452765, label: "eCP(L=4, b=1)" },
-                                                                    { x: 0.187 , y: 29915.9361783, label: "eCP(L=3, b=1)" },
-                                                                    { x: 0.2639 , y: 24975.1636011, label: "eCP(L=4, b=2)" },
-                                                                    { x: 0.2828 , y: 24383.7871776, label: "eCP(L=5, b=2)" },
-                                                                    { x: 0.3626 , y: 22724.6100417, label: "eCP(L=3, b=2)" },
-                                                                    { x: 0.3533 , y: 19583.4453907, label: "eCP(L=5, b=3)" },
-                                                                    { x: 0.3569 , y: 19523.4646285, label: "eCP(L=4, b=3)" },
-                                                                    { x: 0.4807 , y: 18218.1238517, label: "eCP(L=3, b=3)" },
-                                                                    { x: 0.7394 , y: 17456.482653, label: "eCP(L=1, b=1)" },
-                                                                    { x: 0.4194 , y: 16336.1402142, label: "eCP(L=5, b=4)" },
-                                                                    { x: 0.4718 , y: 15458.0278991, label: "eCP(L=4, b=4)" },
-                                                                    { x: 0.5706 , y: 14988.1682813, label: "eCP(L=3, b=4)" },
-                                                                    { x: 0.4588 , y: 13667.9712322, label: "eCP(L=5, b=5)" },
-                                                                    { x: 0.8828 , y: 13517.1498091, label: "eCP(L=1, b=2)" },
-                                                                    { x: 0.6487 , y: 13069.9506407, label: "eCP(L=3, b=5)" },
-                                                                    { x: 0.5461 , y: 12740.0864465, label: "eCP(L=4, b=5)" },
-                                                                    { x: 0.3695 , y: 11624.8177691, label: "eCP(L=2, b=1)" },
-                                                                    { x: 0.9308 , y: 10858.7864619, label: "eCP(L=1, b=3)" },
-                                                                    { x: 0.5746 , y: 10654.3112032, label: "eCP(L=2, b=2)" },
-                                                                    { x: 0.7117 , y: 9848.35015697, label: "eCP(L=2, b=3)" },
-                                                                    { x: 0.7875 , y: 9334.739897, label: "eCP(L=2, b=4)" },
-                                                                    { x: 0.9575 , y: 8951.99270916, label: "eCP(L=1, b=4)" },
-                                                                    { x: 0.842 , y: 8495.53277551, label: "eCP(L=2, b=5)" },
-                                                                    { x: 0.9691 , y: 7898.40160292, label: "eCP(L=1, b=5)" },
+                                                                    { x: 0.8485 , y: 20801.5711636, label: "eCP(L=1, b=1)" },
+                                                                    { x: 0.9625 , y: 16342.8874238, label: "eCP(L=1, b=2)" },
+                                                                    { x: 0.9882 , y: 13408.8145216, label: "eCP(L=1, b=3)" },
+                                                                    { x: 0.9942 , y: 11312.0790979, label: "eCP(L=1, b=4)" },
+                                                                    { x: 0.9977 , y: 9708.85724338, label: "eCP(L=1, b=5)" },
+                                                                    { x: 0.9999 , y: 5677.26915263, label: "eCP(L=1, b=10)" },
+                                                                    { x: 1.0 , y: 3165.45511628, label: "eCP(L=1, b=20)" },
                                                             ]
                         },
                                                 {
                             label: "faiss-ivf",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(178, 255, 178, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(178, 178, 102, 1)",
                             data: [
                                                                     { x: 0.9043 , y: 14905.0255506, label: "FaissIVF(n_list=128, n_probe=1)" },
                                                                     { x: 0.6843 , y: 14328.9684505, label: "FaissIVF(n_list=256, n_probe=1)" },
@@ -826,8 +656,8 @@
                                                 {
                             label: "hnsw(faiss)",
                             fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.8066 , y: 11836.1124829, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 10)" },
                                                                     { x: 0.9386 , y: 10817.505861, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
@@ -913,79 +743,10 @@
                                                             ]
                         },
                                                 {
-                            label: "hnsw(nmslib)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(204, 102, 229, 1)",
-                            data: [
-                                                                    { x: 0.169 , y: 72259.522784, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.3539 , y: 63713.205025, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.4282 , y: 58523.2666843, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.3673 , y: 55186.7582432, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.6322 , y: 49852.6636081, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.6109 , y: 48886.3713183, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.6912 , y: 46756.635639, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.8513 , y: 45574.9041084, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.8822 , y: 43675.1983672, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9547 , y: 43260.3166417, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.7894 , y: 43202.3896585, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.8155 , y: 41101.2856695, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9691 , y: 40145.3320316, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9513 , y: 37482.6094727, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.993 , y: 35828.5411648, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9425 , y: 35247.733098, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9954 , y: 34382.3592098, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9946 , y: 34202.0826368, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9983 , y: 31684.0586498, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9994 , y: 29978.800506, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9991 , y: 29902.4995366, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9822 , y: 29814.5009952, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9996 , y: 27815.1626081, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 27088.8623373, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 26797.0687639, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9929 , y: 24629.6368067, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 24111.4311172, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 23717.9387133, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 22731.1373416, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 22009.7184178, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 21929.5106738, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9955 , y: 21369.8540801, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 19953.5877223, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 19662.3975698, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 19066.2314875, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.998 , y: 19037.5003404, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 17842.1041437, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 17029.5945919, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 16903.7915914, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 16708.5106044, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 16351.2974052, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 14688.9214196, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9983 , y: 14143.2362532, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 13704.6812765, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 13323.3717059, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 12534.1541404, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 12188.2444563, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 12068.2725839, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 0.9999 , y: 11077.02384, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 10945.6411113, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 9806.05340802, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 9065.08057265, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 8497.82200845, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 8115.5364302, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 6800.54478241, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 5893.99724292, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 4965.37746682, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 4769.0346759, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 3146.27623863, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 2523.78376459, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
-                                                                    { x: 1.0 , y: 2393.54463175, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
-                                                            ]
-                        },
-                                                {
                             label: "hnswlib",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
                             data: [
                                                                     { x: 0.8215 , y: 30970.9585238, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
                                                                     { x: 0.9549 , y: 29532.15279, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
@@ -1073,8 +834,8 @@
                                                 {
                             label: "kd",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(178, 178, 102, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(153, 102, 127, 1)",
                             data: [
                                                                     { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
                                                                     { x: 1.0 , y: 4450.88411667, label: "KDTree(leaf_size=40)" },
@@ -1086,41 +847,11 @@
                                                             ]
                         },
                                                 {
-                            label: "kgraph",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(127, 178, 255, 1)",
-                            data: [
-                                                                    { x: 0.009 , y: 25872.5588166, label: "KGraph(euclidean)" },
-                                                                    { x: 0.021 , y: 25467.8729735, label: "KGraph(euclidean)" },
-                                                                    { x: 0.033 , y: 24224.228248, label: "KGraph(euclidean)" },
-                                                                    { x: 0.042 , y: 23798.4146888, label: "KGraph(euclidean)" },
-                                                                    { x: 0.037 , y: 23268.5957749, label: "KGraph(euclidean)" },
-                                                                    { x: 0.101 , y: 19794.4434219, label: "KGraph(euclidean)" },
-                                                                    { x: 0.202 , y: 15659.503293, label: "KGraph(euclidean)" },
-                                                                    { x: 0.28 , y: 12817.3672823, label: "KGraph(euclidean)" },
-                                                                    { x: 0.261 , y: 10805.6337738, label: "KGraph(euclidean)" },
-                                                                    { x: 0.357 , y: 9205.52467029, label: "KGraph(euclidean)" },
-                                                                    { x: 0.475 , y: 8184.40704425, label: "KGraph(euclidean)" },
-                                                                    { x: 0.476 , y: 7120.6000292, label: "KGraph(euclidean)" },
-                                                                    { x: 0.583 , y: 6263.10916791, label: "KGraph(euclidean)" },
-                                                                    { x: 0.596 , y: 5604.15163516, label: "KGraph(euclidean)" },
-                                                                    { x: 0.58 , y: 5021.34455492, label: "KGraph(euclidean)" },
-                                                            ]
-                        },
-                                                {
                             label: "mrpt",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 255, 178, 1)",
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 153, 102, 1)",
                             data: [
-                                                                    { x: 0.2577 , y: 37329.1562834, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.2577 , y: 36806.9922951, label: "MRPT(target recall=0.100, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.3932 , y: 35493.513637, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.378)" },
-                                                                    { x: 0.4444 , y: 35061.223125, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
-                                                                    { x: 0.5769 , y: 33150.7880052, label: "MRPT(target recall=0.500, trees=3, depth=9, vote threshold=1, estimated recall=0.555)" },
-                                                                    { x: 0.6192 , y: 32437.0408179, label: "MRPT(target recall=0.600, trees=2, depth=8, vote threshold=1, estimated recall=0.610)" },
-                                                                    { x: 0.7565 , y: 30903.1858772, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.745)" },
                                                                     { x: 0.8385 , y: 28052.7304953, label: "MRPT(target recall=0.800, trees=5, depth=7, vote threshold=2, estimated recall=0.825)" },
                                                                     { x: 0.907 , y: 27668.1904837, label: "MRPT(target recall=0.850, trees=6, depth=7, vote threshold=2, estimated recall=0.896)" },
                                                                     { x: 0.9173 , y: 26632.8689534, label: "MRPT(target recall=0.900, trees=9, depth=9, vote threshold=1, estimated recall=0.902)" },
@@ -1135,8 +866,8 @@
                                                 {
                             label: "n2",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
                             data: [
                                                                     { x: 0.7621 , y: 29886.7322217, label: "N2 (M4_efCon500)" },
                                                                     { x: 0.9114 , y: 26356.7263221, label: "N2 (M8_efCon500)" },
@@ -1224,11 +955,9 @@
                                                 {
                             label: "NGT-onng",
                             fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(102, 229, 153, 1)",
+                            pointStyle: "star",
+                            borderColor: "rgba(204, 102, 229, 1)",
                             data: [
-                                                                    { x: 0.2057 , y: 29845.4751163, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
-                                                                    { x: 0.708 , y: 24524.6515109, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
                                                                     { x: 0.966 , y: 20686.766657, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
                                                                     { x: 0.9867 , y: 19163.886414, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
                                                                     { x: 0.9909 , y: 18577.1155737, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
@@ -1241,11 +970,9 @@
                                                 {
                             label: "NGT-panng",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(229, 204, 204, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 127, 153, 1)",
                             data: [
-                                                                    { x: 0.2248 , y: 29105.6860922, label: "PANNG-NGT(20, 40, 60, 0.600)" },
-                                                                    { x: 0.5371 , y: 26181.6729089, label: "PANNG-NGT(20, 40, 60, 0.800)" },
                                                                     { x: 0.717 , y: 24572.3525414, label: "PANNG-NGT(20, 40, 60, 0.900)" },
                                                                     { x: 0.9633 , y: 20250.7942332, label: "PANNG-NGT(20, 40, 60, 1.000)" },
                                                                     { x: 0.984 , y: 19226.2565607, label: "PANNG-NGT(20, 40, 60, 1.020)" },
@@ -1257,8 +984,8 @@
                                                 {
                             label: "pynndescent",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
                             data: [
                                                                     { x: 0.9182 , y: 9793.04870019, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.9388 , y: 9745.62826167, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
@@ -1371,46 +1098,16 @@
                                                             ]
                         },
                                                 {
-                            label: "sptag",
-                            fill: false,
-                            pointStyle: "rect",
-                            borderColor: "rgba(102, 153, 102, 1)",
-                            data: [
-                                                                    { x: 0.003 , y: 150268.844941, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
-                                                                    { x: 0.003 , y: 149141.414501, label: "Sptag(metric=L2, algo=BKT, check=400)" },
-                                                                    { x: 0.003 , y: 149136.111506, label: "Sptag(metric=L2, algo=BKT, check=100)" },
-                                                                    { x: 0.003 , y: 149046.018265, label: "Sptag(metric=L2, algo=KDT, check=100)" },
-                                                                    { x: 0.003 , y: 148734.184397, label: "Sptag(metric=L2, algo=BKT, check=200)" },
-                                                                    { x: 0.003 , y: 147339.164647, label: "Sptag(metric=L2, algo=BKT, check=4000)" },
-                                                                    { x: 0.003 , y: 146823.397627, label: "Sptag(metric=L2, algo=KDT, check=200)" },
-                                                                    { x: 0.003 , y: 146000.556948, label: "Sptag(metric=L2, algo=BKT, check=2000)" },
-                                                                    { x: 0.003 , y: 145807.689634, label: "Sptag(metric=L2, algo=KDT, check=4000)" },
-                                                                    { x: 0.003 , y: 145731.697995, label: "Sptag(metric=L2, algo=KDT, check=400)" },
-                                                                    { x: 0.003 , y: 145676.021117, label: "Sptag(metric=L2, algo=KDT, check=2000)" },
-                                                                    { x: 0.003 , y: 145660.843897, label: "Sptag(metric=L2, algo=KDT, check=1000)" },
-                                                            ]
-                        },
-                                                {
                             label: "SW-graph(nmslib)",
                             fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(153, 102, 127, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(127, 178, 255, 1)",
                             data: [
-                                                                    { x: 0.5412 , y: 28127.7931275, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.6477 , y: 26100.0491596, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7118 , y: 24235.425996, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7603 , y: 23843.0587847, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.7889 , y: 22714.3955723, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
                                                                     { x: 0.7706 , y: 21620.7923956, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
-                                                                    { x: 0.8632 , y: 19658.3427072, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.892 , y: 17989.4147216, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
                                                                     { x: 0.9006 , y: 17387.0133316, label: "Nmslib(method_name=sw-graph, index_param=['NN=16'])" },
                                                                     { x: 0.9527 , y: 17115.0674311, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
-                                                                    { x: 0.9058 , y: 16415.1631613, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
-                                                                    { x: 0.9129 , y: 16289.0652913, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
                                                                     { x: 0.9813 , y: 15193.0654515, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
                                                                     { x: 0.9942 , y: 15075.9277098, label: "Nmslib(method_name=sw-graph, index_param=['NN=16'])" },
-                                                                    { x: 0.9157 , y: 15011.4492479, label: "Nmslib(method_name=sw-graph, index_param=['NN=5'])" },
                                                                     { x: 0.9544 , y: 14385.5345653, label: "Nmslib(method_name=sw-graph, index_param=['NN=24'])" },
                                                                     { x: 0.9874 , y: 14012.8692561, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
                                                                     { x: 0.9926 , y: 13010.0313285, label: "Nmslib(method_name=sw-graph, index_param=['NN=10'])" },
@@ -1566,14 +1263,7 @@
                             };
             \addlegendentry{ annoy };
                                 \addplot [only marks] coordinates {
-                                                (0.1394, 66543.5103362)
-                                    (0.2007, 60190.3449859)
-                                    (0.3001, 53943.2569385)
-                                    (0.4068, 48674.7591969)
-                                    (0.5013, 44230.6491753)
-                                    (0.6, 41328.0781964)
-                                    (0.7056, 37138.7688602)
-                                    (0.8001, 34001.0700563)
+                                                (0.8001, 34001.0700563)
                                     (0.8541, 31130.0256058)
                                     (0.9074, 29926.1817274)
                                     (0.9509, 28397.646565)
@@ -1586,33 +1276,15 @@
                             };
             \addlegendentry{ bruteforce-blas };
                                 \addplot [only marks] coordinates {
-                                                (0.1499, 34666.2479027)
-                                    (0.1578, 33881.0452765)
-                                    (0.187, 29915.9361783)
-                                    (0.2639, 24975.1636011)
-                                    (0.2828, 24383.7871776)
-                                    (0.3626, 22724.6100417)
-                                    (0.3533, 19583.4453907)
-                                    (0.3569, 19523.4646285)
-                                    (0.4807, 18218.1238517)
-                                    (0.7394, 17456.482653)
-                                    (0.4194, 16336.1402142)
-                                    (0.4718, 15458.0278991)
-                                    (0.5706, 14988.1682813)
-                                    (0.4588, 13667.9712322)
-                                    (0.8828, 13517.1498091)
-                                    (0.6487, 13069.9506407)
-                                    (0.5461, 12740.0864465)
-                                    (0.3695, 11624.8177691)
-                                    (0.9308, 10858.7864619)
-                                    (0.5746, 10654.3112032)
-                                    (0.7117, 9848.35015697)
-                                    (0.7875, 9334.739897)
-                                    (0.9575, 8951.99270916)
-                                    (0.842, 8495.53277551)
-                                    (0.9691, 7898.40160292)
+                                                (0.8485, 20801.5711636)
+                                    (0.9625, 16342.8874238)
+                                    (0.9882, 13408.8145216)
+                                    (0.9942, 11312.0790979)
+                                    (0.9977, 9708.85724338)
+                                    (0.9999, 5677.26915263)
+                                    (1.0, 3165.45511628)
                             };
-            \addlegendentry{ eCP-release_1_3 };
+            \addlegendentry{ eCP };
                                 \addplot [only marks] coordinates {
                                                 (0.9043, 14905.0255506)
                                     (0.6843, 14328.9684505)
@@ -1755,70 +1427,6 @@
                             };
             \addlegendentry{ hnsw(faiss) };
                                 \addplot [only marks] coordinates {
-                                                (0.169, 72259.522784)
-                                    (0.3539, 63713.205025)
-                                    (0.4282, 58523.2666843)
-                                    (0.3673, 55186.7582432)
-                                    (0.6322, 49852.6636081)
-                                    (0.6109, 48886.3713183)
-                                    (0.6912, 46756.635639)
-                                    (0.8513, 45574.9041084)
-                                    (0.8822, 43675.1983672)
-                                    (0.9547, 43260.3166417)
-                                    (0.7894, 43202.3896585)
-                                    (0.8155, 41101.2856695)
-                                    (0.9691, 40145.3320316)
-                                    (0.9513, 37482.6094727)
-                                    (0.993, 35828.5411648)
-                                    (0.9425, 35247.733098)
-                                    (0.9954, 34382.3592098)
-                                    (0.9946, 34202.0826368)
-                                    (0.9983, 31684.0586498)
-                                    (0.9994, 29978.800506)
-                                    (0.9991, 29902.4995366)
-                                    (0.9822, 29814.5009952)
-                                    (0.9996, 27815.1626081)
-                                    (1.0, 27088.8623373)
-                                    (0.9999, 26797.0687639)
-                                    (0.9929, 24629.6368067)
-                                    (0.9999, 24111.4311172)
-                                    (1.0, 23717.9387133)
-                                    (1.0, 22731.1373416)
-                                    (0.9999, 22009.7184178)
-                                    (1.0, 21929.5106738)
-                                    (0.9955, 21369.8540801)
-                                    (1.0, 19953.5877223)
-                                    (1.0, 19662.3975698)
-                                    (1.0, 19066.2314875)
-                                    (0.998, 19037.5003404)
-                                    (0.9999, 17842.1041437)
-                                    (1.0, 17029.5945919)
-                                    (1.0, 16903.7915914)
-                                    (1.0, 16708.5106044)
-                                    (0.9999, 16351.2974052)
-                                    (1.0, 14688.9214196)
-                                    (0.9983, 14143.2362532)
-                                    (1.0, 13704.6812765)
-                                    (1.0, 13323.3717059)
-                                    (1.0, 12534.1541404)
-                                    (1.0, 12188.2444563)
-                                    (1.0, 12068.2725839)
-                                    (0.9999, 11077.02384)
-                                    (1.0, 10945.6411113)
-                                    (1.0, 9806.05340802)
-                                    (1.0, 9065.08057265)
-                                    (1.0, 8497.82200845)
-                                    (1.0, 8115.5364302)
-                                    (1.0, 6800.54478241)
-                                    (1.0, 5893.99724292)
-                                    (1.0, 4965.37746682)
-                                    (1.0, 4769.0346759)
-                                    (1.0, 3146.27623863)
-                                    (1.0, 2523.78376459)
-                                    (1.0, 2393.54463175)
-                            };
-            \addlegendentry{ hnsw(nmslib) };
-                                \addplot [only marks] coordinates {
                                                 (0.8215, 30970.9585238)
                                     (0.9549, 29532.15279)
                                     (0.9725, 27941.5362068)
@@ -1913,32 +1521,7 @@
                             };
             \addlegendentry{ kd };
                                 \addplot [only marks] coordinates {
-                                                (0.009, 25872.5588166)
-                                    (0.021, 25467.8729735)
-                                    (0.033, 24224.228248)
-                                    (0.042, 23798.4146888)
-                                    (0.037, 23268.5957749)
-                                    (0.101, 19794.4434219)
-                                    (0.202, 15659.503293)
-                                    (0.28, 12817.3672823)
-                                    (0.261, 10805.6337738)
-                                    (0.357, 9205.52467029)
-                                    (0.475, 8184.40704425)
-                                    (0.476, 7120.6000292)
-                                    (0.583, 6263.10916791)
-                                    (0.596, 5604.15163516)
-                                    (0.58, 5021.34455492)
-                            };
-            \addlegendentry{ kgraph };
-                                \addplot [only marks] coordinates {
-                                                (0.2577, 37329.1562834)
-                                    (0.2577, 36806.9922951)
-                                    (0.3932, 35493.513637)
-                                    (0.4444, 35061.223125)
-                                    (0.5769, 33150.7880052)
-                                    (0.6192, 32437.0408179)
-                                    (0.7565, 30903.1858772)
-                                    (0.8385, 28052.7304953)
+                                                (0.8385, 28052.7304953)
                                     (0.907, 27668.1904837)
                                     (0.9173, 26632.8689534)
                                     (0.9455, 25970.2793739)
@@ -2034,9 +1617,7 @@
                             };
             \addlegendentry{ n2 };
                                 \addplot [only marks] coordinates {
-                                                (0.2057, 29845.4751163)
-                                    (0.708, 24524.6515109)
-                                    (0.966, 20686.766657)
+                                                (0.966, 20686.766657)
                                     (0.9867, 19163.886414)
                                     (0.9909, 18577.1155737)
                                     (0.9929, 17830.7266536)
@@ -2046,9 +1627,7 @@
                             };
             \addlegendentry{ NGT-onng };
                                 \addplot [only marks] coordinates {
-                                                (0.2248, 29105.6860922)
-                                    (0.5371, 26181.6729089)
-                                    (0.717, 24572.3525414)
+                                                (0.717, 24572.3525414)
                                     (0.9633, 20250.7942332)
                                     (0.984, 19226.2565607)
                                     (0.9923, 18083.5733379)
@@ -2168,36 +1747,11 @@
                             };
             \addlegendentry{ pynndescent };
                                 \addplot [only marks] coordinates {
-                                                (0.003, 150268.844941)
-                                    (0.003, 149141.414501)
-                                    (0.003, 149136.111506)
-                                    (0.003, 149046.018265)
-                                    (0.003, 148734.184397)
-                                    (0.003, 147339.164647)
-                                    (0.003, 146823.397627)
-                                    (0.003, 146000.556948)
-                                    (0.003, 145807.689634)
-                                    (0.003, 145731.697995)
-                                    (0.003, 145676.021117)
-                                    (0.003, 145660.843897)
-                            };
-            \addlegendentry{ sptag };
-                                \addplot [only marks] coordinates {
-                                                (0.5412, 28127.7931275)
-                                    (0.6477, 26100.0491596)
-                                    (0.7118, 24235.425996)
-                                    (0.7603, 23843.0587847)
-                                    (0.7889, 22714.3955723)
-                                    (0.7706, 21620.7923956)
-                                    (0.8632, 19658.3427072)
-                                    (0.892, 17989.4147216)
+                                                (0.7706, 21620.7923956)
                                     (0.9006, 17387.0133316)
                                     (0.9527, 17115.0674311)
-                                    (0.9058, 16415.1631613)
-                                    (0.9129, 16289.0652913)
                                     (0.9813, 15193.0654515)
                                     (0.9942, 15075.9277098)
-                                    (0.9157, 15011.4492479)
                                     (0.9544, 14385.5345653)
                                     (0.9874, 14012.8692561)
                                     (0.9926, 13010.0313285)

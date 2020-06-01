@@ -60,7 +60,30 @@
                                                                         <h2>Benchmarks for Single Queries</h2>
                     
                     <h2 id ="datasets">Results by Dataset</h2>
-                                            <h3>Distance: Euclidean </h3>
+                                            <h3>Distance: Angular </h3>
+                                                    <a href="./random-xs-20-angular_10_angular.html">
+                            <div class="row" id="random-xs-20-angular_10_angular">
+                                <div class = "col-md-4 bg-success">
+                                    <h4>random-xs-20-angular (k = 10)</h4>
+                            </div>
+                            <div class = "col-md-8">
+                                <img class = "img-responsive" src="random-xs-20-angular_10_angular.png" />
+                            </div>
+                        </div>
+                        </a>
+                        <hr />
+                                                                    <h3>Distance: Euclidean </h3>
+                                                    <a href="./fashion-mnist-784-euclidean_10_euclidean.html">
+                            <div class="row" id="fashion-mnist-784-euclidean_10_euclidean">
+                                <div class = "col-md-4 bg-success">
+                                    <h4>fashion-mnist-784-euclidean (k = 10)</h4>
+                            </div>
+                            <div class = "col-md-8">
+                                <img class = "img-responsive" src="fashion-mnist-784-euclidean_10_euclidean.png" />
+                            </div>
+                        </div>
+                        </a>
+                        <hr />
                                                     <a href="./mnist-784-euclidean_10_euclidean.html">
                             <div class="row" id="mnist-784-euclidean_10_euclidean">
                                 <div class = "col-md-4 bg-success">
@@ -96,36 +119,27 @@
                         <hr />
                                                                 <h2 id="algorithms">Results by Algorithm</h2>
                     <ul class="list-inline"><b>Algorithms:</b>
-                                                    <li><a href="#eCP-release_1_3">eCP-release_1_3</a></li>
                                                     <li><a href="#hnswlib">hnswlib</a></li>
                                                     <li><a href="#pynndescent">pynndescent</a></li>
                                                     <li><a href="#hnsw(faiss)">hnsw(faiss)</a></li>
                                                     <li><a href="#n2">n2</a></li>
-                                                    <li><a href="#sptag">sptag</a></li>
                                                     <li><a href="#flann">flann</a></li>
                                                     <li><a href="#mrpt">mrpt</a></li>
                                                     <li><a href="#hnsw(nmslib)">hnsw(nmslib)</a></li>
                                                     <li><a href="#annoy">annoy</a></li>
                                                     <li><a href="#NGT-onng">NGT-onng</a></li>
                                                     <li><a href="#BallTree(nmslib)">BallTree(nmslib)</a></li>
-                                                    <li><a href="#kgraph">kgraph</a></li>
-                                                    <li><a href="#bruteforce-blas">bruteforce-blas</a></li>
+                                                    <li><a href="#rpforest">rpforest</a></li>
+                                                    <li><a href="#eCP">eCP</a></li>
                                                     <li><a href="#SW-graph(nmslib)">SW-graph(nmslib)</a></li>
+                                                    <li><a href="#puffinn">puffinn</a></li>
                                                     <li><a href="#kd">kd</a></li>
                                                     <li><a href="#faiss-ivf">faiss-ivf</a></li>
+                                                    <li><a href="#sptag">sptag</a></li>
+                                                    <li><a href="#kgraph">kgraph</a></li>
+                                                    <li><a href="#bruteforce-blas">bruteforce-blas</a></li>
                                                     <li><a href="#NGT-panng">NGT-panng</a></li>
                                             </ul>
-                                        <a href="./eCP-release_1_3.html">
-                        <div class="row" id="eCP-release_1_3">
-                            <div class = "col-md-4 bg-success">
-                                <h4>eCP-release_1_3</h4>
-                        </div>
-                        <div class = "col-md-8">
-                            <img class = "img-responsive" src="eCP-release_1_3.png" />
-                        </div>
-                    </div>
-                    </a>
-                    <hr />
                                         <a href="./hnswlib.html">
                         <div class="row" id="hnswlib">
                             <div class = "col-md-4 bg-success">
@@ -166,17 +180,6 @@
                         </div>
                         <div class = "col-md-8">
                             <img class = "img-responsive" src="n2.png" />
-                        </div>
-                    </div>
-                    </a>
-                    <hr />
-                                        <a href="./sptag.html">
-                        <div class="row" id="sptag">
-                            <div class = "col-md-4 bg-success">
-                                <h4>sptag</h4>
-                        </div>
-                        <div class = "col-md-8">
-                            <img class = "img-responsive" src="sptag.png" />
                         </div>
                     </div>
                     </a>
@@ -247,24 +250,24 @@
                     </div>
                     </a>
                     <hr />
-                                        <a href="./kgraph.html">
-                        <div class="row" id="kgraph">
+                                        <a href="./rpforest.html">
+                        <div class="row" id="rpforest">
                             <div class = "col-md-4 bg-success">
-                                <h4>kgraph</h4>
+                                <h4>rpforest</h4>
                         </div>
                         <div class = "col-md-8">
-                            <img class = "img-responsive" src="kgraph.png" />
+                            <img class = "img-responsive" src="rpforest.png" />
                         </div>
                     </div>
                     </a>
                     <hr />
-                                        <a href="./bruteforce-blas.html">
-                        <div class="row" id="bruteforce-blas">
+                                        <a href="./eCP.html">
+                        <div class="row" id="eCP">
                             <div class = "col-md-4 bg-success">
-                                <h4>bruteforce-blas</h4>
+                                <h4>eCP</h4>
                         </div>
                         <div class = "col-md-8">
-                            <img class = "img-responsive" src="bruteforce-blas.png" />
+                            <img class = "img-responsive" src="eCP.png" />
                         </div>
                     </div>
                     </a>
@@ -276,6 +279,17 @@
                         </div>
                         <div class = "col-md-8">
                             <img class = "img-responsive" src="SW-graph(nmslib).png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./puffinn.html">
+                        <div class="row" id="puffinn">
+                            <div class = "col-md-4 bg-success">
+                                <h4>puffinn</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="puffinn.png" />
                         </div>
                     </div>
                     </a>
@@ -298,6 +312,39 @@
                         </div>
                         <div class = "col-md-8">
                             <img class = "img-responsive" src="faiss-ivf.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./sptag.html">
+                        <div class="row" id="sptag">
+                            <div class = "col-md-4 bg-success">
+                                <h4>sptag</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="sptag.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./kgraph.html">
+                        <div class="row" id="kgraph">
+                            <div class = "col-md-4 bg-success">
+                                <h4>kgraph</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="kgraph.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./bruteforce-blas.html">
+                        <div class="row" id="bruteforce-blas">
+                            <div class = "col-md-4 bg-success">
+                                <h4>bruteforce-blas</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="bruteforce-blas.png" />
                         </div>
                     </div>
                     </a>

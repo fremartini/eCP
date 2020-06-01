@@ -57,11 +57,25 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.22434 , y: 19663.1165609, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.53655 , y: 5663.98144445, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.72672 , y: 1896.61905355, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.80824 , y: 1804.81470212, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.90699 , y: 1129.03613951, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
+                                                                    { x: 0.14621 , y: 28438.3886352, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
                                                                     { x: 0.23125 , y: 16504.761991, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
                                                                     { x: 0.33542 , y: 9407.04898892, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
                                                                     { x: 0.43029 , y: 5689.80956256, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
@@ -73,21 +87,44 @@
                                                                     { x: 0.92165 , y: 414.978678874, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
                                                                     { x: 0.9608 , y: 301.001801187, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
                                                                     { x: 0.97488 , y: 237.390472033, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.99223 , y: 153.194915579, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-s-100-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.30403 , y: 39699.8402278, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.30959 , y: 39015.1482031, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.73414 , y: 8456.97588445, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.1758 , y: 74724.8173882, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2435 , y: 70773.2181425, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.4823 , y: 55971.8159496, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.6999 , y: 47555.5454772, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7978 , y: 42491.6066417, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.8848 , y: 35893.5423691, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.9201 , y: 35825.4808842, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9861 , y: 27746.16153, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.995 , y: 25961.2775439, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.999 , y: 23694.8924655, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
-                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
-                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
-                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
-                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
-                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
-                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
-                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
                                                                     { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
                                                                     { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
                                                                     { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
@@ -182,7 +219,16 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (0.23125, 16504.761991)
+                                                (0.22434, 19663.1165609)
+                                    (0.53655, 5663.98144445)
+                                    (0.72672, 1896.61905355)
+                                    (0.80824, 1804.81470212)
+                                    (0.90699, 1129.03613951)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.14621, 28438.3886352)
+                                    (0.23125, 16504.761991)
                                     (0.33542, 9407.04898892)
                                     (0.43029, 5689.80956256)
                                     (0.52898, 3804.73560002)
@@ -193,17 +239,30 @@
                                     (0.92165, 414.978678874)
                                     (0.9608, 301.001801187)
                                     (0.97488, 237.390472033)
+                                    (0.99223, 153.194915579)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot coordinates {
-                                                (0.1394, 66543.5103362)
-                                    (0.2007, 60190.3449859)
-                                    (0.3001, 53943.2569385)
-                                    (0.4068, 48674.7591969)
-                                    (0.5013, 44230.6491753)
-                                    (0.6, 41328.0781964)
-                                    (0.7056, 37138.7688602)
-                                    (0.8001, 34001.0700563)
+                                                (0.30403, 39699.8402278)
+                                    (0.30959, 39015.1482031)
+                                    (0.73414, 8456.97588445)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.1758, 74724.8173882)
+                                    (0.2435, 70773.2181425)
+                                    (0.4823, 55971.8159496)
+                                    (0.6999, 47555.5454772)
+                                    (0.7978, 42491.6066417)
+                                    (0.8848, 35893.5423691)
+                                    (0.9201, 35825.4808842)
+                                    (0.9861, 27746.16153)
+                                    (0.995, 25961.2775439)
+                                    (0.999, 23694.8924655)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
+                                \addplot coordinates {
+                                                (0.8001, 34001.0700563)
                                     (0.8541, 31130.0256058)
                                     (0.9074, 29926.1817274)
                                     (0.9509, 28397.646565)
@@ -230,11 +289,25 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.22434 , y: 19663.1165609, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.53655 , y: 5663.98144445, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.72672 , y: 1896.61905355, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.80824 , y: 1804.81470212, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.90699 , y: 1129.03613951, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
+                                                                    { x: 0.14621 , y: 28438.3886352, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
                                                                     { x: 0.23125 , y: 16504.761991, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
                                                                     { x: 0.33542 , y: 9407.04898892, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
                                                                     { x: 0.43029 , y: 5689.80956256, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
@@ -246,21 +319,45 @@
                                                                     { x: 0.92165 , y: 414.978678874, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
                                                                     { x: 0.9608 , y: 301.001801187, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
                                                                     { x: 0.97488 , y: 237.390472033, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.99223 , y: 153.194915579, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-s-100-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.30403 , y: 39699.8402278, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.30959 , y: 39015.1482031, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
+                                                                    { x: 0.73414 , y: 8456.97588445, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.1758 , y: 74724.8173882, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2435 , y: 70773.2181425, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.4823 , y: 55971.8159496, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.6999 , y: 47555.5454772, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7978 , y: 42491.6066417, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.613 , y: 41843.870028, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.8848 , y: 35893.5423691, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.9201 , y: 35825.4808842, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9861 , y: 27746.16153, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.995 , y: 25961.2775439, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.999 , y: 23694.8924655, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
-                                                                    { x: 0.1394 , y: 66543.5103362, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
-                                                                    { x: 0.2007 , y: 60190.3449859, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
-                                                                    { x: 0.3001 , y: 53943.2569385, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.3'])" },
-                                                                    { x: 0.4068 , y: 48674.7591969, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
-                                                                    { x: 0.5013 , y: 44230.6491753, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
-                                                                    { x: 0.6 , y: 41328.0781964, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
-                                                                    { x: 0.7056 , y: 37138.7688602, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
                                                                     { x: 0.8001 , y: 34001.0700563, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
                                                                     { x: 0.8541 , y: 31130.0256058, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
                                                                     { x: 0.9074 , y: 29926.1817274, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.9'])" },
@@ -355,7 +452,16 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (0.23125, 16504.761991)
+                                                (0.22434, 19663.1165609)
+                                    (0.53655, 5663.98144445)
+                                    (0.72672, 1896.61905355)
+                                    (0.80824, 1804.81470212)
+                                    (0.90699, 1129.03613951)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.14621, 28438.3886352)
+                                    (0.23125, 16504.761991)
                                     (0.33542, 9407.04898892)
                                     (0.43029, 5689.80956256)
                                     (0.52898, 3804.73560002)
@@ -366,17 +472,31 @@
                                     (0.92165, 414.978678874)
                                     (0.9608, 301.001801187)
                                     (0.97488, 237.390472033)
+                                    (0.99223, 153.194915579)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot [only marks] coordinates {
-                                                (0.1394, 66543.5103362)
-                                    (0.2007, 60190.3449859)
-                                    (0.3001, 53943.2569385)
-                                    (0.4068, 48674.7591969)
-                                    (0.5013, 44230.6491753)
-                                    (0.6, 41328.0781964)
-                                    (0.7056, 37138.7688602)
-                                    (0.8001, 34001.0700563)
+                                                (0.30403, 39699.8402278)
+                                    (0.30959, 39015.1482031)
+                                    (0.73414, 8456.97588445)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.1758, 74724.8173882)
+                                    (0.2435, 70773.2181425)
+                                    (0.4823, 55971.8159496)
+                                    (0.6999, 47555.5454772)
+                                    (0.7978, 42491.6066417)
+                                    (0.613, 41843.870028)
+                                    (0.8848, 35893.5423691)
+                                    (0.9201, 35825.4808842)
+                                    (0.9861, 27746.16153)
+                                    (0.995, 25961.2775439)
+                                    (0.999, 23694.8924655)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.8001, 34001.0700563)
                                     (0.8541, 31130.0256058)
                                     (0.9074, 29926.1817274)
                                     (0.9509, 28397.646565)

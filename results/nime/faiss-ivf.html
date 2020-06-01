@@ -57,10 +57,26 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.62754 , y: 1502.21225373, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.96836 , y: 505.964684994, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 0.99489 , y: 282.158707478, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 0.9987 , y: 214.179018438, label: "FaissIVF(n_list=2048, n_probe=50)" },
+                                                                    { x: 0.99984 , y: 147.711831006, label: "FaissIVF(n_list=2048, n_probe=100)" },
+                                                                    { x: 0.99998 , y: 92.5484365206, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.99999 , y: 66.0283263911, label: "FaissIVF(n_list=256, n_probe=50)" },
+                                                                    { x: 1.0 , y: 34.6457128921, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.58317 , y: 1580.71912683, label: "FaissIVF(n_list=256, n_probe=1)" },
                                                                     { x: 0.6424 , y: 1286.41882479, label: "FaissIVF(n_list=128, n_probe=1)" },
@@ -70,10 +86,12 @@
                                                                     { x: 0.95608 , y: 497.983975956, label: "FaissIVF(n_list=1024, n_probe=10)" },
                                                                     { x: 0.97452 , y: 465.985537919, label: "FaissIVF(n_list=512, n_probe=10)" },
                                                                     { x: 0.98571 , y: 305.718211594, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 0.99687 , y: 229.432170552, label: "FaissIVF(n_list=2048, n_probe=50)" },
                                                                     { x: 0.99835 , y: 201.466435817, label: "FaissIVF(n_list=1024, n_probe=50)" },
-                                                                    { x: 0.9992 , y: 127.053385972, label: "FaissIVF(n_list=512, n_probe=50)" },
+                                                                    { x: 0.99934 , y: 160.107709178, label: "FaissIVF(n_list=2048, n_probe=100)" },
                                                                     { x: 0.99975 , y: 117.41519996, label: "FaissIVF(n_list=1024, n_probe=100)" },
-                                                                    { x: 0.99989 , y: 67.2464620968, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 0.99979 , y: 111.290981934, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.99994 , y: 101.224867025, label: "FaissIVF(n_list=2048, n_probe=200)" },
                                                                     { x: 0.99997 , y: 63.9032055018, label: "FaissIVF(n_list=1024, n_probe=200)" },
                                                                     { x: 0.99998 , y: 35.4358644086, label: "FaissIVF(n_list=256, n_probe=100)" },
                                                                     { x: 0.99999 , y: 30.5355184501, label: "FaissIVF(n_list=512, n_probe=200)" },
@@ -81,10 +99,21 @@
                                                             ]
                         },
                                                 {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.7698 , y: 10834.7472076, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.9999 , y: 8661.21095355, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 1.0 , y: 7066.66172452, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                            ]
+                        },
+                                                {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.9043 , y: 14905.0255506, label: "FaissIVF(n_list=128, n_probe=1)" },
                                                                     { x: 0.9872 , y: 14019.5202824, label: "FaissIVF(n_list=64, n_probe=1)" },
@@ -179,6 +208,17 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
+                                                (0.62754, 1502.21225373)
+                                    (0.96836, 505.964684994)
+                                    (0.99489, 282.158707478)
+                                    (0.9987, 214.179018438)
+                                    (0.99984, 147.711831006)
+                                    (0.99998, 92.5484365206)
+                                    (0.99999, 66.0283263911)
+                                    (1.0, 34.6457128921)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
                                                 (0.58317, 1580.71912683)
                                     (0.6424, 1286.41882479)
                                     (0.7049, 776.27852913)
@@ -187,16 +227,24 @@
                                     (0.95608, 497.983975956)
                                     (0.97452, 465.985537919)
                                     (0.98571, 305.718211594)
+                                    (0.99687, 229.432170552)
                                     (0.99835, 201.466435817)
-                                    (0.9992, 127.053385972)
+                                    (0.99934, 160.107709178)
                                     (0.99975, 117.41519996)
-                                    (0.99989, 67.2464620968)
+                                    (0.99979, 111.290981934)
+                                    (0.99994, 101.224867025)
                                     (0.99997, 63.9032055018)
                                     (0.99998, 35.4358644086)
                                     (0.99999, 30.5355184501)
                                     (1.0, 18.3896580404)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.7698, 10834.7472076)
+                                    (0.9999, 8661.21095355)
+                                    (1.0, 7066.66172452)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot coordinates {
                                                 (0.9043, 14905.0255506)
                                     (0.9872, 14019.5202824)
@@ -224,10 +272,30 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.62754 , y: 1502.21225373, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.96836 , y: 505.964684994, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 0.41624 , y: 415.674308752, label: "FaissIVF(n_list=2048, n_probe=1)" },
+                                                                    { x: 0.84243 , y: 383.999320314, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.94499 , y: 352.261900456, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 0.99489 , y: 282.158707478, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 0.9987 , y: 214.179018438, label: "FaissIVF(n_list=2048, n_probe=50)" },
+                                                                    { x: 0.99984 , y: 147.711831006, label: "FaissIVF(n_list=2048, n_probe=100)" },
+                                                                    { x: 0.99998 , y: 92.5484365206, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.99999 , y: 66.0283263911, label: "FaissIVF(n_list=256, n_probe=50)" },
+                                                                    { x: 1.0 , y: 34.6457128921, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 1.0 , y: 18.5558308412, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.58317 , y: 1580.71912683, label: "FaissIVF(n_list=256, n_probe=1)" },
                                                                     { x: 0.50556 , y: 1291.61221184, label: "FaissIVF(n_list=512, n_probe=1)" },
@@ -239,39 +307,101 @@
                                                                     { x: 0.9462 , y: 548.322761847, label: "FaissIVF(n_list=256, n_probe=5)" },
                                                                     { x: 0.95608 , y: 497.983975956, label: "FaissIVF(n_list=1024, n_probe=10)" },
                                                                     { x: 0.97452 , y: 465.985537919, label: "FaissIVF(n_list=512, n_probe=10)" },
+                                                                    { x: 0.37681 , y: 417.254293682, label: "FaissIVF(n_list=2048, n_probe=1)" },
+                                                                    { x: 0.80384 , y: 389.571349414, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.77094 , y: 384.310630373, label: "FaissIVF(n_list=32, n_probe=1)" },
+                                                                    { x: 0.92729 , y: 360.64609924, label: "FaissIVF(n_list=2048, n_probe=10)" },
                                                                     { x: 0.9657 , y: 325.455819673, label: "FaissIVF(n_list=128, n_probe=5)" },
                                                                     { x: 0.98571 , y: 305.718211594, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 0.99687 , y: 229.432170552, label: "FaissIVF(n_list=2048, n_probe=50)" },
+                                                                    { x: 0.32368 , y: 213.469692137, label: "FaissIVF(n_list=4096, n_probe=1)" },
+                                                                    { x: 0.74465 , y: 209.273242118, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 0.8885 , y: 204.731938626, label: "FaissIVF(n_list=4096, n_probe=10)" },
                                                                     { x: 0.99835 , y: 201.466435817, label: "FaissIVF(n_list=1024, n_probe=50)" },
                                                                     { x: 0.97789 , y: 174.770403898, label: "FaissIVF(n_list=64, n_probe=5)" },
+                                                                    { x: 0.99422 , y: 172.501788507, label: "FaissIVF(n_list=4096, n_probe=50)" },
                                                                     { x: 0.99144 , y: 171.218137324, label: "FaissIVF(n_list=128, n_probe=10)" },
+                                                                    { x: 0.99934 , y: 160.107709178, label: "FaissIVF(n_list=2048, n_probe=100)" },
+                                                                    { x: 0.99871 , y: 144.475703604, label: "FaissIVF(n_list=4096, n_probe=100)" },
                                                                     { x: 0.9992 , y: 127.053385972, label: "FaissIVF(n_list=512, n_probe=50)" },
                                                                     { x: 0.99975 , y: 117.41519996, label: "FaissIVF(n_list=1024, n_probe=100)" },
+                                                                    { x: 0.99979 , y: 111.290981934, label: "FaissIVF(n_list=4096, n_probe=200)" },
                                                                     { x: 0.27246 , y: 108.190642652, label: "FaissIVF(n_list=8192, n_probe=1)" },
                                                                     { x: 0.68314 , y: 107.605990427, label: "FaissIVF(n_list=8192, n_probe=5)" },
                                                                     { x: 0.84681 , y: 106.572084267, label: "FaissIVF(n_list=8192, n_probe=10)" },
+                                                                    { x: 0.99994 , y: 101.224867025, label: "FaissIVF(n_list=2048, n_probe=200)" },
                                                                     { x: 0.99053 , y: 100.238101291, label: "FaissIVF(n_list=8192, n_probe=50)" },
                                                                     { x: 0.99813 , y: 94.0046673812, label: "FaissIVF(n_list=8192, n_probe=100)" },
                                                                     { x: 0.99548 , y: 89.8539646849, label: "FaissIVF(n_list=64, n_probe=10)" },
+                                                                    { x: 0.98749 , y: 86.0685258058, label: "FaissIVF(n_list=32, n_probe=5)" },
                                                                     { x: 0.99964 , y: 83.3213361491, label: "FaissIVF(n_list=8192, n_probe=200)" },
                                                                     { x: 0.99969 , y: 69.3168843674, label: "FaissIVF(n_list=256, n_probe=50)" },
                                                                     { x: 0.99989 , y: 67.2464620968, label: "FaissIVF(n_list=512, n_probe=100)" },
                                                                     { x: 0.99997 , y: 63.9032055018, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.99858 , y: 43.2951598344, label: "FaissIVF(n_list=32, n_probe=10)" },
                                                                     { x: 0.99992 , y: 36.0438735823, label: "FaissIVF(n_list=128, n_probe=50)" },
                                                                     { x: 0.99998 , y: 35.4358644086, label: "FaissIVF(n_list=256, n_probe=100)" },
                                                                     { x: 0.99999 , y: 30.5355184501, label: "FaissIVF(n_list=512, n_probe=200)" },
                                                                     { x: 1.0 , y: 18.3896580404, label: "FaissIVF(n_list=128, n_probe=100)" },
                                                                     { x: 1.0 , y: 18.3123985535, label: "FaissIVF(n_list=64, n_probe=50)" },
                                                                     { x: 1.0 , y: 18.1710458571, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 1.0 , y: 14.7399258103, label: "FaissIVF(n_list=32, n_probe=50)" },
+                                                                    { x: 1.0 , y: 14.6779121784, label: "FaissIVF(n_list=32, n_probe=100)" },
                                                                     { x: 1.0 , y: 14.5842985147, label: "FaissIVF(n_list=64, n_probe=100)" },
                                                                     { x: 1.0 , y: 14.5311325725, label: "FaissIVF(n_list=128, n_probe=200)" },
+                                                                    { x: 1.0 , y: 14.5048043592, label: "FaissIVF(n_list=32, n_probe=200)" },
                                                                     { x: 1.0 , y: 14.3665529905, label: "FaissIVF(n_list=64, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.7698 , y: 10834.7472076, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.585 , y: 9493.864746, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.9999 , y: 8661.21095355, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 0.9979 , y: 8202.71800458, label: "FaissIVF(n_list=512, n_probe=5)" },
+                                                                    { x: 0.429 , y: 7465.27315509, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 1.0 , y: 7066.66172452, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 1.0 , y: 7008.46000505, label: "FaissIVF(n_list=512, n_probe=10)" },
+                                                                    { x: 0.9754 , y: 6532.85817529, label: "FaissIVF(n_list=1024, n_probe=5)" },
+                                                                    { x: 0.9998 , y: 5877.17400443, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.3234 , y: 4993.07638829, label: "FaissIVF(n_list=2048, n_probe=1)" },
+                                                                    { x: 0.9116 , y: 4627.15082381, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.9955 , y: 4148.34449138, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 1.0 , y: 3303.67331764, label: "FaissIVF(n_list=512, n_probe=50)" },
+                                                                    { x: 1.0 , y: 3211.93152971, label: "FaissIVF(n_list=1024, n_probe=50)" },
+                                                                    { x: 0.2319 , y: 3047.62569092, label: "FaissIVF(n_list=4096, n_probe=1)" },
+                                                                    { x: 0.7991 , y: 2896.15275995, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 1.0 , y: 2826.26851109, label: "FaissIVF(n_list=256, n_probe=50)" },
+                                                                    { x: 0.9858 , y: 2640.96664715, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 1.0 , y: 2630.79411733, label: "FaissIVF(n_list=2048, n_probe=50)" },
+                                                                    { x: 1.0 , y: 2084.46801215, label: "FaissIVF(n_list=1024, n_probe=100)" },
+                                                                    { x: 1.0 , y: 2051.055552, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1976.18292643, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 1.0 , y: 1719.75446278, label: "FaissIVF(n_list=2048, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1687.85344667, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.1226 , y: 1657.86698499, label: "FaissIVF(n_list=8192, n_probe=1)" },
+                                                                    { x: 0.5518 , y: 1652.89316125, label: "FaissIVF(n_list=8192, n_probe=5)" },
+                                                                    { x: 0.9856 , y: 1590.37984725, label: "FaissIVF(n_list=8192, n_probe=10)" },
+                                                                    { x: 1.0 , y: 1471.24424076, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1281.8793177, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 1.0 , y: 1249.96468525, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1188.52445777, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1127.82668975, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1035.69454905, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 1.0 , y: 995.875512712, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 1.0 , y: 939.944499337, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 1.0 , y: 756.340019623, label: "FaissIVF(n_list=8192, n_probe=200)" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.9043 , y: 14905.0255506, label: "FaissIVF(n_list=128, n_probe=1)" },
                                                                     { x: 0.6843 , y: 14328.9684505, label: "FaissIVF(n_list=256, n_probe=1)" },
@@ -415,6 +545,21 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
+                                                (0.62754, 1502.21225373)
+                                    (0.96836, 505.964684994)
+                                    (0.41624, 415.674308752)
+                                    (0.84243, 383.999320314)
+                                    (0.94499, 352.261900456)
+                                    (0.99489, 282.158707478)
+                                    (0.9987, 214.179018438)
+                                    (0.99984, 147.711831006)
+                                    (0.99998, 92.5484365206)
+                                    (0.99999, 66.0283263911)
+                                    (1.0, 34.6457128921)
+                                    (1.0, 18.5558308412)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
                                                 (0.58317, 1580.71912683)
                                     (0.50556, 1291.61221184)
                                     (0.6424, 1286.41882479)
@@ -425,34 +570,91 @@
                                     (0.9462, 548.322761847)
                                     (0.95608, 497.983975956)
                                     (0.97452, 465.985537919)
+                                    (0.37681, 417.254293682)
+                                    (0.80384, 389.571349414)
+                                    (0.77094, 384.310630373)
+                                    (0.92729, 360.64609924)
                                     (0.9657, 325.455819673)
                                     (0.98571, 305.718211594)
+                                    (0.99687, 229.432170552)
+                                    (0.32368, 213.469692137)
+                                    (0.74465, 209.273242118)
+                                    (0.8885, 204.731938626)
                                     (0.99835, 201.466435817)
                                     (0.97789, 174.770403898)
+                                    (0.99422, 172.501788507)
                                     (0.99144, 171.218137324)
+                                    (0.99934, 160.107709178)
+                                    (0.99871, 144.475703604)
                                     (0.9992, 127.053385972)
                                     (0.99975, 117.41519996)
+                                    (0.99979, 111.290981934)
                                     (0.27246, 108.190642652)
                                     (0.68314, 107.605990427)
                                     (0.84681, 106.572084267)
+                                    (0.99994, 101.224867025)
                                     (0.99053, 100.238101291)
                                     (0.99813, 94.0046673812)
                                     (0.99548, 89.8539646849)
+                                    (0.98749, 86.0685258058)
                                     (0.99964, 83.3213361491)
                                     (0.99969, 69.3168843674)
                                     (0.99989, 67.2464620968)
                                     (0.99997, 63.9032055018)
+                                    (0.99858, 43.2951598344)
                                     (0.99992, 36.0438735823)
                                     (0.99998, 35.4358644086)
                                     (0.99999, 30.5355184501)
                                     (1.0, 18.3896580404)
                                     (1.0, 18.3123985535)
                                     (1.0, 18.1710458571)
+                                    (1.0, 14.7399258103)
+                                    (1.0, 14.6779121784)
                                     (1.0, 14.5842985147)
                                     (1.0, 14.5311325725)
+                                    (1.0, 14.5048043592)
                                     (1.0, 14.3665529905)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.7698, 10834.7472076)
+                                    (0.585, 9493.864746)
+                                    (0.9999, 8661.21095355)
+                                    (0.9979, 8202.71800458)
+                                    (0.429, 7465.27315509)
+                                    (1.0, 7066.66172452)
+                                    (1.0, 7008.46000505)
+                                    (0.9754, 6532.85817529)
+                                    (0.9998, 5877.17400443)
+                                    (0.3234, 4993.07638829)
+                                    (0.9116, 4627.15082381)
+                                    (0.9955, 4148.34449138)
+                                    (1.0, 3303.67331764)
+                                    (1.0, 3211.93152971)
+                                    (0.2319, 3047.62569092)
+                                    (0.7991, 2896.15275995)
+                                    (1.0, 2826.26851109)
+                                    (0.9858, 2640.96664715)
+                                    (1.0, 2630.79411733)
+                                    (1.0, 2084.46801215)
+                                    (1.0, 2051.055552)
+                                    (1.0, 1976.18292643)
+                                    (1.0, 1719.75446278)
+                                    (1.0, 1687.85344667)
+                                    (0.1226, 1657.86698499)
+                                    (0.5518, 1652.89316125)
+                                    (0.9856, 1590.37984725)
+                                    (1.0, 1471.24424076)
+                                    (1.0, 1281.8793177)
+                                    (1.0, 1249.96468525)
+                                    (1.0, 1188.52445777)
+                                    (1.0, 1127.82668975)
+                                    (1.0, 1035.69454905)
+                                    (1.0, 995.875512712)
+                                    (1.0, 939.944499337)
+                                    (1.0, 756.340019623)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot [only marks] coordinates {
                                                 (0.9043, 14905.0255506)
                                     (0.6843, 14328.9684505)

@@ -59,8 +59,8 @@
                                                 {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.9463 , y: 3459.59357258, label: "KGraph(euclidean)" },
                                                                     { x: 0.95704 , y: 3218.4840857, label: "KGraph(euclidean)" },
@@ -75,26 +75,6 @@
                                                                     { x: 0.99847 , y: 1123.99086991, label: "KGraph(euclidean)" },
                                                                     { x: 0.99859 , y: 1035.91509747, label: "KGraph(euclidean)" },
                                                                     { x: 0.99887 , y: 967.239857338, label: "KGraph(euclidean)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 0.009 , y: 25872.5588166, label: "KGraph(euclidean)" },
-                                                                    { x: 0.021 , y: 25467.8729735, label: "KGraph(euclidean)" },
-                                                                    { x: 0.033 , y: 24224.228248, label: "KGraph(euclidean)" },
-                                                                    { x: 0.042 , y: 23798.4146888, label: "KGraph(euclidean)" },
-                                                                    { x: 0.101 , y: 19794.4434219, label: "KGraph(euclidean)" },
-                                                                    { x: 0.202 , y: 15659.503293, label: "KGraph(euclidean)" },
-                                                                    { x: 0.28 , y: 12817.3672823, label: "KGraph(euclidean)" },
-                                                                    { x: 0.357 , y: 9205.52467029, label: "KGraph(euclidean)" },
-                                                                    { x: 0.475 , y: 8184.40704425, label: "KGraph(euclidean)" },
-                                                                    { x: 0.476 , y: 7120.6000292, label: "KGraph(euclidean)" },
-                                                                    { x: 0.583 , y: 6263.10916791, label: "KGraph(euclidean)" },
-                                                                    { x: 0.596 , y: 5604.15163516, label: "KGraph(euclidean)" },
                                                             ]
                         },
                                                 ]},
@@ -198,21 +178,6 @@
                                     (0.99887, 967.239857338)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (0.009, 25872.5588166)
-                                    (0.021, 25467.8729735)
-                                    (0.033, 24224.228248)
-                                    (0.042, 23798.4146888)
-                                    (0.101, 19794.4434219)
-                                    (0.202, 15659.503293)
-                                    (0.28, 12817.3672823)
-                                    (0.357, 9205.52467029)
-                                    (0.475, 8184.40704425)
-                                    (0.476, 7120.6000292)
-                                    (0.583, 6263.10916791)
-                                    (0.596, 5604.15163516)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -234,8 +199,8 @@
                                                 {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.9463 , y: 3459.59357258, label: "KGraph(euclidean)" },
                                                                     { x: 0.95704 , y: 3218.4840857, label: "KGraph(euclidean)" },
@@ -252,29 +217,6 @@
                                                                     { x: 0.99847 , y: 1123.99086991, label: "KGraph(euclidean)" },
                                                                     { x: 0.99859 , y: 1035.91509747, label: "KGraph(euclidean)" },
                                                                     { x: 0.99887 , y: 967.239857338, label: "KGraph(euclidean)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 0.009 , y: 25872.5588166, label: "KGraph(euclidean)" },
-                                                                    { x: 0.021 , y: 25467.8729735, label: "KGraph(euclidean)" },
-                                                                    { x: 0.033 , y: 24224.228248, label: "KGraph(euclidean)" },
-                                                                    { x: 0.042 , y: 23798.4146888, label: "KGraph(euclidean)" },
-                                                                    { x: 0.037 , y: 23268.5957749, label: "KGraph(euclidean)" },
-                                                                    { x: 0.101 , y: 19794.4434219, label: "KGraph(euclidean)" },
-                                                                    { x: 0.202 , y: 15659.503293, label: "KGraph(euclidean)" },
-                                                                    { x: 0.28 , y: 12817.3672823, label: "KGraph(euclidean)" },
-                                                                    { x: 0.261 , y: 10805.6337738, label: "KGraph(euclidean)" },
-                                                                    { x: 0.357 , y: 9205.52467029, label: "KGraph(euclidean)" },
-                                                                    { x: 0.475 , y: 8184.40704425, label: "KGraph(euclidean)" },
-                                                                    { x: 0.476 , y: 7120.6000292, label: "KGraph(euclidean)" },
-                                                                    { x: 0.583 , y: 6263.10916791, label: "KGraph(euclidean)" },
-                                                                    { x: 0.596 , y: 5604.15163516, label: "KGraph(euclidean)" },
-                                                                    { x: 0.58 , y: 5021.34455492, label: "KGraph(euclidean)" },
                                                             ]
                         },
                                                 ]},
@@ -380,24 +322,6 @@
                                     (0.99887, 967.239857338)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (0.009, 25872.5588166)
-                                    (0.021, 25467.8729735)
-                                    (0.033, 24224.228248)
-                                    (0.042, 23798.4146888)
-                                    (0.037, 23268.5957749)
-                                    (0.101, 19794.4434219)
-                                    (0.202, 15659.503293)
-                                    (0.28, 12817.3672823)
-                                    (0.261, 10805.6337738)
-                                    (0.357, 9205.52467029)
-                                    (0.475, 8184.40704425)
-                                    (0.476, 7120.6000292)
-                                    (0.583, 6263.10916791)
-                                    (0.596, 5604.15163516)
-                                    (0.58, 5021.34455492)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }

@@ -59,8 +59,8 @@
                                                 {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.1118 , y: 10284.3512648, label: "MRPT(target recall=0.100, trees=7, depth=10, vote threshold=2, estimated recall=0.107)" },
                                                                     { x: 0.21211 , y: 9189.31531417, label: "MRPT(target recall=0.200, trees=15, depth=11, vote threshold=2, estimated recall=0.205)" },
@@ -81,17 +81,31 @@
                                                             ]
                         },
                                                 {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.2959 , y: 8550.5206592, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5343 , y: 8481.60026531, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
+                                                                    { x: 0.5979 , y: 8380.93106714, label: "MRPT(target recall=0.500, trees=1, depth=7, vote threshold=1, estimated recall=0.502)" },
+                                                                    { x: 0.8247 , y: 8305.61826232, label: "MRPT(target recall=0.600, trees=4, depth=9, vote threshold=1, estimated recall=0.664)" },
+                                                                    { x: 0.8692 , y: 8219.91882586, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.735)" },
+                                                                    { x: 0.9381 , y: 8066.85348202, label: "MRPT(target recall=0.800, trees=6, depth=9, vote threshold=1, estimated recall=0.801)" },
+                                                                    { x: 0.9826 , y: 7800.30871659, label: "MRPT(target recall=0.900, trees=10, depth=8, vote threshold=2, estimated recall=0.919)" },
+                                                                    { x: 0.9862 , y: 7783.09850269, label: "MRPT(target recall=0.925, trees=7, depth=7, vote threshold=2, estimated recall=0.938)" },
+                                                                    { x: 0.9931 , y: 7773.89502481, label: "MRPT(target recall=0.950, trees=8, depth=7, vote threshold=2, estimated recall=0.965)" },
+                                                                    { x: 0.9974 , y: 7650.36324736, label: "MRPT(target recall=0.980, trees=10, depth=7, vote threshold=2, estimated recall=0.988)" },
+                                                                    { x: 0.9989 , y: 7493.97702299, label: "MRPT(target recall=0.990, trees=11, depth=7, vote threshold=2, estimated recall=0.993)" },
+                                                                    { x: 0.9996 , y: 7491.71487821, label: "MRPT(target recall=0.995, trees=12, depth=7, vote threshold=2, estimated recall=0.996)" },
+                                                            ]
+                        },
+                                                {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
-                                                                    { x: 0.2577 , y: 37329.1562834, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.3932 , y: 35493.513637, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.378)" },
-                                                                    { x: 0.4444 , y: 35061.223125, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
-                                                                    { x: 0.5769 , y: 33150.7880052, label: "MRPT(target recall=0.500, trees=3, depth=9, vote threshold=1, estimated recall=0.555)" },
-                                                                    { x: 0.6192 , y: 32437.0408179, label: "MRPT(target recall=0.600, trees=2, depth=8, vote threshold=1, estimated recall=0.610)" },
-                                                                    { x: 0.7565 , y: 30903.1858772, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.745)" },
                                                                     { x: 0.8385 , y: 28052.7304953, label: "MRPT(target recall=0.800, trees=5, depth=7, vote threshold=2, estimated recall=0.825)" },
                                                                     { x: 0.907 , y: 27668.1904837, label: "MRPT(target recall=0.850, trees=6, depth=7, vote threshold=2, estimated recall=0.896)" },
                                                                     { x: 0.9173 , y: 26632.8689534, label: "MRPT(target recall=0.900, trees=9, depth=9, vote threshold=1, estimated recall=0.902)" },
@@ -208,13 +222,22 @@
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot coordinates {
-                                                (0.2577, 37329.1562834)
-                                    (0.3932, 35493.513637)
-                                    (0.4444, 35061.223125)
-                                    (0.5769, 33150.7880052)
-                                    (0.6192, 32437.0408179)
-                                    (0.7565, 30903.1858772)
-                                    (0.8385, 28052.7304953)
+                                                (0.2959, 8550.5206592)
+                                    (0.5343, 8481.60026531)
+                                    (0.5979, 8380.93106714)
+                                    (0.8247, 8305.61826232)
+                                    (0.8692, 8219.91882586)
+                                    (0.9381, 8066.85348202)
+                                    (0.9826, 7800.30871659)
+                                    (0.9862, 7783.09850269)
+                                    (0.9931, 7773.89502481)
+                                    (0.9974, 7650.36324736)
+                                    (0.9989, 7493.97702299)
+                                    (0.9996, 7491.71487821)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
+                                \addplot coordinates {
+                                                (0.8385, 28052.7304953)
                                     (0.907, 27668.1904837)
                                     (0.9173, 26632.8689534)
                                     (0.9455, 25970.2793739)
@@ -246,8 +269,8 @@
                                                 {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.1118 , y: 10284.3512648, label: "MRPT(target recall=0.100, trees=7, depth=10, vote threshold=2, estimated recall=0.107)" },
                                                                     { x: 0.21211 , y: 9189.31531417, label: "MRPT(target recall=0.200, trees=15, depth=11, vote threshold=2, estimated recall=0.205)" },
@@ -268,18 +291,35 @@
                                                             ]
                         },
                                                 {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.2959 , y: 8550.5206592, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5343 , y: 8481.60026531, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
+                                                                    { x: 0.2959 , y: 8461.75137892, label: "MRPT(target recall=0.100, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5979 , y: 8380.93106714, label: "MRPT(target recall=0.500, trees=1, depth=7, vote threshold=1, estimated recall=0.502)" },
+                                                                    { x: 0.8247 , y: 8305.61826232, label: "MRPT(target recall=0.600, trees=4, depth=9, vote threshold=1, estimated recall=0.664)" },
+                                                                    { x: 0.8692 , y: 8219.91882586, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.735)" },
+                                                                    { x: 0.4418 , y: 8205.71893635, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.359)" },
+                                                                    { x: 0.9381 , y: 8066.85348202, label: "MRPT(target recall=0.800, trees=6, depth=9, vote threshold=1, estimated recall=0.801)" },
+                                                                    { x: 0.9826 , y: 7800.30871659, label: "MRPT(target recall=0.900, trees=10, depth=8, vote threshold=2, estimated recall=0.919)" },
+                                                                    { x: 0.9736 , y: 7783.14183071, label: "MRPT(target recall=0.850, trees=5, depth=8, vote threshold=1, estimated recall=0.890)" },
+                                                                    { x: 0.9862 , y: 7783.09850269, label: "MRPT(target recall=0.925, trees=7, depth=7, vote threshold=2, estimated recall=0.938)" },
+                                                                    { x: 0.9931 , y: 7773.89502481, label: "MRPT(target recall=0.950, trees=8, depth=7, vote threshold=2, estimated recall=0.965)" },
+                                                                    { x: 0.9974 , y: 7650.36324736, label: "MRPT(target recall=0.980, trees=10, depth=7, vote threshold=2, estimated recall=0.988)" },
+                                                                    { x: 0.9958 , y: 7628.82300194, label: "MRPT(target recall=0.970, trees=9, depth=7, vote threshold=2, estimated recall=0.979)" },
+                                                                    { x: 0.9989 , y: 7493.97702299, label: "MRPT(target recall=0.990, trees=11, depth=7, vote threshold=2, estimated recall=0.993)" },
+                                                                    { x: 0.9996 , y: 7491.71487821, label: "MRPT(target recall=0.995, trees=12, depth=7, vote threshold=2, estimated recall=0.996)" },
+                                                            ]
+                        },
+                                                {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
-                                                                    { x: 0.2577 , y: 37329.1562834, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.2577 , y: 36806.9922951, label: "MRPT(target recall=0.100, trees=1, depth=9, vote threshold=1, estimated recall=0.240)" },
-                                                                    { x: 0.3932 , y: 35493.513637, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.378)" },
-                                                                    { x: 0.4444 , y: 35061.223125, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
-                                                                    { x: 0.5769 , y: 33150.7880052, label: "MRPT(target recall=0.500, trees=3, depth=9, vote threshold=1, estimated recall=0.555)" },
-                                                                    { x: 0.6192 , y: 32437.0408179, label: "MRPT(target recall=0.600, trees=2, depth=8, vote threshold=1, estimated recall=0.610)" },
-                                                                    { x: 0.7565 , y: 30903.1858772, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.745)" },
                                                                     { x: 0.8385 , y: 28052.7304953, label: "MRPT(target recall=0.800, trees=5, depth=7, vote threshold=2, estimated recall=0.825)" },
                                                                     { x: 0.907 , y: 27668.1904837, label: "MRPT(target recall=0.850, trees=6, depth=7, vote threshold=2, estimated recall=0.896)" },
                                                                     { x: 0.9173 , y: 26632.8689534, label: "MRPT(target recall=0.900, trees=9, depth=9, vote threshold=1, estimated recall=0.902)" },
@@ -396,14 +436,26 @@
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot [only marks] coordinates {
-                                                (0.2577, 37329.1562834)
-                                    (0.2577, 36806.9922951)
-                                    (0.3932, 35493.513637)
-                                    (0.4444, 35061.223125)
-                                    (0.5769, 33150.7880052)
-                                    (0.6192, 32437.0408179)
-                                    (0.7565, 30903.1858772)
-                                    (0.8385, 28052.7304953)
+                                                (0.2959, 8550.5206592)
+                                    (0.5343, 8481.60026531)
+                                    (0.2959, 8461.75137892)
+                                    (0.5979, 8380.93106714)
+                                    (0.8247, 8305.61826232)
+                                    (0.8692, 8219.91882586)
+                                    (0.4418, 8205.71893635)
+                                    (0.9381, 8066.85348202)
+                                    (0.9826, 7800.30871659)
+                                    (0.9736, 7783.14183071)
+                                    (0.9862, 7783.09850269)
+                                    (0.9931, 7773.89502481)
+                                    (0.9974, 7650.36324736)
+                                    (0.9958, 7628.82300194)
+                                    (0.9989, 7493.97702299)
+                                    (0.9996, 7491.71487821)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.8385, 28052.7304953)
                                     (0.907, 27668.1904837)
                                     (0.9173, 26632.8689534)
                                     (0.9455, 25970.2793739)

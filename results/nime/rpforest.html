@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>kd</title>
+        <title>rpforest</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,7 +47,7 @@
             </nav>
 
                     <div class="container">
-                                                        <h2>Plots for kd</h2>
+                                                        <h2>Plots for rpforest</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)">
             <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
@@ -57,48 +57,15 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
                             label: "random-xs-20-angular (k = 10)",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
+                                                                    { x: 0.9439 , y: 10098.4831704, label: "RPForest(leaf_size=100, n_trees=3)" },
+                                                                    { x: 0.9985 , y: 7552.56883972, label: "RPForest(leaf_size=40, n_trees=10)" },
+                                                                    { x: 0.9998 , y: 4617.26383648, label: "RPForest(leaf_size=100, n_trees=10)" },
+                                                                    { x: 1.0 , y: 3058.16954768, label: "RPForest(leaf_size=10, n_trees=100)" },
                                                             ]
                         },
                                                 ]},
@@ -187,25 +154,12 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (1.0, 4.62911975232)
-                            };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4.89783638483)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 28.456358692)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 3219.01861585)
+                                                (0.9439, 10098.4831704)
+                                    (0.9985, 7552.56883972)
+                                    (0.9998, 4617.26383648)
+                                    (1.0, 3058.16954768)
                             };
             \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4518.84763731)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -215,7 +169,7 @@
                 </div>
             
                         <hr />
-                                                        <h2>Scatterplots for kd</h2>
+                                                        <h2>Scatterplots for rpforest</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)Scatterplot ">
             <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
@@ -225,64 +179,25 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                                    { x: 1.0 , y: 4.68461266452, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 4.42164474929, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 3.99235862963, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3.36653484182, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 2.54060435553, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 1.70765434473, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 26.208382932, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
                             label: "random-xs-20-angular (k = 10)",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 3093.11260798, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 2602.49061521, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 1678.54878884, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 4450.88411667, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 4377.32887492, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 4058.1215568, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3157.72894887, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 2366.25293151, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 1877.16850058, label: "KDTree(leaf_size=1000)" },
+                                                                    { x: 0.9439 , y: 10098.4831704, label: "RPForest(leaf_size=100, n_trees=3)" },
+                                                                    { x: 0.9985 , y: 7552.56883972, label: "RPForest(leaf_size=40, n_trees=10)" },
+                                                                    { x: 0.9998 , y: 4617.26383648, label: "RPForest(leaf_size=100, n_trees=10)" },
+                                                                    { x: 0.9994 , y: 3745.04803743, label: "RPForest(leaf_size=3, n_trees=100)" },
+                                                                    { x: 1.0 , y: 3058.16954768, label: "RPForest(leaf_size=10, n_trees=100)" },
+                                                                    { x: 1.0 , y: 2770.78532925, label: "RPForest(leaf_size=40, n_trees=40)" },
+                                                                    { x: 1.0 , y: 1148.37117792, label: "RPForest(leaf_size=400, n_trees=10)" },
+                                                                    { x: 1.0 , y: 956.02926049, label: "RPForest(leaf_size=3, n_trees=400)" },
+                                                                    { x: 1.0 , y: 811.666875342, label: "RPForest(leaf_size=10, n_trees=400)" },
+                                                                    { x: 1.0 , y: 353.118104057, label: "RPForest(leaf_size=400, n_trees=40)" },
+                                                                    { x: 1.0 , y: 336.315801543, label: "RPForest(leaf_size=40, n_trees=400)" },
+                                                                    { x: 1.0 , y: 175.883270281, label: "RPForest(leaf_size=100, n_trees=400)" },
+                                                                    { x: 1.0 , y: 171.209331138, label: "RPForest(leaf_size=400, n_trees=100)" },
+                                                                    { x: 1.0 , y: 53.0608884975, label: "RPForest(leaf_size=400, n_trees=400)" },
                                                             ]
                         },
                                                 ]},
@@ -371,41 +286,22 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (1.0, 4.62911975232)
-                            };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4.89783638483)
-                                    (1.0, 4.68461266452)
-                                    (1.0, 4.42164474929)
-                                    (1.0, 3.99235862963)
-                                    (1.0, 3.36653484182)
-                                    (1.0, 2.54060435553)
-                                    (1.0, 1.70765434473)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 28.456358692)
-                                    (1.0, 26.208382932)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 3219.01861585)
-                                    (1.0, 3093.11260798)
-                                    (1.0, 2602.49061521)
-                                    (1.0, 1678.54878884)
+                                                (0.9439, 10098.4831704)
+                                    (0.9985, 7552.56883972)
+                                    (0.9998, 4617.26383648)
+                                    (0.9994, 3745.04803743)
+                                    (1.0, 3058.16954768)
+                                    (1.0, 2770.78532925)
+                                    (1.0, 1148.37117792)
+                                    (1.0, 956.02926049)
+                                    (1.0, 811.666875342)
+                                    (1.0, 353.118104057)
+                                    (1.0, 336.315801543)
+                                    (1.0, 175.883270281)
+                                    (1.0, 171.209331138)
+                                    (1.0, 53.0608884975)
                             };
             \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4518.84763731)
-                                    (1.0, 4450.88411667)
-                                    (1.0, 4377.32887492)
-                                    (1.0, 4058.1215568)
-                                    (1.0, 3157.72894887)
-                                    (1.0, 2366.25293151)
-                                    (1.0, 1877.16850058)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }

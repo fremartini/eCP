@@ -57,10 +57,19 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.93534 , y: 591.052399903, label: "FLANN(target_precision=0.970000)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.14921 , y: 8805.49907018, label: "FLANN(target_precision=0.200000)" },
                                                                     { x: 0.37421 , y: 5803.77012924, label: "FLANN(target_precision=0.500000)" },
@@ -68,6 +77,19 @@
                                                                     { x: 0.65063 , y: 3121.20361081, label: "FLANN(target_precision=0.800000)" },
                                                                     { x: 0.80431 , y: 1592.98662698, label: "FLANN(target_precision=0.900000)" },
                                                                     { x: 0.90896 , y: 1222.87325639, label: "FLANN(target_precision=0.970000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.3605 , y: 5652.15996852, label: "FLANN(target_precision=0.200000)" },
+                                                                    { x: 0.4459 , y: 5542.2223573, label: "FLANN(target_precision=0.500000)" },
+                                                                    { x: 0.6692 , y: 5341.55181592, label: "FLANN(target_precision=0.700000)" },
+                                                                    { x: 0.9116 , y: 5135.66654137, label: "FLANN(target_precision=0.900000)" },
+                                                                    { x: 0.9858 , y: 4895.46134687, label: "FLANN(target_precision=0.970000)" },
                                                             ]
                         },
                                                 ]},
@@ -156,6 +178,10 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
+                                                (0.93534, 591.052399903)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
                                                 (0.14921, 8805.49907018)
                                     (0.37421, 5803.77012924)
                                     (0.54349, 3605.92084709)
@@ -164,6 +190,14 @@
                                     (0.90896, 1222.87325639)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.3605, 5652.15996852)
+                                    (0.4459, 5542.2223573)
+                                    (0.6692, 5341.55181592)
+                                    (0.9116, 5135.66654137)
+                                    (0.9858, 4895.46134687)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -183,10 +217,19 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.93534 , y: 591.052399903, label: "FLANN(target_precision=0.970000)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.14921 , y: 8805.49907018, label: "FLANN(target_precision=0.200000)" },
                                                                     { x: 0.37421 , y: 5803.77012924, label: "FLANN(target_precision=0.500000)" },
@@ -195,6 +238,19 @@
                                                                     { x: 0.80431 , y: 1592.98662698, label: "FLANN(target_precision=0.900000)" },
                                                                     { x: 0.90896 , y: 1222.87325639, label: "FLANN(target_precision=0.970000)" },
                                                                     { x: 0.89797 , y: 1104.912127, label: "FLANN(target_precision=0.950000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.3605 , y: 5652.15996852, label: "FLANN(target_precision=0.200000)" },
+                                                                    { x: 0.4459 , y: 5542.2223573, label: "FLANN(target_precision=0.500000)" },
+                                                                    { x: 0.6692 , y: 5341.55181592, label: "FLANN(target_precision=0.700000)" },
+                                                                    { x: 0.9116 , y: 5135.66654137, label: "FLANN(target_precision=0.900000)" },
+                                                                    { x: 0.9858 , y: 4895.46134687, label: "FLANN(target_precision=0.970000)" },
                                                             ]
                         },
                                                 ]},
@@ -283,6 +339,10 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
+                                                (0.93534, 591.052399903)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
                                                 (0.14921, 8805.49907018)
                                     (0.37421, 5803.77012924)
                                     (0.54349, 3605.92084709)
@@ -292,6 +352,14 @@
                                     (0.89797, 1104.912127)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.3605, 5652.15996852)
+                                    (0.4459, 5542.2223573)
+                                    (0.6692, 5341.55181592)
+                                    (0.9116, 5135.66654137)
+                                    (0.9858, 4895.46134687)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }

@@ -57,35 +57,105 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.71818 , y: 12651.9778821, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.87979 , y: 10139.6187644, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.95557 , y: 7535.13220827, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.98703 , y: 5160.92324858, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9883 , y: 4463.65809112, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99636 , y: 3311.01494198, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99779 , y: 2970.19595357, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99813 , y: 2499.62842028, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99946 , y: 1895.35643313, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99972 , y: 1528.13959465, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99974 , y: 1442.25486015, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99985 , y: 1084.05579097, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99987 , y: 1009.26322916, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99994 , y: 668.59095535, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 621.46718954, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99996 , y: 465.315821316, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.66141 , y: 12674.4583452, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.81561 , y: 9643.6765726, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.87246 , y: 9489.54302813, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.91449 , y: 7273.23677543, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.92846 , y: 7156.88638285, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.95355 , y: 7046.26611922, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.97423 , y: 5243.06875048, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.98094 , y: 5072.76789899, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9866 , y: 4759.63810762, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.98754 , y: 4315.72964294, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.98763 , y: 3729.61619927, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99441 , y: 3472.20138832, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9965 , y: 3331.97490126, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99767 , y: 2907.34766038, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99803 , y: 2821.03093607, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99804 , y: 2346.38698538, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.99841 , y: 2291.82838258, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99874 , y: 2181.84863677, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.99929 , y: 2075.20001544, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99946 , y: 1801.80212689, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99959 , y: 1753.40164109, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99969 , y: 1545.68532614, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99977 , y: 1339.09269604, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99982 , y: 1313.0406763, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99984 , y: 1105.65747437, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.99992 , y: 1052.6102604, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99994 , y: 918.159781278, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 900.817283167, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99997 , y: 640.4130985, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 610.264024965, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-s-100-euclidean (k = 10)",
                             fill: false,
                             pointStyle: "triangle",
                             borderColor: "rgba(102, 255, 255, 1)",
                             data: [
-                                                                    { x: 0.91449 , y: 7273.23677543, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.94766 , y: 5403.4593289, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
-                                                                    { x: 0.97423 , y: 5243.06875048, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.98763 , y: 3729.61619927, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
-                                                                    { x: 0.99441 , y: 3472.20138832, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.99793 , y: 2404.48966056, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
-                                                                    { x: 0.99799 , y: 2371.78649475, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
-                                                                    { x: 0.99804 , y: 2346.38698538, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
-                                                                    { x: 0.99874 , y: 2181.84863677, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.99947 , y: 1632.95333518, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.99958 , y: 1486.68717442, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
-                                                                    { x: 0.99979 , y: 1108.51234814, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
-                                                                    { x: 0.99984 , y: 1105.65747437, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.99995 , y: 756.652830701, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
-                                                                    { x: 0.99997 , y: 639.739968974, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 0.99999 , y: 456.668605753, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
-                                                                    { x: 1.0 , y: 448.390819644, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.37403 , y: 20165.2042264, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.52417 , y: 15941.1535101, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.94563 , y: 13711.9976514, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99284 , y: 11040.538794, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99436 , y: 8528.12470899, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.99979 , y: 8404.27861791, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99989 , y: 6400.87121233, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6010.72709479, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9342 , y: 31218.7686078, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9942 , y: 29728.7044781, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9964 , y: 28353.8772503, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9968 , y: 27410.3477346, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 27333.0031541, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.997 , y: 26116.6258819, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 24944.2690027, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9997 , y: 22291.3934034, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 19427.7879681, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.8215 , y: 30970.9585238, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
                                                                     { x: 0.9549 , y: 29532.15279, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
@@ -187,25 +257,80 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (0.91449, 7273.23677543)
-                                    (0.94766, 5403.4593289)
+                                                (0.71818, 12651.9778821)
+                                    (0.87979, 10139.6187644)
+                                    (0.95557, 7535.13220827)
+                                    (0.98703, 5160.92324858)
+                                    (0.9883, 4463.65809112)
+                                    (0.99636, 3311.01494198)
+                                    (0.99779, 2970.19595357)
+                                    (0.99813, 2499.62842028)
+                                    (0.99946, 1895.35643313)
+                                    (0.99972, 1528.13959465)
+                                    (0.99974, 1442.25486015)
+                                    (0.99985, 1084.05579097)
+                                    (0.99987, 1009.26322916)
+                                    (0.99994, 668.59095535)
+                                    (0.99995, 621.46718954)
+                                    (0.99996, 465.315821316)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.66141, 12674.4583452)
+                                    (0.81561, 9643.6765726)
+                                    (0.87246, 9489.54302813)
+                                    (0.91449, 7273.23677543)
+                                    (0.92846, 7156.88638285)
+                                    (0.95355, 7046.26611922)
                                     (0.97423, 5243.06875048)
+                                    (0.98094, 5072.76789899)
+                                    (0.9866, 4759.63810762)
+                                    (0.98754, 4315.72964294)
                                     (0.98763, 3729.61619927)
                                     (0.99441, 3472.20138832)
-                                    (0.99793, 2404.48966056)
-                                    (0.99799, 2371.78649475)
+                                    (0.9965, 3331.97490126)
+                                    (0.99767, 2907.34766038)
+                                    (0.99803, 2821.03093607)
                                     (0.99804, 2346.38698538)
+                                    (0.99841, 2291.82838258)
                                     (0.99874, 2181.84863677)
-                                    (0.99947, 1632.95333518)
-                                    (0.99958, 1486.68717442)
-                                    (0.99979, 1108.51234814)
+                                    (0.99929, 2075.20001544)
+                                    (0.99946, 1801.80212689)
+                                    (0.99959, 1753.40164109)
+                                    (0.99969, 1545.68532614)
+                                    (0.99977, 1339.09269604)
+                                    (0.99982, 1313.0406763)
                                     (0.99984, 1105.65747437)
-                                    (0.99995, 756.652830701)
-                                    (0.99997, 639.739968974)
-                                    (0.99999, 456.668605753)
-                                    (1.0, 448.390819644)
+                                    (0.99992, 1052.6102604)
+                                    (0.99994, 918.159781278)
+                                    (0.99995, 900.817283167)
+                                    (0.99997, 640.4130985)
+                                    (1.0, 610.264024965)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.37403, 20165.2042264)
+                                    (0.52417, 15941.1535101)
+                                    (0.94563, 13711.9976514)
+                                    (0.99284, 11040.538794)
+                                    (0.99436, 8528.12470899)
+                                    (0.99979, 8404.27861791)
+                                    (0.99989, 6400.87121233)
+                                    (1.0, 6010.72709479)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.9342, 31218.7686078)
+                                    (0.9942, 29728.7044781)
+                                    (0.9964, 28353.8772503)
+                                    (0.9968, 27410.3477346)
+                                    (0.9969, 27333.0031541)
+                                    (0.997, 26116.6258819)
+                                    (0.9996, 24944.2690027)
+                                    (0.9997, 22291.3934034)
+                                    (1.0, 19427.7879681)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot coordinates {
                                                 (0.8215, 30970.9585238)
                                     (0.9549, 29532.15279)
@@ -240,54 +365,265 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.71818 , y: 12651.9778821, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.87979 , y: 10139.6187644, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.84891 , y: 9773.92959459, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.95557 , y: 7535.13220827, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.93077 , y: 6952.38903505, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.94772 , y: 6570.55099492, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.95239 , y: 6289.73104126, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.98703 , y: 5160.92324858, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.97015 , y: 4562.31640972, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.98673 , y: 4483.69130067, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.9883 , y: 4463.65809112, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.98174 , y: 3438.97225966, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99636 , y: 3311.01494198, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99779 , y: 2970.19595357, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99737 , y: 2932.04243338, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99813 , y: 2499.62842028, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99048 , y: 2357.29718878, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99946 , y: 1895.35643313, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99937 , y: 1799.03915796, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99901 , y: 1707.95694697, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99972 , y: 1528.13959465, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99974 , y: 1442.25486015, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99492 , y: 1324.27507273, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99985 , y: 1084.05579097, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99987 , y: 1009.26322916, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99957 , y: 1004.35408861, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99629 , y: 962.17587759, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99688 , y: 748.067796569, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99974 , y: 727.353330354, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99994 , y: 668.59095535, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 621.46718954, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99977 , y: 581.117636549, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 498.352277348, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99996 , y: 465.315821316, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 404.996549764, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99996 , y: 376.996547064, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
+                                                                    { x: 0.66141 , y: 12674.4583452, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.81561 , y: 9643.6765726, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.87246 , y: 9489.54302813, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                                     { x: 0.91449 , y: 7273.23677543, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.92846 , y: 7156.88638285, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.95355 , y: 7046.26611922, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.91481 , y: 6821.66366919, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.94198 , y: 6401.96446999, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.94761 , y: 5958.30906524, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.94766 , y: 5403.4593289, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.97423 , y: 5243.06875048, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
                                                                     { x: 0.94726 , y: 5144.14331325, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.98094 , y: 5072.76789899, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
                                                                     { x: 0.94695 , y: 5007.56094061, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.9866 , y: 4759.63810762, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.98558 , y: 4476.0140281, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.96339 , y: 4467.41542109, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.98754 , y: 4315.72964294, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.98763 , y: 3729.61619927, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.98734 , y: 3608.26013171, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                                     { x: 0.98723 , y: 3561.26433551, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
                                                                     { x: 0.99441 , y: 3472.20138832, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.97837 , y: 3387.39883666, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9965 , y: 3331.97490126, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99594 , y: 3060.08457157, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99767 , y: 2907.34766038, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99803 , y: 2821.03093607, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.99793 , y: 2404.48966056, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.99799 , y: 2371.78649475, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                                     { x: 0.99804 , y: 2346.38698538, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.99011 , y: 2326.64983102, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99841 , y: 2291.82838258, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                                     { x: 0.99874 , y: 2181.84863677, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.99929 , y: 2075.20001544, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99946 , y: 1801.80212689, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99959 , y: 1753.40164109, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.99947 , y: 1632.95333518, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.99931 , y: 1561.93998697, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.99969 , y: 1545.68532614, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
                                                                     { x: 0.99958 , y: 1486.68717442, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.99958 , y: 1475.65798177, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                                     { x: 0.99955 , y: 1467.51580946, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.99977 , y: 1339.09269604, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99601 , y: 1330.60109307, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99982 , y: 1313.0406763, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.99979 , y: 1108.51234814, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.99984 , y: 1105.65747437, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
                                                                     { x: 0.99979 , y: 1103.27792626, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                                     { x: 0.99978 , y: 1098.45523186, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.99992 , y: 1052.6102604, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99773 , y: 943.26516109, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99994 , y: 918.159781278, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.99995 , y: 900.817283167, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9998 , y: 897.116897944, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                                     { x: 0.99995 , y: 756.652830701, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                                     { x: 0.99995 , y: 754.063074333, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 0.99995 , y: 752.36392689, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
+                                                                    { x: 0.99852 , y: 730.016341678, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99997 , y: 640.4130985, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                                     { x: 0.99997 , y: 639.739968974, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 610.264024965, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 542.580076732, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 534.169868811, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99998 , y: 504.550792878, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
                                                                     { x: 0.99999 , y: 456.668605753, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 448.390819644, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 448.06722786, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 447.892221834, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 445.352777452, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 396.168274456, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 391.45513693, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 0.99999 , y: 365.714888394, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 358.954349169, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 329.180282858, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 328.249505198, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 324.367169675, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 316.493817778, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 312.137891126, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 262.279323017, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 261.392033932, label: "hnswlib ({'M': 36, 'efConstruction': 500})" },
                                                                     { x: 1.0 , y: 259.191142233, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
                                                             ]
                         },
                                                 {
+                            label: "random-s-100-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.37403 , y: 20165.2042264, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.52417 , y: 15941.1535101, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.94563 , y: 13711.9976514, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.67647 , y: 11956.1343722, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99284 , y: 11040.538794, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.95432 , y: 10390.7521576, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.95458 , y: 9508.19835647, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.81403 , y: 8576.83171815, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99436 , y: 8528.12470899, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.99979 , y: 8404.27861791, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.99444 , y: 7597.73127972, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99989 , y: 6400.87121233, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6010.72709479, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.8998 , y: 5950.06534809, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.99991 , y: 5628.50204263, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 4369.64792087, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.96081 , y: 4306.95056936, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3862.13810848, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3853.87715678, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2684.20235499, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.99255 , y: 2542.14308949, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2355.13885609, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2226.90235433, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.99705 , y: 1682.49362301, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1545.95229435, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.99809 , y: 1393.23351476, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1358.53301765, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1231.48552839, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 814.431709132, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 756.270836623, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 546.802625443, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 509.783406737, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 417.917363618, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 391.798061999, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9342 , y: 31218.7686078, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9942 , y: 29728.7044781, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9964 , y: 28353.8772503, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9961 , y: 28087.4840956, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9968 , y: 27410.3477346, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 27333.0031541, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.9871 , y: 26439.1326273, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.997 , y: 26116.6258819, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 24944.2690027, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 23655.0693414, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 23132.0538275, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9997 , y: 22291.3934034, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 21634.1747733, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9988 , y: 21266.5939916, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 20897.5426988, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 20839.2946753, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 19427.7879681, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 17977.0781008, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 17415.5300058, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 17208.0363993, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16989.1729214, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16826.4164417, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9999 , y: 16359.8436683, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16335.7584633, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 14137.8968622, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 13993.6542677, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 12813.0210449, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9999 , y: 12420.9796878, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 12420.6854276, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11923.0544003, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11497.1341482, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11227.234644, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 10036.1168738, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 9366.40442337, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 9189.65154596, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8735.00329049, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8414.32216855, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8302.60957007, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8205.83131333, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 7945.86443375, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6476.80932939, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6460.49816473, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5931.45522246, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5616.91003953, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5368.44799869, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5233.55119499, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5107.82278089, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 4729.52548053, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 4428.52421733, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3649.50260206, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3345.92471338, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3280.25964885, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3178.77694925, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2988.77757596, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2956.91076684, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2921.5589713, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2596.16310695, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2460.15818011, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2418.36393451, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2284.93604114, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2196.76887833, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2108.179889, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2081.3369611, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2002.77713581, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1899.90052744, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1784.07532557, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1737.06099318, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1669.18073601, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1599.2203508, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1583.80512377, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1536.22203209, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1350.56982896, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.8215 , y: 30970.9585238, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
                                                                     { x: 0.9549 , y: 29532.15279, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
@@ -458,44 +794,240 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (0.91449, 7273.23677543)
+                                                (0.71818, 12651.9778821)
+                                    (0.87979, 10139.6187644)
+                                    (0.84891, 9773.92959459)
+                                    (0.95557, 7535.13220827)
+                                    (0.93077, 6952.38903505)
+                                    (0.94772, 6570.55099492)
+                                    (0.95239, 6289.73104126)
+                                    (0.98703, 5160.92324858)
+                                    (0.97015, 4562.31640972)
+                                    (0.98673, 4483.69130067)
+                                    (0.9883, 4463.65809112)
+                                    (0.98174, 3438.97225966)
+                                    (0.99636, 3311.01494198)
+                                    (0.99779, 2970.19595357)
+                                    (0.99737, 2932.04243338)
+                                    (0.99813, 2499.62842028)
+                                    (0.99048, 2357.29718878)
+                                    (0.99946, 1895.35643313)
+                                    (0.99937, 1799.03915796)
+                                    (0.99901, 1707.95694697)
+                                    (0.99972, 1528.13959465)
+                                    (0.99974, 1442.25486015)
+                                    (0.99492, 1324.27507273)
+                                    (0.99985, 1084.05579097)
+                                    (0.99987, 1009.26322916)
+                                    (0.99957, 1004.35408861)
+                                    (0.99629, 962.17587759)
+                                    (0.99688, 748.067796569)
+                                    (0.99974, 727.353330354)
+                                    (0.99994, 668.59095535)
+                                    (0.99995, 621.46718954)
+                                    (0.99977, 581.117636549)
+                                    (0.99995, 498.352277348)
+                                    (0.99996, 465.315821316)
+                                    (0.99995, 404.996549764)
+                                    (0.99996, 376.996547064)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.66141, 12674.4583452)
+                                    (0.81561, 9643.6765726)
+                                    (0.87246, 9489.54302813)
+                                    (0.91449, 7273.23677543)
+                                    (0.92846, 7156.88638285)
+                                    (0.95355, 7046.26611922)
+                                    (0.91481, 6821.66366919)
+                                    (0.94198, 6401.96446999)
+                                    (0.94761, 5958.30906524)
                                     (0.94766, 5403.4593289)
                                     (0.97423, 5243.06875048)
                                     (0.94726, 5144.14331325)
+                                    (0.98094, 5072.76789899)
                                     (0.94695, 5007.56094061)
+                                    (0.9866, 4759.63810762)
+                                    (0.98558, 4476.0140281)
+                                    (0.96339, 4467.41542109)
+                                    (0.98754, 4315.72964294)
                                     (0.98763, 3729.61619927)
                                     (0.98734, 3608.26013171)
                                     (0.98723, 3561.26433551)
                                     (0.99441, 3472.20138832)
+                                    (0.97837, 3387.39883666)
+                                    (0.9965, 3331.97490126)
+                                    (0.99594, 3060.08457157)
+                                    (0.99767, 2907.34766038)
+                                    (0.99803, 2821.03093607)
                                     (0.99793, 2404.48966056)
                                     (0.99799, 2371.78649475)
                                     (0.99804, 2346.38698538)
+                                    (0.99011, 2326.64983102)
+                                    (0.99841, 2291.82838258)
                                     (0.99874, 2181.84863677)
+                                    (0.99929, 2075.20001544)
+                                    (0.99946, 1801.80212689)
+                                    (0.99959, 1753.40164109)
                                     (0.99947, 1632.95333518)
+                                    (0.99931, 1561.93998697)
+                                    (0.99969, 1545.68532614)
                                     (0.99958, 1486.68717442)
                                     (0.99958, 1475.65798177)
                                     (0.99955, 1467.51580946)
+                                    (0.99977, 1339.09269604)
+                                    (0.99601, 1330.60109307)
+                                    (0.99982, 1313.0406763)
                                     (0.99979, 1108.51234814)
                                     (0.99984, 1105.65747437)
                                     (0.99979, 1103.27792626)
                                     (0.99978, 1098.45523186)
+                                    (0.99992, 1052.6102604)
+                                    (0.99773, 943.26516109)
+                                    (0.99994, 918.159781278)
+                                    (0.99995, 900.817283167)
+                                    (0.9998, 897.116897944)
                                     (0.99995, 756.652830701)
                                     (0.99995, 754.063074333)
                                     (0.99995, 752.36392689)
+                                    (0.99852, 730.016341678)
+                                    (0.99997, 640.4130985)
                                     (0.99997, 639.739968974)
+                                    (1.0, 610.264024965)
+                                    (1.0, 542.580076732)
+                                    (1.0, 534.169868811)
+                                    (0.99998, 504.550792878)
                                     (0.99999, 456.668605753)
                                     (1.0, 448.390819644)
                                     (1.0, 448.06722786)
+                                    (1.0, 447.892221834)
                                     (1.0, 445.352777452)
+                                    (1.0, 396.168274456)
+                                    (1.0, 391.45513693)
                                     (0.99999, 365.714888394)
+                                    (1.0, 358.954349169)
                                     (1.0, 329.180282858)
                                     (1.0, 328.249505198)
                                     (1.0, 324.367169675)
+                                    (1.0, 316.493817778)
+                                    (1.0, 312.137891126)
                                     (1.0, 262.279323017)
                                     (1.0, 261.392033932)
                                     (1.0, 259.191142233)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.37403, 20165.2042264)
+                                    (0.52417, 15941.1535101)
+                                    (0.94563, 13711.9976514)
+                                    (0.67647, 11956.1343722)
+                                    (0.99284, 11040.538794)
+                                    (0.95432, 10390.7521576)
+                                    (0.95458, 9508.19835647)
+                                    (0.81403, 8576.83171815)
+                                    (0.99436, 8528.12470899)
+                                    (0.99979, 8404.27861791)
+                                    (0.99444, 7597.73127972)
+                                    (0.99989, 6400.87121233)
+                                    (1.0, 6010.72709479)
+                                    (0.8998, 5950.06534809)
+                                    (0.99991, 5628.50204263)
+                                    (1.0, 4369.64792087)
+                                    (0.96081, 4306.95056936)
+                                    (1.0, 3862.13810848)
+                                    (1.0, 3853.87715678)
+                                    (1.0, 2684.20235499)
+                                    (0.99255, 2542.14308949)
+                                    (1.0, 2355.13885609)
+                                    (1.0, 2226.90235433)
+                                    (0.99705, 1682.49362301)
+                                    (1.0, 1545.95229435)
+                                    (0.99809, 1393.23351476)
+                                    (1.0, 1358.53301765)
+                                    (1.0, 1231.48552839)
+                                    (1.0, 814.431709132)
+                                    (1.0, 756.270836623)
+                                    (1.0, 546.802625443)
+                                    (1.0, 509.783406737)
+                                    (1.0, 417.917363618)
+                                    (1.0, 391.798061999)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.9342, 31218.7686078)
+                                    (0.9942, 29728.7044781)
+                                    (0.9964, 28353.8772503)
+                                    (0.9961, 28087.4840956)
+                                    (0.9968, 27410.3477346)
+                                    (0.9969, 27333.0031541)
+                                    (0.9871, 26439.1326273)
+                                    (0.997, 26116.6258819)
+                                    (0.9996, 24944.2690027)
+                                    (0.9996, 23655.0693414)
+                                    (0.9996, 23132.0538275)
+                                    (0.9997, 22291.3934034)
+                                    (0.9996, 21634.1747733)
+                                    (0.9988, 21266.5939916)
+                                    (0.9996, 20897.5426988)
+                                    (0.9969, 20839.2946753)
+                                    (1.0, 19427.7879681)
+                                    (1.0, 17977.0781008)
+                                    (1.0, 17415.5300058)
+                                    (0.9996, 17208.0363993)
+                                    (1.0, 16989.1729214)
+                                    (1.0, 16826.4164417)
+                                    (0.9999, 16359.8436683)
+                                    (1.0, 16335.7584633)
+                                    (1.0, 14137.8968622)
+                                    (1.0, 13993.6542677)
+                                    (1.0, 12813.0210449)
+                                    (0.9999, 12420.9796878)
+                                    (1.0, 12420.6854276)
+                                    (1.0, 11923.0544003)
+                                    (1.0, 11497.1341482)
+                                    (1.0, 11227.234644)
+                                    (1.0, 10036.1168738)
+                                    (1.0, 9366.40442337)
+                                    (1.0, 9189.65154596)
+                                    (1.0, 8735.00329049)
+                                    (1.0, 8414.32216855)
+                                    (1.0, 8302.60957007)
+                                    (1.0, 8205.83131333)
+                                    (1.0, 7945.86443375)
+                                    (1.0, 6476.80932939)
+                                    (1.0, 6460.49816473)
+                                    (1.0, 5931.45522246)
+                                    (1.0, 5616.91003953)
+                                    (1.0, 5368.44799869)
+                                    (1.0, 5233.55119499)
+                                    (1.0, 5107.82278089)
+                                    (1.0, 4729.52548053)
+                                    (1.0, 4428.52421733)
+                                    (1.0, 3649.50260206)
+                                    (1.0, 3345.92471338)
+                                    (1.0, 3280.25964885)
+                                    (1.0, 3178.77694925)
+                                    (1.0, 2988.77757596)
+                                    (1.0, 2956.91076684)
+                                    (1.0, 2921.5589713)
+                                    (1.0, 2596.16310695)
+                                    (1.0, 2460.15818011)
+                                    (1.0, 2418.36393451)
+                                    (1.0, 2284.93604114)
+                                    (1.0, 2196.76887833)
+                                    (1.0, 2108.179889)
+                                    (1.0, 2081.3369611)
+                                    (1.0, 2002.77713581)
+                                    (1.0, 1899.90052744)
+                                    (1.0, 1784.07532557)
+                                    (1.0, 1737.06099318)
+                                    (1.0, 1669.18073601)
+                                    (1.0, 1599.2203508)
+                                    (1.0, 1583.80512377)
+                                    (1.0, 1536.22203209)
+                                    (1.0, 1350.56982896)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot [only marks] coordinates {
                                                 (0.8215, 30970.9585238)
                                     (0.9549, 29532.15279)

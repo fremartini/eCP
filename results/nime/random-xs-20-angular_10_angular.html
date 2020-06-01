@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>random-xs-20-angular (k = 10)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for random-xs-20-angular (k = 10)</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 255, 178, 1)",
+                            data: [
+                                                                    { x: 0.9868 , y: 4083.11665049, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.9978 , y: 3770.29307095, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9998 , y: 3257.73714747, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 1.0 , y: 2535.07475632, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "BallTree(nmslib)",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.1758 , y: 74724.8173882, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2435 , y: 70773.2181425, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.4823 , y: 55971.8159496, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.6999 , y: 47555.5454772, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7978 , y: 42491.6066417, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.8848 , y: 35893.5423691, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.9201 , y: 35825.4808842, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9861 , y: 27746.16153, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.995 , y: 25961.2775439, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.999 , y: 23694.8924655, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "eCP",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(255, 204, 102, 1)",
+                            data: [
+                                                                    { x: 0.8856 , y: 16998.1236145, label: "eCP(L=1, b=1)" },
+                                                                    { x: 0.9773 , y: 13035.180627, label: "eCP(L=1, b=2)" },
+                                                                    { x: 0.9973 , y: 8955.75825903, label: "eCP(L=1, b=4)" },
+                                                                    { x: 0.9992 , y: 8250.99785773, label: "eCP(L=1, b=5)" },
+                                                                    { x: 1.0 , y: 4669.23526498, label: "eCP(L=1, b=10)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(178, 178, 102, 1)",
+                            data: [
+                                                                    { x: 0.7698 , y: 10834.7472076, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.9999 , y: 8661.21095355, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 1.0 , y: 7066.66172452, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                            ]
+                        },
+                                                {
+                            label: "flann",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.3605 , y: 5652.15996852, label: "FLANN(target_precision=0.200000)" },
+                                                                    { x: 0.4459 , y: 5542.2223573, label: "FLANN(target_precision=0.500000)" },
+                                                                    { x: 0.6692 , y: 5341.55181592, label: "FLANN(target_precision=0.700000)" },
+                                                                    { x: 0.9116 , y: 5135.66654137, label: "FLANN(target_precision=0.900000)" },
+                                                                    { x: 0.9858 , y: 4895.46134687, label: "FLANN(target_precision=0.970000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.9959 , y: 8022.8617773, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9965 , y: 7610.30237601, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 1.0 , y: 5910.90873987, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 20)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(178, 178, 178, 1)",
+                            data: [
+                                                                    { x: 0.4823 , y: 59000.7455443, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.8178 , y: 47719.4834746, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9643 , y: 43805.656515, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9961 , y: 39847.4619747, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9967 , y: 37666.7355168, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9992 , y: 35050.675224, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9995 , y: 32915.6059203, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9997 , y: 32720.7083512, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 26993.1524481, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnswlib",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9342 , y: 31218.7686078, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9942 , y: 29728.7044781, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9964 , y: 28353.8772503, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9968 , y: 27410.3477346, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 27333.0031541, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.997 , y: 26116.6258819, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 24944.2690027, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9997 , y: 22291.3934034, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 19427.7879681, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
+                            label: "kd",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(153, 102, 127, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
+                                                            ]
+                        },
+                                                {
+                            label: "mrpt",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 153, 102, 1)",
+                            data: [
+                                                                    { x: 0.2959 , y: 8550.5206592, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5343 , y: 8481.60026531, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
+                                                                    { x: 0.5979 , y: 8380.93106714, label: "MRPT(target recall=0.500, trees=1, depth=7, vote threshold=1, estimated recall=0.502)" },
+                                                                    { x: 0.8247 , y: 8305.61826232, label: "MRPT(target recall=0.600, trees=4, depth=9, vote threshold=1, estimated recall=0.664)" },
+                                                                    { x: 0.8692 , y: 8219.91882586, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.735)" },
+                                                                    { x: 0.9381 , y: 8066.85348202, label: "MRPT(target recall=0.800, trees=6, depth=9, vote threshold=1, estimated recall=0.801)" },
+                                                                    { x: 0.9826 , y: 7800.30871659, label: "MRPT(target recall=0.900, trees=10, depth=8, vote threshold=2, estimated recall=0.919)" },
+                                                                    { x: 0.9862 , y: 7783.09850269, label: "MRPT(target recall=0.925, trees=7, depth=7, vote threshold=2, estimated recall=0.938)" },
+                                                                    { x: 0.9931 , y: 7773.89502481, label: "MRPT(target recall=0.950, trees=8, depth=7, vote threshold=2, estimated recall=0.965)" },
+                                                                    { x: 0.9974 , y: 7650.36324736, label: "MRPT(target recall=0.980, trees=10, depth=7, vote threshold=2, estimated recall=0.988)" },
+                                                                    { x: 0.9989 , y: 7493.97702299, label: "MRPT(target recall=0.990, trees=11, depth=7, vote threshold=2, estimated recall=0.993)" },
+                                                                    { x: 0.9996 , y: 7491.71487821, label: "MRPT(target recall=0.995, trees=12, depth=7, vote threshold=2, estimated recall=0.996)" },
+                                                            ]
+                        },
+                                                {
+                            label: "n2",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.9523 , y: 27659.4324754, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9737 , y: 25176.196593, label: "N2 (M8_efCon500)" },
+                                                                    { x: 0.9913 , y: 24985.7268806, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.997 , y: 20898.583942, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9998 , y: 20647.1532229, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 16015.3956593, label: "N2 (M4_efCon500)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(204, 102, 229, 1)",
+                            data: [
+                                                                    { x: 0.5455 , y: 28848.2447452, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.9246 , y: 25269.4794045, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.9729 , y: 22235.3789389, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.9879 , y: 19986.9622401, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.988 , y: 19756.0302395, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.99 , y: 19349.9907732, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.992 , y: 18645.7432195, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.995 , y: 16606.4354182, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(255, 153, 178, 1)",
+                            data: [
+                                                                    { x: 0.9997 , y: 588.753489768, label: "PUFFINN(space=268435456, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 316.357586688, label: "PUFFINN(space=536870912, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.9838 , y: 8387.45053183, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9842 , y: 8302.19871577, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9859 , y: 8157.02992056, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9903 , y: 8140.17001126, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9924 , y: 8050.67295216, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9945 , y: 7981.68569966, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9948 , y: 7868.33776997, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.995 , y: 7775.00463426, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.9978 , y: 7549.41502574, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 7371.41210132, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.9999 , y: 6974.61616617, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 6955.72802653, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
+                                                            ]
+                        },
+                                                {
+                            label: "rpforest",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 229, 153, 1)",
+                            data: [
+                                                                    { x: 0.9439 , y: 10098.4831704, label: "RPForest(leaf_size=100, n_trees=3)" },
+                                                                    { x: 0.9985 , y: 7552.56883972, label: "RPForest(leaf_size=40, n_trees=10)" },
+                                                                    { x: 0.9998 , y: 4617.26383648, label: "RPForest(leaf_size=100, n_trees=10)" },
+                                                                    { x: 1.0 , y: 3058.16954768, label: "RPForest(leaf_size=10, n_trees=100)" },
+                                                            ]
+                        },
+                                                {
+                            label: "SW-graph(nmslib)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(127, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.5942 , y: 32467.1713653, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.7115 , y: 29149.5805795, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.818 , y: 25420.0242424, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.8457 , y: 23637.2058948, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.8985 , y: 20498.6169079, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9137 , y: 16969.1712654, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9218 , y: 15111.1783631, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9278 , y: 13997.3435675, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9984 , y: 11303.3603096, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                                    { x: 0.9994 , y: 9944.95343235, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                                    { x: 1.0 , y: 6841.66621809, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").click(function() {
+                        $("#plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726").toggle();
+                    });
+                </script>
+                <div id="plot_403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot coordinates {
+                                                (0.9868, 4083.11665049)
+                                    (0.9978, 3770.29307095)
+                                    (0.9998, 3257.73714747)
+                                    (1.0, 2535.07475632)
+                            };
+            \addlegendentry{ annoy };
+                                \addplot coordinates {
+                                                (0.1758, 74724.8173882)
+                                    (0.2435, 70773.2181425)
+                                    (0.4823, 55971.8159496)
+                                    (0.6999, 47555.5454772)
+                                    (0.7978, 42491.6066417)
+                                    (0.8848, 35893.5423691)
+                                    (0.9201, 35825.4808842)
+                                    (0.9861, 27746.16153)
+                                    (0.995, 25961.2775439)
+                                    (0.999, 23694.8924655)
+                            };
+            \addlegendentry{ BallTree(nmslib) };
+                                \addplot coordinates {
+                                                (0.8856, 16998.1236145)
+                                    (0.9773, 13035.180627)
+                                    (0.9973, 8955.75825903)
+                                    (0.9992, 8250.99785773)
+                                    (1.0, 4669.23526498)
+                            };
+            \addlegendentry{ eCP };
+                                \addplot coordinates {
+                                                (0.7698, 10834.7472076)
+                                    (0.9999, 8661.21095355)
+                                    (1.0, 7066.66172452)
+                            };
+            \addlegendentry{ faiss-ivf };
+                                \addplot coordinates {
+                                                (0.3605, 5652.15996852)
+                                    (0.4459, 5542.2223573)
+                                    (0.6692, 5341.55181592)
+                                    (0.9116, 5135.66654137)
+                                    (0.9858, 4895.46134687)
+                            };
+            \addlegendentry{ flann };
+                                \addplot coordinates {
+                                                (0.9959, 8022.8617773)
+                                    (0.9965, 7610.30237601)
+                                    (1.0, 5910.90873987)
+                            };
+            \addlegendentry{ hnsw(faiss) };
+                                \addplot coordinates {
+                                                (0.4823, 59000.7455443)
+                                    (0.8178, 47719.4834746)
+                                    (0.9643, 43805.656515)
+                                    (0.9961, 39847.4619747)
+                                    (0.9967, 37666.7355168)
+                                    (0.9992, 35050.675224)
+                                    (0.9995, 32915.6059203)
+                                    (0.9997, 32720.7083512)
+                                    (1.0, 26993.1524481)
+                            };
+            \addlegendentry{ hnsw(nmslib) };
+                                \addplot coordinates {
+                                                (0.9342, 31218.7686078)
+                                    (0.9942, 29728.7044781)
+                                    (0.9964, 28353.8772503)
+                                    (0.9968, 27410.3477346)
+                                    (0.9969, 27333.0031541)
+                                    (0.997, 26116.6258819)
+                                    (0.9996, 24944.2690027)
+                                    (0.9997, 22291.3934034)
+                                    (1.0, 19427.7879681)
+                            };
+            \addlegendentry{ hnswlib };
+                                \addplot coordinates {
+                                                (1.0, 3219.01861585)
+                            };
+            \addlegendentry{ kd };
+                                \addplot coordinates {
+                                                (0.2959, 8550.5206592)
+                                    (0.5343, 8481.60026531)
+                                    (0.5979, 8380.93106714)
+                                    (0.8247, 8305.61826232)
+                                    (0.8692, 8219.91882586)
+                                    (0.9381, 8066.85348202)
+                                    (0.9826, 7800.30871659)
+                                    (0.9862, 7783.09850269)
+                                    (0.9931, 7773.89502481)
+                                    (0.9974, 7650.36324736)
+                                    (0.9989, 7493.97702299)
+                                    (0.9996, 7491.71487821)
+                            };
+            \addlegendentry{ mrpt };
+                                \addplot coordinates {
+                                                (0.9523, 27659.4324754)
+                                    (0.9737, 25176.196593)
+                                    (0.9913, 24985.7268806)
+                                    (0.997, 20898.583942)
+                                    (0.9998, 20647.1532229)
+                                    (1.0, 16015.3956593)
+                            };
+            \addlegendentry{ n2 };
+                                \addplot coordinates {
+                                                (0.5455, 28848.2447452)
+                                    (0.9246, 25269.4794045)
+                                    (0.9729, 22235.3789389)
+                                    (0.9879, 19986.9622401)
+                                    (0.988, 19756.0302395)
+                                    (0.99, 19349.9907732)
+                                    (0.992, 18645.7432195)
+                                    (0.995, 16606.4354182)
+                            };
+            \addlegendentry{ NGT-onng };
+                                \addplot coordinates {
+                                                (0.9997, 588.753489768)
+                                    (0.9998, 316.357586688)
+                            };
+            \addlegendentry{ puffinn };
+                                \addplot coordinates {
+                                                (0.9838, 8387.45053183)
+                                    (0.9842, 8302.19871577)
+                                    (0.9859, 8157.02992056)
+                                    (0.9903, 8140.17001126)
+                                    (0.9924, 8050.67295216)
+                                    (0.9945, 7981.68569966)
+                                    (0.9948, 7868.33776997)
+                                    (0.995, 7775.00463426)
+                                    (0.9978, 7549.41502574)
+                                    (0.999, 7371.41210132)
+                                    (0.9999, 6974.61616617)
+                                    (1.0, 6955.72802653)
+                            };
+            \addlegendentry{ pynndescent };
+                                \addplot coordinates {
+                                                (0.9439, 10098.4831704)
+                                    (0.9985, 7552.56883972)
+                                    (0.9998, 4617.26383648)
+                                    (1.0, 3058.16954768)
+                            };
+            \addlegendentry{ rpforest };
+                                \addplot coordinates {
+                                                (0.5942, 32467.1713653)
+                                    (0.7115, 29149.5805795)
+                                    (0.818, 25420.0242424)
+                                    (0.8457, 23637.2058948)
+                                    (0.8985, 20498.6169079)
+                                    (0.9137, 16969.1712654)
+                                    (0.9218, 15111.1783631)
+                                    (0.9278, 13997.3435675)
+                                    (0.9984, 11303.3603096)
+                                    (0.9994, 9944.95343235)
+                                    (1.0, 6841.66621809)
+                            };
+            \addlegendentry{ SW-graph(nmslib) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+                                                        <h2>Scatterplots for random-xs-20-angular (k = 10)</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)Scatterplot ">
+            <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)Scatterplot ");
+                var chart = new Chart(ctx, {
+                                        type: "bubble",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 255, 178, 1)",
+                            data: [
+                                                                    { x: 0.9868 , y: 4083.11665049, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.9978 , y: 3770.29307095, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9998 , y: 3257.73714747, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 1.0 , y: 2535.07475632, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.9876 , y: 2128.38930564, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.9976 , y: 2017.04602562, label: "Annoy(n_trees=200, search_k=200)" },
+                                                                    { x: 1.0 , y: 1861.84380201, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9998 , y: 1843.22475033, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 1.0 , y: 1551.08253572, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0 , y: 1249.46907371, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 1.0 , y: 1208.43468918, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 1.0 , y: 899.508544497, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 1.0 , y: 532.092736255, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 1.0 , y: 485.946290954, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 1.0 , y: 258.048702578, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 1.0 , y: 256.17058234, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 1.0 , y: 130.219906045, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 1.0 , y: 126.213429797, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 1.0 , y: 53.0897178796, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 1.0 , y: 51.5628845, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 1.0 , y: 27.0917794694, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 26.2039893188, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 1.0 , y: 13.5070685765, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "BallTree(nmslib)",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(204, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.1758 , y: 74724.8173882, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.1'])" },
+                                                                    { x: 0.2435 , y: 70773.2181425, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.2'])" },
+                                                                    { x: 0.4823 , y: 55971.8159496, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.4'])" },
+                                                                    { x: 0.6999 , y: 47555.5454772, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.6'])" },
+                                                                    { x: 0.7978 , y: 42491.6066417, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.7'])" },
+                                                                    { x: 0.613 , y: 41843.870028, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.5'])" },
+                                                                    { x: 0.8848 , y: 35893.5423691, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.8'])" },
+                                                                    { x: 0.9201 , y: 35825.4808842, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.85'])" },
+                                                                    { x: 0.9861 , y: 27746.16153, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.95'])" },
+                                                                    { x: 0.995 , y: 25961.2775439, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.97'])" },
+                                                                    { x: 0.999 , y: 23694.8924655, label: "Nmslib(method_name=vptree, index_param=['tuneK=10', 'desiredRecall=0.99'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "eCP",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(255, 204, 102, 1)",
+                            data: [
+                                                                    { x: 0.8856 , y: 16998.1236145, label: "eCP(L=1, b=1)" },
+                                                                    { x: 0.9773 , y: 13035.180627, label: "eCP(L=1, b=2)" },
+                                                                    { x: 0.9973 , y: 8955.75825903, label: "eCP(L=1, b=4)" },
+                                                                    { x: 0.9924 , y: 8734.3120718, label: "eCP(L=1, b=3)" },
+                                                                    { x: 0.9992 , y: 8250.99785773, label: "eCP(L=1, b=5)" },
+                                                                    { x: 1.0 , y: 4669.23526498, label: "eCP(L=1, b=10)" },
+                                                                    { x: 1.0 , y: 2305.53172075, label: "eCP(L=1, b=20)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(178, 178, 102, 1)",
+                            data: [
+                                                                    { x: 0.7698 , y: 10834.7472076, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.585 , y: 9493.864746, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.9999 , y: 8661.21095355, label: "FaissIVF(n_list=256, n_probe=5)" },
+                                                                    { x: 0.9979 , y: 8202.71800458, label: "FaissIVF(n_list=512, n_probe=5)" },
+                                                                    { x: 0.429 , y: 7465.27315509, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 1.0 , y: 7066.66172452, label: "FaissIVF(n_list=256, n_probe=10)" },
+                                                                    { x: 1.0 , y: 7008.46000505, label: "FaissIVF(n_list=512, n_probe=10)" },
+                                                                    { x: 0.9754 , y: 6532.85817529, label: "FaissIVF(n_list=1024, n_probe=5)" },
+                                                                    { x: 0.9998 , y: 5877.17400443, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.3234 , y: 4993.07638829, label: "FaissIVF(n_list=2048, n_probe=1)" },
+                                                                    { x: 0.9116 , y: 4627.15082381, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.9955 , y: 4148.34449138, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 1.0 , y: 3303.67331764, label: "FaissIVF(n_list=512, n_probe=50)" },
+                                                                    { x: 1.0 , y: 3211.93152971, label: "FaissIVF(n_list=1024, n_probe=50)" },
+                                                                    { x: 0.2319 , y: 3047.62569092, label: "FaissIVF(n_list=4096, n_probe=1)" },
+                                                                    { x: 0.7991 , y: 2896.15275995, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 1.0 , y: 2826.26851109, label: "FaissIVF(n_list=256, n_probe=50)" },
+                                                                    { x: 0.9858 , y: 2640.96664715, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 1.0 , y: 2630.79411733, label: "FaissIVF(n_list=2048, n_probe=50)" },
+                                                                    { x: 1.0 , y: 2084.46801215, label: "FaissIVF(n_list=1024, n_probe=100)" },
+                                                                    { x: 1.0 , y: 2051.055552, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1976.18292643, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 1.0 , y: 1719.75446278, label: "FaissIVF(n_list=2048, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1687.85344667, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.1226 , y: 1657.86698499, label: "FaissIVF(n_list=8192, n_probe=1)" },
+                                                                    { x: 0.5518 , y: 1652.89316125, label: "FaissIVF(n_list=8192, n_probe=5)" },
+                                                                    { x: 0.9856 , y: 1590.37984725, label: "FaissIVF(n_list=8192, n_probe=10)" },
+                                                                    { x: 1.0 , y: 1471.24424076, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 1.0 , y: 1281.8793177, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 1.0 , y: 1249.96468525, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1188.52445777, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1127.82668975, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 1.0 , y: 1035.69454905, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 1.0 , y: 995.875512712, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 1.0 , y: 939.944499337, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 1.0 , y: 756.340019623, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "flann",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.3605 , y: 5652.15996852, label: "FLANN(target_precision=0.200000)" },
+                                                                    { x: 0.4459 , y: 5542.2223573, label: "FLANN(target_precision=0.500000)" },
+                                                                    { x: 0.6692 , y: 5341.55181592, label: "FLANN(target_precision=0.700000)" },
+                                                                    { x: 0.9116 , y: 5135.66654137, label: "FLANN(target_precision=0.900000)" },
+                                                                    { x: 0.9858 , y: 4895.46134687, label: "FLANN(target_precision=0.970000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.9959 , y: 8022.8617773, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9955 , y: 7651.36808002, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9965 , y: 7610.30237601, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.995 , y: 7340.83582152, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9946 , y: 7281.01933826, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9944 , y: 6831.8817587, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 1.0 , y: 5910.90873987, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9996 , y: 5678.09920656, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9999 , y: 5518.41443262, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9998 , y: 5403.65912262, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9997 , y: 5167.22536167, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9997 , y: 5099.37095296, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.0 , y: 3525.01918282, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 3376.26258561, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 3318.93228967, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 3251.2270671, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 3117.9409106, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 3033.82388894, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0 , y: 1534.15253726, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 1475.61281516, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 1470.36898889, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 1457.84630464, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 1434.20897858, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 1380.39500658, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0 , y: 802.639140347, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 779.654173896, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 778.791808981, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 772.263569882, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 770.850934594, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 726.172734173, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 341.636519063, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 333.758073491, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 331.351792046, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 330.578788579, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 328.893591658, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 328.853183733, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0 , y: 98.813473779, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 97.1514768502, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 96.6699634405, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 96.1621320016, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 95.9518615531, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 95.9186156832, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0 , y: 46.0902058411, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 45.6409640118, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 45.4522224699, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 45.1895328631, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 45.1478856912, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 45.0533807883, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0 , y: 26.5899267097, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 1.0 , y: 26.2304458195, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 1.0 , y: 26.2232316566, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 1.0 , y: 26.0146749347, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 1.0 , y: 25.9620024424, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 1.0 , y: 25.7981250022, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(178, 178, 178, 1)",
+                            data: [
+                                                                    { x: 0.4823 , y: 59000.7455443, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.8178 , y: 47719.4834746, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9643 , y: 43805.656515, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.8503 , y: 43723.9150604, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9961 , y: 39847.4619747, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9728 , y: 39844.8121901, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9967 , y: 37666.7355168, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9992 , y: 35050.675224, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9995 , y: 32915.6059203, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9997 , y: 32720.7083512, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 0.9996 , y: 32053.8012411, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 0.9997 , y: 28858.9632443, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 26993.1524481, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 25274.3520678, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 24326.5107269, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 22689.0836309, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 20992.7226499, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 20601.6179497, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 20572.5160512, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 18419.9029446, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 16868.8475801, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 16418.1831704, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 15020.4268729, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 14898.2488545, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 14778.6151954, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 13294.1489699, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=0', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 13230.6168478, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 11752.7011881, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 10393.800847, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 9433.5214353, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 8550.39864313, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 7086.05024412, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 6095.04323185, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 5183.03537777, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 4186.27472508, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 2780.64219295, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 2101.079969, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 1396.88092503, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 1199.85216055, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 1087.89610074, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 1028.32771316, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 911.018176905, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 790.350061637, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 696.492102927, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                                    { x: 1.0 , y: 558.898264036, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=800'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnswlib",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9342 , y: 31218.7686078, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9942 , y: 29728.7044781, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9964 , y: 28353.8772503, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9961 , y: 28087.4840956, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9968 , y: 27410.3477346, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 27333.0031541, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.9871 , y: 26439.1326273, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.997 , y: 26116.6258819, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 24944.2690027, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 23655.0693414, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 23132.0538275, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9997 , y: 22291.3934034, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 21634.1747733, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9988 , y: 21266.5939916, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 20897.5426988, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 0.9969 , y: 20839.2946753, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 19427.7879681, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 17977.0781008, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 17415.5300058, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 0.9996 , y: 17208.0363993, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16989.1729214, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16826.4164417, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 0.9999 , y: 16359.8436683, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 16335.7584633, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 14137.8968622, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 13993.6542677, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 12813.0210449, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 0.9999 , y: 12420.9796878, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 12420.6854276, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11923.0544003, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11497.1341482, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 11227.234644, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 10036.1168738, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 9366.40442337, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 9189.65154596, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8735.00329049, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8414.32216855, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8302.60957007, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 8205.83131333, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 7945.86443375, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6476.80932939, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 6460.49816473, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5931.45522246, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5616.91003953, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5368.44799869, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5233.55119499, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 5107.82278089, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 4729.52548053, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 4428.52421733, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3649.50260206, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3345.92471338, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3280.25964885, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 3178.77694925, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2988.77757596, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2956.91076684, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2921.5589713, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2596.16310695, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2460.15818011, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2418.36393451, label: "hnswlib ({'M': 4, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2284.93604114, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2196.76887833, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2108.179889, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2081.3369611, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 2002.77713581, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1899.90052744, label: "hnswlib ({'M': 8, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1784.07532557, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1737.06099318, label: "hnswlib ({'M': 12, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1669.18073601, label: "hnswlib ({'M': 16, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1599.2203508, label: "hnswlib ({'M': 24, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1583.80512377, label: "hnswlib ({'M': 48, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1536.22203209, label: "hnswlib ({'M': 64, 'efConstruction': 500})" },
+                                                                    { x: 1.0 , y: 1350.56982896, label: "hnswlib ({'M': 96, 'efConstruction': 500})" },
+                                                            ]
+                        },
+                                                {
+                            label: "kd",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(153, 102, 127, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
+                                                                    { x: 1.0 , y: 3093.11260798, label: "KDTree(leaf_size=100)" },
+                                                                    { x: 1.0 , y: 2602.49061521, label: "KDTree(leaf_size=200)" },
+                                                                    { x: 1.0 , y: 1678.54878884, label: "KDTree(leaf_size=1000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "mrpt",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 153, 102, 1)",
+                            data: [
+                                                                    { x: 0.2959 , y: 8550.5206592, label: "MRPT(target recall=0.200, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5343 , y: 8481.60026531, label: "MRPT(target recall=0.400, trees=2, depth=9, vote threshold=1, estimated recall=0.421)" },
+                                                                    { x: 0.2959 , y: 8461.75137892, label: "MRPT(target recall=0.100, trees=1, depth=9, vote threshold=1, estimated recall=0.236)" },
+                                                                    { x: 0.5979 , y: 8380.93106714, label: "MRPT(target recall=0.500, trees=1, depth=7, vote threshold=1, estimated recall=0.502)" },
+                                                                    { x: 0.8247 , y: 8305.61826232, label: "MRPT(target recall=0.600, trees=4, depth=9, vote threshold=1, estimated recall=0.664)" },
+                                                                    { x: 0.8692 , y: 8219.91882586, label: "MRPT(target recall=0.700, trees=3, depth=8, vote threshold=1, estimated recall=0.735)" },
+                                                                    { x: 0.4418 , y: 8205.71893635, label: "MRPT(target recall=0.300, trees=1, depth=8, vote threshold=1, estimated recall=0.359)" },
+                                                                    { x: 0.9381 , y: 8066.85348202, label: "MRPT(target recall=0.800, trees=6, depth=9, vote threshold=1, estimated recall=0.801)" },
+                                                                    { x: 0.9826 , y: 7800.30871659, label: "MRPT(target recall=0.900, trees=10, depth=8, vote threshold=2, estimated recall=0.919)" },
+                                                                    { x: 0.9736 , y: 7783.14183071, label: "MRPT(target recall=0.850, trees=5, depth=8, vote threshold=1, estimated recall=0.890)" },
+                                                                    { x: 0.9862 , y: 7783.09850269, label: "MRPT(target recall=0.925, trees=7, depth=7, vote threshold=2, estimated recall=0.938)" },
+                                                                    { x: 0.9931 , y: 7773.89502481, label: "MRPT(target recall=0.950, trees=8, depth=7, vote threshold=2, estimated recall=0.965)" },
+                                                                    { x: 0.9974 , y: 7650.36324736, label: "MRPT(target recall=0.980, trees=10, depth=7, vote threshold=2, estimated recall=0.988)" },
+                                                                    { x: 0.9958 , y: 7628.82300194, label: "MRPT(target recall=0.970, trees=9, depth=7, vote threshold=2, estimated recall=0.979)" },
+                                                                    { x: 0.9989 , y: 7493.97702299, label: "MRPT(target recall=0.990, trees=11, depth=7, vote threshold=2, estimated recall=0.993)" },
+                                                                    { x: 0.9996 , y: 7491.71487821, label: "MRPT(target recall=0.995, trees=12, depth=7, vote threshold=2, estimated recall=0.996)" },
+                                                            ]
+                        },
+                                                {
+                            label: "n2",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.9523 , y: 27659.4324754, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9737 , y: 25176.196593, label: "N2 (M8_efCon500)" },
+                                                                    { x: 0.9913 , y: 24985.7268806, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9667 , y: 23019.8239336, label: "N2 (M12_efCon500)" },
+                                                                    { x: 0.997 , y: 20898.583942, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9998 , y: 20647.1532229, label: "N2 (M8_efCon500)" },
+                                                                    { x: 0.9818 , y: 20214.4874452, label: "N2 (M36_efCon500)" },
+                                                                    { x: 0.9708 , y: 19528.5550662, label: "N2 (M24_efCon500)" },
+                                                                    { x: 0.9951 , y: 17841.0416303, label: "N2 (M12_efCon500)" },
+                                                                    { x: 0.9903 , y: 17734.9006342, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 16015.3956593, label: "N2 (M4_efCon500)" },
+                                                                    { x: 1.0 , y: 16005.0675224, label: "N2 (M8_efCon500)" },
+                                                                    { x: 0.9928 , y: 15728.9742407, label: "N2 (M36_efCon500)" },
+                                                                    { x: 0.9884 , y: 15565.1283269, label: "N2 (M24_efCon500)" },
+                                                                    { x: 0.9958 , y: 14032.1370861, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 13714.2707669, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 12324.7696987, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9998 , y: 11698.9074559, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 11577.2325409, label: "N2 (M8_efCon500)" },
+                                                                    { x: 0.9997 , y: 11344.020209, label: "N2 (M24_efCon500)" },
+                                                                    { x: 0.9984 , y: 10243.6012661, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 9296.73130759, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 8821.3666028, label: "N2 (M4_efCon500)" },
+                                                                    { x: 1.0 , y: 7975.67538273, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 7631.11318118, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 7560.27412569, label: "N2 (M24_efCon500)" },
+                                                                    { x: 0.9986 , y: 6816.30464106, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 6233.97253922, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 5909.75941386, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 5492.29902969, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 5374.74259104, label: "N2 (M24_efCon500)" },
+                                                                    { x: 1.0 , y: 5007.94479004, label: "N2 (M4_efCon500)" },
+                                                                    { x: 0.9993 , y: 4903.50246502, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 4450.09076721, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 3621.93660257, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 3576.51777812, label: "N2 (M24_efCon500)" },
+                                                                    { x: 1.0 , y: 3474.70047999, label: "N2 (M4_efCon500)" },
+                                                                    { x: 1.0 , y: 3316.71720986, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 3234.84057958, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 2704.0922703, label: "N2 (M4_efCon500)" },
+                                                                    { x: 1.0 , y: 2494.1154084, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 2279.83147646, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 2034.84504473, label: "N2 (M24_efCon500)" },
+                                                                    { x: 1.0 , y: 2017.43701137, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 1798.40230783, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 1775.37503878, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 1773.11519763, label: "N2 (M8_efCon500)" },
+                                                                    { x: 1.0 , y: 1420.75864503, label: "N2 (M24_efCon500)" },
+                                                                    { x: 1.0 , y: 1394.62175206, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 1346.6823094, label: "N2 (M12_efCon500)" },
+                                                                    { x: 1.0 , y: 1261.81405867, label: "N2 (M96_efCon500)" },
+                                                                    { x: 1.0 , y: 1110.41030844, label: "N2 (M24_efCon500)" },
+                                                                    { x: 1.0 , y: 1098.2138953, label: "N2 (M36_efCon500)" },
+                                                                    { x: 1.0 , y: 998.530880436, label: "N2 (M96_efCon500)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(204, 102, 229, 1)",
+                            data: [
+                                                                    { x: 0.5455 , y: 28848.2447452, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.9246 , y: 25269.4794045, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.9729 , y: 22235.3789389, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.9879 , y: 19986.9622401, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.988 , y: 19756.0302395, label: "ONNG-NGT(100, 10, 120, -2, 1.030)" },
+                                                                    { x: 0.99 , y: 19349.9907732, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.99 , y: 19114.7164446, label: "ONNG-NGT(100, 10, 120, -2, 1.070)" },
+                                                                    { x: 0.992 , y: 18645.7432195, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.995 , y: 16606.4354182, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(255, 153, 178, 1)",
+                            data: [
+                                                                    { x: 0.9997 , y: 588.753489768, label: "PUFFINN(space=268435456, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 586.750281148, label: "PUFFINN(space=268435456, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 585.054299119, label: "PUFFINN(space=268435456, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 584.355021355, label: "PUFFINN(space=268435456, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 583.436744197, label: "PUFFINN(space=268435456, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 579.408027162, label: "PUFFINN(space=268435456, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997 , y: 579.25535037, label: "PUFFINN(space=268435456, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 316.357586688, label: "PUFFINN(space=536870912, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 315.165823893, label: "PUFFINN(space=536870912, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 314.615705717, label: "PUFFINN(space=536870912, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 312.21919802, label: "PUFFINN(space=536870912, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 312.201047666, label: "PUFFINN(space=536870912, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 310.482702689, label: "PUFFINN(space=536870912, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 278.198763717, label: "PUFFINN(space=536870912, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 153.783823481, label: "PUFFINN(space=1073741824, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 153.272277602, label: "PUFFINN(space=1073741824, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.996749802, label: "PUFFINN(space=1073741824, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.907518582, label: "PUFFINN(space=1073741824, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.88298403, label: "PUFFINN(space=1073741824, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 152.56427259, label: "PUFFINN(space=1073741824, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9995 , y: 145.86797693, label: "PUFFINN(space=1073741824, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.5019248311, label: "PUFFINN(space=2147483648, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.4586102798, label: "PUFFINN(space=2147483648, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.3495290997, label: "PUFFINN(space=2147483648, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.2963486381, label: "PUFFINN(space=2147483648, recall=0.990000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.2870071169, label: "PUFFINN(space=2147483648, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 74.1737000573, label: "PUFFINN(space=2147483648, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9998 , y: 73.6020523692, label: "PUFFINN(space=2147483648, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.9838 , y: 8387.45053183, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9763 , y: 8326.19484345, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.9842 , y: 8302.19871577, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9775 , y: 8247.65556637, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9815 , y: 8236.64195591, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.978 , y: 8224.27062438, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9792 , y: 8190.57624749, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9837 , y: 8190.22438495, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9859 , y: 8157.02992056, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9903 , y: 8140.17001126, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9867 , y: 8127.26758358, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9901 , y: 8089.88105226, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9924 , y: 8050.67295216, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9869 , y: 7994.93728794, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.9864 , y: 7994.48012961, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.9945 , y: 7981.68569966, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9871 , y: 7978.0116523, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.9928 , y: 7956.00801992, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.9876 , y: 7928.29140124, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9868 , y: 7888.06306984, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9869 , y: 7880.80072452, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9806 , y: 7879.39426616, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9869 , y: 7870.5229559, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9948 , y: 7868.33776997, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.9929 , y: 7828.21724061, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9918 , y: 7790.3699136, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.9803 , y: 7788.72072942, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.9869 , y: 7785.06319105, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.995 , y: 7775.00463426, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7727.58995523, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.9879 , y: 7709.97591956, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.993 , y: 7692.8652654, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.981 , y: 7684.32430848, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.9919 , y: 7679.10479186, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7671.43612264, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7658.00380499, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.9869 , y: 7625.32792533, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.992 , y: 7614.37804081, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.989 , y: 7586.88652693, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9978 , y: 7549.41502574, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.993 , y: 7513.17307348, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.992 , y: 7503.44195898, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.993 , y: 7494.75369529, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.987 , y: 7472.74800456, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9959 , y: 7447.51075141, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.987 , y: 7441.61752078, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7428.66150323, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.9957 , y: 7419.17418583, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7386.53578265, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 7379.55690679, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 7371.41210132, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7349.32522174, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.995 , y: 7347.13668117, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.9959 , y: 7346.14582987, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.995 , y: 7338.9091469, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7325.04130297, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.989 , y: 7317.4758806, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 7247.6408859, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.994 , y: 7246.85197728, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7219.55921537, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.9979 , y: 7214.6911703, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7204.64059282, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.999 , y: 7172.15340524, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.989 , y: 7172.09208477, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 7158.84695276, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9989 , y: 7082.83137362, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 0.994 , y: 7078.30119583, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 7054.18241998, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9999 , y: 6974.61616617, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 6971.70629868, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 6955.72802653, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 6917.0818429, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
+                                                                    { x: 0.989 , y: 6906.18218222, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 6901.89780205, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 0.988 , y: 6882.23759884, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 6815.46286216, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 6775.6617261, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 6641.48553278, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.988 , y: 6599.23785429, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6588.46740484, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 6573.03152444, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.994 , y: 6455.44694651, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 6408.44863834, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6375.79501648, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6261.87490296, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6162.57498799, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6076.20052037, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6038.33213602, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5932.02566681, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 5930.54106256, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5769.52196496, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 5690.55604398, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 5665.09224355, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5610.32095826, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 5601.42736568, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.999 , y: 5081.38100811, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4804.1197438, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4582.79685499, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4477.88869079, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4326.78585613, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 4193.60366819, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 4089.09565782, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.360, leaf_size=080)" },
+                                                            ]
+                        },
+                                                {
+                            label: "rpforest",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(102, 229, 153, 1)",
+                            data: [
+                                                                    { x: 0.9439 , y: 10098.4831704, label: "RPForest(leaf_size=100, n_trees=3)" },
+                                                                    { x: 0.9985 , y: 7552.56883972, label: "RPForest(leaf_size=40, n_trees=10)" },
+                                                                    { x: 0.9998 , y: 4617.26383648, label: "RPForest(leaf_size=100, n_trees=10)" },
+                                                                    { x: 0.9994 , y: 3745.04803743, label: "RPForest(leaf_size=3, n_trees=100)" },
+                                                                    { x: 1.0 , y: 3058.16954768, label: "RPForest(leaf_size=10, n_trees=100)" },
+                                                                    { x: 1.0 , y: 2770.78532925, label: "RPForest(leaf_size=40, n_trees=40)" },
+                                                                    { x: 1.0 , y: 1148.37117792, label: "RPForest(leaf_size=400, n_trees=10)" },
+                                                                    { x: 1.0 , y: 956.02926049, label: "RPForest(leaf_size=3, n_trees=400)" },
+                                                                    { x: 1.0 , y: 811.666875342, label: "RPForest(leaf_size=10, n_trees=400)" },
+                                                                    { x: 1.0 , y: 353.118104057, label: "RPForest(leaf_size=400, n_trees=40)" },
+                                                                    { x: 1.0 , y: 336.315801543, label: "RPForest(leaf_size=40, n_trees=400)" },
+                                                                    { x: 1.0 , y: 175.883270281, label: "RPForest(leaf_size=100, n_trees=400)" },
+                                                                    { x: 1.0 , y: 171.209331138, label: "RPForest(leaf_size=400, n_trees=100)" },
+                                                                    { x: 1.0 , y: 53.0608884975, label: "RPForest(leaf_size=400, n_trees=400)" },
+                                                            ]
+                        },
+                                                {
+                            label: "SW-graph(nmslib)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(127, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.5942 , y: 32467.1713653, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.7115 , y: 29149.5805795, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.818 , y: 25420.0242424, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.8457 , y: 23637.2058948, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.8985 , y: 20498.6169079, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9137 , y: 16969.1712654, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9218 , y: 15111.1783631, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9278 , y: 13997.3435675, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9984 , y: 11303.3603096, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                                    { x: 0.9428 , y: 10770.4222603, label: "Nmslib(method_name=sw-graph, index_param=['NN=3'])" },
+                                                                    { x: 0.9994 , y: 9944.95343235, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                                    { x: 0.9994 , y: 8190.06445742, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                                    { x: 1.0 , y: 6841.66621809, label: "Nmslib(method_name=sw-graph, index_param=['NN=15'])" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+                            <div class="row">
+                    <div class="col-md-4 text-center">
+                        <button type="button" id="button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" class="btn btn-default" >Toggle latex code</button>
+                    </div>
+                </div>
+                <script>
+                    $("#button_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").click(function() {
+                        $("#plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585").toggle();
+                    });
+                </script>
+                <div id="plot_88ea4dc8a3f4fede75cc5db043ee752d7a7af326ddadf1a9692d3585" style="display:none">
+                    <pre>
+                    
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ Recall },
+            ylabel={ Queries per second (1/s) },
+            ymode = log,
+            yticklabel style={/pgf/number format/fixed,
+                              /pgf/number format/precision=3},
+            legend style = { anchor=west},
+            cycle list name = black white
+            ]
+                                \addplot [only marks] coordinates {
+                                                (0.9868, 4083.11665049)
+                                    (0.9978, 3770.29307095)
+                                    (0.9998, 3257.73714747)
+                                    (1.0, 2535.07475632)
+                                    (0.9876, 2128.38930564)
+                                    (0.9976, 2017.04602562)
+                                    (1.0, 1861.84380201)
+                                    (0.9998, 1843.22475033)
+                                    (1.0, 1551.08253572)
+                                    (1.0, 1249.46907371)
+                                    (1.0, 1208.43468918)
+                                    (1.0, 899.508544497)
+                                    (1.0, 532.092736255)
+                                    (1.0, 485.946290954)
+                                    (1.0, 258.048702578)
+                                    (1.0, 256.17058234)
+                                    (1.0, 130.219906045)
+                                    (1.0, 126.213429797)
+                                    (1.0, 53.0897178796)
+                                    (1.0, 51.5628845)
+                                    (1.0, 27.0917794694)
+                                    (1.0, 26.2039893188)
+                                    (1.0, 13.5070685765)
+                            };
+            \addlegendentry{ annoy };
+                                \addplot [only marks] coordinates {
+                                                (0.1758, 74724.8173882)
+                                    (0.2435, 70773.2181425)
+                                    (0.4823, 55971.8159496)
+                                    (0.6999, 47555.5454772)
+                                    (0.7978, 42491.6066417)
+                                    (0.613, 41843.870028)
+                                    (0.8848, 35893.5423691)
+                                    (0.9201, 35825.4808842)
+                                    (0.9861, 27746.16153)
+                                    (0.995, 25961.2775439)
+                                    (0.999, 23694.8924655)
+                            };
+            \addlegendentry{ BallTree(nmslib) };
+                                \addplot [only marks] coordinates {
+                                                (0.8856, 16998.1236145)
+                                    (0.9773, 13035.180627)
+                                    (0.9973, 8955.75825903)
+                                    (0.9924, 8734.3120718)
+                                    (0.9992, 8250.99785773)
+                                    (1.0, 4669.23526498)
+                                    (1.0, 2305.53172075)
+                            };
+            \addlegendentry{ eCP };
+                                \addplot [only marks] coordinates {
+                                                (0.7698, 10834.7472076)
+                                    (0.585, 9493.864746)
+                                    (0.9999, 8661.21095355)
+                                    (0.9979, 8202.71800458)
+                                    (0.429, 7465.27315509)
+                                    (1.0, 7066.66172452)
+                                    (1.0, 7008.46000505)
+                                    (0.9754, 6532.85817529)
+                                    (0.9998, 5877.17400443)
+                                    (0.3234, 4993.07638829)
+                                    (0.9116, 4627.15082381)
+                                    (0.9955, 4148.34449138)
+                                    (1.0, 3303.67331764)
+                                    (1.0, 3211.93152971)
+                                    (0.2319, 3047.62569092)
+                                    (0.7991, 2896.15275995)
+                                    (1.0, 2826.26851109)
+                                    (0.9858, 2640.96664715)
+                                    (1.0, 2630.79411733)
+                                    (1.0, 2084.46801215)
+                                    (1.0, 2051.055552)
+                                    (1.0, 1976.18292643)
+                                    (1.0, 1719.75446278)
+                                    (1.0, 1687.85344667)
+                                    (0.1226, 1657.86698499)
+                                    (0.5518, 1652.89316125)
+                                    (0.9856, 1590.37984725)
+                                    (1.0, 1471.24424076)
+                                    (1.0, 1281.8793177)
+                                    (1.0, 1249.96468525)
+                                    (1.0, 1188.52445777)
+                                    (1.0, 1127.82668975)
+                                    (1.0, 1035.69454905)
+                                    (1.0, 995.875512712)
+                                    (1.0, 939.944499337)
+                                    (1.0, 756.340019623)
+                            };
+            \addlegendentry{ faiss-ivf };
+                                \addplot [only marks] coordinates {
+                                                (0.3605, 5652.15996852)
+                                    (0.4459, 5542.2223573)
+                                    (0.6692, 5341.55181592)
+                                    (0.9116, 5135.66654137)
+                                    (0.9858, 4895.46134687)
+                            };
+            \addlegendentry{ flann };
+                                \addplot [only marks] coordinates {
+                                                (0.9959, 8022.8617773)
+                                    (0.9955, 7651.36808002)
+                                    (0.9965, 7610.30237601)
+                                    (0.995, 7340.83582152)
+                                    (0.9946, 7281.01933826)
+                                    (0.9944, 6831.8817587)
+                                    (1.0, 5910.90873987)
+                                    (0.9996, 5678.09920656)
+                                    (0.9999, 5518.41443262)
+                                    (0.9998, 5403.65912262)
+                                    (0.9997, 5167.22536167)
+                                    (0.9997, 5099.37095296)
+                                    (1.0, 3525.01918282)
+                                    (1.0, 3376.26258561)
+                                    (1.0, 3318.93228967)
+                                    (1.0, 3251.2270671)
+                                    (1.0, 3117.9409106)
+                                    (1.0, 3033.82388894)
+                                    (1.0, 1534.15253726)
+                                    (1.0, 1475.61281516)
+                                    (1.0, 1470.36898889)
+                                    (1.0, 1457.84630464)
+                                    (1.0, 1434.20897858)
+                                    (1.0, 1380.39500658)
+                                    (1.0, 802.639140347)
+                                    (1.0, 779.654173896)
+                                    (1.0, 778.791808981)
+                                    (1.0, 772.263569882)
+                                    (1.0, 770.850934594)
+                                    (1.0, 726.172734173)
+                                    (1.0, 341.636519063)
+                                    (1.0, 333.758073491)
+                                    (1.0, 331.351792046)
+                                    (1.0, 330.578788579)
+                                    (1.0, 328.893591658)
+                                    (1.0, 328.853183733)
+                                    (1.0, 98.813473779)
+                                    (1.0, 97.1514768502)
+                                    (1.0, 96.6699634405)
+                                    (1.0, 96.1621320016)
+                                    (1.0, 95.9518615531)
+                                    (1.0, 95.9186156832)
+                                    (1.0, 46.0902058411)
+                                    (1.0, 45.6409640118)
+                                    (1.0, 45.4522224699)
+                                    (1.0, 45.1895328631)
+                                    (1.0, 45.1478856912)
+                                    (1.0, 45.0533807883)
+                                    (1.0, 26.5899267097)
+                                    (1.0, 26.2304458195)
+                                    (1.0, 26.2232316566)
+                                    (1.0, 26.0146749347)
+                                    (1.0, 25.9620024424)
+                                    (1.0, 25.7981250022)
+                            };
+            \addlegendentry{ hnsw(faiss) };
+                                \addplot [only marks] coordinates {
+                                                (0.4823, 59000.7455443)
+                                    (0.8178, 47719.4834746)
+                                    (0.9643, 43805.656515)
+                                    (0.8503, 43723.9150604)
+                                    (0.9961, 39847.4619747)
+                                    (0.9728, 39844.8121901)
+                                    (0.9967, 37666.7355168)
+                                    (0.9992, 35050.675224)
+                                    (0.9995, 32915.6059203)
+                                    (0.9997, 32720.7083512)
+                                    (0.9996, 32053.8012411)
+                                    (0.9997, 28858.9632443)
+                                    (1.0, 26993.1524481)
+                                    (1.0, 25274.3520678)
+                                    (1.0, 24326.5107269)
+                                    (1.0, 22689.0836309)
+                                    (1.0, 20992.7226499)
+                                    (1.0, 20601.6179497)
+                                    (1.0, 20572.5160512)
+                                    (1.0, 18419.9029446)
+                                    (1.0, 16868.8475801)
+                                    (1.0, 16418.1831704)
+                                    (1.0, 15020.4268729)
+                                    (1.0, 14898.2488545)
+                                    (1.0, 14778.6151954)
+                                    (1.0, 13294.1489699)
+                                    (1.0, 13230.6168478)
+                                    (1.0, 11752.7011881)
+                                    (1.0, 10393.800847)
+                                    (1.0, 9433.5214353)
+                                    (1.0, 8550.39864313)
+                                    (1.0, 7086.05024412)
+                                    (1.0, 6095.04323185)
+                                    (1.0, 5183.03537777)
+                                    (1.0, 4186.27472508)
+                                    (1.0, 2780.64219295)
+                                    (1.0, 2101.079969)
+                                    (1.0, 1396.88092503)
+                                    (1.0, 1199.85216055)
+                                    (1.0, 1087.89610074)
+                                    (1.0, 1028.32771316)
+                                    (1.0, 911.018176905)
+                                    (1.0, 790.350061637)
+                                    (1.0, 696.492102927)
+                                    (1.0, 558.898264036)
+                            };
+            \addlegendentry{ hnsw(nmslib) };
+                                \addplot [only marks] coordinates {
+                                                (0.9342, 31218.7686078)
+                                    (0.9942, 29728.7044781)
+                                    (0.9964, 28353.8772503)
+                                    (0.9961, 28087.4840956)
+                                    (0.9968, 27410.3477346)
+                                    (0.9969, 27333.0031541)
+                                    (0.9871, 26439.1326273)
+                                    (0.997, 26116.6258819)
+                                    (0.9996, 24944.2690027)
+                                    (0.9996, 23655.0693414)
+                                    (0.9996, 23132.0538275)
+                                    (0.9997, 22291.3934034)
+                                    (0.9996, 21634.1747733)
+                                    (0.9988, 21266.5939916)
+                                    (0.9996, 20897.5426988)
+                                    (0.9969, 20839.2946753)
+                                    (1.0, 19427.7879681)
+                                    (1.0, 17977.0781008)
+                                    (1.0, 17415.5300058)
+                                    (0.9996, 17208.0363993)
+                                    (1.0, 16989.1729214)
+                                    (1.0, 16826.4164417)
+                                    (0.9999, 16359.8436683)
+                                    (1.0, 16335.7584633)
+                                    (1.0, 14137.8968622)
+                                    (1.0, 13993.6542677)
+                                    (1.0, 12813.0210449)
+                                    (0.9999, 12420.9796878)
+                                    (1.0, 12420.6854276)
+                                    (1.0, 11923.0544003)
+                                    (1.0, 11497.1341482)
+                                    (1.0, 11227.234644)
+                                    (1.0, 10036.1168738)
+                                    (1.0, 9366.40442337)
+                                    (1.0, 9189.65154596)
+                                    (1.0, 8735.00329049)
+                                    (1.0, 8414.32216855)
+                                    (1.0, 8302.60957007)
+                                    (1.0, 8205.83131333)
+                                    (1.0, 7945.86443375)
+                                    (1.0, 6476.80932939)
+                                    (1.0, 6460.49816473)
+                                    (1.0, 5931.45522246)
+                                    (1.0, 5616.91003953)
+                                    (1.0, 5368.44799869)
+                                    (1.0, 5233.55119499)
+                                    (1.0, 5107.82278089)
+                                    (1.0, 4729.52548053)
+                                    (1.0, 4428.52421733)
+                                    (1.0, 3649.50260206)
+                                    (1.0, 3345.92471338)
+                                    (1.0, 3280.25964885)
+                                    (1.0, 3178.77694925)
+                                    (1.0, 2988.77757596)
+                                    (1.0, 2956.91076684)
+                                    (1.0, 2921.5589713)
+                                    (1.0, 2596.16310695)
+                                    (1.0, 2460.15818011)
+                                    (1.0, 2418.36393451)
+                                    (1.0, 2284.93604114)
+                                    (1.0, 2196.76887833)
+                                    (1.0, 2108.179889)
+                                    (1.0, 2081.3369611)
+                                    (1.0, 2002.77713581)
+                                    (1.0, 1899.90052744)
+                                    (1.0, 1784.07532557)
+                                    (1.0, 1737.06099318)
+                                    (1.0, 1669.18073601)
+                                    (1.0, 1599.2203508)
+                                    (1.0, 1583.80512377)
+                                    (1.0, 1536.22203209)
+                                    (1.0, 1350.56982896)
+                            };
+            \addlegendentry{ hnswlib };
+                                \addplot [only marks] coordinates {
+                                                (1.0, 3219.01861585)
+                                    (1.0, 3093.11260798)
+                                    (1.0, 2602.49061521)
+                                    (1.0, 1678.54878884)
+                            };
+            \addlegendentry{ kd };
+                                \addplot [only marks] coordinates {
+                                                (0.2959, 8550.5206592)
+                                    (0.5343, 8481.60026531)
+                                    (0.2959, 8461.75137892)
+                                    (0.5979, 8380.93106714)
+                                    (0.8247, 8305.61826232)
+                                    (0.8692, 8219.91882586)
+                                    (0.4418, 8205.71893635)
+                                    (0.9381, 8066.85348202)
+                                    (0.9826, 7800.30871659)
+                                    (0.9736, 7783.14183071)
+                                    (0.9862, 7783.09850269)
+                                    (0.9931, 7773.89502481)
+                                    (0.9974, 7650.36324736)
+                                    (0.9958, 7628.82300194)
+                                    (0.9989, 7493.97702299)
+                                    (0.9996, 7491.71487821)
+                            };
+            \addlegendentry{ mrpt };
+                                \addplot [only marks] coordinates {
+                                                (0.9523, 27659.4324754)
+                                    (0.9737, 25176.196593)
+                                    (0.9913, 24985.7268806)
+                                    (0.9667, 23019.8239336)
+                                    (0.997, 20898.583942)
+                                    (0.9998, 20647.1532229)
+                                    (0.9818, 20214.4874452)
+                                    (0.9708, 19528.5550662)
+                                    (0.9951, 17841.0416303)
+                                    (0.9903, 17734.9006342)
+                                    (1.0, 16015.3956593)
+                                    (1.0, 16005.0675224)
+                                    (0.9928, 15728.9742407)
+                                    (0.9884, 15565.1283269)
+                                    (0.9958, 14032.1370861)
+                                    (1.0, 13714.2707669)
+                                    (1.0, 12324.7696987)
+                                    (0.9998, 11698.9074559)
+                                    (1.0, 11577.2325409)
+                                    (0.9997, 11344.020209)
+                                    (0.9984, 10243.6012661)
+                                    (1.0, 9296.73130759)
+                                    (1.0, 8821.3666028)
+                                    (1.0, 7975.67538273)
+                                    (1.0, 7631.11318118)
+                                    (1.0, 7560.27412569)
+                                    (0.9986, 6816.30464106)
+                                    (1.0, 6233.97253922)
+                                    (1.0, 5909.75941386)
+                                    (1.0, 5492.29902969)
+                                    (1.0, 5374.74259104)
+                                    (1.0, 5007.94479004)
+                                    (0.9993, 4903.50246502)
+                                    (1.0, 4450.09076721)
+                                    (1.0, 3621.93660257)
+                                    (1.0, 3576.51777812)
+                                    (1.0, 3474.70047999)
+                                    (1.0, 3316.71720986)
+                                    (1.0, 3234.84057958)
+                                    (1.0, 2704.0922703)
+                                    (1.0, 2494.1154084)
+                                    (1.0, 2279.83147646)
+                                    (1.0, 2034.84504473)
+                                    (1.0, 2017.43701137)
+                                    (1.0, 1798.40230783)
+                                    (1.0, 1775.37503878)
+                                    (1.0, 1773.11519763)
+                                    (1.0, 1420.75864503)
+                                    (1.0, 1394.62175206)
+                                    (1.0, 1346.6823094)
+                                    (1.0, 1261.81405867)
+                                    (1.0, 1110.41030844)
+                                    (1.0, 1098.2138953)
+                                    (1.0, 998.530880436)
+                            };
+            \addlegendentry{ n2 };
+                                \addplot [only marks] coordinates {
+                                                (0.5455, 28848.2447452)
+                                    (0.9246, 25269.4794045)
+                                    (0.9729, 22235.3789389)
+                                    (0.9879, 19986.9622401)
+                                    (0.988, 19756.0302395)
+                                    (0.99, 19349.9907732)
+                                    (0.99, 19114.7164446)
+                                    (0.992, 18645.7432195)
+                                    (0.995, 16606.4354182)
+                            };
+            \addlegendentry{ NGT-onng };
+                                \addplot [only marks] coordinates {
+                                                (0.9997, 588.753489768)
+                                    (0.9997, 586.750281148)
+                                    (0.9997, 585.054299119)
+                                    (0.9997, 584.355021355)
+                                    (0.9997, 583.436744197)
+                                    (0.9997, 579.408027162)
+                                    (0.9997, 579.25535037)
+                                    (0.9998, 316.357586688)
+                                    (0.9998, 315.165823893)
+                                    (0.9998, 314.615705717)
+                                    (0.9998, 312.21919802)
+                                    (0.9998, 312.201047666)
+                                    (0.9998, 310.482702689)
+                                    (0.9998, 278.198763717)
+                                    (0.9995, 153.783823481)
+                                    (0.9995, 153.272277602)
+                                    (0.9995, 152.996749802)
+                                    (0.9995, 152.907518582)
+                                    (0.9995, 152.88298403)
+                                    (0.9995, 152.56427259)
+                                    (0.9995, 145.86797693)
+                                    (0.9998, 74.5019248311)
+                                    (0.9998, 74.4586102798)
+                                    (0.9998, 74.3495290997)
+                                    (0.9998, 74.2963486381)
+                                    (0.9998, 74.2870071169)
+                                    (0.9998, 74.1737000573)
+                                    (0.9998, 73.6020523692)
+                            };
+            \addlegendentry{ puffinn };
+                                \addplot [only marks] coordinates {
+                                                (0.9838, 8387.45053183)
+                                    (0.9763, 8326.19484345)
+                                    (0.9842, 8302.19871577)
+                                    (0.9775, 8247.65556637)
+                                    (0.9815, 8236.64195591)
+                                    (0.978, 8224.27062438)
+                                    (0.9792, 8190.57624749)
+                                    (0.9837, 8190.22438495)
+                                    (0.9859, 8157.02992056)
+                                    (0.9903, 8140.17001126)
+                                    (0.9867, 8127.26758358)
+                                    (0.9901, 8089.88105226)
+                                    (0.9924, 8050.67295216)
+                                    (0.9869, 7994.93728794)
+                                    (0.9864, 7994.48012961)
+                                    (0.9945, 7981.68569966)
+                                    (0.9871, 7978.0116523)
+                                    (0.9928, 7956.00801992)
+                                    (0.9876, 7928.29140124)
+                                    (0.9868, 7888.06306984)
+                                    (0.9869, 7880.80072452)
+                                    (0.9806, 7879.39426616)
+                                    (0.9869, 7870.5229559)
+                                    (0.9948, 7868.33776997)
+                                    (0.9929, 7828.21724061)
+                                    (0.9918, 7790.3699136)
+                                    (0.9803, 7788.72072942)
+                                    (0.9869, 7785.06319105)
+                                    (0.995, 7775.00463426)
+                                    (0.987, 7727.58995523)
+                                    (0.9879, 7709.97591956)
+                                    (0.993, 7692.8652654)
+                                    (0.981, 7684.32430848)
+                                    (0.9919, 7679.10479186)
+                                    (0.987, 7671.43612264)
+                                    (0.995, 7658.00380499)
+                                    (0.9869, 7625.32792533)
+                                    (0.992, 7614.37804081)
+                                    (0.989, 7586.88652693)
+                                    (0.9978, 7549.41502574)
+                                    (0.993, 7513.17307348)
+                                    (0.992, 7503.44195898)
+                                    (0.993, 7494.75369529)
+                                    (0.987, 7472.74800456)
+                                    (0.9959, 7447.51075141)
+                                    (0.987, 7441.61752078)
+                                    (0.995, 7428.66150323)
+                                    (0.9957, 7419.17418583)
+                                    (0.992, 7386.53578265)
+                                    (0.994, 7379.55690679)
+                                    (0.999, 7371.41210132)
+                                    (0.992, 7349.32522174)
+                                    (0.995, 7347.13668117)
+                                    (0.9959, 7346.14582987)
+                                    (0.995, 7338.9091469)
+                                    (0.987, 7325.04130297)
+                                    (0.989, 7317.4758806)
+                                    (0.999, 7247.6408859)
+                                    (0.994, 7246.85197728)
+                                    (0.995, 7219.55921537)
+                                    (0.9979, 7214.6911703)
+                                    (0.992, 7204.64059282)
+                                    (0.999, 7172.15340524)
+                                    (0.989, 7172.09208477)
+                                    (0.99, 7158.84695276)
+                                    (0.9989, 7082.83137362)
+                                    (0.994, 7078.30119583)
+                                    (0.989, 7054.18241998)
+                                    (0.9999, 6974.61616617)
+                                    (0.999, 6971.70629868)
+                                    (1.0, 6955.72802653)
+                                    (0.999, 6917.0818429)
+                                    (0.989, 6906.18218222)
+                                    (0.999, 6901.89780205)
+                                    (0.988, 6882.23759884)
+                                    (0.994, 6815.46286216)
+                                    (0.989, 6775.6617261)
+                                    (0.989, 6641.48553278)
+                                    (0.988, 6599.23785429)
+                                    (0.99, 6588.46740484)
+                                    (0.994, 6573.03152444)
+                                    (0.994, 6455.44694651)
+                                    (0.99, 6408.44863834)
+                                    (0.988, 6375.79501648)
+                                    (0.99, 6261.87490296)
+                                    (0.988, 6162.57498799)
+                                    (0.988, 6076.20052037)
+                                    (0.99, 6038.33213602)
+                                    (0.988, 5932.02566681)
+                                    (0.99, 5930.54106256)
+                                    (0.988, 5769.52196496)
+                                    (0.994, 5690.55604398)
+                                    (0.99, 5665.09224355)
+                                    (0.988, 5610.32095826)
+                                    (0.99, 5601.42736568)
+                                    (0.999, 5081.38100811)
+                                    (0.999, 4804.1197438)
+                                    (0.999, 4582.79685499)
+                                    (0.999, 4477.88869079)
+                                    (0.999, 4326.78585613)
+                                    (1.0, 4193.60366819)
+                                    (1.0, 4089.09565782)
+                            };
+            \addlegendentry{ pynndescent };
+                                \addplot [only marks] coordinates {
+                                                (0.9439, 10098.4831704)
+                                    (0.9985, 7552.56883972)
+                                    (0.9998, 4617.26383648)
+                                    (0.9994, 3745.04803743)
+                                    (1.0, 3058.16954768)
+                                    (1.0, 2770.78532925)
+                                    (1.0, 1148.37117792)
+                                    (1.0, 956.02926049)
+                                    (1.0, 811.666875342)
+                                    (1.0, 353.118104057)
+                                    (1.0, 336.315801543)
+                                    (1.0, 175.883270281)
+                                    (1.0, 171.209331138)
+                                    (1.0, 53.0608884975)
+                            };
+            \addlegendentry{ rpforest };
+                                \addplot [only marks] coordinates {
+                                                (0.5942, 32467.1713653)
+                                    (0.7115, 29149.5805795)
+                                    (0.818, 25420.0242424)
+                                    (0.8457, 23637.2058948)
+                                    (0.8985, 20498.6169079)
+                                    (0.9137, 16969.1712654)
+                                    (0.9218, 15111.1783631)
+                                    (0.9278, 13997.3435675)
+                                    (0.9984, 11303.3603096)
+                                    (0.9428, 10770.4222603)
+                                    (0.9994, 9944.95343235)
+                                    (0.9994, 8190.06445742)
+                                    (1.0, 6841.66621809)
+                            };
+            \addlegendentry{ SW-graph(nmslib) };
+            \end{axis}
+    \end{tikzpicture}
+    \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
+    \label{}
+\end{figure}
+                    </pre>
+                </div>
+            
+                        <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

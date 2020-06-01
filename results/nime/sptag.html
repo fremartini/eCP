@@ -57,10 +57,24 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.9105 , y: 4066.12509883, label: "Sptag(metric=L2, algo=BKT, check=100)" },
+                                                                    { x: 0.92833 , y: 3883.53103123, label: "Sptag(metric=L2, algo=BKT, check=200)" },
+                                                                    { x: 0.96694 , y: 3490.56347043, label: "Sptag(metric=L2, algo=BKT, check=400)" },
+                                                                    { x: 0.98838 , y: 2968.57936241, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
+                                                                    { x: 0.99528 , y: 2441.75022729, label: "Sptag(metric=L2, algo=BKT, check=2000)" },
+                                                                    { x: 0.99809 , y: 1877.10440084, label: "Sptag(metric=L2, algo=BKT, check=4000)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.91503 , y: 6421.72584617, label: "Sptag(metric=L2, algo=KDT, check=100)" },
                                                                     { x: 0.93223 , y: 5962.36194202, label: "Sptag(metric=L2, algo=KDT, check=200)" },
@@ -73,12 +87,12 @@
                                                             ]
                         },
                                                 {
-                            label: "random-xs-20-euclidean (k = 10)",
+                            label: "random-s-100-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
                             data: [
-                                                                    { x: 0.003 , y: 150268.844941, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
+                                                                    { x: 0.0005 , y: 148552.444704, label: "Sptag(metric=L2, algo=KDT, check=100)" },
                                                             ]
                         },
                                                 ]},
@@ -167,6 +181,15 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
+                                                (0.9105, 4066.12509883)
+                                    (0.92833, 3883.53103123)
+                                    (0.96694, 3490.56347043)
+                                    (0.98838, 2968.57936241)
+                                    (0.99528, 2441.75022729)
+                                    (0.99809, 1877.10440084)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
                                                 (0.91503, 6421.72584617)
                                     (0.93223, 5962.36194202)
                                     (0.95318, 5404.34076009)
@@ -178,9 +201,9 @@
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot coordinates {
-                                                (0.003, 150268.844941)
+                                                (0.0005, 148552.444704)
                             };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -200,10 +223,24 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.9105 , y: 4066.12509883, label: "Sptag(metric=L2, algo=BKT, check=100)" },
+                                                                    { x: 0.92833 , y: 3883.53103123, label: "Sptag(metric=L2, algo=BKT, check=200)" },
+                                                                    { x: 0.96694 , y: 3490.56347043, label: "Sptag(metric=L2, algo=BKT, check=400)" },
+                                                                    { x: 0.98838 , y: 2968.57936241, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
+                                                                    { x: 0.99528 , y: 2441.75022729, label: "Sptag(metric=L2, algo=BKT, check=2000)" },
+                                                                    { x: 0.99809 , y: 1877.10440084, label: "Sptag(metric=L2, algo=BKT, check=4000)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.91503 , y: 6421.72584617, label: "Sptag(metric=L2, algo=KDT, check=100)" },
                                                                     { x: 0.93223 , y: 5962.36194202, label: "Sptag(metric=L2, algo=KDT, check=200)" },
@@ -220,23 +257,17 @@
                                                             ]
                         },
                                                 {
-                            label: "random-xs-20-euclidean (k = 10)",
+                            label: "random-s-100-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
                             data: [
-                                                                    { x: 0.003 , y: 150268.844941, label: "Sptag(metric=L2, algo=BKT, check=1000)" },
-                                                                    { x: 0.003 , y: 149141.414501, label: "Sptag(metric=L2, algo=BKT, check=400)" },
-                                                                    { x: 0.003 , y: 149136.111506, label: "Sptag(metric=L2, algo=BKT, check=100)" },
-                                                                    { x: 0.003 , y: 149046.018265, label: "Sptag(metric=L2, algo=KDT, check=100)" },
-                                                                    { x: 0.003 , y: 148734.184397, label: "Sptag(metric=L2, algo=BKT, check=200)" },
-                                                                    { x: 0.003 , y: 147339.164647, label: "Sptag(metric=L2, algo=BKT, check=4000)" },
-                                                                    { x: 0.003 , y: 146823.397627, label: "Sptag(metric=L2, algo=KDT, check=200)" },
-                                                                    { x: 0.003 , y: 146000.556948, label: "Sptag(metric=L2, algo=BKT, check=2000)" },
-                                                                    { x: 0.003 , y: 145807.689634, label: "Sptag(metric=L2, algo=KDT, check=4000)" },
-                                                                    { x: 0.003 , y: 145731.697995, label: "Sptag(metric=L2, algo=KDT, check=400)" },
-                                                                    { x: 0.003 , y: 145676.021117, label: "Sptag(metric=L2, algo=KDT, check=2000)" },
-                                                                    { x: 0.003 , y: 145660.843897, label: "Sptag(metric=L2, algo=KDT, check=1000)" },
+                                                                    { x: 0.0005 , y: 148552.444704, label: "Sptag(metric=L2, algo=KDT, check=100)" },
+                                                                    { x: 0.0005 , y: 148391.095764, label: "Sptag(metric=L2, algo=KDT, check=4000)" },
+                                                                    { x: 0.0005 , y: 148055.85756, label: "Sptag(metric=L2, algo=KDT, check=1000)" },
+                                                                    { x: 0.0005 , y: 147950.362265, label: "Sptag(metric=L2, algo=KDT, check=2000)" },
+                                                                    { x: 0.0005 , y: 146255.108445, label: "Sptag(metric=L2, algo=KDT, check=400)" },
+                                                                    { x: 0.0005 , y: 144445.883212, label: "Sptag(metric=L2, algo=KDT, check=200)" },
                                                             ]
                         },
                                                 ]},
@@ -325,6 +356,15 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
+                                                (0.9105, 4066.12509883)
+                                    (0.92833, 3883.53103123)
+                                    (0.96694, 3490.56347043)
+                                    (0.98838, 2968.57936241)
+                                    (0.99528, 2441.75022729)
+                                    (0.99809, 1877.10440084)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
                                                 (0.91503, 6421.72584617)
                                     (0.93223, 5962.36194202)
                                     (0.95318, 5404.34076009)
@@ -340,20 +380,14 @@
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
                                 \addplot [only marks] coordinates {
-                                                (0.003, 150268.844941)
-                                    (0.003, 149141.414501)
-                                    (0.003, 149136.111506)
-                                    (0.003, 149046.018265)
-                                    (0.003, 148734.184397)
-                                    (0.003, 147339.164647)
-                                    (0.003, 146823.397627)
-                                    (0.003, 146000.556948)
-                                    (0.003, 145807.689634)
-                                    (0.003, 145731.697995)
-                                    (0.003, 145676.021117)
-                                    (0.003, 145660.843897)
+                                                (0.0005, 148552.444704)
+                                    (0.0005, 148391.095764)
+                                    (0.0005, 148055.85756)
+                                    (0.0005, 147950.362265)
+                                    (0.0005, 146255.108445)
+                                    (0.0005, 144445.883212)
                             };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }

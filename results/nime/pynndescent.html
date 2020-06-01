@@ -57,10 +57,23 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.99796 , y: 2641.28047352, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.99944 , y: 2176.72275326, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.99978 , y: 1850.98922113, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99999 , y: 1580.14969496, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 1339.00095549, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.76139 , y: 6413.23728344, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.80885 , y: 6139.51377814, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
@@ -68,37 +81,75 @@
                                                                     { x: 0.85819 , y: 5811.34746152, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.060, leaf_size=032)" },
                                                                     { x: 0.87903 , y: 5611.47537123, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
                                                                     { x: 0.8945 , y: 5560.18148687, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
-                                                                    { x: 0.89696 , y: 5404.84147978, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
-                                                                    { x: 0.90501 , y: 5364.9363251, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
-                                                                    { x: 0.91412 , y: 5246.55389937, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.92009 , y: 5457.28939662, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.92437 , y: 5218.6933135, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.060, leaf_size=032)" },
                                                                     { x: 0.94372 , y: 5083.36773306, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
-                                                                    { x: 0.95327 , y: 4831.79844037, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
-                                                                    { x: 0.95356 , y: 4773.36468913, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
+                                                                    { x: 0.96072 , y: 4957.74285624, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.968 , y: 4670.45970183, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
-                                                                    { x: 0.97271 , y: 4418.11557328, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
-                                                                    { x: 0.97291 , y: 4374.60418647, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
+                                                                    { x: 0.98005 , y: 4517.10684445, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
                                                                     { x: 0.98374 , y: 4275.08776851, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
-                                                                    { x: 0.98376 , y: 4036.11337943, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99132 , y: 4086.79194689, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
                                                                     { x: 0.99192 , y: 3860.53489292, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
-                                                                    { x: 0.99598 , y: 3434.53701555, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
-                                                                    { x: 0.99621 , y: 3301.94820505, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
-                                                                    { x: 0.99823 , y: 3028.90867173, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
-                                                                    { x: 0.99835 , y: 2894.45873473, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
-                                                                    { x: 0.99925 , y: 2637.5831629, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
-                                                                    { x: 0.99938 , y: 2525.67645166, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
-                                                                    { x: 0.99957 , y: 2294.4934671, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99623 , y: 3650.74971599, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.99838 , y: 3217.73149954, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.9994 , y: 2794.2623309, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99976 , y: 2418.72945865, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
                                                                     { x: 0.99978 , y: 2179.29575919, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99987 , y: 2067.65177825, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
                                                                     { x: 0.99989 , y: 1871.11161313, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
-                                                                    { x: 0.99991 , y: 1273.22240648, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
-                                                                    { x: 0.99993 , y: 1100.95431436, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99991 , y: 1455.55697029, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99994 , y: 1296.44793141, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99995 , y: 1133.06227895, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99996 , y: 1117.09161322, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99997 , y: 971.893370124, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99998 , y: 960.009419038, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-s-100-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.90061 , y: 8390.46732756, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.92944 , y: 8284.14984099, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.93851 , y: 8152.10880197, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.95474 , y: 7961.53834473, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9696 , y: 7924.12735118, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.96992 , y: 7631.66302882, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.97729 , y: 7558.06575833, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.97893 , y: 7314.22193933, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.9793 , y: 7090.0941288, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.97943 , y: 6873.65116012, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.97947 , y: 6602.69412584, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.97948 , y: 6545.42537734, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9838 , y: 8387.45053183, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9842 , y: 8302.19871577, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9859 , y: 8157.02992056, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9903 , y: 8140.17001126, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9924 , y: 8050.67295216, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9945 , y: 7981.68569966, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9948 , y: 7868.33776997, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.995 , y: 7775.00463426, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.9978 , y: 7549.41502574, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 7371.41210132, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.9999 , y: 6974.61616617, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 6955.72802653, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.9182 , y: 9793.04870019, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.9388 , y: 9745.62826167, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
@@ -201,38 +252,74 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
+                                                (0.99796, 2641.28047352)
+                                    (0.99944, 2176.72275326)
+                                    (0.99978, 1850.98922113)
+                                    (0.99999, 1580.14969496)
+                                    (1.0, 1339.00095549)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
                                                 (0.76139, 6413.23728344)
                                     (0.80885, 6139.51377814)
                                     (0.83482, 5977.60030282)
                                     (0.85819, 5811.34746152)
                                     (0.87903, 5611.47537123)
                                     (0.8945, 5560.18148687)
-                                    (0.89696, 5404.84147978)
-                                    (0.90501, 5364.9363251)
-                                    (0.91412, 5246.55389937)
+                                    (0.92009, 5457.28939662)
                                     (0.92437, 5218.6933135)
                                     (0.94372, 5083.36773306)
-                                    (0.95327, 4831.79844037)
-                                    (0.95356, 4773.36468913)
+                                    (0.96072, 4957.74285624)
                                     (0.968, 4670.45970183)
-                                    (0.97271, 4418.11557328)
-                                    (0.97291, 4374.60418647)
+                                    (0.98005, 4517.10684445)
                                     (0.98374, 4275.08776851)
-                                    (0.98376, 4036.11337943)
+                                    (0.99132, 4086.79194689)
                                     (0.99192, 3860.53489292)
-                                    (0.99598, 3434.53701555)
-                                    (0.99621, 3301.94820505)
-                                    (0.99823, 3028.90867173)
-                                    (0.99835, 2894.45873473)
-                                    (0.99925, 2637.5831629)
-                                    (0.99938, 2525.67645166)
-                                    (0.99957, 2294.4934671)
+                                    (0.99623, 3650.74971599)
+                                    (0.99838, 3217.73149954)
+                                    (0.9994, 2794.2623309)
+                                    (0.99976, 2418.72945865)
                                     (0.99978, 2179.29575919)
+                                    (0.99987, 2067.65177825)
                                     (0.99989, 1871.11161313)
-                                    (0.99991, 1273.22240648)
-                                    (0.99993, 1100.95431436)
+                                    (0.99991, 1455.55697029)
+                                    (0.99994, 1296.44793141)
+                                    (0.99995, 1133.06227895)
+                                    (0.99996, 1117.09161322)
+                                    (0.99997, 971.893370124)
+                                    (0.99998, 960.009419038)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.90061, 8390.46732756)
+                                    (0.92944, 8284.14984099)
+                                    (0.93851, 8152.10880197)
+                                    (0.95474, 7961.53834473)
+                                    (0.9696, 7924.12735118)
+                                    (0.96992, 7631.66302882)
+                                    (0.97729, 7558.06575833)
+                                    (0.97893, 7314.22193933)
+                                    (0.9793, 7090.0941288)
+                                    (0.97943, 6873.65116012)
+                                    (0.97947, 6602.69412584)
+                                    (0.97948, 6545.42537734)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot coordinates {
+                                                (0.9838, 8387.45053183)
+                                    (0.9842, 8302.19871577)
+                                    (0.9859, 8157.02992056)
+                                    (0.9903, 8140.17001126)
+                                    (0.9924, 8050.67295216)
+                                    (0.9945, 7981.68569966)
+                                    (0.9948, 7868.33776997)
+                                    (0.995, 7775.00463426)
+                                    (0.9978, 7549.41502574)
+                                    (0.999, 7371.41210132)
+                                    (0.9999, 6974.61616617)
+                                    (1.0, 6955.72802653)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot coordinates {
                                                 (0.9182, 9793.04870019)
                                     (0.9388, 9745.62826167)
@@ -268,10 +355,27 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.99796 , y: 2641.28047352, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.99944 , y: 2176.72275326, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.99978 , y: 1850.98922113, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99999 , y: 1580.14969496, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 1339.00095549, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 1145.075522, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 976.731398726, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 840.527010314, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 1.0 , y: 724.22681872, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 0.76139 , y: 6413.23728344, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.76112 , y: 6231.85238266, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
@@ -285,6 +389,7 @@
                                                                     { x: 0.85581 , y: 5584.55716899, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.060, leaf_size=032)" },
                                                                     { x: 0.8945 , y: 5560.18148687, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.88289 , y: 5529.87643982, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.92009 , y: 5457.28939662, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.89696 , y: 5404.84147978, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
                                                                     { x: 0.87701 , y: 5400.32999625, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
                                                                     { x: 0.90501 , y: 5364.9363251, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
@@ -302,6 +407,7 @@
                                                                     { x: 0.9398 , y: 5009.67164424, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
                                                                     { x: 0.9136 , y: 5004.5770544, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
                                                                     { x: 0.93024 , y: 5001.16613876, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
+                                                                    { x: 0.96072 , y: 4957.74285624, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.94322 , y: 4832.21315681, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.95327 , y: 4831.79844037, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
                                                                     { x: 0.9296 , y: 4801.48874285, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
@@ -311,6 +417,7 @@
                                                                     { x: 0.96429 , y: 4653.4955881, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
                                                                     { x: 0.96465 , y: 4586.74598661, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
                                                                     { x: 0.94355 , y: 4571.88700388, label: "PyNNDescent(n_neighbors=10, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.98005 , y: 4517.10684445, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
                                                                     { x: 0.96056 , y: 4509.49710387, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.96788 , y: 4429.20699287, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
                                                                     { x: 0.97271 , y: 4418.11557328, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
@@ -319,39 +426,217 @@
                                                                     { x: 0.97945 , y: 4219.77031384, label: "PyNNDescent(n_neighbors=20, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
                                                                     { x: 0.98032 , y: 4167.64731103, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
                                                                     { x: 0.98008 , y: 4117.06821205, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99132 , y: 4086.79194689, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
                                                                     { x: 0.98376 , y: 4036.11337943, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
                                                                     { x: 0.99192 , y: 3860.53489292, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.98568 , y: 3778.91337176, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.99098 , y: 3700.24081581, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99623 , y: 3650.74971599, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
                                                                     { x: 0.99189 , y: 3634.41855121, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
                                                                     { x: 0.99598 , y: 3434.53701555, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
                                                                     { x: 0.98562 , y: 3356.60888313, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.99621 , y: 3301.94820505, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.99426 , y: 3264.63947301, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.99601 , y: 3221.42471583, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99838 , y: 3217.73149954, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
                                                                     { x: 0.99823 , y: 3028.90867173, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99732 , y: 2910.96332022, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
                                                                     { x: 0.99441 , y: 2896.63958912, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.99835 , y: 2894.45873473, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
                                                                     { x: 0.99819 , y: 2830.27617283, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.9994 , y: 2794.2623309, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99486 , y: 2715.3198064, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.99544 , y: 2697.96837894, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.000, leaf_size=064)" },
                                                                     { x: 0.99925 , y: 2637.5831629, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
                                                                     { x: 0.99718 , y: 2599.56047432, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99871 , y: 2569.53743163, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
                                                                     { x: 0.99938 , y: 2525.67645166, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
                                                                     { x: 0.99928 , y: 2420.80210586, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99976 , y: 2418.72945865, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
                                                                     { x: 0.99957 , y: 2294.4934671, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99809 , y: 2277.94213002, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.99817 , y: 2275.12711772, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.040, leaf_size=064)" },
                                                                     { x: 0.99864 , y: 2273.32317982, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99931 , y: 2242.4262384, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
                                                                     { x: 0.99978 , y: 2179.29575919, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
                                                                     { x: 0.99959 , y: 2112.67402735, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99987 , y: 2067.65177825, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99899 , y: 2016.70784334, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99915 , y: 1998.92359523, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=064)" },
                                                                     { x: 0.99926 , y: 1988.9077823, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.99958 , y: 1950.83752724, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
                                                                     { x: 0.99989 , y: 1871.11161313, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99961 , y: 1754.36254165, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99973 , y: 1731.3586048, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.120, leaf_size=064)" },
                                                                     { x: 0.99961 , y: 1707.82168393, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99981 , y: 1689.39906421, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99979 , y: 1520.38961492, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.99988 , y: 1500.38320673, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=064)" },
                                                                     { x: 0.9998 , y: 1493.89059416, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99991 , y: 1455.55697029, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99987 , y: 1309.7177385, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99994 , y: 1296.44793141, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=064)" },
                                                                     { x: 0.99991 , y: 1273.22240648, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99992 , y: 1238.1476764, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99995 , y: 1133.06227895, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99996 , y: 1117.09161322, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=064)" },
                                                                     { x: 0.99993 , y: 1100.95431436, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99997 , y: 971.893370124, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99998 , y: 960.009419038, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.99998 , y: 836.347442121, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.0, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99998 , y: 822.576322352, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.320, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-s-100-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.90061 , y: 8390.46732756, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.92944 , y: 8284.14984099, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.93851 , y: 8152.10880197, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.95474 , y: 7961.53834473, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9696 , y: 7924.12735118, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.9646 , y: 7809.40766194, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.060, leaf_size=032)" },
+                                                                    { x: 0.96992 , y: 7631.66302882, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.96366 , y: 7623.35295983, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=064)" },
+                                                                    { x: 0.97729 , y: 7558.06575833, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.97043 , y: 7470.79405543, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.9724 , y: 7447.10479718, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.100, leaf_size=032)" },
+                                                                    { x: 0.97893 , y: 7314.22193933, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.97351 , y: 7287.0596309, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.97171 , y: 7187.83181761, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.97398 , y: 7140.45381667, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.140, leaf_size=032)" },
+                                                                    { x: 0.9793 , y: 7090.0941288, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.97416 , y: 6956.94289567, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.972 , y: 6935.02760169, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.97943 , y: 6873.65116012, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.93207 , y: 6715.59698835, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.97947 , y: 6602.69412584, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.97211 , y: 6585.53159633, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.97212 , y: 6558.45940852, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.97948 , y: 6545.42537734, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.97948 , y: 6393.14894332, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.97216 , y: 6272.02620363, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.97215 , y: 6265.41349554, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                            ]
+                        },
+                                                {
+                            label: "random-xs-20-angular (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9838 , y: 8387.45053183, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9763 , y: 8326.19484345, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.9842 , y: 8302.19871577, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9775 , y: 8247.65556637, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9815 , y: 8236.64195591, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.978 , y: 8224.27062438, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9792 , y: 8190.57624749, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9837 , y: 8190.22438495, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9859 , y: 8157.02992056, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.9903 , y: 8140.17001126, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9867 , y: 8127.26758358, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9901 , y: 8089.88105226, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9924 , y: 8050.67295216, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.9869 , y: 7994.93728794, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.000, leaf_size=032)" },
+                                                                    { x: 0.9864 , y: 7994.48012961, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.9945 , y: 7981.68569966, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9871 , y: 7978.0116523, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.9928 , y: 7956.00801992, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.9876 , y: 7928.29140124, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9868 , y: 7888.06306984, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9869 , y: 7880.80072452, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.020, leaf_size=032)" },
+                                                                    { x: 0.9806 , y: 7879.39426616, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9869 , y: 7870.5229559, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.010, leaf_size=032)" },
+                                                                    { x: 0.9948 , y: 7868.33776997, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.9929 , y: 7828.21724061, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9918 , y: 7790.3699136, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.9803 , y: 7788.72072942, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.9869 , y: 7785.06319105, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.040, leaf_size=032)" },
+                                                                    { x: 0.995 , y: 7775.00463426, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7727.58995523, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.9879 , y: 7709.97591956, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.993 , y: 7692.8652654, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.981 , y: 7684.32430848, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.9919 , y: 7679.10479186, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7671.43612264, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7658.00380499, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.9869 , y: 7625.32792533, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.080, leaf_size=032)" },
+                                                                    { x: 0.992 , y: 7614.37804081, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.989 , y: 7586.88652693, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.9978 , y: 7549.41502574, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.993 , y: 7513.17307348, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.992 , y: 7503.44195898, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.993 , y: 7494.75369529, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.987 , y: 7472.74800456, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.120, leaf_size=032)" },
+                                                                    { x: 0.9959 , y: 7447.51075141, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.987 , y: 7441.61752078, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7428.66150323, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.9957 , y: 7419.17418583, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7386.53578265, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 7379.55690679, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.000, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 7371.41210132, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7349.32522174, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.995 , y: 7347.13668117, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.9959 , y: 7346.14582987, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.995 , y: 7338.9091469, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.987 , y: 7325.04130297, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.0, diversify_epsilon=0.75, epsilon=0.160, leaf_size=032)" },
+                                                                    { x: 0.989 , y: 7317.4758806, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 7247.6408859, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.994 , y: 7246.85197728, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.040, leaf_size=048)" },
+                                                                    { x: 0.995 , y: 7219.55921537, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.9979 , y: 7214.6911703, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.992 , y: 7204.64059282, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=1.00, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.999 , y: 7172.15340524, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.989 , y: 7172.09208477, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 7158.84695276, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.9989 , y: 7082.83137362, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 0.994 , y: 7078.30119583, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.080, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 7054.18241998, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.9999 , y: 6974.61616617, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 6971.70629868, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 6955.72802653, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.0, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 6917.0818429, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.360, leaf_size=080)" },
+                                                                    { x: 0.989 , y: 6906.18218222, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.999 , y: 6901.89780205, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=1.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 0.988 , y: 6882.23759884, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.000, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 6815.46286216, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.160, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 6775.6617261, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.989 , y: 6641.48553278, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.0, diversify_epsilon=0.50, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.988 , y: 6599.23785429, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6588.46740484, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.080, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 6573.03152444, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.200, leaf_size=048)" },
+                                                                    { x: 0.994 , y: 6455.44694651, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.240, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 6408.44863834, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6375.79501648, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.120, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6261.87490296, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6162.57498799, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.160, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 6076.20052037, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 6038.33213602, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.200, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5932.02566681, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 5930.54106256, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.240, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5769.52196496, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.994 , y: 5690.55604398, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.5, diversify_epsilon=0.50, epsilon=0.120, leaf_size=048)" },
+                                                                    { x: 0.99 , y: 5665.09224355, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.280, leaf_size=064)" },
+                                                                    { x: 0.988 , y: 5610.32095826, label: "PyNNDescent(n_neighbors=80, pruning_mult=2.2, diversify_epsilon=0.25, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.99 , y: 5601.42736568, label: "PyNNDescent(n_neighbors=80, pruning_mult=1.8, diversify_epsilon=0.25, epsilon=0.320, leaf_size=064)" },
+                                                                    { x: 0.999 , y: 5081.38100811, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.080, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4804.1197438, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.160, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4582.79685499, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.200, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4477.88869079, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.240, leaf_size=080)" },
+                                                                    { x: 0.999 , y: 4326.78585613, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.280, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 4193.60366819, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.320, leaf_size=080)" },
+                                                                    { x: 1.0 , y: 4089.09565782, label: "PyNNDescent(n_neighbors=120, pruning_mult=2.5, diversify_epsilon=0.00, epsilon=0.360, leaf_size=080)" },
                                                             ]
                         },
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 0.9182 , y: 9793.04870019, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
                                                                     { x: 0.9388 , y: 9745.62826167, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.5, diversify_epsilon=1.00, epsilon=0.000, leaf_size=032)" },
@@ -549,6 +834,18 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
+                                                (0.99796, 2641.28047352)
+                                    (0.99944, 2176.72275326)
+                                    (0.99978, 1850.98922113)
+                                    (0.99999, 1580.14969496)
+                                    (1.0, 1339.00095549)
+                                    (1.0, 1145.075522)
+                                    (1.0, 976.731398726)
+                                    (1.0, 840.527010314)
+                                    (1.0, 724.22681872)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
                                                 (0.76139, 6413.23728344)
                                     (0.76112, 6231.85238266)
                                     (0.80885, 6139.51377814)
@@ -561,6 +858,7 @@
                                     (0.85581, 5584.55716899)
                                     (0.8945, 5560.18148687)
                                     (0.88289, 5529.87643982)
+                                    (0.92009, 5457.28939662)
                                     (0.89696, 5404.84147978)
                                     (0.87701, 5400.32999625)
                                     (0.90501, 5364.9363251)
@@ -578,6 +876,7 @@
                                     (0.9398, 5009.67164424)
                                     (0.9136, 5004.5770544)
                                     (0.93024, 5001.16613876)
+                                    (0.96072, 4957.74285624)
                                     (0.94322, 4832.21315681)
                                     (0.95327, 4831.79844037)
                                     (0.9296, 4801.48874285)
@@ -587,6 +886,7 @@
                                     (0.96429, 4653.4955881)
                                     (0.96465, 4586.74598661)
                                     (0.94355, 4571.88700388)
+                                    (0.98005, 4517.10684445)
                                     (0.96056, 4509.49710387)
                                     (0.96788, 4429.20699287)
                                     (0.97271, 4418.11557328)
@@ -595,34 +895,202 @@
                                     (0.97945, 4219.77031384)
                                     (0.98032, 4167.64731103)
                                     (0.98008, 4117.06821205)
+                                    (0.99132, 4086.79194689)
                                     (0.98376, 4036.11337943)
                                     (0.99192, 3860.53489292)
+                                    (0.98568, 3778.91337176)
                                     (0.99098, 3700.24081581)
+                                    (0.99623, 3650.74971599)
                                     (0.99189, 3634.41855121)
                                     (0.99598, 3434.53701555)
                                     (0.98562, 3356.60888313)
                                     (0.99621, 3301.94820505)
+                                    (0.99426, 3264.63947301)
                                     (0.99601, 3221.42471583)
+                                    (0.99838, 3217.73149954)
                                     (0.99823, 3028.90867173)
+                                    (0.99732, 2910.96332022)
                                     (0.99441, 2896.63958912)
                                     (0.99835, 2894.45873473)
                                     (0.99819, 2830.27617283)
+                                    (0.9994, 2794.2623309)
+                                    (0.99486, 2715.3198064)
+                                    (0.99544, 2697.96837894)
                                     (0.99925, 2637.5831629)
                                     (0.99718, 2599.56047432)
+                                    (0.99871, 2569.53743163)
                                     (0.99938, 2525.67645166)
                                     (0.99928, 2420.80210586)
+                                    (0.99976, 2418.72945865)
                                     (0.99957, 2294.4934671)
+                                    (0.99809, 2277.94213002)
+                                    (0.99817, 2275.12711772)
                                     (0.99864, 2273.32317982)
+                                    (0.99931, 2242.4262384)
                                     (0.99978, 2179.29575919)
                                     (0.99959, 2112.67402735)
+                                    (0.99987, 2067.65177825)
+                                    (0.99899, 2016.70784334)
+                                    (0.99915, 1998.92359523)
                                     (0.99926, 1988.9077823)
+                                    (0.99958, 1950.83752724)
                                     (0.99989, 1871.11161313)
+                                    (0.99961, 1754.36254165)
+                                    (0.99973, 1731.3586048)
                                     (0.99961, 1707.82168393)
+                                    (0.99981, 1689.39906421)
+                                    (0.99979, 1520.38961492)
+                                    (0.99988, 1500.38320673)
                                     (0.9998, 1493.89059416)
+                                    (0.99991, 1455.55697029)
+                                    (0.99987, 1309.7177385)
+                                    (0.99994, 1296.44793141)
                                     (0.99991, 1273.22240648)
+                                    (0.99992, 1238.1476764)
+                                    (0.99995, 1133.06227895)
+                                    (0.99996, 1117.09161322)
                                     (0.99993, 1100.95431436)
+                                    (0.99997, 971.893370124)
+                                    (0.99998, 960.009419038)
+                                    (0.99998, 836.347442121)
+                                    (0.99998, 822.576322352)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.90061, 8390.46732756)
+                                    (0.92944, 8284.14984099)
+                                    (0.93851, 8152.10880197)
+                                    (0.95474, 7961.53834473)
+                                    (0.9696, 7924.12735118)
+                                    (0.9646, 7809.40766194)
+                                    (0.96992, 7631.66302882)
+                                    (0.96366, 7623.35295983)
+                                    (0.97729, 7558.06575833)
+                                    (0.97043, 7470.79405543)
+                                    (0.9724, 7447.10479718)
+                                    (0.97893, 7314.22193933)
+                                    (0.97351, 7287.0596309)
+                                    (0.97171, 7187.83181761)
+                                    (0.97398, 7140.45381667)
+                                    (0.9793, 7090.0941288)
+                                    (0.97416, 6956.94289567)
+                                    (0.972, 6935.02760169)
+                                    (0.97943, 6873.65116012)
+                                    (0.93207, 6715.59698835)
+                                    (0.97947, 6602.69412584)
+                                    (0.97211, 6585.53159633)
+                                    (0.97212, 6558.45940852)
+                                    (0.97948, 6545.42537734)
+                                    (0.97948, 6393.14894332)
+                                    (0.97216, 6272.02620363)
+                                    (0.97215, 6265.41349554)
+                            };
+            \addlegendentry{ random-s-100-euclidean (k = 10) };
+                                \addplot [only marks] coordinates {
+                                                (0.9838, 8387.45053183)
+                                    (0.9763, 8326.19484345)
+                                    (0.9842, 8302.19871577)
+                                    (0.9775, 8247.65556637)
+                                    (0.9815, 8236.64195591)
+                                    (0.978, 8224.27062438)
+                                    (0.9792, 8190.57624749)
+                                    (0.9837, 8190.22438495)
+                                    (0.9859, 8157.02992056)
+                                    (0.9903, 8140.17001126)
+                                    (0.9867, 8127.26758358)
+                                    (0.9901, 8089.88105226)
+                                    (0.9924, 8050.67295216)
+                                    (0.9869, 7994.93728794)
+                                    (0.9864, 7994.48012961)
+                                    (0.9945, 7981.68569966)
+                                    (0.9871, 7978.0116523)
+                                    (0.9928, 7956.00801992)
+                                    (0.9876, 7928.29140124)
+                                    (0.9868, 7888.06306984)
+                                    (0.9869, 7880.80072452)
+                                    (0.9806, 7879.39426616)
+                                    (0.9869, 7870.5229559)
+                                    (0.9948, 7868.33776997)
+                                    (0.9929, 7828.21724061)
+                                    (0.9918, 7790.3699136)
+                                    (0.9803, 7788.72072942)
+                                    (0.9869, 7785.06319105)
+                                    (0.995, 7775.00463426)
+                                    (0.987, 7727.58995523)
+                                    (0.9879, 7709.97591956)
+                                    (0.993, 7692.8652654)
+                                    (0.981, 7684.32430848)
+                                    (0.9919, 7679.10479186)
+                                    (0.987, 7671.43612264)
+                                    (0.995, 7658.00380499)
+                                    (0.9869, 7625.32792533)
+                                    (0.992, 7614.37804081)
+                                    (0.989, 7586.88652693)
+                                    (0.9978, 7549.41502574)
+                                    (0.993, 7513.17307348)
+                                    (0.992, 7503.44195898)
+                                    (0.993, 7494.75369529)
+                                    (0.987, 7472.74800456)
+                                    (0.9959, 7447.51075141)
+                                    (0.987, 7441.61752078)
+                                    (0.995, 7428.66150323)
+                                    (0.9957, 7419.17418583)
+                                    (0.992, 7386.53578265)
+                                    (0.994, 7379.55690679)
+                                    (0.999, 7371.41210132)
+                                    (0.992, 7349.32522174)
+                                    (0.995, 7347.13668117)
+                                    (0.9959, 7346.14582987)
+                                    (0.995, 7338.9091469)
+                                    (0.987, 7325.04130297)
+                                    (0.989, 7317.4758806)
+                                    (0.999, 7247.6408859)
+                                    (0.994, 7246.85197728)
+                                    (0.995, 7219.55921537)
+                                    (0.9979, 7214.6911703)
+                                    (0.992, 7204.64059282)
+                                    (0.999, 7172.15340524)
+                                    (0.989, 7172.09208477)
+                                    (0.99, 7158.84695276)
+                                    (0.9989, 7082.83137362)
+                                    (0.994, 7078.30119583)
+                                    (0.989, 7054.18241998)
+                                    (0.9999, 6974.61616617)
+                                    (0.999, 6971.70629868)
+                                    (1.0, 6955.72802653)
+                                    (0.999, 6917.0818429)
+                                    (0.989, 6906.18218222)
+                                    (0.999, 6901.89780205)
+                                    (0.988, 6882.23759884)
+                                    (0.994, 6815.46286216)
+                                    (0.989, 6775.6617261)
+                                    (0.989, 6641.48553278)
+                                    (0.988, 6599.23785429)
+                                    (0.99, 6588.46740484)
+                                    (0.994, 6573.03152444)
+                                    (0.994, 6455.44694651)
+                                    (0.99, 6408.44863834)
+                                    (0.988, 6375.79501648)
+                                    (0.99, 6261.87490296)
+                                    (0.988, 6162.57498799)
+                                    (0.988, 6076.20052037)
+                                    (0.99, 6038.33213602)
+                                    (0.988, 5932.02566681)
+                                    (0.99, 5930.54106256)
+                                    (0.988, 5769.52196496)
+                                    (0.994, 5690.55604398)
+                                    (0.99, 5665.09224355)
+                                    (0.988, 5610.32095826)
+                                    (0.99, 5601.42736568)
+                                    (0.999, 5081.38100811)
+                                    (0.999, 4804.1197438)
+                                    (0.999, 4582.79685499)
+                                    (0.999, 4477.88869079)
+                                    (0.999, 4326.78585613)
+                                    (1.0, 4193.60366819)
+                                    (1.0, 4089.09565782)
+                            };
+            \addlegendentry{ random-xs-20-angular (k = 10) };
                                 \addplot [only marks] coordinates {
                                                 (0.9182, 9793.04870019)
                                     (0.9388, 9745.62826167)

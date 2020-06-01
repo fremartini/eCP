@@ -57,10 +57,19 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 4.84606330526, label: "BruteForceBLAS()" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 1.0 , y: 4.94645111724, label: "BruteForceBLAS()" },
                                                             ]
@@ -68,8 +77,8 @@
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 1.0 , y: 662.860787673, label: "BruteForceBLAS()" },
                                                             ]
@@ -160,6 +169,10 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
+                                                (1.0, 4.84606330526)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
+                                \addplot coordinates {
                                                 (1.0, 4.94645111724)
                             };
             \addlegendentry{ mnist-784-euclidean (k = 10) };
@@ -186,10 +199,19 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 4.84606330526, label: "BruteForceBLAS()" },
+                                                            ]
+                        },
+                                                {
                             label: "mnist-784-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
                             data: [
                                                                     { x: 1.0 , y: 4.94645111724, label: "BruteForceBLAS()" },
                                                             ]
@@ -197,8 +219,8 @@
                                                 {
                             label: "random-xs-20-euclidean (k = 10)",
                             fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
                             data: [
                                                                     { x: 1.0 , y: 662.860787673, label: "BruteForceBLAS()" },
                                                             ]
@@ -288,6 +310,10 @@
             legend style = { anchor=west},
             cycle list name = black white
             ]
+                                \addplot [only marks] coordinates {
+                                                (1.0, 4.84606330526)
+                            };
+            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
                                 \addplot [only marks] coordinates {
                                                 (1.0, 4.94645111724)
                             };
