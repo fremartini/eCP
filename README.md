@@ -61,12 +61,13 @@ Results
 ---
 | Dataset                                                           | Dimensions | Train size | Test size | Neighbors | Distance  |                                                                  
 | ----------------------------------------------------------------- | ---------: | ---------: | --------: | --------: | --------- | 
-| random-xs-20-euclidean                       |        20 |     9000 |    1000 |       10 | Euclidean |          |
-| random-xs-20-angular                       |        20 |     9000 |    1000 |       10 | Angular |          |
-| random-s-100-euclidean                       |        100 |     9000 |    1000 |       10 | Euclidean |          |
+| random-xs-20-euclidean                       			    |        20  |     9000   |    1000   |       10  | Euclidean |
+| random-xs-20-angular                       			    |        20  |     9000   |    1000   |       10  | Angular   |
+| random-s-100-euclidean                      			    |        100 |     9000   |    1000   |       10  | Euclidean |
 | [MNIST](http://yann.lecun.com/exdb/mnist/)                        |        784 |     60,000 |    10,000 |       100 | Euclidean |
 | [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) |        784 |     60,000 |    10,000 |       100 | Euclidean |
 | [SIFT](https://corpus-texmex.irisa.fr/)                           |        128 |  1,000,000 |    10,000 |       100 | Euclidean |
+| [GloVe](http://nlp.stanford.edu/projects/glove/)                  |         25 |  1,183,514 |    10,000 |       100 | Angular   |
 
 
 mnist-784-euclidean - 4gb RAM
@@ -87,5 +88,10 @@ random-s-100-euclidean - 4gb RAM
 [website](results/nime) available with parameter settings
 
 sift-128-euclidean - 8gb RAM
-![Sift-128-euclidean](results/frem/sift-128-euclidean.png)
+![Sift-128-euclidean](results/frem/sift-128-euclidean_10_euclidean.png)
+
+glove-25-angular - 8gb RAM
+![Glove-25-angular](results/frem/glove-25-angular_10_angular.png)
+
+[website](results/frem) available with parameter settings
 

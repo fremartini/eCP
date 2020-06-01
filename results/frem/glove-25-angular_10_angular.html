@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>kd</title>
+        <title>glove-25-angular (k = 10)</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,7 +47,7 @@
             </nav>
 
                     <div class="container">
-                                                        <h2>Plots for kd</h2>
+                                                        <h2>Plots for glove-25-angular (k = 10)</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)">
             <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
@@ -57,48 +57,20 @@
                                         type: "line",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-angular (k = 10)",
+                            label: "eCP",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
+                                                                    { x: 0.177 , y: 675.712992682, label: "eCP(L=2, b=1)" },
+                                                                    { x: 0.55164 , y: 448.129974514, label: "eCP(L=2, b=10)" },
+                                                                    { x: 0.68002 , y: 226.743703122, label: "eCP(L=2, b=20)" },
+                                                                    { x: 0.79507 , y: 141.644175642, label: "eCP(L=2, b=40)" },
+                                                                    { x: 0.88503 , y: 81.2818763096, label: "eCP(L=2, b=80)" },
+                                                                    { x: 0.90676 , y: 63.7613451263, label: "eCP(L=2, b=100)" },
+                                                                    { x: 0.92264 , y: 51.7912726747, label: "eCP(L=2, b=120)" },
+                                                                    { x: 0.93474 , y: 39.6340385568, label: "eCP(L=2, b=140)" },
+                                                                    { x: 0.94399 , y: 35.4053200816, label: "eCP(L=2, b=160)" },
                                                             ]
                         },
                                                 ]},
@@ -187,25 +159,17 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (1.0, 4.62911975232)
+                                                (0.177, 675.712992682)
+                                    (0.55164, 448.129974514)
+                                    (0.68002, 226.743703122)
+                                    (0.79507, 141.644175642)
+                                    (0.88503, 81.2818763096)
+                                    (0.90676, 63.7613451263)
+                                    (0.92264, 51.7912726747)
+                                    (0.93474, 39.6340385568)
+                                    (0.94399, 35.4053200816)
                             };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4.89783638483)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 28.456358692)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 3219.01861585)
-                            };
-            \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot coordinates {
-                                                (1.0, 4518.84763731)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \addlegendentry{ eCP };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
@@ -215,7 +179,7 @@
                 </div>
             
                         <hr />
-                                                        <h2>Scatterplots for kd</h2>
+                                                        <h2>Scatterplots for glove-25-angular (k = 10)</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)Scatterplot ">
             <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
@@ -225,64 +189,24 @@
                                         type: "bubble",
                                         data: { datasets: [
                                                 {
-                            label: "fashion-mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "star",
-                            borderColor: "rgba(178, 255, 102, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.62911975232, label: "KDTree(leaf_size=400)" },
-                                                            ]
-                        },
-                                                {
-                            label: "mnist-784-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "circle",
-                            borderColor: "rgba(255, 178, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4.89783638483, label: "KDTree(leaf_size=1000)" },
-                                                                    { x: 1.0 , y: 4.68461266452, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 4.42164474929, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 3.99235862963, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3.36653484182, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 2.54060435553, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 1.70765434473, label: "KDTree(leaf_size=10)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-s-100-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "triangle",
-                            borderColor: "rgba(102, 255, 255, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 28.456358692, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 26.208382932, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-angular (k = 10)",
+                            label: "eCP",
                             fill: false,
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 3219.01861585, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 3093.11260798, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 2602.49061521, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 1678.54878884, label: "KDTree(leaf_size=1000)" },
-                                                            ]
-                        },
-                                                {
-                            label: "random-xs-20-euclidean (k = 10)",
-                            fill: false,
-                            pointStyle: "cross",
-                            borderColor: "rgba(102, 102, 204, 1)",
-                            data: [
-                                                                    { x: 1.0 , y: 4518.84763731, label: "KDTree(leaf_size=20)" },
-                                                                    { x: 1.0 , y: 4450.88411667, label: "KDTree(leaf_size=40)" },
-                                                                    { x: 1.0 , y: 4377.32887492, label: "KDTree(leaf_size=10)" },
-                                                                    { x: 1.0 , y: 4058.1215568, label: "KDTree(leaf_size=100)" },
-                                                                    { x: 1.0 , y: 3157.72894887, label: "KDTree(leaf_size=200)" },
-                                                                    { x: 1.0 , y: 2366.25293151, label: "KDTree(leaf_size=400)" },
-                                                                    { x: 1.0 , y: 1877.16850058, label: "KDTree(leaf_size=1000)" },
+                                                                    { x: 0.177 , y: 675.712992682, label: "eCP(L=2, b=1)" },
+                                                                    { x: 0.55164 , y: 448.129974514, label: "eCP(L=2, b=10)" },
+                                                                    { x: 0.27449 , y: 373.114320249, label: "eCP(L=2, b=2)" },
+                                                                    { x: 0.3893 , y: 311.875065866, label: "eCP(L=2, b=4)" },
+                                                                    { x: 0.34017 , y: 269.231063516, label: "eCP(L=2, b=3)" },
+                                                                    { x: 0.42834 , y: 264.274949674, label: "eCP(L=2, b=5)" },
+                                                                    { x: 0.68002 , y: 226.743703122, label: "eCP(L=2, b=20)" },
+                                                                    { x: 0.79507 , y: 141.644175642, label: "eCP(L=2, b=40)" },
+                                                                    { x: 0.88503 , y: 81.2818763096, label: "eCP(L=2, b=80)" },
+                                                                    { x: 0.90676 , y: 63.7613451263, label: "eCP(L=2, b=100)" },
+                                                                    { x: 0.92264 , y: 51.7912726747, label: "eCP(L=2, b=120)" },
+                                                                    { x: 0.93474 , y: 39.6340385568, label: "eCP(L=2, b=140)" },
+                                                                    { x: 0.94399 , y: 35.4053200816, label: "eCP(L=2, b=160)" },
                                                             ]
                         },
                                                 ]},
@@ -371,41 +295,21 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (1.0, 4.62911975232)
+                                                (0.177, 675.712992682)
+                                    (0.55164, 448.129974514)
+                                    (0.27449, 373.114320249)
+                                    (0.3893, 311.875065866)
+                                    (0.34017, 269.231063516)
+                                    (0.42834, 264.274949674)
+                                    (0.68002, 226.743703122)
+                                    (0.79507, 141.644175642)
+                                    (0.88503, 81.2818763096)
+                                    (0.90676, 63.7613451263)
+                                    (0.92264, 51.7912726747)
+                                    (0.93474, 39.6340385568)
+                                    (0.94399, 35.4053200816)
                             };
-            \addlegendentry{ fashion-mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4.89783638483)
-                                    (1.0, 4.68461266452)
-                                    (1.0, 4.42164474929)
-                                    (1.0, 3.99235862963)
-                                    (1.0, 3.36653484182)
-                                    (1.0, 2.54060435553)
-                                    (1.0, 1.70765434473)
-                            };
-            \addlegendentry{ mnist-784-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 28.456358692)
-                                    (1.0, 26.208382932)
-                            };
-            \addlegendentry{ random-s-100-euclidean (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 3219.01861585)
-                                    (1.0, 3093.11260798)
-                                    (1.0, 2602.49061521)
-                                    (1.0, 1678.54878884)
-                            };
-            \addlegendentry{ random-xs-20-angular (k = 10) };
-                                \addplot [only marks] coordinates {
-                                                (1.0, 4518.84763731)
-                                    (1.0, 4450.88411667)
-                                    (1.0, 4377.32887492)
-                                    (1.0, 4058.1215568)
-                                    (1.0, 3157.72894887)
-                                    (1.0, 2366.25293151)
-                                    (1.0, 1877.16850058)
-                            };
-            \addlegendentry{ random-xs-20-euclidean (k = 10) };
+            \addlegendentry{ eCP };
             \end{axis}
     \end{tikzpicture}
     \caption{ Recall-Queries per second (1/s) tradeoff - up and to the right is better }
