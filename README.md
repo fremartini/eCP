@@ -27,16 +27,19 @@ Results
 mnist-784-euclidean - 4gb RAM
 ![mnist-784-euclidean](results/nime/mnist-784-euclidean_10_euclidean.png)
 
+fashion-mnist-784-euclidean - 4gb RAM
+![mnist-784-euclidean](results/nime/fashion-mnist-784-euclidean_10_euclidean.png)
+
 random-xs-20-euclidean - 4gb RAM
 ![random-xs-20-euclidean](results/nime/random-xs-20-euclidean_10_euclidean.png)
+
+random-xs-20-angular - 4gb RAM
+![random-xs-20-euclidean](results/nime/random-xs-20-angular_10_angular.png)
 
 [website](results/nime) available with parameter settings
 
 sift-128-euclidean - 8gb RAM
 ![Sift-128-euclidean](results/frem/sift-128-euclidean.png)
-
-glove-25-angular - 8gb RAM
-![Glove-25-angular](results/frem/glove-25-angular.png)
 
 
 | Dataset                                                           | Dimensions | Train size | Test size | Neighbors | Distance  |                                                                    |
