@@ -27,9 +27,11 @@ If an earlier version of eCP has been installed, remember to remove the docker c
 
 ### Creating the wrapper
 ---
-1. install SWIG (sudo apt-get install -y swig)
+1. install SWIG (```sudo apt-get install -y swig```)
 
 2. run ./generate_wrapper.txt from the command line (run 'dos2unix ./generate_wrapper.txt' if it won't run)
+
+3. If errors occured you may need to install python headers - ```sudo apt-get install -y python3-dev```
 
 ### Wrapper interface
 ---
