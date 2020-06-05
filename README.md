@@ -6,7 +6,7 @@ The extended cluster-pruning algorithm is implemented in C++ and provides a pyth
 ANN-Benchmarks embedding
 ---
 1. Clone down this repository and [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/) 
-2. Follow installation instructions for [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/)
+2. Follow installation instructions for [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/#install)
 2. Merge the contents of eCP/ANN-Benchmarks with the cloned ANN-Benchmarks repository
 3. From ANN-Benchmarks run the command: ```python3 install.py```  (installs all algorithms containers - may take a while)
 4. Test that everything is working: ```python3 run.py --dataset random-xs-20-euclidean --algorithm eCP```
