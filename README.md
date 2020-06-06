@@ -19,7 +19,7 @@ Installs only the eCP docker image for a quick verification that the algorithm h
 
 2. Complete installation
 
-Installs all the images supported by ANN-Benchmarks (may take a while)
+Installs all the algorithm docker containers supported by ANN-Benchmarks (may take a while)
 
 Manual installation
 ----
