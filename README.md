@@ -23,14 +23,12 @@ Installs all the images supported by ANN-Benchmarks (may take a while)
 
 Manual installation
 ----
-Prerequisites
------
+Prerequisites:
 * Python3
 * Pip3
 * Docker
 
-Installation
------
+Installation:
 1. Clone down this repository and [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/) 
 2. Follow installation instructions for [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/#install)
 2. Merge the contents of eCP/ANN-Benchmarks with the cloned ANN-Benchmarks repository
