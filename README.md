@@ -5,6 +5,32 @@ The extended cluster-pruning algorithm is implemented in C++ and provides a pyth
 
 ANN-Benchmarks embedding
 ---
+
+The installation has only been tested on a virtualbox running Ubuntu 18.04
+
+Automatic installation
+----
+
+To automatically install the eCP algorithm and integrate it with ANN-Benchmarks simply run either 'setup_minmal.txt' or 'setup_complete.txt' from within this repository. This will clone the ANN-Benchmarks repository, merge the required files and run a small experiment
+
+1. Minimal installation
+
+Installs only the eCP docker image for a quick verification that the algorithm has been successfully installed
+
+2. Complete installation
+
+Installs all the images supported by ANN-Benchmarks (may take a while)
+
+Manual installation
+----
+Prerequisites
+-----
+* Python3
+* Pip3
+* Docker
+
+Installation
+-----
 1. Clone down this repository and [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/) 
 2. Follow installation instructions for [ANN-Benchmarks](https://github.com/erikbern/ann-benchmarks/#install)
 2. Merge the contents of eCP/ANN-Benchmarks with the cloned ANN-Benchmarks repository
