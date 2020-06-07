@@ -15,4 +15,5 @@ echo "building docker images"
 python3 install.py
 echo "running test on random-xs-20-euclidean"
 python3 run.py --algorithm eCP --dataset random-xs-20-euclidean
-
+chmod 777 ./ -R
+python3 plot.py --dataset random-xs-20-euclidean
