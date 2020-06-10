@@ -16,7 +16,7 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 
 	for (unsigned int i = 1; i < L; ++i)
 	{
-		const auto level_l = ceil(pow(level_sizes[i - 1], (((L - i) / (L + 1.00)))));
+		const auto level_l = ceil(pow(dataset.size(), (((L - i) / (L + 1.00)))));
 		level_sizes.push_back(level_l);
 	}
 	level_sizes.shrink_to_fit();
