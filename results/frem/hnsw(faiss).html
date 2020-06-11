@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>eCP</title>
+        <title>hnsw(faiss)</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,7 +47,7 @@
             </nav>
 
                     <div class="container">
-                                                        <h2>Plots for eCP</h2>
+                                                        <h2>Plots for hnsw(faiss)</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)">
             <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
@@ -62,22 +62,15 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.14765 , y: 1283.45802792, label: "eCP(L=2, b=1)" },
-                                                                    { x: 0.22846 , y: 720.100488113, label: "eCP(L=2, b=2)" },
-                                                                    { x: 0.28655 , y: 490.828325108, label: "eCP(L=2, b=3)" },
-                                                                    { x: 0.33274 , y: 401.247423602, label: "eCP(L=2, b=4)" },
-                                                                    { x: 0.36941 , y: 337.531258509, label: "eCP(L=2, b=5)" },
-                                                                    { x: 0.48823 , y: 177.349471276, label: "eCP(L=2, b=10)" },
-                                                                    { x: 0.61811 , y: 91.4226506545, label: "eCP(L=2, b=20)" },
-                                                                    { x: 0.75099 , y: 56.8315710798, label: "eCP(L=2, b=40)" },
-                                                                    { x: 0.85978 , y: 28.4507797093, label: "eCP(L=2, b=80)" },
-                                                                    { x: 0.88816 , y: 21.3985632631, label: "eCP(L=2, b=100)" },
-                                                                    { x: 0.90865 , y: 17.0556089122, label: "eCP(L=2, b=120)" },
-                                                                    { x: 0.92557 , y: 13.6103416843, label: "eCP(L=2, b=140)" },
-                                                                    { x: 0.93723 , y: 11.3696520173, label: "eCP(L=2, b=160)" },
-                                                                    { x: 0.95426 , y: 8.16532806909, label: "eCP(L=2, b=200)" },
-                                                                    { x: 0.98674 , y: 3.16270373704, label: "eCP(L=2, b=400)" },
-                                                                    { x: 0.99188 , y: 2.13840053742, label: "eCP(L=2, b=500)" },
+                                                                    { x: 0.24868 , y: 4467.99696232, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.4339 , y: 3287.12903256, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.62306 , y: 1858.63528539, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.77163 , y: 985.500888108, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.83498 , y: 600.652590237, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.89346 , y: 277.830784514, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.94103 , y: 86.6815947153, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.95722 , y: 41.2914943263, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 0.96555 , y: 24.2025908843, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 800)" },
                                                             ]
                         },
                                                 ]},
@@ -166,22 +159,15 @@
             cycle list name = black white
             ]
                                 \addplot coordinates {
-                                                (0.14765, 1283.45802792)
-                                    (0.22846, 720.100488113)
-                                    (0.28655, 490.828325108)
-                                    (0.33274, 401.247423602)
-                                    (0.36941, 337.531258509)
-                                    (0.48823, 177.349471276)
-                                    (0.61811, 91.4226506545)
-                                    (0.75099, 56.8315710798)
-                                    (0.85978, 28.4507797093)
-                                    (0.88816, 21.3985632631)
-                                    (0.90865, 17.0556089122)
-                                    (0.92557, 13.6103416843)
-                                    (0.93723, 11.3696520173)
-                                    (0.95426, 8.16532806909)
-                                    (0.98674, 3.16270373704)
-                                    (0.99188, 2.13840053742)
+                                                (0.24868, 4467.99696232)
+                                    (0.4339, 3287.12903256)
+                                    (0.62306, 1858.63528539)
+                                    (0.77163, 985.500888108)
+                                    (0.83498, 600.652590237)
+                                    (0.89346, 277.830784514)
+                                    (0.94103, 86.6815947153)
+                                    (0.95722, 41.2914943263)
+                                    (0.96555, 24.2025908843)
                             };
             \addlegendentry{ sift-128-euclidean (k = 10) };
             \end{axis}
@@ -193,7 +179,7 @@
                 </div>
             
                         <hr />
-                                                        <h2>Scatterplots for eCP</h2>
+                                                        <h2>Scatterplots for hnsw(faiss)</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)Scatterplot ">
             <canvas id="chartRecallQueries per second (1/s)Scatterplot " width="800" height="600"></canvas>
@@ -208,22 +194,15 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.14765 , y: 1283.45802792, label: "eCP(L=2, b=1)" },
-                                                                    { x: 0.22846 , y: 720.100488113, label: "eCP(L=2, b=2)" },
-                                                                    { x: 0.28655 , y: 490.828325108, label: "eCP(L=2, b=3)" },
-                                                                    { x: 0.33274 , y: 401.247423602, label: "eCP(L=2, b=4)" },
-                                                                    { x: 0.36941 , y: 337.531258509, label: "eCP(L=2, b=5)" },
-                                                                    { x: 0.48823 , y: 177.349471276, label: "eCP(L=2, b=10)" },
-                                                                    { x: 0.61811 , y: 91.4226506545, label: "eCP(L=2, b=20)" },
-                                                                    { x: 0.75099 , y: 56.8315710798, label: "eCP(L=2, b=40)" },
-                                                                    { x: 0.85978 , y: 28.4507797093, label: "eCP(L=2, b=80)" },
-                                                                    { x: 0.88816 , y: 21.3985632631, label: "eCP(L=2, b=100)" },
-                                                                    { x: 0.90865 , y: 17.0556089122, label: "eCP(L=2, b=120)" },
-                                                                    { x: 0.92557 , y: 13.6103416843, label: "eCP(L=2, b=140)" },
-                                                                    { x: 0.93723 , y: 11.3696520173, label: "eCP(L=2, b=160)" },
-                                                                    { x: 0.95426 , y: 8.16532806909, label: "eCP(L=2, b=200)" },
-                                                                    { x: 0.98674 , y: 3.16270373704, label: "eCP(L=2, b=400)" },
-                                                                    { x: 0.99188 , y: 2.13840053742, label: "eCP(L=2, b=500)" },
+                                                                    { x: 0.24868 , y: 4467.99696232, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.4339 , y: 3287.12903256, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.62306 , y: 1858.63528539, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.77163 , y: 985.500888108, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.83498 , y: 600.652590237, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.89346 , y: 277.830784514, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.94103 , y: 86.6815947153, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.95722 , y: 41.2914943263, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 0.96555 , y: 24.2025908843, label: "faiss ({'M': 4, 'efConstruction': 500}, ef: 800)" },
                                                             ]
                         },
                                                 ]},
@@ -312,22 +291,15 @@
             cycle list name = black white
             ]
                                 \addplot [only marks] coordinates {
-                                                (0.14765, 1283.45802792)
-                                    (0.22846, 720.100488113)
-                                    (0.28655, 490.828325108)
-                                    (0.33274, 401.247423602)
-                                    (0.36941, 337.531258509)
-                                    (0.48823, 177.349471276)
-                                    (0.61811, 91.4226506545)
-                                    (0.75099, 56.8315710798)
-                                    (0.85978, 28.4507797093)
-                                    (0.88816, 21.3985632631)
-                                    (0.90865, 17.0556089122)
-                                    (0.92557, 13.6103416843)
-                                    (0.93723, 11.3696520173)
-                                    (0.95426, 8.16532806909)
-                                    (0.98674, 3.16270373704)
-                                    (0.99188, 2.13840053742)
+                                                (0.24868, 4467.99696232)
+                                    (0.4339, 3287.12903256)
+                                    (0.62306, 1858.63528539)
+                                    (0.77163, 985.500888108)
+                                    (0.83498, 600.652590237)
+                                    (0.89346, 277.830784514)
+                                    (0.94103, 86.6815947153)
+                                    (0.95722, 41.2914943263)
+                                    (0.96555, 24.2025908843)
                             };
             \addlegendentry{ sift-128-euclidean (k = 10) };
             \end{axis}

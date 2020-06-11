@@ -117,8 +117,5 @@ random-s-100-euclidean - 4gb RAM
 sift-128-euclidean - 8gb RAM
 ![Sift-128-euclidean](results/frem/sift-128-euclidean_10_euclidean.png)
 
-glove-25-angular - 8gb RAM
-![Glove-25-angular](results/frem/glove-25-angular_10_angular.png)
-
 [website](results/frem) available with parameter settings
 

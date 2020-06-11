@@ -60,19 +60,7 @@
                                                                         <h2>Benchmarks for Single Queries</h2>
                     
                     <h2 id ="datasets">Results by Dataset</h2>
-                                            <h3>Distance: Angular </h3>
-                                                    <a href="./glove-25-angular_10_angular.html">
-                            <div class="row" id="glove-25-angular_10_angular">
-                                <div class = "col-md-4 bg-success">
-                                    <h4>glove-25-angular (k = 10)</h4>
-                            </div>
-                            <div class = "col-md-8">
-                                <img class = "img-responsive" src="glove-25-angular_10_angular.png" />
-                            </div>
-                        </div>
-                        </a>
-                        <hr />
-                                                                    <h3>Distance: Euclidean </h3>
+                                            <h3>Distance: Euclidean </h3>
                                                     <a href="./sift-128-euclidean_10_euclidean.html">
                             <div class="row" id="sift-128-euclidean_10_euclidean">
                                 <div class = "col-md-4 bg-success">
@@ -86,8 +74,65 @@
                         <hr />
                                                                 <h2 id="algorithms">Results by Algorithm</h2>
                     <ul class="list-inline"><b>Algorithms:</b>
+                                                    <li><a href="#bruteforce-blas">bruteforce-blas</a></li>
+                                                    <li><a href="#flann">flann</a></li>
+                                                    <li><a href="#hnsw(faiss)">hnsw(faiss)</a></li>
+                                                    <li><a href="#BallTree(nmslib)">BallTree(nmslib)</a></li>
                                                     <li><a href="#eCP">eCP</a></li>
+                                                    <li><a href="#faiss-ivf">faiss-ivf</a></li>
+                                                    <li><a href="#hnsw(nmslib)">hnsw(nmslib)</a></li>
+                                                    <li><a href="#n2">n2</a></li>
+                                                    <li><a href="#hnswlib">hnswlib</a></li>
+                                                    <li><a href="#mrpt">mrpt</a></li>
+                                                    <li><a href="#SW-graph(nmslib)">SW-graph(nmslib)</a></li>
+                                                    <li><a href="#kgraph">kgraph</a></li>
+                                                    <li><a href="#NGT-panng">NGT-panng</a></li>
+                                                    <li><a href="#annoy">annoy</a></li>
                                             </ul>
+                                        <a href="./bruteforce-blas.html">
+                        <div class="row" id="bruteforce-blas">
+                            <div class = "col-md-4 bg-success">
+                                <h4>bruteforce-blas</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="bruteforce-blas.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./flann.html">
+                        <div class="row" id="flann">
+                            <div class = "col-md-4 bg-success">
+                                <h4>flann</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="flann.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./hnsw(faiss).html">
+                        <div class="row" id="hnsw(faiss)">
+                            <div class = "col-md-4 bg-success">
+                                <h4>hnsw(faiss)</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="hnsw(faiss).png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./BallTree(nmslib).html">
+                        <div class="row" id="BallTree(nmslib)">
+                            <div class = "col-md-4 bg-success">
+                                <h4>BallTree(nmslib)</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="BallTree(nmslib).png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
                                         <a href="./eCP.html">
                         <div class="row" id="eCP">
                             <div class = "col-md-4 bg-success">
@@ -95,6 +140,105 @@
                         </div>
                         <div class = "col-md-8">
                             <img class = "img-responsive" src="eCP.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./faiss-ivf.html">
+                        <div class="row" id="faiss-ivf">
+                            <div class = "col-md-4 bg-success">
+                                <h4>faiss-ivf</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="faiss-ivf.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./hnsw(nmslib).html">
+                        <div class="row" id="hnsw(nmslib)">
+                            <div class = "col-md-4 bg-success">
+                                <h4>hnsw(nmslib)</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="hnsw(nmslib).png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./n2.html">
+                        <div class="row" id="n2">
+                            <div class = "col-md-4 bg-success">
+                                <h4>n2</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="n2.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./hnswlib.html">
+                        <div class="row" id="hnswlib">
+                            <div class = "col-md-4 bg-success">
+                                <h4>hnswlib</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="hnswlib.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./mrpt.html">
+                        <div class="row" id="mrpt">
+                            <div class = "col-md-4 bg-success">
+                                <h4>mrpt</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="mrpt.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./SW-graph(nmslib).html">
+                        <div class="row" id="SW-graph(nmslib)">
+                            <div class = "col-md-4 bg-success">
+                                <h4>SW-graph(nmslib)</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="SW-graph(nmslib).png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./kgraph.html">
+                        <div class="row" id="kgraph">
+                            <div class = "col-md-4 bg-success">
+                                <h4>kgraph</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="kgraph.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./NGT-panng.html">
+                        <div class="row" id="NGT-panng">
+                            <div class = "col-md-4 bg-success">
+                                <h4>NGT-panng</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="NGT-panng.png" />
+                        </div>
+                    </div>
+                    </a>
+                    <hr />
+                                        <a href="./annoy.html">
+                        <div class="row" id="annoy">
+                            <div class = "col-md-4 bg-success">
+                                <h4>annoy</h4>
+                        </div>
+                        <div class = "col-md-8">
+                            <img class = "img-responsive" src="annoy.png" />
                         </div>
                     </div>
                     </a>
