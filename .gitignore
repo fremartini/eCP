@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# mskk
+.vscode
+
 # User-specific files
 _eCP_wrapper.cpython-36m-x86_64-linux-gnu.so
 eCP_wrapper.py
