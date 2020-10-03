@@ -1,7 +1,7 @@
 FROM ann-benchmarks
 
 RUN apt-get install -y swig
-RUN git clone https://github.com/nimertz/eCP.git
+RUN git clone https://github.com/mortenskoett/eCP.git
 WORKDIR "/home/app/eCP"
 RUN ./generate_wrapper.sh
 WORKDIR "/home/app"
