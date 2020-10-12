@@ -8,7 +8,7 @@
  * @date 15/5/2020
  */
 
-#include "eCP.hpp"
+#include <eCP/eCP.hpp>
 
 class Query_Processing {
 public:

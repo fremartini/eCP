@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "../eCP/eCP.hpp"
-#include "utility.hpp"
+#include <eCP/eCP.hpp>
+#include <utility.hpp>
 
 int main()
 {
@@ -17,6 +17,8 @@ int main()
 	std::vector<std::vector<float>> S = generate_descriptors(p, d, r);
 	std::vector<float> q = S[0];
 
+    std::cout << "Hello cmake world!" << "\n";
+
 	Index* index = eCP_Index(S, l, metric);
 
 	if (debug)
@@ -31,5 +33,6 @@ int main()
 
 	//done with querying, the index should now be cleared to prevent leaks
 	delete index;
+
 	return 0;
 }

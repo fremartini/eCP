@@ -1,6 +1,6 @@
-#include "eCP.hpp"
-#include "query-processing.hpp"
-#include "pre-processing.hpp"
+#include <eCP/eCP.hpp>
+#include <eCP/query-processing.hpp>
+#include <eCP/pre-processing.hpp>
 
 /*
  * recursively traverse the index to find the nearest leaf at the bottom level

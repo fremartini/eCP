@@ -1,4 +1,4 @@
-#include "eCP.hpp"
+#include <eCP/eCP.hpp>
 
 float euclidean_distance(float*& a, float*& b)
 {

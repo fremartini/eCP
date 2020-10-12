@@ -1,6 +1,6 @@
-#include "eCP.hpp"
-#include "pre-processing.hpp"
-#include "query-processing.hpp"
+#include <eCP/eCP.hpp>
+#include <eCP/pre-processing.hpp>
+#include <eCP/query-processing.hpp>
 
 /**
  * the data set is partitioned bottom up and the levels connected top down from the top level.

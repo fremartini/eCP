@@ -1,6 +1,6 @@
 #include <queue>
 
-#include "utility.hpp"
+#include <utility.hpp>
 
 /**
  * creates count, dimension dimensional random float descriptor from 0 to upperBound

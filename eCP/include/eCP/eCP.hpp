@@ -13,9 +13,9 @@
 #include <algorithm>
 #include <math.h>
 
-#include "data_structure.hpp"
-#include "pre-processing.hpp"
-#include "query-processing.hpp"
+#include <eCP/data_structure.hpp>
+#include <eCP/pre-processing.hpp>
+#include <eCP/query-processing.hpp>
 
  /**
   * create an L level index from a data set

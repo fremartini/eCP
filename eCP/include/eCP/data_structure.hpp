@@ -16,6 +16,7 @@
   * @return euclidean distance between a and b
   */
 float euclidean_distance(float*& a, float*& b);
+
 /**
  * computes the angular distance between 2 vectors
  * @param a pointer to first element in array a

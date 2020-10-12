@@ -1,8 +1,7 @@
-#include "eCP.hpp"
-
-#include "pre-processing.hpp"
-#include "query-processing.hpp"
-#include "data_structure.hpp"
+#include <eCP/eCP.hpp>
+#include <eCP/pre-processing.hpp>
+#include <eCP/query-processing.hpp>
+#include <eCP/data_structure.hpp>
 
 // global variables
 unsigned int g_vector_dimensions;
