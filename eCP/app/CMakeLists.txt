@@ -1,6 +1,6 @@
 add_library(utilLib utility.cpp)
 
-# To find headers
+# To find headers for utilLib
 target_include_directories(utilLib
     PUBLIC
         ./
@@ -10,7 +10,7 @@ target_include_directories(utilLib
 add_executable(main main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
 
-# To find header 
+# To find headers for main
 target_include_directories(main 
     PUBLIC 
         ./
