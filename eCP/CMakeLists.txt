@@ -6,7 +6,11 @@ project(
     DESCRIPTION "eCP algorithm C++ implementation"
     LANGUAGES CXX)
 
-# The compiled library code and the executable code
+ # Must be in main file
+enable_testing()
+
+# The compiled library code, executable code, external libs and tests
 add_subdirectory(src)
 add_subdirectory(app)
-
+add_subdirectory(extern)
+add_subdirectory(tests)

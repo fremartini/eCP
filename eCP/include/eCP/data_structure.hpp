@@ -69,7 +69,7 @@ struct Node {
 	std::vector<Node*> children;
 	std::vector<Point> points;
 
-	Node(Point& p) {
+	Node(const Point& p) {
 		points.reserve(1);
 		points.push_back(p);
 	}
