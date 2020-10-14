@@ -4,6 +4,9 @@ file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "${ECP_SOURCE_DIR}/src/*.cpp")
 
 add_library(eCP_library ${SOURCE_LIST} ${HEADER_LIST})
 
-target_include_directories(eCP_library PUBLIC ../include)
+target_include_directories(eCP_library
+    PUBLIC 
+        ./
+        ../include)
 
 target_compile_features(eCP_library PUBLIC cxx_std_17)

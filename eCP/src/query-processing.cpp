@@ -1,3 +1,5 @@
+#include <climits>
+
 #include <eCP/eCP.hpp>
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
@@ -27,7 +29,8 @@ Node* Query_Processing::find_nearest_leaf(float*& query, std::vector<Node*>& nod
 	return best_cluster;
 }
 
-std::vector<std::pair<unsigned int, float>> Query_Processing::k_nearest_neighbors(std::vector<Node*>& root, float*& query, const unsigned int k, const unsigned int b, unsigned int L)
+std::vector<std::pair<unsigned int, float>> Query_Processing::k_nearest_neighbors(std::vector<Node*>& root,
+    float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
 {
 	//find b nearest clusters
 	std::vector<Node*> b_nearest_clusters; //accumulator for b clusters
@@ -124,27 +127,28 @@ std::pair<int, float> Query_Processing::find_furthest_node(float*& query, std::v
 /*
  * uses an accumulator nearest_points to store the result
  */
-void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points)
+void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k,
+    std::vector<std::pair<unsigned int, float>>& nearest_points)
 {
 	float max_distance = FLOAT_MAX;
+
 	//if we already have enough points to start replacing, find the furthest point
 	if (nearest_points.size() >= k) {
 		max_distance = nearest_points[index_to_max_element(nearest_points)].second;
 	}
 
-	for (Point& point : points)
-	{
+	for (Point& point : points) {
 		//not enough points yet, just add
-		if (nearest_points.size() < k)
-		{
+		if (nearest_points.size() < k) {
 			float dist = g_distance_function(query, point.descriptor);
 			nearest_points.emplace_back(point.id, dist);
 
 			//next iteration we will start replacing, compute the furthest cluster
-			if (nearest_points.size() == k) max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+			if (nearest_points.size() == k) {
+                max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+            }
 		}
-		else
-		{
+		else {
 			//only replace if nearer
 			float dist = g_distance_function(query, point.descriptor);
 			if (dist < max_distance) {
@@ -160,15 +164,20 @@ void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points,
 
 unsigned int Query_Processing::index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
-	unsigned int index = -1;
-	float min = FLOAT_MIN;
+    if (point_pairs.size() < 1) { throw std::range_error("Vector must contain at least one element."); }
 
-	for (unsigned int i = 0; i < point_pairs.size(); i++) {
-		if (point_pairs[i].second > min) {
-			min = point_pairs[i].second;
-			index = i;
-		}
-	}
+    // Compare with first element
+	int index = 0;
+	int min = point_pairs[0].second;
+
+    if (point_pairs.size() > 1) {
+        for (unsigned int i = 1; i < point_pairs.size(); ++i) {
+            if (point_pairs[i].second > min) {
+                min = point_pairs[i].second;
+                index = i;
+            }
+        }
+    }
 
 	return index;
 }

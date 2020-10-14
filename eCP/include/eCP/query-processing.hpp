@@ -30,6 +30,14 @@ public:
 	*/
 	static std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node*>& root, float*& query, unsigned int k, unsigned int b, unsigned int L);
 
+    // TODO: Consider refactoring to be able to test functions that resembles utility functionality
+	/**
+	* find the index of the pair with the largest distance
+	* @param point_pairs vector of tuples of (index,distance)
+	* @return index to element with largest distance
+	*/
+	static unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs);
+
 private:
 
 	/**
@@ -66,13 +74,6 @@ private:
 	* @param nearest_points accumulator of k nearest neighbors
 	*/
 	static void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points);
-
-	/**
-	* find the index of the pair with the largest distance
-	* @param point_pairs vector of tuples of (index,distance)
-	* @return index to element with largest distance
-	*/
-	static unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs);
 
 	/*
 	 * comparator for sorting

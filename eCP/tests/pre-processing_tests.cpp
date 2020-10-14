@@ -1,14 +1,7 @@
-// #include "pch.h"
-
-// #include "CppUnitTest.h"
-// #include "vector"
-// #include "../eCP/eCP.hpp"
-
-// using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-// using namespace std;
-
 #include <gtest/gtest.h>
-#include <eCP/eCP.hpp>
+
+// #include <eCP/eCP.hpp>
+#include <eCP/pre-processing.hpp>
 
 /* Helpers */
 std::vector<Node*> get_empty_index(unsigned int L = 2) 

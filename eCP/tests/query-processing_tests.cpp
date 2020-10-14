@@ -1,53 +1,99 @@
-#include "pch.h"
+#include <gtest/gtest.h>
 
-#include "CppUnitTest.h"
-#include "vector"
-#include "../eCP/eCP.hpp"
+#include <eCP/eCP.hpp>
+#include <eCP/query-processing.hpp>
 
-using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+/* Helpers */
+Index get_index(unsigned int L) {
+    std::vector<std::vector<float>> descriptors;
 
-using namespace std;
+    for (unsigned int i = 0; i < 100; i++) {
+        descriptors.push_back({ (float)i, (float)i, (float)i });
+    }
 
-namespace queryProcessingTests
+    return *eCP_Index(descriptors, L, 0);
+};
+
+/* Tests */
+
+TEST(query_processing_tests, index_to_max_element_given_positive_valued_single_pair_returns_pair_index)
 {
-	//	TEST_CLASS(queryProcessingTests)
-	//	{
-	//	private:
-	//
-	//		Index get_index(unsigned int L) {
-	//			std::vector<std::vector<float>> descriptors;
-	//
-	//			for (unsigned int i = 0; i < 100; i++) {
-	//				descriptors.push_back({ (float)i, (float)i, (float)i });
-	//			}
-	//
-	//			return *eCP_Index(descriptors, L, 0);
-	//		}
-	//
-	//	public:
-	//#pragma region find_k_nearest_points
-	//
-	//		TEST_METHOD(find_k_nearest_points_given_k_1_returns_k_closest_points) {
-	//			g_distance_function = &euclidean_distance;
-	//			g_vector_dimensions = 3;
-	//
-	//			float* q = new float[3]{ 4, 4, 4 };
-	//			std::vector<Point> points = {
-	//				Point(new float[3]{1, 1, 1}, 0),
-	//				Point(new float[3]{3, 3, 3}, 1),
-	//				Point(new float[3]{4, 4, 4}, 2),
-	//				Point(new float[3]{6, 6, 6}, 3),
-	//				Point(new float[3]{9, 9, 9}, 4),
-	//			};
-	//
-	//			unsigned int k = 1;
-	//
-	//			auto actual = find_k_nearest_points(q, points, k);
-	//
-	//			Assert::IsTrue(actual.size() == 1);
-	//			Assert::IsTrue(actual[0].first == 2);
-	//			Assert::IsTrue(actual[0].second == 0);
-	//		}
+    // (idx, value)
+    std::vector<std::pair<unsigned int, float>> point_pairs {
+        {2, 2.0}
+    };
+
+    auto result = Query_Processing::index_to_max_element(point_pairs);
+
+    auto expected_index {0};
+    auto actual_index = result;
+
+    EXPECT_EQ(expected_index, actual_index);
+}
+
+TEST(query_processing_tests, index_to_max_element_given_int_zero_returns_correct_index)
+{
+    // (idx, value)
+    std::vector<std::pair<unsigned int, float>> point_pairs {
+        {0, 0.0}
+    };
+
+    auto result = Query_Processing::index_to_max_element(point_pairs);
+
+    auto expected_index {0};
+    auto actual_index = result;
+
+    EXPECT_TRUE(expected_index == actual_index);
+}
+
+TEST(query_processing_tests, index_to_max_element_given_morethan_elem_returns_index_with_highest_value)
+{
+    // (idx, value)
+    std::vector<std::pair<unsigned int, float>> point_pairs {
+        {0, 0.0},
+        {0, 3.0},
+        {0, 2.0},
+        {0, 1.0}
+    };
+
+    auto result = Query_Processing::index_to_max_element(point_pairs);
+
+    auto expected_index {1};
+    auto actual_index = result;
+
+    EXPECT_TRUE(expected_index == actual_index);
+}
+
+TEST(query_processing_tests, index_to_max_element_given_vector_with_zero_elems_throws)
+{
+    std::vector<std::pair<unsigned int, float>> point_pairs;
+    EXPECT_THROW(Query_Processing::index_to_max_element(point_pairs), std::range_error);
+}
+
+TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_points)
+{
+    g_distance_function = &euclidean_distance;
+    g_vector_dimensions = 3;
+
+    float* q = new float[3]{ 4, 4, 4 };
+    std::vector<Node*> root = {
+        new Node{Point(new float[3]{1, 1, 1}, 0)},
+        new Node{Point(new float[3]{3, 3, 3}, 1)},
+        new Node{Point(new float[3]{4, 4, 4}, 2)},
+        new Node{Point(new float[3]{6, 6, 6}, 3)},
+        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    };
+
+    std::uint32_t k = 1;
+    std::uint32_t b = 1;
+    std::uint32_t L = 1;
+
+    auto actual = Query_Processing::k_nearest_neighbors(root, q, k, b, L);
+
+    EXPECT_TRUE(actual.size() == 1);
+    EXPECT_TRUE(actual[0].first == 2);
+    EXPECT_TRUE(actual[0].second == 0);
+}
 	//
 	//		TEST_METHOD(find_k_nearest_points_given_k_2_returns_k_closest_points) {
 	//			g_distance_function = &euclidean_distance;
@@ -187,4 +233,4 @@ namespace queryProcessingTests
 	//
 	//#pragma endregion
 	//	};
-}
+// }
