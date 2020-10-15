@@ -1,6 +1,6 @@
-#include <climits>
+#include <algorithm>
+#include <stdexcept>
 
-#include <eCP/eCP.hpp>
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
 

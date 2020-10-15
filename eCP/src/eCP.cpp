@@ -1,7 +1,8 @@
+#include <cmath>
+
 #include <eCP/eCP.hpp>
 #include <eCP/pre-processing.hpp>
 #include <eCP/query-processing.hpp>
-#include <eCP/data_structure.hpp>
 
 // global variables
 unsigned int g_vector_dimensions;
@@ -37,7 +38,7 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 		g_distance_function = &euclidean_distance;
 	}
 	//initial sample size for building index - n^L/L+1 for initial representatives
-	const auto sample_size = ceil(pow(descriptors.size(), ((L / (L + 1.00)))));
+	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));
 
 	std::vector<Node*> empty_index_root = Pre_Processing::create_index(descriptor_points, L);
 	auto index_root = Pre_Processing::insert_points(empty_index_root, descriptor_points, sample_size);

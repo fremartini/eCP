@@ -1,5 +1,7 @@
 #include "pch.h"
 
+// TODO: Fix these tests to use cmake
+
 #include "CppUnitTest.h"
 #include "vector"
 #include "../eCP/eCP.hpp"

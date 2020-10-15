@@ -7,7 +7,9 @@
  * @author Frederik Martini
  * @date 15/5/2020
  */
-#include <eCP/eCP.hpp>
+
+#include <vector>
+#include <eCP/data_structure.hpp>
 
  /*
   * contains static functions for the preprocessing phase of the eCP algorithm.

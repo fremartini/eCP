@@ -1,4 +1,7 @@
 #pragma once
+
+#include <limits>
+
 /**
  * @file distance.cpp
  * Internal data structures and distance functions for the eCP algorithm

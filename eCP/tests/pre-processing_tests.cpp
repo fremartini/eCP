@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 
-// #include <eCP/eCP.hpp>
 #include <eCP/pre-processing.hpp>
 
 /* Helpers */

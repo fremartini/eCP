@@ -8,14 +8,8 @@
  * @date 15/5/2020
  */
 
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <math.h>
-
 #include <eCP/data_structure.hpp>
-#include <eCP/pre-processing.hpp>
-#include <eCP/query-processing.hpp>
 
  /**
   * create an L level index from a data set

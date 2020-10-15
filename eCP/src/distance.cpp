@@ -1,4 +1,5 @@
-#include <eCP/eCP.hpp>
+#include <eCP/eCP.hpp>  // TODO: Refac global vars away completely or into own file
+#include <cmath>
 
 float euclidean_distance(float*& a, float*& b)
 {

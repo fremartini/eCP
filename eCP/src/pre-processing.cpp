@@ -1,4 +1,7 @@
-#include <eCP/eCP.hpp>
+// #include <eCP/eCP.hpp>
+#include<cmath>
+#include<algorithm>
+
 #include <eCP/pre-processing.hpp>
 #include <eCP/query-processing.hpp>
 
@@ -32,7 +35,7 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 	top_level.shrink_to_fit();
 
 	//reverse level list for increasing level numbering
-	reverse(level_sizes.begin(), level_sizes.end());
+	std::reverse(level_sizes.begin(), level_sizes.end());
 
 	//insert each level of clusters to form index - skip already built top level
 	for (unsigned int level = 1; level < L; ++level)

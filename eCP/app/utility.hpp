@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <eCP/eCP.hpp>
 
 void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& res, std::vector<float>& query, unsigned int k, const std::vector<Point>& S);

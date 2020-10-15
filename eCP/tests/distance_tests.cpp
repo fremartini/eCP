@@ -1,6 +1,6 @@
 #include <cmath>
-
 #include <gtest/gtest.h>
+
 #include <eCP/eCP.hpp>
 
 /* HELPER FUNCTIONS */
