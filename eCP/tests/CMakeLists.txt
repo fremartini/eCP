@@ -5,6 +5,7 @@ add_executable(eCP_tests
     distance_tests.cpp
     pre-processing_tests.cpp
     query-processing_tests.cpp
+    eCP_tests.cpp
 )
 
 # Link required libraries to the test suite
