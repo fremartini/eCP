@@ -27,7 +27,8 @@ std::vector<std::vector<float>> generate_descriptors(const unsigned int count, c
 	return vector_list;
 }
 
-void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result, std::vector<float>& query, unsigned int k, const std::vector<Point>& S)
+void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result,
+    std::vector<float>& query, unsigned int k, const std::vector<Point>& S)
 {
 	std::cout << "k = " << k << "\nQuery: ";
 
@@ -36,7 +37,7 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 	for (unsigned int i = 0; i < g_vector_dimensions; i++) {
 		q[i] = query[i];
 	}
-	Point pq = Point(q, -1);
+	Point pq = Point(q, -1);    // TODO: Misuse of unsigned int
 
 	print_point(pq);
 

@@ -9,8 +9,8 @@ unsigned int g_vector_dimensions;
 float (*g_distance_function)(float*&, float*&);
 
 /*
- * entry point for ANN-Benchmarks fit function. Partitions the data set before creating the empty index.
- * The distance function is also set globally.
+ * entry point for ANN-Benchmarks fit function. Partitions the data set before creating
+ * the empty index. The distance function is also set globally.
  */
 Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int L, unsigned int metric)
 {
@@ -38,9 +38,10 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 		g_distance_function = &euclidean_distance;
 	}
 	//initial sample size for building index - n^L/L+1 for initial representatives
-	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));
+	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));   // TODO: Consider refac out of this func to test
 
 	std::vector<Node*> empty_index_root = Pre_Processing::create_index(descriptor_points, L);
+
 	auto index_root = Pre_Processing::insert_points(empty_index_root, descriptor_points, sample_size);
 
 	return new Index(L, index_root, descriptor_points);
@@ -49,7 +50,8 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 /*
  * entry point for ANN-Benchmarks query function. SWIG converts python list to std::vector
  */
-std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b)
+std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query,
+    unsigned int k, unsigned int b)
 {
 	//internal data structure uses float pointer instead of vectors
 	float* q = &query[0];

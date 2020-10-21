@@ -44,8 +44,10 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 		for (unsigned int i = 0; i < level_sizes[level]; ++i)
 		{
 			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);
+
 			// -1 since top level has been compared with
-			auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);
+			auto* lower_level_nearest =
+                find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);
 
 			//at bottom level
 			if (level == L - 1)
@@ -56,7 +58,7 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 				leaf->points.reserve(avg_rep);
 				lower_level_nearest->children.emplace_back(leaf);
 			}
-			else
+			else    // TODO: Assert why this behaviour is duplicated like this
 			{
 				auto* node = new Node(dataset[i]);
 				const unsigned int avg_rep = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
@@ -69,9 +71,10 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 	return top_level;
 }
 
-std::vector<Node*> Pre_Processing::insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
+std::vector<Node*> Pre_Processing::insert_points(std::vector<Node*>& index_top_level,
+    std::vector<Point>& points, unsigned int from_index)
 {
-	for (unsigned int i = from_index; i < points.size(); ++i)
+	for (unsigned int i = from_index; i < points.size(); ++i)   // TODO: Note: Will typically run many times
 	{
 		Node* nearest = Query_Processing::find_nearest_leaf(points[i].descriptor, index_top_level);
 
@@ -84,6 +87,7 @@ Node* Pre_Processing::find_nearest_node(std::vector<Node*>& nodes, float*& query
 {
 	float nearest = FLOAT_MAX;
 	Node* best = nullptr;
+
 	//compare distance to every representative
 	for (auto* node : nodes)
 	{

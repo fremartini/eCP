@@ -54,7 +54,8 @@ std::vector<std::pair<unsigned int, float>> Query_Processing::k_nearest_neighbor
 /*
  * traverses node children one level at a time to find b nearest
  */
-std::vector<Node*> Query_Processing::find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L)
+std::vector<Node*> Query_Processing::find_b_nearest_clusters(std::vector<Node*>& root, float*& query,
+    unsigned int b, unsigned int L)
 {
 	std::vector<Node*> b_best;
 	b_best.reserve(b);
@@ -79,9 +80,10 @@ std::vector<Node*> Query_Processing::find_b_nearest_clusters(std::vector<Node*>&
 /*
  * scans a node, adding the nearer nodes to an accumulator
  */
-void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& next_level_nodes)
+void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b,
+    std::vector<Node*>& next_level_nodes)
 {
-	std::pair<int, float> furthest_node = std::make_pair(-1, -1);
+	std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);
 
 	//if we already have enough nodes to start replacing, find the furthest node
 	if (next_level_nodes.size() >= b) furthest_node = find_furthest_node(query, next_level_nodes);
@@ -109,9 +111,11 @@ void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsig
 	}
 }
 
+// TODO: Verify that this is indeed necessary. Consider just going through each and comparing to the current node with the smallest dist (Is this basic KNN?)
+// It looks as if a lot of calls are made to this O(N) function
 std::pair<int, float> Query_Processing::find_furthest_node(float*& query, std::vector<Node*>& nodes)
 {
-	std::pair<int, float> worst = std::make_pair(-1, -1);
+	std::pair<int, float> worst = std::make_pair(-1, -1.0);
 	for (unsigned int i = 0; i < nodes.size(); i++) {
 		const float dst = g_distance_function(query, nodes[i]->get_representative());
 
@@ -126,6 +130,8 @@ std::pair<int, float> Query_Processing::find_furthest_node(float*& query, std::v
 
 /*
  * uses an accumulator nearest_points to store the result
+ * 
+ * Compares query point to each point in cluster and accumulates the k nearest points in 'nearest_points'.
  */
 void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k,
     std::vector<std::pair<unsigned int, float>>& nearest_points)
@@ -185,7 +191,8 @@ unsigned int Query_Processing::index_to_max_element(std::vector<std::pair<unsign
 /**
 * used as predicate to sort for smallest distances
 */
-bool Query_Processing::smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b)
+bool Query_Processing::smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int,
+    float>& b)
 {
 	return a.second < b.second;
 }

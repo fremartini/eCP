@@ -5,15 +5,10 @@
 
 /* HELPER FUNCTIONS */
 
-void p(const std::vector<std::string>& strs) {
-    for (const auto &str : strs) {
-        std::cout << str << " ";
-    }
-    std::cout << "\n";
-}
+const float EPSILON_ = 0.006f;
 
 // Compare floating point values (cmpf) by using epsilon tolerance of rounding error
-bool cmpf(float A, float B, float epsilon = 0.006f)
+bool cmpf(float A, float B, float epsilon = EPSILON_)
 {
     auto diff = fabs(A - B);
     return diff < epsilon;
@@ -25,6 +20,21 @@ bool cmpf(float A, float B, float epsilon = 0.006f)
 TEST(distance_tests, tests_sanity_check)
 {
   EXPECT_EQ(2, 1 + 1);
+}
+
+TEST(distance_tests, euclidean_distance_given_1d_vectors_returns_correct_distance)
+{
+    /* This test corresponds to finding the diagonal line between point (3,3) and (4,4) in a 2D coordinate system. */
+
+    g_vector_dimensions = 2;
+    float* a = new float[2]{4, 4};
+    float* b = new float[2]{3, 3};
+
+    float expected = 1.41;
+    float actual = std::sqrt(euclidean_distance(a, b));
+    
+    EXPECT_NEAR(expected, actual, EPSILON_)
+        << "actual: " << actual << " should be eq to expected: " << expected;
 }
 
 TEST(distance_tests, euclidean_distance_given_2_4d_vectors_returns_accurate_distance)
@@ -94,7 +104,7 @@ TEST(distance_tests, angular_distance_given_2_dimensions_returns_correct_value) 
 
     float actual = angular_distance(a, b) / M_PI;
 
-    EXPECT_TRUE(cmpf(actual, 0.03));
+    EXPECT_TRUE(cmpf(0.03, actual));
 }
 
 TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) {
@@ -102,7 +112,8 @@ TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) 
     float* a = new float[3]{ 1, 5, 4 };
     float* b = new float[3]{ 9, 9, 7 };
 
+    float expected = 0.16;
     float actual = angular_distance(a, b) / M_PI;
 
-    EXPECT_TRUE(cmpf(actual, 0.16));
+    EXPECT_NEAR(actual, 0.16, EPSILON_);
 }
