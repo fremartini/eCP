@@ -6,6 +6,8 @@
 # mskk
 .vscode
 build
+env
+files_generated
 
 # User-specific files
 _eCP_wrapper.cpython-36m-x86_64-linux-gnu.so

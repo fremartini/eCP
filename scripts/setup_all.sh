@@ -9,22 +9,25 @@
 # ./ 
 #   ann-benchmarks/
 #   eCp/
+#     scripts/
 
-cd ..
+cd ../..
 
-[ ! -d ann-benchmarks ] && echo "Clone new repo" && git clone https://github.com/mortenskoett/ann-benchmarks/
+[ ! -d ann-benchmarks ] \
+    && echo "Cloning new ann-benchmarks repo" \
+    && git clone https://github.com/mortenskoett/ann-benchmarks/
 
 echo "Copy eCP necessary files"
 cp -r eCP/ann-benchmarks/* ann-benchmarks/
 
-echo "Setup python 3.6 env"
+echo "Setup python 3.6 env inside ann-benchmarks"
 cd ann-benchmarks
 source env/bin/activate
 
 echo "Install dependencies"
 pip install -r requirements.txt
 
-echo "Building docker images"
+echo "Building ALL docker images"
 sudo python install.py
 
 echo "Run test on random-xs-20-euclidean"

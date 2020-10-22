@@ -7,7 +7,13 @@ CLI.add_argument(
   type=str,
   default=None,
 )
-
+CLI.add_argument(
+  "--out",
+  nargs="*",
+  type=str,
+  default=[],
+  help="output file"
+)
 
 def isSignature(line):
     symbols = ['#', '//', '+', '-', '/', '[', ']', '.', '=', '==', '\"', '\'', 'auto', ';', '}', '@', 'main(', 'else', 'if (', 'for ', 'while ', 'throw ']
@@ -32,12 +38,8 @@ def isSignature(line):
     return True
 
 def getSignatures(filename):
-    fileData = filename.split('.')
-    name = fileData[0]
-    extension = f'.{fileData[1]}'
-
-    if (not extension == '.cpp'):
-        print(f'{extension} is not a valid type')
+    if (not filename.endswith('.cpp')):
+        print(f'{filename} is not a valid type')
         return
 
     signatures = []
@@ -52,7 +54,9 @@ def getSignatures(filename):
     return signatures
 
 def writeInterface(signatures):
-    with open(f'eCP.i', 'w+') as f:
+    filepath = args.out[0] + '/' + 'eCP.i'
+
+    with open(filepath, 'w+') as f:
         f.write(
             r'%module eCP_wrapper' + '\n' +
             r'%{' + '\n' +

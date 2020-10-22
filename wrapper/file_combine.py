@@ -46,15 +46,21 @@ def main(files):
             f.write('#pragma once\n')
 
             #we do not want any include statements in the combined header
-            for incl in includes:
-                if ('.hpp' in incl):
+            for line in includes:
+                if ('.hpp' in line):
                     continue
 
-                f.write(incl)               
+                f.write(line)               
 
         else:
         #file is .cpp, include the combined header
-            f.write('#include \"combined.hpp\"')
+            f.write('#include \"combined.hpp\"\n')
+            #we do not want any include statements in the combined header
+            for line in includes:
+                if ('.hpp' in line):
+                    continue
+
+                f.write(line)               
 
         #write everything else
         f.write("\n")
