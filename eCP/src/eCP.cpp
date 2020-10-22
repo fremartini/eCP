@@ -50,8 +50,7 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 /*
  * entry point for ANN-Benchmarks query function. SWIG converts python list to std::vector
  */
-std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query,
-    unsigned int k, unsigned int b)
+std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b)
 {
 	//internal data structure uses float pointer instead of vectors
 	float* q = &query[0];

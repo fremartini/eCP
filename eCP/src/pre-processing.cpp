@@ -1,6 +1,6 @@
 // #include <eCP/eCP.hpp>
-#include<cmath>
-#include<algorithm>
+#include <cmath>
+#include <algorithm>
 
 #include <eCP/pre-processing.hpp>
 #include <eCP/query-processing.hpp>
@@ -71,8 +71,7 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 	return top_level;
 }
 
-std::vector<Node*> Pre_Processing::insert_points(std::vector<Node*>& index_top_level,
-    std::vector<Point>& points, unsigned int from_index)
+std::vector<Node*> Pre_Processing::insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
 {
 	for (unsigned int i = from_index; i < points.size(); ++i)   // TODO: Note: Will typically run many times
 	{

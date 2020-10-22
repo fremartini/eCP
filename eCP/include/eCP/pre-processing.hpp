@@ -40,6 +40,7 @@ public:
 	* @return pointer to the nearest node to the query point
 	*/
 	static Node* find_nearest_node(std::vector<Node*>& nodes, float*& query);
+
 private:
 
 	/**
