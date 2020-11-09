@@ -22,4 +22,5 @@ target_link_libraries(main
         utilLib
     PUBLIC
         eCP_library
+        ittnotify
 )

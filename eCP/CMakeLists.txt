@@ -6,7 +6,7 @@ project(
     DESCRIPTION "eCP algorithm C++ implementation"
     LANGUAGES CXX)
 
- # Must be in main file
+# Must be in main file
 enable_testing()
 
 # The compiled library code, executable code, external libs and tests

@@ -9,14 +9,12 @@ FetchContent_Declare(
   GIT_TAG        release-1.10.0
 )
 
-FetchContent_GetProperties(googletest)
+# Make Intel instrumentatation and tracing api part of build dir
+FetchContent_Declare(
+  ittapi
+  GIT_REPOSITORY https://github.com/intel/ittapi
+  GIT_TAG        v3.18.8
+)
 
-if(NOT googletest_POPULATED)
-    FetchContent_Populate(googletest)
-
-    # Create dir structure in build dir
-    add_subdirectory(
-        ${googletest_SOURCE_DIR}
-        ${googletest_BINARY_DIR}
-    )
-endif()
+# Make libs available to the build system
+FetchContent_MakeAvailable(googletest ittapi)
