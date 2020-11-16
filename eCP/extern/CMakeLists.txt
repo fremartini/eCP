@@ -9,7 +9,7 @@ FetchContent_Declare(
   GIT_TAG        release-1.10.0
 )
 
-# Make Intel instrumentatation and tracing api part of build dir
+# Make Intel instrumentatation and tracing api part of build dir (ittnotify.h)
 FetchContent_Declare(
   ittapi
   GIT_REPOSITORY https://github.com/intel/ittapi

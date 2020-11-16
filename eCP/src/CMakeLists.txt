@@ -10,3 +10,8 @@ target_include_directories(eCP_library
         ../include)
 
 target_compile_features(eCP_library PUBLIC cxx_std_17)
+
+target_link_libraries(eCP_library
+    PRIVATE
+        ittnotify
+)
