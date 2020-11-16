@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DATA_STRUCTURE_H
+#define DATA_STRUCTURE_H
 
 #include <limits>
 
@@ -135,3 +136,5 @@ struct Index
 		}
 	}
 };
+
+#endif // DATA_STRUCTURE_H

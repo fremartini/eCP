@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PRE_PROCESSING_H
+#define PRE_PROCESSING_H
+
 /**
  * @file distance.cpp
  * static functions for the eCP algorithm preprocessing phase
@@ -52,3 +54,5 @@ private:
 	*/
 	static Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth);
 };
+
+#endif // PRE_PROCESSING_H

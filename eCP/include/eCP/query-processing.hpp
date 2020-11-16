@@ -1,4 +1,6 @@
-#pragma once
+#ifndef QUERY_PROCESSING_H
+#define QUERY_PROCESSING_H
+
 /**
  * @file query-processing.cpp
  * static functions for the eCP algorithm query-processing phase
@@ -82,3 +84,5 @@ private:
 	 */
 	static bool smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b);
 };
+
+#endif // QUERY_PROCESSING_H

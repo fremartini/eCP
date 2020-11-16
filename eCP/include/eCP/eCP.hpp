@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ECP_H
+#define ECP_H
+
 /**
  * @file eCP.cpp
  * Static library for the extended cluster pruning algorithm
@@ -29,3 +31,5 @@ Index* eCP_Index(std::vector<std::vector<float>> descriptors, unsigned int L, un
  * @return collection of tuples containing index in data set and distance to query point
  */
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b);
+
+#endif // ECP_H

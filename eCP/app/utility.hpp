@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTILITY_H
+#define UTILITY_H
 
 #include <vector>
 #include <eCP/eCP.hpp>
@@ -16,3 +17,5 @@ void print_cluster(Node& c, unsigned int d);
 void print_clusters(std::vector<Node*>& clusters);
 
 void print_index_levels(std::vector<Node*>& root);
+
+#endif // UTILITY_H
