@@ -31,21 +31,21 @@ Index* get_index(unsigned int L = 2) {
 }
 
 /* Data structure tests */
-TEST(ecp_tests, point_comparison_given_different_points_returns_false) {
-    EXPECT_FALSE(Point(new float[3]{ 1, 1, 1 }, 1) == Point(new float[3]{ 2, 2, 2 }, 2));
-}
+// TEST(ecp_tests, point_comparison_given_different_points_returns_false) {
+//     EXPECT_FALSE(Point(new float[3]{ 1, 1, 1 }, 1) == Point(new float[3]{ 2, 2, 2 }, 2));
+// }
 
-TEST(ecp_tests, point_comparison_given_same_points_returns_true) {
-    EXPECT_TRUE(Point(new float[3]{ 1, 1, 1 }, 1) == Point(new float[3]{ 1, 1, 1 }, 1));
-}
+// TEST(ecp_tests, point_comparison_given_same_points_returns_true) {
+//     EXPECT_TRUE(Point(new float[3]{ 1, 1, 1 }, 1) == Point(new float[3]{ 1, 1, 1 }, 1));
+// }
 
-TEST(ecp_tests, cluster_comparison_given_different_clusters_returns_false) {
-    EXPECT_FALSE(Node(Point(new float[3]{ 1, 1, 1 }, 0)) == Node(Point(new float[3]{ 2, 2, 2 }, 0)));
-}
+// TEST(ecp_tests, cluster_comparison_given_different_clusters_returns_false) {
+//     EXPECT_FALSE(Node(Point(new float[3]{ 1, 1, 1 }, 0)) == Node(Point(new float[3]{ 2, 2, 2 }, 0)));
+// }
 
-TEST(ecp_tests, cluster_comparison_given_same_clusters_returns_true) {
-    EXPECT_TRUE(Node(Point(new float[3]{ 1, 1, 1 }, 0)) == Node(Point(new float[3]{ 1, 1, 1 }, 0)));
-}
+// TEST(ecp_tests, cluster_comparison_given_same_clusters_returns_true) {
+//     EXPECT_TRUE(Node(Point(new float[3]{ 1, 1, 1 }, 0)) == Node(Point(new float[3]{ 1, 1, 1 }, 0)));
+// }
 
 /* Tests */
 
