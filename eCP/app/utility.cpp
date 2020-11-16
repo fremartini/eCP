@@ -76,6 +76,11 @@ void print_points(std::vector<Point>& points)
 	}
 }
 
+bool is_leaf(Node& node) 
+{
+    return node.children.empty();
+}
+
 void print_cluster(Node& c, const unsigned int d)
 {
 	if (g_vector_dimensions < 5)
@@ -84,7 +89,7 @@ void print_cluster(Node& c, const unsigned int d)
 		print_point(p);
 	}
 
-	if (c.is_leaf()) {
+	if (is_leaf(c)) {
 		std::cout << " {";
 
 		if (g_vector_dimensions < 5) {
@@ -103,7 +108,7 @@ void print_cluster(Node& c, const unsigned int d)
 
 	for (Node*& i : c.children) {
 		auto space = std::string(d * 4, ' ');
-		if (!i->is_leaf())
+		if (!is_leaf(*i))
 		{
 			std::cout << space << "C";
 		}
@@ -152,7 +157,7 @@ void print_index_levels(std::vector<Node*>& root)
 			Node* node = q.front();
 			q.pop();
 
-			if (node->is_leaf())
+			if (is_leaf(*node))
 			{
 				std::cout << " [L: " << node->points.size() << " ]";
 			}

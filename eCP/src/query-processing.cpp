@@ -1,11 +1,13 @@
 #include <algorithm>
 #include <stdexcept>
+#include <ittnotify.h>
 
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
 
 /*
  * recursively traverse the index to find the nearest leaf at the bottom level
+ * Note: Used only when building the index.
  */
 Node* Query_Processing::find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 {
@@ -14,7 +16,7 @@ Node* Query_Processing::find_nearest_leaf(float*& query, std::vector<Node*>& nod
 
 	for (Node* cluster : best_cluster->children)
 	{
-		if (cluster->is_leaf())
+		if (cluster->children.empty())  // Removed is_leaf() function from Node struct
 		{
 			return Pre_Processing::find_nearest_node(best_cluster->children, query);
 		}

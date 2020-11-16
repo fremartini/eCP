@@ -54,14 +54,6 @@ struct Point {
 	}
 
 	~Point() = default;
-
-	//only used for unit testing
-	friend inline bool operator==(const Point& lhs, const Point& rhs)
-	{
-		return
-			*lhs.descriptor == *rhs.descriptor &&
-			lhs.id == rhs.id;
-	}
 };
 /*
  * represents nodes and clusters in index. Will not have children at bottom level.
@@ -84,19 +76,6 @@ struct Node {
 		{
 			delete child;
 		}
-	}
-
-	//only used for unit testing
-	friend inline bool operator==(const Node& lhs, const Node& rhs)
-	{
-		return
-			lhs.children == rhs.children &&
-			lhs.points == rhs.points;
-	}
-
-	bool is_leaf() const
-	{
-		return children.empty();
 	}
 
 	float*& get_representative()
