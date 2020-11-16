@@ -5,8 +5,8 @@
 #include <eCP/query-processing.hpp>
 
 // global variables
-unsigned int g_vector_dimensions;
-float (*g_distance_function)(float*&, float*&);
+inline unsigned int g_vector_dimensions;
+inline float (*g_distance_function)(float*&, float*&);
 
 /*
  * entry point for ANN-Benchmarks fit function. Partitions the data set before creating

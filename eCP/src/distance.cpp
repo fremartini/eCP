@@ -10,7 +10,7 @@ float euclidean_distance(float*& a, float*& b)
 		sum += pow * pow;
 	}
 
-	return sum; // TOOD: This function square the result to fulfill the specification of the function name
+	return sum;
 }
 
 float angular_distance(float*& a, float*& b)
