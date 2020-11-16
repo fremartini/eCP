@@ -14,3 +14,16 @@ add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(extern)
 add_subdirectory(tests)
+
+# Setting build flags
+list(APPEND flags "-fPIC" "-Wall")
+if(NOT WIN32)
+  list(APPEND flags "-Wextra" "-Wpedantic")
+endif()
+
+target_compile_options(main
+    PUBLIC
+        ${flags}
+        -O3
+        -g
+)
