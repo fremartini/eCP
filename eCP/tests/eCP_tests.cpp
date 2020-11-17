@@ -2,6 +2,7 @@
 
 #include <eCP/eCP.hpp>
 #include <eCP/pre-processing.hpp>
+#include <eCP/data_structure.hpp>
 
 /* Helpers */
 
@@ -27,9 +28,10 @@ Index* get_index(unsigned int L = 2) {
         {7, 7, 7},
     };
 
-    return eCP_Index(descriptors, L, 0);
+    return eCP::eCP_Index(descriptors, L, 0);
 }
 
+// TODO: Fix these tests
 /* Data structure tests */
 // TEST(ecp_tests, point_comparison_given_different_points_returns_false) {
 //     EXPECT_FALSE(Point(new float[3]{ 1, 1, 1 }, 1) == Point(new float[3]{ 2, 2, 2 }, 2));
@@ -57,7 +59,7 @@ TEST(ecp_tests, index_given_descriptors_has_correct_depth) {
 
     unsigned int L = 2;
 
-    Index index = *eCP_Index(descriptors, L, 0);
+    Index index = *eCP::eCP_Index(descriptors, L, 0);
 
     EXPECT_TRUE(index.L = L);
 
@@ -75,7 +77,7 @@ TEST(ecp_tests, index_given_descriptors_inserts_descriptors) {
 
     unsigned int L = 1;
 
-    Index index = *eCP_Index(descriptors, L, 0);
+    Index index = *eCP::eCP_Index(descriptors, L, 0);
 
     EXPECT_TRUE(index.dataset.size() == descriptors.size());
 }
@@ -86,7 +88,7 @@ TEST(ecp_tests, query_given_k_1_returns_query_point) {
     unsigned int k = 1;
     unsigned int b = 1;
 
-    auto actual = query(index, q, k, b);
+    auto actual = eCP::query(index, q, k, b);
 
     EXPECT_TRUE(actual.first.size() == 1);
     EXPECT_TRUE(actual.second.size() == 1);
@@ -100,7 +102,7 @@ TEST(ecp_tests, query_given_k_2_returns_closest_points) {
     unsigned int k = 2;
     unsigned int b = 1;
 
-    auto actual = query(index, q, k, b);
+    auto actual = eCP::query(index, q, k, b);
 
     EXPECT_TRUE(actual.first.size() == 2);
     EXPECT_TRUE(actual.second.size() == 2);

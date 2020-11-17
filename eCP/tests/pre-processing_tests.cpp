@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 
 #include <eCP/pre-processing.hpp>
+#include <eCP/distance.hpp>
+#include <eCP/global.hpp>
 
 /* Helpers */
 std::vector<Node*> get_empty_index(unsigned int L = 2) 
@@ -19,15 +21,16 @@ std::vector<Node*> get_empty_index(unsigned int L = 2)
         Point(new float[3] {10, 10, 10}, 10),
     };
 
-    return Pre_Processing::create_index(S, L);
+    return pre_processing::create_index(S, L);
 };
 
 /* Tests */
 
 TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
 {
-    g_distance_function = &euclidean_distance;
-    g_vector_dimensions = 3;
+    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::g_distance_function = distance::g_distance_function;
+    global::g_vector_dimensions = 3;
 
     std::vector<Node*> clusters {
         new Node{Point(new float[3] {1, 1, 1}, 0)},
@@ -38,15 +41,16 @@ TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
 
     float* query = new float[3]{ 3, 3, 3 };
 
-    Node* actual = Pre_Processing::find_nearest_node(clusters, query);
+    Node* actual = pre_processing::find_nearest_node(clusters, query);
 
     EXPECT_TRUE(*actual->get_representative() == (*new float[3]{ 4, 4, 4 }));
 }
 
 TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_same)
 {
-    g_distance_function = &euclidean_distance;
-    g_vector_dimensions = 3;
+    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::g_distance_function = distance::g_distance_function;
+    global::g_vector_dimensions = 3;
 
     std::vector<Node*> clusters = {
         new Node{Point {new float[3] {1,1,1}, 0}},
@@ -57,14 +61,15 @@ TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_s
 
     float* query = new float[3]{ 8, 8, 8 };
 
-    Node* actual = Pre_Processing::find_nearest_node(clusters, query);
+    Node* actual = pre_processing::find_nearest_node(clusters, query);
 
     EXPECT_TRUE(*actual->get_representative() == (*new float[3]{ 8, 8, 8 }));
 }
 
 TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
-    g_distance_function = &euclidean_distance;
-    g_vector_dimensions = 3;
+    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::g_distance_function = distance::g_distance_function;
+    global::g_vector_dimensions = 3;
 
     std::vector<Point> S = {
         Point(new float[3] {1, 1, 1}, 0),
@@ -76,7 +81,7 @@ TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
     };
     unsigned int L = 1;
 
-    auto root = Pre_Processing::create_index(S, L);
+    auto root = pre_processing::create_index(S, L);
 
     EXPECT_TRUE(root.size() != 0);
 
@@ -87,8 +92,9 @@ TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
 }
 
 TEST(pre_processing_tests, insert_points_given_empty_index_inserts_points) {
-    g_distance_function = &euclidean_distance;
-    g_vector_dimensions = 3;
+    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::g_distance_function = distance::g_distance_function;
+    global::g_vector_dimensions = 3;
 
     std::vector<Node*> root = get_empty_index(1);
 
@@ -106,7 +112,7 @@ TEST(pre_processing_tests, insert_points_given_empty_index_inserts_points) {
         Point(new float[3] {10, 10, 10}, 10)
     };
 
-    std::vector<Node*> actual = Pre_Processing::insert_points(root, descriptors);
+    std::vector<Node*> actual = pre_processing::insert_points(root, descriptors);
 
     for (auto cluster : actual) {
         for (auto leaf : cluster->children) {

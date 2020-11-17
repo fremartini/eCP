@@ -13,6 +13,8 @@
 #include <vector>
 #include <eCP/data_structure.hpp>
 
+namespace eCP {
+
  /**
   * create an L level index from a data set
   * @param descriptors floating point numbers data set
@@ -31,5 +33,7 @@ Index* eCP_Index(std::vector<std::vector<float>> descriptors, unsigned int L, un
  * @return collection of tuples containing index in data set and distance to query point
  */
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b);
+
+}
 
 #endif // ECP_H

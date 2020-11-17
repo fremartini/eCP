@@ -7,6 +7,11 @@ target_include_directories(utilLib
         ../include
 )
 
+target_link_libraries(utilLib
+    PUBLIC
+        eCP_library
+) 
+
 add_executable(main main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
 

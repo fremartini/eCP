@@ -4,24 +4,28 @@
 
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
+#include <eCP/distance.hpp>
+#include <eCP/global.hpp>
 
 /*
  * recursively traverse the index to find the nearest leaf at the bottom level
  * Note: Used only when building the index.
  */
-Node* Query_Processing::find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
+namespace query_processing {
+
+Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 {
-	Node* best_cluster = Pre_Processing::find_nearest_node(nodes, query);
-	float closest = FLOAT_MAX;
+	Node* best_cluster = pre_processing::find_nearest_node(nodes, query);
+	float closest = global::FLOAT_MAX;
 
 	for (Node* cluster : best_cluster->children)
 	{
 		if (cluster->children.empty())  // Removed is_leaf() function from Node struct
 		{
-			return Pre_Processing::find_nearest_node(best_cluster->children, query);
+			return pre_processing::find_nearest_node(best_cluster->children, query);
 		}
 
-		const auto dist = g_distance_function(query, cluster->get_representative());
+		const auto dist = distance::g_distance_function(query, cluster->get_representative());
 		if (dist < closest)
 		{
 			closest = dist;
@@ -31,7 +35,7 @@ Node* Query_Processing::find_nearest_leaf(float*& query, std::vector<Node*>& nod
 	return best_cluster;
 }
 
-std::vector<std::pair<unsigned int, float>> Query_Processing::k_nearest_neighbors(std::vector<Node*>& root, float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
+std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node*>& root, float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
 {
 	//find b nearest clusters
 	std::vector<Node*> b_nearest_clusters; //accumulator for b clusters
@@ -55,7 +59,7 @@ std::vector<std::pair<unsigned int, float>> Query_Processing::k_nearest_neighbor
 /*
  * traverses node children one level at a time to find b nearest
  */
-std::vector<Node*> Query_Processing::find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L)
+std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L)
 {
 	std::vector<Node*> b_best;
 	b_best.reserve(b);
@@ -80,7 +84,7 @@ std::vector<Node*> Query_Processing::find_b_nearest_clusters(std::vector<Node*>&
 /*
  * scans a node, adding the nearer nodes to an accumulator
  */
-void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& next_level_nodes)
+void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& next_level_nodes)
 {
 	std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);
 
@@ -100,7 +104,7 @@ void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsig
 		else
 		{
 			//only replace if better
-			if (g_distance_function(query, node->get_representative()) < furthest_node.second) {
+			if (distance::g_distance_function(query, node->get_representative()) < furthest_node.second) {
 				next_level_nodes[furthest_node.first] = node;
 
 				//the furthest node has been replaced, find the new furthest
@@ -112,11 +116,11 @@ void Query_Processing::scan_node(float*& query, std::vector<Node*>& nodes, unsig
 
 // TODO: Verify that this is indeed necessary. Consider just going through each and comparing to the current node with the smallest dist (Is this basic KNN?)
 // It looks as if a lot of calls are made to this O(N) function
-std::pair<int, float> Query_Processing::find_furthest_node(float*& query, std::vector<Node*>& nodes)
+std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& nodes)
 {
 	std::pair<int, float> worst = std::make_pair(-1, -1.0);
 	for (unsigned int i = 0; i < nodes.size(); i++) {
-		const float dst = g_distance_function(query, nodes[i]->get_representative());
+		const float dst = distance::g_distance_function(query, nodes[i]->get_representative());
 
 		if (dst > worst.second) {
 			worst.first = i;
@@ -132,9 +136,9 @@ std::pair<int, float> Query_Processing::find_furthest_node(float*& query, std::v
  * 
  * Compares query point to each point in cluster and accumulates the k nearest points in 'nearest_points'.
  */
-void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points)
+void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points)
 {
-	float max_distance = FLOAT_MAX;
+	float max_distance = global::FLOAT_MAX;
 
 	//if we already have enough points to start replacing, find the furthest point
 	if (nearest_points.size() >= k) {
@@ -144,7 +148,7 @@ void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points,
 	for (Point& point : points) {
 		//not enough points yet, just add
 		if (nearest_points.size() < k) {
-			float dist = g_distance_function(query, point.descriptor);
+			float dist = distance::g_distance_function(query, point.descriptor);
 			nearest_points.emplace_back(point.id, dist);
 
 			//next iteration we will start replacing, compute the furthest cluster
@@ -154,7 +158,7 @@ void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points,
 		}
 		else {
 			//only replace if nearer
-			float dist = g_distance_function(query, point.descriptor);
+			float dist = distance::g_distance_function(query, point.descriptor);
 			if (dist < max_distance) {
 				const unsigned int max_index = index_to_max_element(nearest_points);
 				nearest_points[max_index] = std::make_pair(point.id, dist);
@@ -166,7 +170,7 @@ void Query_Processing::scan_leaf_node(float*& query, std::vector<Point>& points,
 	}
 }
 
-unsigned int Query_Processing::index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
+unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
     if (point_pairs.size() < 1) { throw std::range_error("Vector must contain at least one element."); }
 
@@ -189,7 +193,9 @@ unsigned int Query_Processing::index_to_max_element(std::vector<std::pair<unsign
 /**
 * used as predicate to sort for smallest distances
 */
-bool Query_Processing::smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b)
+bool smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b)
 {
 	return a.second < b.second;
+}
+
 }

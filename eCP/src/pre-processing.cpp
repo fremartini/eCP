@@ -4,11 +4,15 @@
 
 #include <eCP/pre-processing.hpp>
 #include <eCP/query-processing.hpp>
+#include <eCP/distance.hpp>
+#include <eCP/global.hpp>
+
+namespace pre_processing {
 
 /**
  * the data set is partitioned bottom up and the levels connected top down from the top level.
  */
-std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, unsigned int L)
+std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 {
 	//get level size for each level
 	std::vector<unsigned int> level_sizes;
@@ -71,26 +75,26 @@ std::vector<Node*> Pre_Processing::create_index(std::vector<Point>& dataset, uns
 	return top_level;
 }
 
-std::vector<Node*> Pre_Processing::insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
+std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
 {
 	for (unsigned int i = from_index; i < points.size(); ++i)   // TODO: Note: Will typically run many times
 	{
-		Node* nearest = Query_Processing::find_nearest_leaf(points[i].descriptor, index_top_level);
+		Node* nearest = query_processing::find_nearest_leaf(points[i].descriptor, index_top_level);
 
 		nearest->points.push_back(points[i]);
 	}
 	return index_top_level;
 }
 
-Node* Pre_Processing::find_nearest_node(std::vector<Node*>& nodes, float*& query)
+Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
 {
-	float nearest = FLOAT_MAX;
+	float nearest = global::FLOAT_MAX;
 	Node* best = nullptr;
 
 	//compare distance to every representative
 	for (auto* node : nodes)
 	{
-		const float distance = g_distance_function(query, node->get_representative());
+		const float distance = distance::g_distance_function(query, node->get_representative());
 		if (distance <= nearest)
 		{
 			nearest = distance;
@@ -103,7 +107,7 @@ Node* Pre_Processing::find_nearest_node(std::vector<Node*>& nodes, float*& query
 /*
  * only used during index creation. Current level is required since index is still being built
  */
-Node* Pre_Processing::find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth)
+Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth)
 {
 	//If at bottom level
 	if (depth == 0)
@@ -114,4 +118,6 @@ Node* Pre_Processing::find_nearest_leaf_from_level(float*& query, Node*& node, u
 	//continue down to next level
 	Node* nearest = find_nearest_node(node->children, query);
 	return find_nearest_leaf_from_level(query, nearest, depth - 1);
+}
+
 }
