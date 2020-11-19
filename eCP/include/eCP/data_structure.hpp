@@ -47,7 +47,7 @@ struct Node {
 		}
 	}
 
-	float*& get_representative()
+	float* get_representative()
 	{
 		return points[0].descriptor;
 	}

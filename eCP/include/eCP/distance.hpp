@@ -12,12 +12,12 @@ namespace distance {
 /**
  * Globally scoped pointer to the used distance function.
  */
-extern float (*g_distance_function)(float*&, float*&);
+extern float (*g_distance_function)(const float*, const float*);
 
 enum METRIC { EUCLIDEAN, ANGULAR };
 
-float euclidean_distance(float*& a, float*& b);
-float angular_distance(float*& a, float*& b);
+float euclidean_distance(const float* a, const float* b);
+float angular_distance(const float* a, const float* b);
 
 /**
  * Set the used distance function.

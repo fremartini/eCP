@@ -15,18 +15,16 @@ int main()
     const int d = 128;         // dimensions of vector
     const int r = 1000;        // upper bound of generated vectors
     const int queries = 15000; // queries to make on created index
-    // const bool debug = false;   // print debugging of index
 
     /* For debugging */
-    // const int L = 2;            // L parameter - number of levels in index
-    // const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
-    // const int k = 5;          // number points to return
-    // const int b = 2;           // number clusters to search
-    // const int p = 20;       // number of vectors
-    // const int d = 5;          // dimensions of vector
-    // const int r = 100;        // upper bound of generated vectors
-    // const int queries = 1;  // queries to make on created index
-    // const bool debug = false;   // print debugging of index
+    // const int L = 3;           // L parameter - number of levels in index
+    // const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular
+    // const int k = 5;         // number points to return
+    // const int b = 3;          // number clusters to search
+    // const int p = 100;      // number of vectors
+    // const int d = 128;         // dimensions of vector
+    // const int r = 1000;        // upper bound of generated vectors
+    // const int queries = 15; // queries to make on created index
 
     /* Setup ITTAPI instrumentation domain */
     __itt_domain *domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -51,6 +49,7 @@ int main()
     __itt_task_end(domain_query);
 
     /* Debugging */
+    // const bool debug = false;   // print debugging of index
     // if (debug) {
     //     print_clusters(index->top_level);
     //     print_index_levels(index->top_level);

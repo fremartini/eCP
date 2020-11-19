@@ -20,7 +20,7 @@ Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 
 	for (Node* cluster : best_cluster->children)
 	{
-		if (cluster->children.empty())  // Removed is_leaf() function from Node struct
+		if (cluster->children.empty())
 		{
 			return pre_processing::find_nearest_node(best_cluster->children, query);
 		}
@@ -85,31 +85,31 @@ std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& que
 /*
  * Compares vector of nodes to query and returns b closest nodes in given accumulator vector. 
  */
-void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& node_accumulator)
+void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& nodes_accumulated)
 {
 	std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);                                             // (index, distance from q to node)
 
 	//if we already have enough nodes to start replacing, find the furthest node
-	if (node_accumulator.size() >= b) furthest_node = find_furthest_node(query, node_accumulator);
+	if (nodes_accumulated.size() >= b) furthest_node = find_furthest_node(query, nodes_accumulated);
 
 	for (Node* node : nodes)
 	{
 		//not enough nodes yet, just add
-		if (node_accumulator.size() < b)
+		if (nodes_accumulated.size() < b)
 		{
-			node_accumulator.emplace_back(node);
+			nodes_accumulated.emplace_back(node);
 
 			//next iteration we will start replacing, compute the furthest cluster
-			if (node_accumulator.size() == b) furthest_node = find_furthest_node(query, node_accumulator);
+			if (nodes_accumulated.size() == b) furthest_node = find_furthest_node(query, nodes_accumulated);
 		}
 		else
 		{
 			//only replace if better
 			if (distance::g_distance_function(query, node->get_representative()) < furthest_node.second) {
-				node_accumulator[furthest_node.first] = node;
+				nodes_accumulated[furthest_node.first] = node;
 
 				//the furthest node has been replaced, find the new furthest
-				furthest_node = find_furthest_node(query, node_accumulator);
+				furthest_node = find_furthest_node(query, nodes_accumulated);
 			}
 		}
 	}

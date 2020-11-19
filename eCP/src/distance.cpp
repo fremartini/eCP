@@ -13,9 +13,9 @@
 namespace distance
 {
     // Definition of global distance function, extern in header
-    float (*g_distance_function)(float *&, float *&);
+    float (*g_distance_function)(const float*, const float*);
 
-    float euclidean_distance(float *&a, float *&b)
+    float euclidean_distance(const float* a, const float* b)
     {
         float sum = 0;
         for (unsigned int i = 0; i < global::g_vector_dimensions; ++i)
@@ -27,7 +27,7 @@ namespace distance
         return sum;
     }
 
-    float angular_distance(float *&a, float *&b)
+    float angular_distance(const float* a, const float* b)
     {
         float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
