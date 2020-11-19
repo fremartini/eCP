@@ -37,7 +37,7 @@ namespace query_processing {
 	* @param point_pairs vector of tuples of (index,distance)
 	* @return index to element with largest distance
 	*/
-	unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs);     // TODO: Refac to be able to test functions that resembles utility functionality
+	unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs); 
 
 	/**
 	* find the b nearest leaves
@@ -47,16 +47,16 @@ namespace query_processing {
 	* @param b number of leaf clusters to return
 	* @return b leaf clusters
 	*/
-	std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L); // TODO: Refac into its own module to be testable
+	std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L);
 
 	/*
 	* scan nodes for b nearest clusters
 	* @param query query point
 	* @param nodes nodes to be searched
 	* @param b number of clusters to obtain
-	* @param next_level_nodes accumulator for next level b nearest nodes
+	* @param node_accumulator accumulator for b nearest nodes
 	*/
-	void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& next_level_nodes); // TODO: Was private, consider refac
+	void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& node_accumulator);
 
 	/**
 	* find the furthest cluster to a query point

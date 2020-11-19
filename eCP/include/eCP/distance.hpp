@@ -9,6 +9,9 @@
  */
 namespace distance {
 
+/**
+ * Globally scoped pointer to the used distance function.
+ */
 extern float (*g_distance_function)(float*&, float*&);
 
 enum METRIC { EUCLIDEAN, ANGULAR };

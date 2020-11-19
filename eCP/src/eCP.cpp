@@ -32,16 +32,14 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 	//set metric function
 	if (metric == 1) {
         distance::set_distance_function(distance::ANGULAR);
-		// g_distance_function = &distance::angular_distance;
 	}
 	else
 	{
-		// g_distance_function = &distance::euclidean_distance;
         distance::set_distance_function(distance::EUCLIDEAN);
 	}
 
 	//initial sample size for building index - n^L/L+1 for initial representatives
-	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));   // TODO: Consider refac out of this func to test
+	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elems is used as leaders for the bottom level
 
 	std::vector<Node*> empty_index_root = pre_processing::create_index(descriptor_points, L);
 

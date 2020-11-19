@@ -10,48 +10,48 @@
 namespace pre_processing {
 
 /**
- * the data set is partitioned bottom up and the levels connected top down from the top level.
+ * The data set is partitioned bottom up and the levels connected top down from the top level.
  */
 std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 {
-	//get level size for each level
+    // Calculate number of leaders for each level
 	std::vector<unsigned int> level_sizes;
-	level_sizes.reserve(L);
+	// level_sizes.reserve(L);      // Dont think is necessary
 
-	const auto initial_l = ceil(pow(dataset.size(), ((L / (L + 1.00)))));
+	const auto initial_l = ceil(pow(dataset.size(), ((L / (L + 1.00)))));                       // Bottom level
 	level_sizes.push_back(initial_l);
 
 	for (unsigned int i = 1; i < L; ++i)
 	{
-		const auto level_l = ceil(pow(dataset.size(), (((L - i) / (L + 1.00)))));
+		const auto level_l = ceil(pow(dataset.size(), (((L - i) / (L + 1.00)))));               // Each level above
 		level_sizes.push_back(level_l);
 	}
-	level_sizes.shrink_to_fit();
+	// level_sizes.shrink_to_fit();     // Dont think is necessary
 
-	//build top level, using first n^(1/(L+1)) points of data set
+	// Build top level, using first n^(1/(L+1)) points of data set                              // Possible issue - leaders not picked randomly
 	std::vector<Node*> top_level;
+	top_level.reserve(level_sizes[level_sizes.size() - 1]);                                                 
 
-	top_level.reserve(level_sizes[level_sizes.size() - 1]);
 	for (unsigned int i = 0; i < level_sizes[level_sizes.size() - 1]; ++i)
 	{
-		top_level.emplace_back(new Node(dataset[i]));
+		top_level.emplace_back(new Node(dataset[i]));                                           // Should be picking random leaders here  
 	}
 	top_level.shrink_to_fit();
 
-	//reverse level list for increasing level numbering
+    // Sort levels in ascending order i.e. 0=root, 1, 2 etc.
 	std::reverse(level_sizes.begin(), level_sizes.end());
 
-	//insert each level of clusters to form index - skip already built top level
+	// Insert empty clusters in each level to form index - skip already built top level
 	for (unsigned int level = 1; level < L; ++level)
 	{
-		//go through each level
+		// Go through each level
 		for (unsigned int i = 0; i < level_sizes[level]; ++i)
 		{
-			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);
+			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);    // Should be picking random leaders below where dataset[i] used
 
 			// -1 since top level has been compared with
 			auto* lower_level_nearest =
-                find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);
+                find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);    
 
 			//at bottom level
 			if (level == L - 1)
@@ -62,7 +62,7 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 				leaf->points.reserve(avg_rep);
 				lower_level_nearest->children.emplace_back(leaf);
 			}
-			else    // TODO: Assert why this behaviour is duplicated like this
+			else 
 			{
 				auto* node = new Node(dataset[i]);
 				const unsigned int avg_rep = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
@@ -77,7 +77,7 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 
 std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
 {
-	for (unsigned int i = from_index; i < points.size(); ++i)   // TODO: Note: Will typically run many times
+	for (unsigned int i = from_index; i < points.size(); ++i) 
 	{
 		Node* nearest = query_processing::find_nearest_leaf(points[i].descriptor, index_top_level);
 

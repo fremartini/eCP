@@ -7,7 +7,7 @@
 int main()
 {
     /* For vtune */
-    const int L = 2;           // L parameter - number of levels in index
+    const int L = 3;           // L parameter - number of levels in index
     const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular
     const int k = 100;         // number points to return
     const int b = 40;          // number clusters to search

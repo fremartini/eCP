@@ -8,7 +8,7 @@
 #include <eCP/global.hpp>
 
 /*
- * recursively traverse the index to find the nearest leaf at the bottom level
+ * Recursively traverse the index to find the nearest leaf at the bottom level.
  * Note: Used only when building the index.
  */
 namespace query_processing {
@@ -61,6 +61,7 @@ std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node
  */
 std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L)
 {
+    // Scan nodes in root
 	std::vector<Node*> b_best;
 	b_best.reserve(b);
 	scan_node(query, root, b, b_best);
@@ -82,40 +83,43 @@ std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& que
 }
 
 /*
- * scans a node, adding the nearer nodes to an accumulator
+ * Compares vector of nodes to query and returns b closest nodes in given accumulator vector. 
  */
-void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& next_level_nodes)
+void scan_node(float*& query, std::vector<Node*>& nodes, unsigned int& b, std::vector<Node*>& node_accumulator)
 {
-	std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);
+	std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);                                             // (index, distance from q to node)
 
 	//if we already have enough nodes to start replacing, find the furthest node
-	if (next_level_nodes.size() >= b) furthest_node = find_furthest_node(query, next_level_nodes);
+	if (node_accumulator.size() >= b) furthest_node = find_furthest_node(query, node_accumulator);
 
 	for (Node* node : nodes)
 	{
 		//not enough nodes yet, just add
-		if (next_level_nodes.size() < b)
+		if (node_accumulator.size() < b)
 		{
-			next_level_nodes.emplace_back(node);
+			node_accumulator.emplace_back(node);
 
 			//next iteration we will start replacing, compute the furthest cluster
-			if (next_level_nodes.size() == b) furthest_node = find_furthest_node(query, next_level_nodes);
+			if (node_accumulator.size() == b) furthest_node = find_furthest_node(query, node_accumulator);
 		}
 		else
 		{
 			//only replace if better
 			if (distance::g_distance_function(query, node->get_representative()) < furthest_node.second) {
-				next_level_nodes[furthest_node.first] = node;
+				node_accumulator[furthest_node.first] = node;
 
 				//the furthest node has been replaced, find the new furthest
-				furthest_node = find_furthest_node(query, next_level_nodes);
+				furthest_node = find_furthest_node(query, node_accumulator);
 			}
 		}
 	}
 }
 
-// TODO: Verify that this is indeed necessary. Consider just going through each and comparing to the current node with the smallest dist (Is this basic KNN?)
-// It looks as if a lot of calls are made to this O(N) function
+/**
+ * Goes through vector of nodes and returns the one furthest away from given query vector.
+ * O(b) where b is requested number of clusters to do k-nn on.
+ * Returns tuple containing (index, worst_distance)
+ */
 std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& nodes)
 {
 	std::pair<int, float> worst = std::make_pair(-1, -1.0);
@@ -132,8 +136,6 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
 }
 
 /*
- * uses an accumulator nearest_points to store the result
- * 
  * Compares query point to each point in cluster and accumulates the k nearest points in 'nearest_points'.
  */
 void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points)
@@ -191,7 +193,7 @@ unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& p
 }
 
 /**
-* used as predicate to sort for smallest distances
+* Used as predicate to sort for smallest distances.
 */
 bool smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b)
 {

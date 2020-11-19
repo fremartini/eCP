@@ -16,11 +16,9 @@
 namespace pre_processing {
 
  /*
-  * contains static functions for the preprocessing phase of the eCP algorithm.
+  * Dontains functions for the preprocessing phase of the eCP algorithm.
   *
   */
-// class Pre_Processing {
-// public:
 	/**
 	* creates the cluster index from dataset and level parameter L
 	* @param dataset collection of all points to be placed in the created index
@@ -44,8 +42,6 @@ namespace pre_processing {
 	* @return pointer to the nearest node to the query point
 	*/
 	extern Node* find_nearest_node(std::vector<Node*>& nodes, float*& query);
-
-// private:
 
 	/**
 	* recursively finds the nearest leaf to a query point from a level
