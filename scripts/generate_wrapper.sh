@@ -34,12 +34,14 @@ combine ${HEADERS[@]} --out ${GEN_FILES}/combined.hpp && echo "Headers generated
 python3.6 -m venv ${ROOT}/env
 source ${ROOT}/env/bin/activate
 
-## Generate wrapper using SWIG
- python3 ${WRAPPER}/interface_gen.py \
-     --file ${GEN_FILES}/combined.cpp \
-     --out ${GEN_FILES} && echo "interface_gen.py ran OK."
+# Generate interface file -- deprecated 
+#  python3 ${WRAPPER}/interface_gen.py \
+#      --file ${GEN_FILES}/combined.cpp \
+#      --out ${GEN_FILES} && echo "interface_gen.py ran OK."
 
-swig -c++ -python ${GEN_FILES}/eCP.i && echo "swig ran OK."
+# Generate SWIG code
+swig -c++ -python -o ${GEN_FILES}/eCP_wrap.cxx ${WRAPPER}/eCP.i && echo "swig ran OK."
 
+# Generate wrapper using SWIG
 cd ${GEN_FILES}
 python3 ../setup.py build_ext --inplace && echo "Wrapper generated OK."

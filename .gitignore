@@ -10,13 +10,6 @@ env
 files_generated
 
 # User-specific files
-_eCP_wrapper.cpython-36m-x86_64-linux-gnu.so
-eCP_wrapper.py
-wrapper/combined.cpp
-wrapper/combined.hpp
-wrapper/eCP.hpp
-wrapper/eCP.i
-wrapper/eCP_wrap.cxx
 *.out
 
 *.suo
