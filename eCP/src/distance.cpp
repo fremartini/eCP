@@ -46,19 +46,11 @@ namespace distance
     /**
  * Set the used distance function.
  */
-    void set_distance_function(METRIC func)
+    void set_distance_function(Metrics func)
     {
-        switch (func)
-        {
-        case EUCLIDEAN:
-            g_distance_function = &euclidean_distance;
-            break;
-        case ANGULAR:
-            g_distance_function = &angular_distance;
-            break;
-        default:
-            std::invalid_argument("Invalid metric.");
-        }
+        if (func == Metrics::EUCLIDEAN) g_distance_function = &euclidean_distance;
+        if (func == Metrics::ANGULAR) g_distance_function = &angular_distance;
+        std::invalid_argument("Invalid metric.");
     }
 
 } // namespace distance

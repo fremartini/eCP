@@ -13,7 +13,8 @@
 #include <vector>
 #include <eCP/data_structure.hpp>
 
-namespace eCP {
+namespace eCP 
+{
 
  /**
   * create an L level index from a data set

@@ -74,7 +74,7 @@ TEST(query_processing_tests, index_to_max_element_given_vector_with_zero_elems_t
 
 TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_points)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -100,7 +100,7 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_p
 
 TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_points)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -162,7 +162,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_clo
 
 TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest_element)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -191,7 +191,7 @@ TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest
 
 TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everything)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -213,7 +213,7 @@ TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everyt
 
 TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 

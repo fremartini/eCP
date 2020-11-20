@@ -6,7 +6,8 @@
 /**
  * Global variables
  */
-namespace global {
+namespace global 
+{
 
 inline constexpr float FLOAT_MAX = std::numeric_limits<float>::max();
 inline constexpr float FLOAT_MIN = std::numeric_limits<float>::min();

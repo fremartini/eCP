@@ -11,7 +11,8 @@
  * Recursively traverse the index to find the nearest leaf at the bottom level.
  * Note: Used only when building the index.
  */
-namespace query_processing {
+namespace query_processing 
+{
 
 Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 {

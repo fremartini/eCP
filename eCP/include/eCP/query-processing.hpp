@@ -13,7 +13,8 @@
 #include <vector>
 #include <eCP/data_structure.hpp>
 
-namespace query_processing {
+namespace query_processing 
+{
 	/**
 	* find the nearest leaf given a query point regardless of level
 	* @param query query point

@@ -13,7 +13,8 @@
 #include <vector>
 #include <eCP/data_structure.hpp>
 
-namespace pre_processing {
+namespace pre_processing 
+{
 
  /*
   * Dontains functions for the preprocessing phase of the eCP algorithm.

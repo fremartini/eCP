@@ -1,6 +1,7 @@
 #include <eCP/global.hpp>
 
-namespace global {
+namespace global 
+{
 
 unsigned int g_vector_dimensions;
 

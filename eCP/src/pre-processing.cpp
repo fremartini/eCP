@@ -7,7 +7,8 @@
 #include <eCP/distance.hpp>
 #include <eCP/global.hpp>
 
-namespace pre_processing {
+namespace pre_processing 
+{
 
 /**
  * The data set is partitioned bottom up and the levels connected top down from the top level.

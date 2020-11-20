@@ -28,7 +28,7 @@ std::vector<Node*> get_empty_index(unsigned int L = 2)
 
 TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -48,7 +48,7 @@ TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
 
 TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_same)
 {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -67,7 +67,7 @@ TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_s
 }
 
 TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 
@@ -92,7 +92,7 @@ TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
 }
 
 TEST(pre_processing_tests, insert_points_given_empty_index_inserts_points) {
-    distance::set_distance_function(distance::EUCLIDEAN);
+    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
     global::g_vector_dimensions = 3;
 

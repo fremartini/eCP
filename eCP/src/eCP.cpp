@@ -7,7 +7,8 @@
 #include <eCP/data_structure.hpp>
 #include <eCP/global.hpp>
 
-namespace eCP {
+namespace eCP 
+{
 /*
  * Entry point for ANN-Benchmarks fit function. Partitions the data set before creating
  * the empty index. The distance function is also set globally.
@@ -31,11 +32,11 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 
 	//set metric function
 	if (metric == 1) {
-        distance::set_distance_function(distance::ANGULAR);
+        distance::set_distance_function(distance::Metrics::ANGULAR);
 	}
 	else
 	{
-        distance::set_distance_function(distance::EUCLIDEAN);
+        distance::set_distance_function(distance::Metrics::EUCLIDEAN);
 	}
 
 	//initial sample size for building index - n^L/L+1 for initial representatives
