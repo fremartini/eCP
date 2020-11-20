@@ -16,7 +16,12 @@ CLI.add_argument(
 )
 
 def isSignature(line):
-    symbols = ['#', '//', '+', '-', '/', '[', ']', '.', '=', '==', '\"', '\'', 'auto', ';', '}', '@', 'main(', 'else', 'if (', 'for ', 'while ', 'throw ']
+    symbols = [
+        '#', '//', '+', '-', '/', '[', ']', '.', '=', '==',
+        '\"', '\'', 'auto', ';', '}', '@', 'main(', 'else',
+        'if (', 'for ', 'while ', 'throw ',
+        'namespace', 'switch', 'case', 'default:'
+        ]
 
     if (line.startswith('*')): 
         return False

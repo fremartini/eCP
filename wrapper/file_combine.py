@@ -19,14 +19,15 @@ CLI.add_argument(
 def main(files):
     contents = ""
     includes = []
+    excludes = ['#pragma once', '#ifndef', '#define', '#endif', 'ittnotify.h']
 
     for file in args.files:
         with open(f'{file}', 'r') as f:
             contents = contents + f'//------------------------------{file}------------------------------\n'
 
             for line in f:
-                #we do not care about #pragma once
-                if (line.startswith('#pragma once')):
+                #we do not care about following
+                if any(tag in line for tag in excludes):
                     continue
 
                 #only include '#include' statements if it has not been seen before
