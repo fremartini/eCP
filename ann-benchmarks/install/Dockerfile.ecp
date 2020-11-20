@@ -2,7 +2,7 @@ FROM ann-benchmarks
 
 RUN apt-get install -y swig
 RUN apt-get install -y python3-venv
-RUN git clone https://github.com/mortenskoett/eCP.git
+RUN git clone -b add_namespaces https://github.com/mortenskoett/eCP.git
 WORKDIR "/home/app/eCP/scripts"
 RUN ./generate_wrapper.sh
 WORKDIR "/home/app"

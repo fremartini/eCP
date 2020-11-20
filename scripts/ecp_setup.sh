@@ -41,5 +41,5 @@ python install.py --algorithm ecp
 
 echo "Run test on random-xs-20-euclidean"
 python run.py --algorithm eCP --dataset random-xs-20-euclidean
-sudo python plot.py --dataset random-xs-20-euclidean
+# sudo python plot.py --dataset random-xs-20-euclidean
 
