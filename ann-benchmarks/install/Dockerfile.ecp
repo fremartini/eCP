@@ -1,20 +1,8 @@
-# FROM ann-benchmarks
-
-# RUN apt-get install -y swig
-# RUN apt-get install -y python3-venv
-# RUN git clone -b add_namespaces https://github.com/mortenskoett/eCP.git
-
-# WORKDIR "/home/app/eCP/scripts"
-# RUN ./generate_wrapper.sh
-# RUN python3 setup.py install
-# RUN python3 -c 'import eCP_wrapper'
-
-
 FROM ann-benchmarks
 
 RUN apt-get install -y swig
 RUN apt-get install -y python3-venv
-RUN git clone -b add_namespaces https://github.com/mortenskoett/eCP.git
+RUN git clone https://github.com/mortenskoett/eCP.git
 WORKDIR "/home/app/eCP/scripts"
 RUN ./generate_wrapper.sh
 WORKDIR "/home/app"
