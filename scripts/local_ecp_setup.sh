@@ -12,6 +12,7 @@
 #   eCp/
 #     scripts/
 
+DATASET="random-xs-20-euclidean"
 
 echo "Will run eCP locally using ann-benchmarks"
 read -p "Press enter to continue"
@@ -33,10 +34,9 @@ source env/bin/activate
 echo "Install dependencies"
 pip install -r requirements.txt
 
-#echo "Building ONLY eCP docker image"
+echo "Building ONLY eCP docker image"
 python install.py --algorithm ecp
 
-echo "Run test on random-xs-20-euclidean"
-python run.py --local --algorithm eCP --dataset random-xs-20-euclidean
-#sudo python plot.py --dataset random-xs-20-euclidean
-
+echo "Run test on ${DATASET}"
+python run.py --local --algorithm eCP --dataset ${DATASET}
+sudo python plot.py --dataset ${DATASET}
