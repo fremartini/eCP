@@ -5,7 +5,7 @@
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
 #include <eCP/distance.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 /*
  * Recursively traverse the index to find the nearest leaf at the bottom level.
@@ -17,7 +17,7 @@ namespace query_processing
 Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 {
 	Node* best_cluster = pre_processing::find_nearest_node(nodes, query);
-	float closest = global::FLOAT_MAX;
+	float closest = globals::FLOAT_MAX;
 
 	for (Node* cluster : best_cluster->children)
 	{
@@ -141,7 +141,7 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
  */
 void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points)
 {
-	float max_distance = global::FLOAT_MAX;
+	float max_distance = globals::FLOAT_MAX;
 
 	//if we already have enough points to start replacing, find the furthest point
 	if (nearest_points.size() >= k) {

@@ -3,7 +3,7 @@
 #include <eCP/eCP.hpp>
 #include <eCP/query-processing.hpp>
 #include <eCP/distance.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 /* Helpers */
 Index *get_index(unsigned int L, int descriptors_amount = 10)
@@ -76,7 +76,7 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_p
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
-    global::g_vector_dimensions = 3;
+    globals::g_vector_dimensions = 3;
 
     std::vector<Node *> root = {
         new Node{Point(new float[3]{1, 1, 1}, 0)},
@@ -102,7 +102,7 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_p
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
-    global::g_vector_dimensions = 3;
+    globals::g_vector_dimensions = 3;
 
     std::vector<Node *> root = {
         new Node{Point(new float[3]{1, 1, 1}, 0)},
@@ -164,7 +164,7 @@ TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
-    global::g_vector_dimensions = 3;
+    globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
     unsigned int b = 1;
@@ -193,7 +193,7 @@ TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everyt
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
-    global::g_vector_dimensions = 3;
+    globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
     unsigned int b = 4;
@@ -215,7 +215,7 @@ TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;
-    global::g_vector_dimensions = 3;
+    globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{1, 1, 1};
     unsigned int b = 2;

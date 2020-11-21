@@ -4,7 +4,7 @@
 #include <eCP/distance.hpp>
 #include <eCP/eCP.hpp>
 #include <eCP/data_structure.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 /**
  * Distance functions defined for global use here. Can be imported and used 
@@ -18,7 +18,7 @@ namespace distance
     float euclidean_distance(const float* a, const float* b)
     {
         float sum = 0;
-        for (unsigned int i = 0; i < global::g_vector_dimensions; ++i)
+        for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
             auto pow = a[i] - b[i]; //dont use pow, its very slow
             sum += pow * pow;
@@ -31,7 +31,7 @@ namespace distance
     {
         float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
-        for (unsigned int i = 0; i < global::g_vector_dimensions; ++i)
+        for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
             mul += a[i] * b[i];
             d_a += a[i] * a[i];

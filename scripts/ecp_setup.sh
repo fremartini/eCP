@@ -12,6 +12,8 @@
 #   eCp/
 #     scripts/
 
+DATASET="random-xs-20-euclidean"
+
 echo "Did you remember to
     1) push changes to remote?
     2) start docker daemon?
@@ -39,7 +41,6 @@ pip install -r requirements.txt
 echo "Building ONLY eCP docker image"
 python install.py --algorithm ecp
 
-echo "Run test on random-xs-20-euclidean"
-python run.py --algorithm eCP --dataset glove-25-angular
-# sudo python plot.py --dataset random-xs-20-euclidean
-
+echo "Run test on ${DATASET}"
+python run.py --algorithm eCP --dataset ${DATASET}
+sudo python plot.py --dataset ${DATASET}

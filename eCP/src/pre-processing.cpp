@@ -5,7 +5,7 @@
 #include <eCP/pre-processing.hpp>
 #include <eCP/query-processing.hpp>
 #include <eCP/distance.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 namespace pre_processing 
 {
@@ -89,7 +89,7 @@ std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vecto
 
 Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
 {
-	float nearest = global::FLOAT_MAX;
+	float nearest = globals::FLOAT_MAX;
 	Node* best = nullptr;
 
 	//compare distance to every representative

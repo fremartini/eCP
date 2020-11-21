@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -o pipefail
+
 # Script to construct a python wrapper around the C++ code using SWIG.
 # This code is called inside docker image when built alongside other 
 # algorithms in the ann-benchmarks repo.
@@ -30,23 +33,19 @@ HEADERS=("$HEADERS_DIR"/*.hpp)
 combine ${SOURCES[@]} --out ${GEN_FILES}/combined.cpp && echo "Src generated OK."
 combine ${HEADERS[@]} --out ${GEN_FILES}/combined.hpp && echo "Headers generated OK."
 
-## Setup python 3.6 env
+# Setup python 3.6 env
 python3.6 -m venv ${ROOT}/env
 source ${ROOT}/env/bin/activate
 
-# Generate interface file -- deprecated 
+# Generate interface file -- deprecated
 #  python3 ${WRAPPER}/interface_gen.py \
 #      --file ${GEN_FILES}/combined.cpp \
 #      --out ${GEN_FILES} && echo "interface_gen.py ran OK."
 
-# Generate SWIG code
-swig -c++ -python -o ${GEN_FILES}/eCP_wrap.cxx ${WRAPPER}/eCP.i && echo "SWIG ran OK."
+# Generate intermediate code using SWIG
+cp ${WRAPPER}/eCP.i ${GEN_FILES}
+swig -c++ -python ${GEN_FILES}/eCP.i && echo "swig ran OK."
 
-# Generate wrapper using SWIG
+# Generate python wrapper
 cd ${GEN_FILES}
-#python3 ../setup.py build_ext --inplace && echo "Wrapper generated OK."
-python3 ../setup.py build && echo "Wrapper generated OK."
-python3 ../setup.py install && echo "Wrapper installed OK."
-
-# Test
-python -c 'import eCP_wrapper' && echo "Wrapper imported successfully"
+python3 ../setup.py build_ext --inplace && echo "Wrapper generated OK."

@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include <utility.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 /**
  * creates count, dimension dimensional random float descriptor from 0 to upperBound
@@ -36,8 +36,8 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 	std::cout << "k = " << k << "\nQuery: ";
 
 	//Print query
-	auto* q = new float[global::g_vector_dimensions];
-	for (unsigned int i = 0; i < global::g_vector_dimensions; i++) {
+	auto* q = new float[globals::g_vector_dimensions];
+	for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
 		q[i] = query[i];
 	}
 	Point pq = Point(q, -1);    // TODO: Misuse of unsigned int
@@ -62,10 +62,10 @@ void print_point(Point& p)
 {
 	std::cout << "[";
 	auto desc = p.descriptor;
-	for (unsigned int i = 0; i < global::g_vector_dimensions; i++) {
+	for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
 		std::cout << desc[i];
 
-		if (i != global::g_vector_dimensions - 1) {
+		if (i != globals::g_vector_dimensions - 1) {
 			std::cout << ' ';
 		}
 	}
@@ -87,7 +87,7 @@ bool is_leaf(Node& node)
 
 void print_cluster(Node& c, const unsigned int d)
 {
-	if (global::g_vector_dimensions < 5)
+	if (globals::g_vector_dimensions < 5)
 	{
 		auto p = Point(c.get_representative(), -1);
 		print_point(p);
@@ -96,7 +96,7 @@ void print_cluster(Node& c, const unsigned int d)
 	if (is_leaf(c)) {
 		std::cout << " {";
 
-		if (global::g_vector_dimensions < 5) {
+		if (globals::g_vector_dimensions < 5) {
 			for (Point& p : c.points) {
 				print_point(p);
 			}

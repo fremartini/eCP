@@ -20,7 +20,7 @@ def isSignature(line):
         '#', '//', '+', '-', '/', '[', ']', '.', '=', '==',
         '\"', '\'', 'auto', ';', '}', '@', 'main(', 'else',
         'if (', 'for ', 'while ', 'throw ',
-        'namespace', 'switch', 'case', 'default:'
+        # 'namespace', 'switch', 'case', 'default:'
         ]
 
     if (line.startswith('*')): 

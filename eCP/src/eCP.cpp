@@ -5,7 +5,7 @@
 #include <eCP/query-processing.hpp>
 #include <eCP/distance.hpp>
 #include <eCP/data_structure.hpp>
-#include <eCP/global.hpp>
+#include <eCP/globals.hpp>
 
 namespace eCP 
 {
@@ -16,14 +16,14 @@ namespace eCP
 Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int L, unsigned int metric)
 {
 	//set dimension globally to avoid duplication
-	global::g_vector_dimensions = descriptors[0].size();
+	globals::g_vector_dimensions = descriptors[0].size();
 
 	//internal data structure uses pointers, translate floats from ANN-Benchmarks to something usable
 	std::vector<Point> descriptor_points;
 	for (unsigned int i = 0; i < descriptors.size(); i++) {
-		float* desc_p = new float[global::g_vector_dimensions];
+		float* desc_p = new float[globals::g_vector_dimensions];
 
-		for (unsigned int d = 0; d < global::g_vector_dimensions; d++) {
+		for (unsigned int d = 0; d < globals::g_vector_dimensions; d++) {
 			desc_p[d] = descriptors[i][d];
 		}
 
