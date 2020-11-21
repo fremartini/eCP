@@ -40,8 +40,13 @@ source ${ROOT}/env/bin/activate
 #      --out ${GEN_FILES} && echo "interface_gen.py ran OK."
 
 # Generate SWIG code
-swig -c++ -python -o ${GEN_FILES}/eCP_wrap.cxx ${WRAPPER}/eCP.i && echo "swig ran OK."
+swig -c++ -python -o ${GEN_FILES}/eCP_wrap.cxx ${WRAPPER}/eCP.i && echo "SWIG ran OK."
 
 # Generate wrapper using SWIG
 cd ${GEN_FILES}
-python3 ../setup.py build_ext --inplace && echo "Wrapper generated OK."
+#python3 ../setup.py build_ext --inplace && echo "Wrapper generated OK."
+python3 ../setup.py build && echo "Wrapper generated OK."
+python3 ../setup.py install && echo "Wrapper installed OK."
+
+# Test
+python -c 'import eCP_wrapper' && echo "Wrapper imported successfully"

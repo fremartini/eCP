@@ -34,7 +34,7 @@ echo "Install dependencies"
 pip install -r requirements.txt
 
 #echo "Building ONLY eCP docker image"
-#python install.py --algorithm ecp
+python install.py --algorithm ecp
 
 echo "Run test on random-xs-20-euclidean"
 python run.py --local --algorithm eCP --dataset random-xs-20-euclidean

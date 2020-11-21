@@ -2,15 +2,14 @@ FROM ann-benchmarks
 
 RUN apt-get install -y swig
 RUN apt-get install -y python3-venv
-RUN git clone https://github.com/mortenskoett/eCP.git
-# WORKDIR "/home/app/eCP/scripts"
+RUN git clone -b add_namespaces https://github.com/mortenskoett/eCP.git
 
-WORKDIR eCP/scripts
+WORKDIR ./eCP/scripts
 RUN ./generate_wrapper.sh
 # RUN mv "/home/app/eCP/wrapper/files_generated/_eCP_wrapper.cpython-36m-x86_64-linux-gnu.so" "/home/app/"
 # RUN mv "/home/app/eCP/wrapper/files_generated/eCP_wrapper.py" "/home/app/"
-# WORKDIR "/home/app"
+WORKDIR /home/app
 
-WORKDIR eCP/wrapper/files_generated/
-RUN python3 setup.py install
-RUN python3 -c 'import annoy'
+# WORKDIR eCP/wrapper/files_generated/
+# RUN python3 setup.py install
+# RUN python3 -c 'import annoy'
