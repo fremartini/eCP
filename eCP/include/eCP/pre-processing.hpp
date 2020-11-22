@@ -26,7 +26,7 @@ namespace pre_processing
 	* @param L levels of the index
 	* @returns top_level nodes of the top level of the index
 	*/
-	extern std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L);
+	std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L);
 
 	/**
 	* insert a collection of points into the cluster index
@@ -34,7 +34,7 @@ namespace pre_processing
 	* @param points collection of points to be inserted into the index
 	* @param from_index index insertion starts from
 	*/
-	extern std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index = 0);
+	std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index = 0);
 
 	/**
 	* find the nearest node to a query point
@@ -42,7 +42,7 @@ namespace pre_processing
 	* @param query query point
 	* @return pointer to the nearest node to the query point
 	*/
-	extern Node* find_nearest_node(std::vector<Node*>& nodes, float*& query);
+	Node* find_nearest_node(std::vector<Node*>& nodes, float*& query);
 
 	/**
 	* recursively finds the nearest leaf to a query point from a level
@@ -51,7 +51,7 @@ namespace pre_processing
 	* @param depth levels to go down
 	* @return nearest leaf to query point
 	*/
-	extern Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth);
+	Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth);
 
 }
 
