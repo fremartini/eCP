@@ -19,9 +19,9 @@ int main()
     /* For debugging */
     const int L = 3;           // L parameter - number of levels in index
     const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular
-    const int k = 5;         // number points to return
-    const int b = 3;          // number clusters to search
-    const int p = 100;      // number of vectors
+    const int k = 2;         // number points to return
+    const int b = 2;          // number clusters to search
+    const int p = 15;      // number of vectors
     const int d = 128;         // dimensions of vector
     const int r = 1000;        // upper bound of generated vectors
     const int queries = 15; // queries to make on created index
@@ -59,5 +59,6 @@ int main()
     /* Clean up */
     delete index;
     std::cout << "eCP run OK.\n";
+    std::cout << "dataset size: " << p << "\n";
     return 0;
 }

@@ -1,4 +1,3 @@
-// #include <eCP/eCP.hpp>
 #include <cmath>
 #include <algorithm>
 
@@ -15,32 +14,23 @@ namespace pre_processing
  */
 std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 {
-    // Calculate number of leaders for each level
-	std::vector<unsigned int> level_sizes;
-	// level_sizes.reserve(L);      // Dont think is necessary
+    // Create levels from L..1 such that 0=root, 1=L2 etc.
+    unsigned int level_sizes[L];
 
-	const auto initial_l = ceil(pow(dataset.size(), ((L / (L + 1.00)))));                       // Bottom level
-	level_sizes.push_back(initial_l);
-
-	for (unsigned int i = 1; i < L; ++i)
-	{
-		const auto level_l = ceil(pow(dataset.size(), (((L - i) / (L + 1.00)))));               // Each level above
-		level_sizes.push_back(level_l);
-	}
-	// level_sizes.shrink_to_fit();     // Dont think is necessary
+    for (unsigned int i = L ; i > 0 ; --i) {
+		unsigned int clusters = ceil(pow(dataset.size(), (i / (L + 1.00))));               // Each level above
+        level_sizes[i - 1] = clusters;
+    }
 
 	// Build top level, using first n^(1/(L+1)) points of data set                              // Possible issue - leaders not picked randomly
 	std::vector<Node*> top_level;
-	top_level.reserve(level_sizes[level_sizes.size() - 1]);                                                 
+	top_level.reserve(level_sizes[0]);                                                 
 
-	for (unsigned int i = 0; i < level_sizes[level_sizes.size() - 1]; ++i)
+	for (unsigned int i = 0; i < level_sizes[0]; ++i)
 	{
 		top_level.emplace_back(new Node(dataset[i]));                                           // Should be picking random leaders here  
 	}
 	top_level.shrink_to_fit();
-
-    // Sort levels in ascending order i.e. 0=root, 1, 2 etc.
-	std::reverse(level_sizes.begin(), level_sizes.end());
 
 	// Insert empty clusters in each level to form index - skip already built top level
 	for (unsigned int level = 1; level < L; ++level)
