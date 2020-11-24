@@ -13,13 +13,11 @@
  * @param id index in data set.
  */
 struct Point {
-	unsigned int id;
 	float* descriptor;
+	unsigned int id;
 
-	Point(float* _descriptor, unsigned int _id) {
-		id = _id;
-		descriptor = _descriptor;
-	}
+	Point(float* descriptor_, unsigned int id_) 
+        : descriptor(descriptor_), id(id_) {}
 
 	~Point() = default;
 };
@@ -34,10 +32,8 @@ struct Node {
 	std::vector<Node*> children;
 	std::vector<Point> points;
 
-	Node(const Point& p) {
-		points.reserve(1);
-		points.push_back(p);
-	}
+	Node(const Point& p) 
+        : points{p} {}
 
 	~Node()
 	{
@@ -59,12 +55,8 @@ struct Index {
 	std::vector<Node*> top_level;
 	std::vector<Point> dataset;
 
-	Index(unsigned int _L, std::vector<Node*>& _top_level, std::vector<Point>& _dataset)
-	{
-		L = _L;
-		top_level = _top_level;
-		dataset = _dataset;
-	}
+	Index(unsigned int L_, std::vector<Node*>& top_level_, std::vector<Point>& dataset_)
+        : L(L_), top_level(top_level_), dataset(dataset_) {}
 
 	~Index()
 	{

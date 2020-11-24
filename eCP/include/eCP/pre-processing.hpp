@@ -13,13 +13,19 @@
 #include <vector>
 #include <eCP/data_structure.hpp>
 
-namespace pre_processing 
-{
-
  /*
   * Dontains functions for the preprocessing phase of the eCP algorithm.
-  *
   */
+namespace pre_processing 
+{
+	/**
+	* find the nearest leaf given a query point regardless of level
+	* @param query query point
+	* @param nodes nodes
+	* @return nearest leaf node to the query point
+	*/
+	Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes);
+
 	/**
 	* creates the cluster index from dataset and level parameter L
 	* @param dataset collection of all points to be placed in the created index

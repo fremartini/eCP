@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <stdexcept>
-#include <ittnotify.h>
 
 #include <eCP/query-processing.hpp>
 #include <eCP/pre-processing.hpp>
@@ -8,33 +7,10 @@
 #include <eCP/globals.hpp>
 
 /*
- * Recursively traverse the index to find the nearest leaf at the bottom level.
- * Note: Used only when building the index.
+ * Traverse the index to find the nearest leaf at the bottom level.
  */
 namespace query_processing 
 {
-
-Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
-{
-	Node* best_cluster = pre_processing::find_nearest_node(nodes, query);
-	float closest = globals::FLOAT_MAX;
-
-	for (Node* cluster : best_cluster->children)
-	{
-		if (cluster->children.empty())
-		{
-			return pre_processing::find_nearest_node(best_cluster->children, query);
-		}
-
-		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor);
-		if (dist < closest)
-		{
-			closest = dist;
-			best_cluster = find_nearest_leaf(query, cluster->children);
-		}
-	}
-	return best_cluster;
-}
 
 std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node*>& root, float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
 {

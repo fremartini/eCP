@@ -15,13 +15,6 @@
 
 namespace query_processing 
 {
-	/**
-	* find the nearest leaf given a query point regardless of level
-	* @param query query point
-	* @param nodes nodes
-	* @return nearest leaf node to the query point
-	*/
-	Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes);
 
 	/**
 	* search the index for k nearest neighbors
