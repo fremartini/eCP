@@ -14,11 +14,11 @@ namespace pre_processing
  */
 std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 {
-    // Create levels from L..1 such that 0=root, 1=L2 etc.
     unsigned int level_sizes[L];
 
+    // Create levels from L..1 such that 0=root, 1=L2 etc.
     for (unsigned int i = L ; i > 0 ; --i) {
-		unsigned int clusters = ceil(pow(dataset.size(), (i / (L + 1.00))));               // Each level above
+		unsigned int clusters = ceil(pow(dataset.size(), (i / (L + 1.00))));
         level_sizes[i - 1] = clusters;
     }
 
@@ -32,49 +32,30 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 	}
 	top_level.shrink_to_fit();
 
-	// Insert empty clusters in each level to form index - skip already built top level
-	for (unsigned int level = 1; level < L; ++level)
+    // Insert empty clusters in each level to form index - skip already built top level
+	for (unsigned int level = 1; level < L; ++level) 
 	{
-		// Go through each level
-		for (unsigned int i = 0; i < level_sizes[level]; ++i)
+		for (unsigned int i = 0; i < level_sizes[level]; ++i)   // Go through each representative of current level
 		{
-			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);    // Should be picking random leaders below where dataset[i] used
+			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);                                    // Should be picking random leaders below where dataset[i] used
+			auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);    // -1 since top level has been compared with
+            auto* cluster = new Node(dataset[i]);
+            const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
 
-			// -1 since top level has been compared with
-			auto* lower_level_nearest =
-                find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);    
-
-			//at bottom level
-			if (level == L - 1)
+			if (level == L - 1)                         // At bottom level
 			{
-				auto* leaf = new Node(dataset[i]);
-				//each leaf cluster always represents, on average, n^( 1/(L+1) ) point
-				const unsigned int avg_rep = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
-				leaf->points.reserve(avg_rep);
-				lower_level_nearest->children.emplace_back(leaf);
+				cluster->points.reserve(avg_representatives);   	// Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
 			}
 			else 
 			{
-				auto* node = new Node(dataset[i]);
-				const unsigned int avg_rep = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
-				node->children.reserve(avg_rep);
-				lower_level_nearest->children.emplace_back(node);
+				cluster->children.reserve(avg_representatives);     // Internal node in index
 			}
+
+            lower_level_nearest->children.emplace_back(cluster);
 		}
 	}
 
 	return top_level;
-}
-
-std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
-{
-	for (unsigned int i = from_index; i < points.size(); ++i) 
-	{
-		Node* nearest = query_processing::find_nearest_leaf(points[i].descriptor, index_top_level);
-
-		nearest->points.push_back(points[i]);
-	}
-	return index_top_level;
 }
 
 Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
@@ -96,7 +77,7 @@ Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
 }
 
 /*
- * only used during index creation. Current level is required since index is still being built
+ * Only used during index creation. Current level is required since index is still being built.
  */
 Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int depth)
 {
@@ -109,6 +90,20 @@ Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int dept
 	//continue down to next level
 	Node* nearest = find_nearest_node(node->children, query);
 	return find_nearest_leaf_from_level(query, nearest, depth - 1);
+}
+
+/**
+ * Insert points into the given index structure.
+ */
+std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index)
+{
+	for (unsigned int i = from_index; i < points.size(); ++i) 
+	{
+		Node* nearest = query_processing::find_nearest_leaf(points[i].descriptor, index_top_level);
+
+		nearest->points.push_back(points[i]);
+	}
+	return index_top_level;
 }
 
 }

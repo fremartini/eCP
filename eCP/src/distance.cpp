@@ -12,7 +12,7 @@
  */
 namespace distance
 {
-    // Declaration of global distance function, extern in header
+    // Definition of global distance function, extern in header
     float (*g_distance_function)(const float*, const float*);
 
     float euclidean_distance(const float* a, const float* b)
