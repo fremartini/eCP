@@ -26,46 +26,6 @@ std::vector<Node*> get_empty_index(unsigned int L = 2)
 
 /* Tests */
 
-TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
-{
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
-    globals::g_vector_dimensions = 3;
-
-    std::vector<Node*> clusters {
-        new Node{Point(new float[3] {1, 1, 1}, 0)},
-        new Node{Point(new float[3] {4, 4, 4}, 1)},
-        new Node{Point(new float[3] {7, 7, 7}, 2)},
-        new Node{Point(new float[3] {8, 8, 8}, 3)},
-    };
-
-    float* query = new float[3]{ 3, 3, 3 };
-
-    Node* actual = pre_processing::find_nearest_node(clusters, query);
-
-    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 4, 4, 4 }));
-}
-
-TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_same)
-{
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
-    globals::g_vector_dimensions = 3;
-
-    std::vector<Node*> clusters = {
-        new Node{Point {new float[3] {1,1,1}, 0}},
-        new Node(Point(new float[3] {4, 4, 4}, 1)),
-        new Node(Point(new float[3] {7, 7, 7}, 2)),
-        new Node(Point(new float[3] {8, 8, 8}, 3)),
-    };
-
-    float* query = new float[3]{ 8, 8, 8 };
-
-    Node* actual = pre_processing::find_nearest_node(clusters, query);
-
-    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 8, 8, 8 }));
-}
-
 TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     distance::g_distance_function = distance::g_distance_function;

@@ -37,19 +37,19 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 	{
 		for (unsigned int i = 0; i < level_sizes[level]; ++i)           // Add each representative for current level
 		{
-			auto* top_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);
+			auto* top_level_nearest = distance::get_closest_node(top_level, dataset[i].descriptor);
 			auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, top_level_nearest, level - 1);  // -1 since top level has to be compared with
 
             auto* node = new Node(dataset[i]);                                                                              // Setting representative to be dataset[i] here
-            const unsigned int amount_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));                     // Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
+            const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));                        // Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
 
 			if (level == L - 1)                                     // At bottom/leaf level
 			{
-				node->points.reserve(amount_representatives);   	
+				node->points.reserve(avg_representatives);   	
 			}
 			else 
 			{
-				node->children.reserve(amount_representatives);     // Internal node in index
+				node->children.reserve(avg_representatives);     // Internal node in index
 			}
 
             lower_level_nearest->children.emplace_back(node);
@@ -57,24 +57,6 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 	}
 
 	return top_level;
-}
-
-Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
-{
-	float nearest = globals::FLOAT_MAX;
-	Node* best = nullptr;
-
-	// Compare distance to every representative
-	for (auto* node : nodes)
-	{
-		const float distance = distance::g_distance_function(query, node->points[0].descriptor);
-		if (distance <= nearest)
-		{
-			nearest = distance;
-			best = node;
-		}
-	}
-	return best;
 }
 
 /*
@@ -89,26 +71,27 @@ Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int dept
 	}
 
 	// continue down to next level
-	Node* nearest = find_nearest_node(node->children, query);
+	Node* nearest = distance::get_closest_node(node->children, query);
 	return find_nearest_leaf_from_level(query, nearest, depth - 1);
 }
 
 /**
- * Find 
+ * 
  */
 Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 {
-	Node* best_cluster = find_nearest_node(nodes, query);
+	Node* best_cluster = distance::get_closest_node(nodes, query);
 	float closest = globals::FLOAT_MAX;
 
 	for (Node* cluster : best_cluster->children)
 	{
 		if (cluster->children.empty())
 		{
-			return find_nearest_node(best_cluster->children, query);
+			return distance::get_closest_node(best_cluster->children, query);
 		}
 
 		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor);
+
 		if (dist < closest)
 		{
 			closest = dist;

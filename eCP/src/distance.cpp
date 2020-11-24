@@ -27,6 +27,24 @@ namespace distance
         return sums[0] + sums[1] + sums[2] + sums[3];
     }
 
+    Node* get_closest_node(std::vector<Node*>& nodes, float* query)
+    {
+        float closest = globals::FLOAT_MAX;
+        Node* best = nullptr;
+
+        for (Node* node : nodes)
+        {
+            const float distance = euclidean_distance(query, node->points[0].descriptor);
+            
+            if (distance <= closest)
+            {
+                closest = distance;
+                best = node;
+            }
+        }
+        return best;
+    }
+
     inline float angular_distance(const float* a, const float* b)
     {
         float mul = 0.0, d_a = 0.0, d_b = 0.0;
@@ -53,4 +71,4 @@ namespace distance
         std::invalid_argument("Invalid metric.");
     }
 
-} // namespace distance
+}

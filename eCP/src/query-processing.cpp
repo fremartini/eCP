@@ -22,9 +22,9 @@ std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node
 	//go trough b clusters to obtain k nearest neighbors
 	std::vector<std::pair<unsigned int, float>> k_nearest_points;
 	k_nearest_points.reserve(k);
-	for (Node* b_nearest_cluster : b_nearest_clusters)
+	for (Node* cluster : b_nearest_clusters)
 	{
-		scan_leaf_node(query, b_nearest_cluster->points, k, k_nearest_points);
+		scan_leaf_node(query, cluster->points, k, k_nearest_points);
 	}
 
 	//sort by distance - O(N * log(N)) where N = smallest_distance(a,b) comparisons
@@ -34,7 +34,7 @@ std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node
 }
 
 /*
- * traverses node children one level at a time to find b nearest
+ * Traverses node children one level at a time to find b nearest
  */
 std::vector<Node*> find_b_nearest_clusters(std::vector<Node*>& root, float*& query, unsigned int b, unsigned int L)
 {
