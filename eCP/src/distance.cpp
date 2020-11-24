@@ -17,14 +17,14 @@ namespace distance
 
     inline float euclidean_distance(const float* a, const float* b)
     {
-        float sum = 0;
+        float sums[] = {0.0, 0.0, 0.0, 0.0};
         for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
-            auto pow = a[i] - b[i];
-            sum += pow * pow;
+            float pow = a[i] - b[i];
+            sums[i % 4] += pow * pow;
         }
 
-        return sum;
+        return sums[0] + sums[1] + sums[2] + sums[3];
     }
 
     inline float angular_distance(const float* a, const float* b)
