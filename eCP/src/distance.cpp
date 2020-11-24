@@ -15,19 +15,19 @@ namespace distance
     // Definition of global distance function, extern in header
     float (*g_distance_function)(const float*, const float*);
 
-    float euclidean_distance(const float* a, const float* b)
+    inline float euclidean_distance(const float* a, const float* b)
     {
         float sum = 0;
         for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
-            auto pow = a[i] - b[i]; //dont use pow, its very slow
+            auto pow = a[i] - b[i];
             sum += pow * pow;
         }
 
         return sum;
     }
 
-    float angular_distance(const float* a, const float* b)
+    inline float angular_distance(const float* a, const float* b)
     {
         float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
@@ -44,8 +44,8 @@ namespace distance
     }
 
     /**
- * Set the used distance function.
- */
+    * Set the used distance function.
+    */
     void set_distance_function(Metrics func)
     {
         if (func == Metrics::EUCLIDEAN) g_distance_function = &euclidean_distance;

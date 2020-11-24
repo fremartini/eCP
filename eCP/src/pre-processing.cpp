@@ -32,7 +32,7 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 	}
 	top_level.shrink_to_fit();
 
-    // Insert empty clusters in each level to form index - skip already built top level
+    // Insert empty clusters in each level below L=1, i.e. forall w. L>1
 	for (unsigned int level = 1; level < L; ++level) 
 	{
 		for (unsigned int i = 0; i < level_sizes[level]; ++i)   // Go through each representative of current level
@@ -42,7 +42,7 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
             auto* cluster = new Node(dataset[i]);
             const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
 
-			if (level == L - 1)                         // At bottom level
+			if (level == L - 1)                                     // At bottom level
 			{
 				cluster->points.reserve(avg_representatives);   	// Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
 			}

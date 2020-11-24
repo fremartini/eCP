@@ -54,8 +54,7 @@ struct Node {
  * @param top_level top level of the index
  * @param dataset dataset of points the index was built from
  */
-struct Index
-{
+struct Index {
 	unsigned int L;
 	std::vector<Node*> top_level;
 	std::vector<Point> dataset;
