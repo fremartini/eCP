@@ -32,26 +32,27 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
 	}
 	top_level.shrink_to_fit();
 
-    // Insert empty clusters in each level below L=1, i.e. forall w. L>1
+    // Insert representatives in each level below L=1, i.e. forall L>1
 	for (unsigned int level = 1; level < L; ++level) 
 	{
-		for (unsigned int i = 0; i < level_sizes[level]; ++i)   // Go through each representative of current level
+		for (unsigned int i = 0; i < level_sizes[level]; ++i)           // Add each representative for current level
 		{
-			auto* upper_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);                                    // Should be picking random leaders below where dataset[i] used
-			auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, upper_level_nearest, level - 1);    // -1 since top level has been compared with
-            auto* cluster = new Node(dataset[i]);
-            const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));
+			auto* top_level_nearest = find_nearest_node(top_level, dataset[i].descriptor);
+			auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, top_level_nearest, level - 1);  // -1 since top level has to be compared with
 
-			if (level == L - 1)                                     // At bottom level
+            auto* node = new Node(dataset[i]);                                                                              // Setting representative to be dataset[i] here
+            const unsigned int amount_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));                     // Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
+
+			if (level == L - 1)                                     // At bottom/leaf level
 			{
-				cluster->points.reserve(avg_representatives);   	// Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
+				node->points.reserve(amount_representatives);   	
 			}
 			else 
 			{
-				cluster->children.reserve(avg_representatives);     // Internal node in index
+				node->children.reserve(amount_representatives);     // Internal node in index
 			}
 
-            lower_level_nearest->children.emplace_back(cluster);
+            lower_level_nearest->children.emplace_back(node);
 		}
 	}
 
@@ -63,7 +64,7 @@ Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
 	float nearest = globals::FLOAT_MAX;
 	Node* best = nullptr;
 
-	//compare distance to every representative
+	// Compare distance to every representative
 	for (auto* node : nodes)
 	{
 		const float distance = distance::g_distance_function(query, node->points[0].descriptor);
@@ -87,7 +88,7 @@ Node* find_nearest_leaf_from_level(float*& query, Node*& node, unsigned int dept
 		return node;
 	}
 
-	//continue down to next level
+	// continue down to next level
 	Node* nearest = find_nearest_node(node->children, query);
 	return find_nearest_leaf_from_level(query, nearest, depth - 1);
 }
