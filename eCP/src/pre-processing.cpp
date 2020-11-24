@@ -66,7 +66,7 @@ Node* find_nearest_node(std::vector<Node*>& nodes, float*& query)
 	//compare distance to every representative
 	for (auto* node : nodes)
 	{
-		const float distance = distance::g_distance_function(query, node->get_representative());
+		const float distance = distance::g_distance_function(query, node->points[0].descriptor);
 		if (distance <= nearest)
 		{
 			nearest = distance;

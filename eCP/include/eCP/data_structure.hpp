@@ -46,11 +46,6 @@ struct Node {
 			delete child;
 		}
 	}
-
-	float* get_representative()
-	{
-		return points[0].descriptor;
-	}
 };
 
 /**

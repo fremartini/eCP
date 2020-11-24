@@ -43,7 +43,7 @@ TEST(pre_processing_tests, get_closest_cluster_returns_closest_cluster)
 
     Node* actual = pre_processing::find_nearest_node(clusters, query);
 
-    EXPECT_TRUE(*actual->get_representative() == (*new float[3]{ 4, 4, 4 }));
+    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 4, 4, 4 }));
 }
 
 TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_same)
@@ -63,7 +63,7 @@ TEST(pre_processing_tests, get_closest_cluster_given_query_in_clusters_returns_s
 
     Node* actual = pre_processing::find_nearest_node(clusters, query);
 
-    EXPECT_TRUE(*actual->get_representative() == (*new float[3]{ 8, 8, 8 }));
+    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 8, 8, 8 }));
 }
 
 TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {

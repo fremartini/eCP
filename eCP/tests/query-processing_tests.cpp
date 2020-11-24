@@ -143,7 +143,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_b_1_returns_single_
     auto actual = query_processing::find_b_nearest_clusters(root, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[0]->get_representative() == *query);
+    EXPECT_TRUE(*actual[0]->points[0].descriptor == *query);
 }
 
 TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_closest_cluster)
@@ -157,7 +157,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_clo
     auto actual = query_processing::find_b_nearest_clusters(top_level, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[1]->get_representative() == *query);
+    EXPECT_TRUE(*actual[1]->points[0].descriptor == *query);
 }
 
 TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest_element)
@@ -186,7 +186,7 @@ TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest
     float *expected = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0]->get_representative() == *expected);
+    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *expected);
 }
 
 TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everything)
@@ -236,6 +236,6 @@ TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
     float *second_element = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0]->get_representative() == *first_element);
-    EXPECT_TRUE(*next_level_best_nodes[1]->get_representative() == *second_element);
+    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *first_element);
+    EXPECT_TRUE(*next_level_best_nodes[1]->points[0].descriptor == *second_element);
 }
