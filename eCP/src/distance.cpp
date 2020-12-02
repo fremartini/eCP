@@ -13,7 +13,7 @@
 namespace distance
 {
     // Definition of global distance function, extern in header
-    float (*g_distance_function)(const float*, const float*);
+    inline float (*g_distance_function)(const float*, const float*);
 
     inline float euclidean_distance(const float* a, const float* b)
     {
@@ -34,7 +34,7 @@ namespace distance
 
         for (Node* node : nodes)
         {
-            const float distance = euclidean_distance(query, node->points[0].descriptor);
+            const float distance = g_distance_function(query, node->points[0].descriptor);
             
             if (distance <= closest)
             {
