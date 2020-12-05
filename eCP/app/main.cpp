@@ -14,7 +14,7 @@ int main()
     const int p = 150000;      // number of vectors
     const int d = 128;         // dimensions of vector
     const int r = 1000;        // upper bound of generated vectors
-    const int queries = 15000; // queries to make on created index
+    const int qs = 15000;      // queries to make on created index
 
     /* For debugging */
     // const int L = 3;           // L parameter - number of levels in index
@@ -34,6 +34,7 @@ int main()
 
     /* Generate dummy data */
     std::vector<std::vector<float>> S = utility::generate_descriptors(p, d, r);
+    std::vector<std::vector<float>> queries = utility::generate_descriptors(qs, d, r);
 
     /* Index build instrumentation */
     __itt_task_begin(domain_build, __itt_null, __itt_null, handle_build);
@@ -42,9 +43,8 @@ int main()
 
     /* Query instrumentation */
     __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
-    for (int i = 0; i < queries; ++i)
-    {
-        auto result = eCP::query(index, S[i], k, b);
+    for (auto& q : queries) {
+        auto result = eCP::query(index, q, k, b);
     }
     __itt_task_end(domain_query);
 
