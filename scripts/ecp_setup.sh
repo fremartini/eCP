@@ -41,6 +41,6 @@ pip install -r requirements.txt
 echo "Building ONLY eCP docker image"
 python install.py --algorithm ecp
 
-echo "Run test on ${DATASET}"
-python run.py --algorithm eCP --dataset ${DATASET}
+# echo "Run test on ${DATASET}"
+# python run.py --algorithm eCP --dataset ${DATASET}
 # sudo python plot.py --dataset ${DATASET}
