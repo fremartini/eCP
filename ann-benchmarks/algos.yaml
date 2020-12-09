@@ -1,6 +1,6 @@
 float:
   any:
-    eCP:
+    eCP-org:
       disabled: false
       docker-tag: ann-benchmarks-ecp-org
       module: ann_benchmarks.algorithms.eCP-org
