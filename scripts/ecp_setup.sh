@@ -43,4 +43,4 @@ python install.py --algorithm ecp
 
 echo "Run test on ${DATASET}"
 python run.py --algorithm eCP --dataset ${DATASET}
-sudo python plot.py --dataset ${DATASET}
+# sudo python plot.py --dataset ${DATASET}
