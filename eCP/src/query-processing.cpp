@@ -153,16 +153,13 @@ unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& p
 {
     if (point_pairs.size() < 1) { throw std::range_error("Vector must contain at least one element."); }
 
-    // Compare with first element
 	int index = 0;
-	int min = point_pairs[0].second;
+	float current_max = point_pairs[0].second;
 
-    if (point_pairs.size() > 1) {
-        for (unsigned int i = 1; i < point_pairs.size(); ++i) {
-            if (point_pairs[i].second > min) {
-                min = point_pairs[i].second;
-                index = i;
-            }
+    for (unsigned int i = 0; i < point_pairs.size(); ++i) {
+        if (point_pairs[i].second > current_max) {
+            current_max = point_pairs[i].second;
+            index = i;
         }
     }
 

@@ -7,14 +7,13 @@
 #include <eCP/data_structure.hpp>
 
 /**
- * Distance functions defined for global use here. Can be imported and used 
- * and will only be
+ * Distance functions defined for global use here. Can be imported and used.
  */
 namespace distance 
 {
 
 /**
- * Globally scoped pointer to the used distance function.
+ * External linkage. Globally scoped pointer to the used distance function.
  */
 extern float (*g_distance_function)(const float*, const float*);
 
