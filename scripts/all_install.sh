@@ -30,7 +30,7 @@ pip install -r requirements.txt
 echo "Building ALL docker images"
 sudo python install.py
 
-echo "Run test on random-xs-20-euclidean"
-sudo python run.py --algorithm eCP --dataset random-xs-20-euclidean
-sudo python plot.py --dataset random-xs-20-euclidean
+# echo "Run test on random-xs-20-euclidean"
+# sudo python run.py --algorithm eCP --dataset random-xs-20-euclidean
+# sudo python plot.py --dataset random-xs-20-euclidean
 
