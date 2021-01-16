@@ -20,8 +20,8 @@ namespace distance
         float sums[] = {0.0, 0.0, 0.0, 0.0};
         for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
-            float pow = a[i] - b[i];
-            sums[i % 4] += pow * pow;
+            float delta = a[i] - b[i];
+            sums[i % 4] += delta * delta;
         }
 
         return sums[0] + sums[1] + sums[2] + sums[3];
