@@ -15,6 +15,18 @@ namespace distance
     // Definition of global distance function, extern in header
     float (*g_distance_function)(const float*, const float*);
 
+    // Old code
+    // inline float euclidean_distance(const float* a, const float* b)
+    // {
+    //     float sum = 0;
+    //     for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i) {
+    //         auto pow = a[i] - b[i];
+    //         sum += pow * pow;
+    //     }
+    //     return sum;
+    // }
+
+    // New code
     inline float euclidean_distance(const float* a, const float* b)
     {
         float sums[] = {0.0, 0.0, 0.0, 0.0};
