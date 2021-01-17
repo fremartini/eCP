@@ -43,13 +43,13 @@ std::vector<Node*> create_index(std::vector<Point>& dataset, unsigned int L)
             auto* node = new Node(dataset[i]);                                                                              // Setting representative to be dataset[i] here
             const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));                        // Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
 
-			if (level == L - 1)                                     // At bottom/leaf level
+			if (level == L - 1)                                     
 			{
-				node->points.reserve(avg_representatives);   	
+				node->points.reserve(avg_representatives);      // At bottom/leaf level
 			}
 			else 
 			{
-				node->children.reserve(avg_representatives);     // Internal node in index
+				node->children.reserve(avg_representatives);    // Internal node in index
 			}
 
             lower_level_nearest->children.emplace_back(node);
@@ -108,7 +108,7 @@ std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vecto
 {
 	for (unsigned int i = from_index; i < points.size(); ++i) 
 	{
-		Node* nearest = pre_processing::find_nearest_leaf(points[i].descriptor, index_top_level);
+		Node* nearest = find_nearest_leaf(points[i].descriptor, index_top_level);
 
 		nearest->points.push_back(points[i]);
 	}
