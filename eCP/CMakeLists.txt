@@ -6,6 +6,8 @@ project(
     DESCRIPTION "eCP algorithm C++ implementation"
     LANGUAGES CXX)
 
+set (CMAKE_CXX_STANDARD 14)
+
 # Must be in main file
 enable_testing()
 

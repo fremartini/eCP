@@ -8,5 +8,3 @@ target_include_directories(eCP_library
     PUBLIC 
         ./
         ../include)
-
-target_compile_features(eCP_library PUBLIC cxx_std_17)

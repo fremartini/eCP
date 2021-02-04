@@ -13,7 +13,6 @@ target_link_libraries(utilLib
 ) 
 
 add_executable(main main.cpp)
-target_compile_features(main PRIVATE cxx_std_17)
 
 # To find headers for main
 target_include_directories(main 
