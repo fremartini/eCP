@@ -18,8 +18,7 @@ email, or any other method with the other maintainers of this repository before 
 2. Fetch newest:
 ```
   git fetch upstream
-```
-
+``` 
 3. Update your current branch using one of the two:
 ```
 git merge upstream/master

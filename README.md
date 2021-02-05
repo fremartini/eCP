@@ -3,7 +3,7 @@ The extended cluster-pruning algorithm is implemented in C++ and provides a pyth
 
 Initially proposed as a bachelors project at the IT-University of Copenhagen in spring 2020. This repository continues the work by building a dynamic extension of the algorithm ontop of the original implementation.
 
-This project is currently a work in progress.
+This project is currently a work in progress. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 ## Project dependencies
 ```
