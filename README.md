@@ -22,7 +22,8 @@ It is also assumed that `./` is the root of this repository.
 
 1. To build the Python based wrapper around the C++ eCP implementation:
     - Install Swig e.g. on Debian based distros: ```sudo apt-get install -y swig```.
-    - Run `./scripts/generate_wrapper.sh`.
+    - Goto `./scripts/`
+    - Run `./generate_wrapper.sh`.
 2. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change what repository is cloned. Make it point to the current working branch or whichever branch you are working on. The reason is that ANN-Benchmarks will pull in and build the given repository before running tests on it.
 
 3. Now it is possible to install eCP into ANN-Benchmarks by executing the script `./scipts/ecp_install.sh`, which will pull down ANN-Benchmarks repository and copy the eCP integration into the newly cloned repository. Here the Python requirements will be installed and finally the ANN-Benchmarks install script will be called to setup only the eCP algorithm, i.e. build a Docker image containing a compiled executable of the code from the designated branch from earlier.
