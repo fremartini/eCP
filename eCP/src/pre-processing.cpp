@@ -90,7 +90,7 @@ Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 			return distance::get_closest_node(best_cluster->children, query);
 		}
 
-		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor);
+		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor,closest);
 
 		if (dist < closest)
 		{

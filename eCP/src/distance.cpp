@@ -13,18 +13,21 @@
 namespace distance
 {
     // Definition of global distance function, extern in header
-    float (*g_distance_function)(const float*, const float*);
+    float (*g_distance_function)(const float*, const float*, const float&);
 
-    inline float euclidean_distance(const float* a, const float* b)
+    inline float euclidean_distance(const float* a, const float* b, const float& threshold)
     {
-        float sums[] = {0.0, 0.0, 0.0, 0.0};
+         float sum = 0;
         for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
-            float delta = a[i] - b[i];
-            sums[i % 4] += delta * delta;
+            auto pow = a[i] - b[i]; 
+            sum += pow * pow;
+            if(sum > threshold) {
+                return globals::FLOAT_MAX;
+            }
         }
 
-        return sums[0] + sums[1] + sums[2] + sums[3];
+        return sum;
     }
 
     Node* get_closest_node(std::vector<Node*>& nodes, float* query)
@@ -34,7 +37,7 @@ namespace distance
 
         for (Node* node : nodes)
         {
-            const float distance = g_distance_function(query, node->points[0].descriptor);
+            const float distance = g_distance_function(query, node->points[0].descriptor,closest);
             
             if (distance <= closest)
             {
@@ -45,7 +48,7 @@ namespace distance
         return best;
     }
 
-    inline float angular_distance(const float* a, const float* b)
+    inline float angular_distance(const float* a, const float* b, const float& max_distance = 0)
     {
         float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
