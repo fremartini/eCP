@@ -17,20 +17,16 @@ namespace distance
 
     inline float euclidean_distance(const float* a, const float* b)
     {
-        float sum =0.0;
+        float sums[] = {0.0, 0.0, 0.0, 0.0};
         for (unsigned int i = 0; i < globals::g_vector_dimensions; i = i + 8)
         {
-            sum += (a[i] - b[i]) * (a[i] - b[i]);
-            sum += (a[i+1] - b[i+1]) * (a[i+1] - b[i+1]);
-            sum += (a[i+2] - b[i+2]) * (a[i+2] - b[i+2]);
-            sum += (a[i+3] - b[i+3]) * (a[i+3] - b[i+3]);
-            sum += (a[i+4] - b[i+4]) * (a[i+4] - b[i+4]);
-            sum += (a[i+5] - b[i+5]) * (a[i+5] - b[i+5]);
-            sum += (a[i+6] - b[i+6]) * (a[i+6] - b[i+6]);
-            sum += (a[i+7] - b[i+7]) * (a[i+7] - b[i+7]);
-	}
+			sums[0] += ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i+4] - b[i+4]) * (a[i+4] - b[i+4]));
+			sums[1] += ((a[i+1] - b[i+1]) * (a[i+1] - b[i+1])) + ((a[i+5] - b[i+5]) * (a[i+5] - b[i+5]));
+			sums[2] += ((a[i+2] - b[i+2]) * (a[i+2] - b[i+2])) + ((a[i+6] - b[i+6]) * (a[i+6] - b[i+6]));
+			sums[3] += ((a[i+3] - b[i+3]) * (a[i+3] - b[i+3])) + ((a[i+7] - b[i+7]) * (a[i+7] - b[i+7]));
+        }
 
-        return sum;
+        return sums[0] + sums[1] + sums[2] + sums[3];
     }
 
     Node* get_closest_node(std::vector<Node*>& nodes, float* query)
