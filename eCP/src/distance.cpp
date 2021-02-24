@@ -26,7 +26,6 @@ namespace distance
                 return globals::FLOAT_MAX;
             }
         }
-
         return sum;
     }
 

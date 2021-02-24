@@ -21,7 +21,7 @@ int main()
      const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
      const int k = 2;            // number points to return
      const int b = 2;            // number clusters to search
-     const int p = 1000000;           // number of vectors
+     const int p = 10000;           // number of vectors
      const int d = 128;          // dimensions of vector
      const int r = 1000;         // upper bound of generated vectors
      const int qs = 15;          // queries to make on created index
