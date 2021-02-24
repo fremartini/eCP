@@ -1,6 +1,7 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
+#include <vector>
 #include <limits>
 
 /**
@@ -13,13 +14,13 @@
  * @param id index in data set.
  */
 struct Point {
-	float* descriptor;
-	unsigned int id;
+  float* descriptor;
+  unsigned int id;
 
-	Point(float* descriptor_, unsigned int id_) 
-        : descriptor(descriptor_), id(id_) {}
+  Point(float* descriptor_, unsigned int id_)
+    : descriptor(descriptor_), id(id_) {}
 
-	~Point() = default;
+  ~Point() = default;
 };
 
 /*
@@ -29,8 +30,8 @@ struct Point {
  * @param points points in high-dimensional space. First element is always the node representative.
  */
 struct Node {
-	std::vector<Node*> children;
-	std::vector<Point> points;
+  std::vector<Node*> children;
+  std::vector<Point> points;
 
 	Node(const Point& p) 
         : points{p} {}
