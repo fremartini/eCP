@@ -5,7 +5,7 @@
 
 # mskk
 .vscode
-build
+build*
 env
 files_generated
 
