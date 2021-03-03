@@ -60,12 +60,14 @@ namespace distance
 
     inline float euclidean_distance(const float* a, const float* b, const float& threshold = -1)
     {
-         float sum = 0;
-         for (unsigned int i = 0; i < globals::g_vector_dimensions; i++)
+        float sums[] = {0.0, 0.0, 0.0, 0.0};
+        for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i)
         {
-            sum +=  (a[i] - b[i]) * (a[i] - b[i]);
+            float delta = a[i] - b[i];
+            sums[i % 4] += delta * delta;
         }
-        return sum;
+
+        return sums[0] + sums[1] + sums[2] + sums[3];
     }
 
     Node* get_closest_node(std::vector<Node*>& nodes, float* query)
