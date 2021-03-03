@@ -1,5 +1,4 @@
 #include <cmath>
-#include <stdexcept>
 
 #include <eCP/distance.hpp>
 #include <eCP/eCP.hpp>
@@ -15,15 +14,30 @@ namespace distance
     // Definition of global distance function, extern in header
     float (*g_distance_function)(const float*, const float*, const float&);
 
-    inline float euclidean_distance(const float* a, const float* b, const float& threshold)
+    inline float euclidean_distance_unroll(const float* a, const float* b, const float& threshold)
     {
          float sum = 0;
          for (unsigned int i = 0; i < globals::g_vector_dimensions; i = i + 8)
         {
-            sum += ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i+1] - b[i+1]) * (a[i+1] - b[i+1])) +
-                        ((a[i+2] - b[i+2]) * (a[i+2] - b[i+2])) + ((a[i+3] - b[i+3]) * (a[i+3] - b[i+3])) +
-                        ((a[i+4] - b[i+4]) * (a[i+4] - b[i+4])) + ((a[i+5] - b[i+5]) * (a[i+5] - b[i+5])) +
-                        ((a[i+6] - b[i+6]) * (a[i+6] - b[i+6])) + ((a[i+7] - b[i+7]) * (a[i+7] - b[i+7]));
+            sum +=  ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i+1] - b[i+1]) * (a[i+1] - b[i+1])) +
+                    ((a[i+2] - b[i+2]) * (a[i+2] - b[i+2])) + ((a[i+3] - b[i+3]) * (a[i+3] - b[i+3])) +
+                    ((a[i+4] - b[i+4]) * (a[i+4] - b[i+4])) + ((a[i+5] - b[i+5]) * (a[i+5] - b[i+5])) +
+                    ((a[i+6] - b[i+6]) * (a[i+6] - b[i+6])) + ((a[i+7] - b[i+7]) * (a[i+7] - b[i+7]));
+
+            if(sum > threshold) {
+                return globals::FLOAT_MAX;
+            }
+        }
+        return sum;
+    }
+
+    inline float euclidean_distance(const float* a, const float* b, const float& threshold)
+    {
+         float sum = 0;
+         for (unsigned int i = 0; i < globals::g_vector_dimensions; i++)
+        {
+            sum +=  (a[i] - b[i]) * (a[i] - b[i]);
+
             if(sum > threshold) {
                 return globals::FLOAT_MAX;
             }
@@ -71,8 +85,8 @@ namespace distance
     void set_distance_function(Metrics func)
     {
         if (func == Metrics::EUCLIDEAN) g_distance_function = &euclidean_distance;
+        if (func == Metrics::EUCLIDEAN_UNROLL) g_distance_function = &euclidean_distance_unroll;
         if (func == Metrics::ANGULAR) g_distance_function = &angular_distance;
-        std::invalid_argument("Invalid metric.");
     }
 
 }

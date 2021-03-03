@@ -1,4 +1,5 @@
 #include <cmath>
+#include <stdexcept>
 
 #include <eCP/eCP.hpp>
 #include <eCP/pre-processing.hpp>
@@ -34,9 +35,15 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 	if (metric == 1) {
         distance::set_distance_function(distance::Metrics::ANGULAR);
 	}
-	else
+	else if (metric == 0)
 	{
-        distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+		if (globals::g_vector_dimensions % 8) {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
+		} else {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+		}
+	} else {
+		std::invalid_argument("Invalid metric.");
 	}
 
 	//initial sample size for building index - n^L/L+1 for initial representatives

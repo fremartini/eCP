@@ -21,7 +21,7 @@ Node* get_closest_node(std::vector<Node*>& nodes, float* query);
 float euclidean_distance(const float* a, const float* b, const float&);
 float angular_distance(const float* a, const float* b, const float&);
 
-enum class Metrics { EUCLIDEAN, ANGULAR };
+enum class Metrics { EUCLIDEAN_UNROLL, EUCLIDEAN, ANGULAR };
 
 /**
  * Set the used distance function.
