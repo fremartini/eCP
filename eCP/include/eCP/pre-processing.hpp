@@ -59,6 +59,11 @@ namespace pre_processing
 	*/
 	std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vector<Point>& points, unsigned int from_index = 0);
 
+	/**
+	 * Sets the metric distance function for all distance calculation
+	 * @param metric metric distance: 0 = euclidean, 1 = angular, 2 = euclidean with early halting
+	 * */
+	void set_metric(unsigned int metric);
 }
 
 #endif // PRE_PROCESSING_H
