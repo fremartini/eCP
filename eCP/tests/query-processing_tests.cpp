@@ -10,7 +10,7 @@ Index *get_index(unsigned int L, int descriptors_amount = 10)
 {
     std::vector<std::vector<float>> descriptors;
 
-    for (unsigned int i = 0; i < descriptors_amount + 1; i++)
+    for (int i = 0; i < descriptors_amount + 1; i++)
     {
         descriptors.push_back({(float)i, (float)i, (float)i});
     }
@@ -43,8 +43,8 @@ TEST(query_processing_tests, index_to_max_element_given_int_zero_returns_correct
 
     auto result = query_processing::index_to_max_element(point_pairs);
 
-    auto expected_index{0};
-    auto actual_index = result;
+    int expected_index{0};
+    int actual_index = result;
 
     EXPECT_TRUE(expected_index == actual_index);
 }
@@ -60,8 +60,8 @@ TEST(query_processing_tests, index_to_max_element_given_morethan_elem_returns_in
 
     auto result = query_processing::index_to_max_element(point_pairs);
 
-    auto expected_index{1};
-    auto actual_index = result;
+     int expected_index{1};
+     int actual_index = result;
 
     EXPECT_TRUE(expected_index == actual_index);
 }
@@ -75,15 +75,14 @@ TEST(query_processing_tests, index_to_max_element_given_vector_with_zero_elems_t
 TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_points)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
-        new Node{Point(new float[3]{6, 6, 6}, 3)},
-        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
+        Node{Point(new float[3]{6, 6, 6}, 3)},
+        Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
     float *q = new float[3]{4, 4, 4};
@@ -101,15 +100,14 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_p
 TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_points)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
-        new Node{Point(new float[3]{6, 6, 6}, 3)},
-        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
+        Node{Point(new float[3]{6, 6, 6}, 3)},
+        Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
     float *q = new float[3]{4, 4, 4};
@@ -132,18 +130,18 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_b_1_returns_single_
     unsigned int b = 1;
     unsigned int L = 1;
 
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
-        new Node{Point(new float[3]{6, 6, 6}, 3)},
-        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
+        Node{Point(new float[3]{6, 6, 6}, 3)},
+        Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
     auto actual = query_processing::find_b_nearest_clusters(root, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[0]->points[0].descriptor == *query);
+    EXPECT_TRUE(*actual[0].points[0].descriptor == *query);
 }
 
 TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_closest_cluster)
@@ -152,59 +150,56 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_clo
     unsigned int b = 2;
     unsigned int L = 2;
 
-    std::vector<Node *> top_level = get_index(L, 42)->top_level;
+    std::vector<Node> top_level = get_index(L, 42)->top_level;
 
     auto actual = query_processing::find_b_nearest_clusters(top_level, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[1]->points[0].descriptor == *query);
+    EXPECT_TRUE(*actual[1].points[0].descriptor == *query);
 }
 
-TEST(query_processing_tests, scan_node_children_given_b_1_returns_single_closest_element)
+TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_closest_element)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
     unsigned int b = 1;
 
-    Node *node = new Node(Point(new float[3]{3, 3, 3}, 3));
-
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
-        new Node{Point(new float[3]{6, 6, 6}, 3)},
-        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
+        Node{Point(new float[3]{6, 6, 6}, 3)},
+        Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
-    std::vector<Node *> next_level_best_nodes = {};
+    std::vector<Node> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
     float *expected = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *expected);
+    EXPECT_TRUE(*next_level_best_nodes[0].points[0].descriptor == *expected);
+    delete[] expected;  // circumventing possible leak-warning.
 }
 
 TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everything)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
     unsigned int b = 4;
 
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
     };
 
-    std::vector<Node *> next_level_best_nodes = {};
+    std::vector<Node> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
@@ -214,21 +209,20 @@ TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everyt
 TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{1, 1, 1};
     unsigned int b = 2;
 
-    std::vector<Node *> root = {
-        new Node{Point(new float[3]{1, 1, 1}, 0)},
-        new Node{Point(new float[3]{3, 3, 3}, 1)},
-        new Node{Point(new float[3]{4, 4, 4}, 2)},
-        new Node{Point(new float[3]{6, 6, 6}, 3)},
-        new Node{Point(new float[3]{9, 9, 9}, 4)},
+    std::vector<Node> root = {
+        Node{Point(new float[3]{1, 1, 1}, 0)},
+        Node{Point(new float[3]{3, 3, 3}, 1)},
+        Node{Point(new float[3]{4, 4, 4}, 2)},
+        Node{Point(new float[3]{6, 6, 6}, 3)},
+        Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
-    std::vector<Node *> next_level_best_nodes = {};
+    std::vector<Node> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
@@ -236,6 +230,6 @@ TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
     float *second_element = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *first_element);
-    EXPECT_TRUE(*next_level_best_nodes[1]->points[0].descriptor == *second_element);
+    EXPECT_TRUE(*next_level_best_nodes[0].points[0].descriptor == *first_element);
+    EXPECT_TRUE(*next_level_best_nodes[1].points[0].descriptor == *second_element);
 }

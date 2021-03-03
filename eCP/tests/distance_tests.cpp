@@ -114,7 +114,6 @@ TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) 
     float* a = new float[3]{ 1, 5, 4 };
     float* b = new float[3]{ 9, 9, 7 };
 
-    float expected = 0.16;
     float actual = distance::angular_distance(a, b) / M_PI;
 
     EXPECT_NEAR(actual, 0.16, EPSILON_);
@@ -123,39 +122,39 @@ TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) 
 TEST(distance_tests, get_closest_cluster_returns_closest_cluster)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
-    std::vector<Node*> clusters {
-        new Node{Point(new float[3] {1, 1, 1}, 0)},
-        new Node{Point(new float[3] {4, 4, 4}, 1)},
-        new Node{Point(new float[3] {7, 7, 7}, 2)},
-        new Node{Point(new float[3] {8, 8, 8}, 3)},
+    std::vector<Node> clusters {
+        Node{Point(new float[3] {1, 1, 1}, 0)},
+        Node{Point(new float[3] {4, 4, 4}, 1)},
+        Node{Point(new float[3] {7, 7, 7}, 2)},
+        Node{Point(new float[3] {8, 8, 8}, 3)},
     };
 
     float* query = new float[3]{ 3, 3, 3 };
 
+    float expected[3] = {4, 4, 4};
     Node* actual = distance::get_closest_node(clusters, query);
 
-    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 4, 4, 4 }));
+    EXPECT_EQ(*actual->points[0].descriptor, *expected);
 }
 
 TEST(distance_tests, get_closest_cluster_given_query_in_clusters_returns_same)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-    distance::g_distance_function = distance::g_distance_function;
     globals::g_vector_dimensions = 3;
 
-    std::vector<Node*> clusters = {
-        new Node{Point {new float[3] {1,1,1}, 0}},
-        new Node(Point(new float[3] {4, 4, 4}, 1)),
-        new Node(Point(new float[3] {7, 7, 7}, 2)),
-        new Node(Point(new float[3] {8, 8, 8}, 3)),
+    std::vector<Node> clusters = {
+        Node{Point {new float[3] {1,1,1}, 0}},
+        Node(Point(new float[3] {4, 4, 4}, 1)),
+        Node(Point(new float[3] {7, 7, 7}, 2)),
+        Node(Point(new float[3] {8, 8, 8}, 3)),
     };
 
     float* query = new float[3]{ 8, 8, 8 };
 
+    float expected[3] = { 8, 8, 8 };
     Node* actual = distance::get_closest_node(clusters, query);
 
-    EXPECT_TRUE(*actual->points[0].descriptor == (*new float[3]{ 8, 8, 8 }));
+    EXPECT_EQ(*actual->points[0].descriptor, *expected);
 }
