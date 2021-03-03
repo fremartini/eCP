@@ -15,10 +15,10 @@ float:
       docker-tag: ann-benchmarks-ecp
       module: ann_benchmarks.algorithms.eCP
       constructor: eCP
-      base-args: ["@metric"]
+      base-args: ["@metric",True]
       run-groups:
         eCP:
-          args: [[1,True],[2,True],[3,True]]
+          args: [[1,2,3]]
           query-args: [[1,2,3,4,5,10,20]]
     sptag:
       docker-tag: ann-benchmarks-sptag
