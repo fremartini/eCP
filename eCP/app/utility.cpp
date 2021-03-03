@@ -110,9 +110,9 @@ void print_cluster(Node& c, const unsigned int d)
 
 	std::cout << "\n";
 
-	for (Node*& i : c.children) {
+  for (Node& i : c.children) {
 		auto space = std::string(d * 4, ' ');
-		if (!is_leaf(*i))
+    if (!is_leaf(i))
 		{
 			std::cout << space << "C";
 		}
@@ -121,15 +121,15 @@ void print_cluster(Node& c, const unsigned int d)
 			std::cout << space << "L";
 		}
 
-		print_cluster(*i, d + 1);
+    print_cluster(i, d + 1);
 	}
 }
 
-void print_clusters(std::vector<Node*>& clusters)
+void print_clusters(std::vector<Node>& clusters)
 {
-	for (Node*& i : clusters) {
+  for (Node& i : clusters) {
 		std::cout << "R";
-		print_cluster(*i, 1);
+    print_cluster(i, 1);
 	}
 
 	std::cout << "--------------\n";
@@ -139,13 +139,13 @@ void print_clusters(std::vector<Node*>& clusters)
  * Levels prints for small levels sizes
  * @param root Top level of index
  */
-void print_index_levels(std::vector<Node*>& root)
+void print_index_levels(std::vector<Node>& root)
 {
 	// Standard level order traversal code
 	// using queue
-	std::queue<Node*> q;  // Create a queue
+  std::queue<Node> q;  // Create a queue
 	// Enqueue top_level
-	for (auto cluster : root)
+  for (auto &cluster : root)
 	{
 		q.push(cluster);
 	}
@@ -158,19 +158,19 @@ void print_index_levels(std::vector<Node*>& root)
 		while (n > 0)
 		{
 			// Dequeue an item from queue and print it
-			Node* node = q.front();
+      Node node = q.front();
 			q.pop();
 
-			if (is_leaf(*node))
+      if (is_leaf(node))
 			{
-				std::cout << " [L: " << node->points.size() << " ]";
+        std::cout << " [L: " << node.points.size() << " ]";
 			}
 			else
-				std::cout << " [N: " << node->children.size() << "] ";
+        std::cout << " [N: " << node.children.size() << "] ";
 
 			// Enqueue all children of the dequeued item
-			for (unsigned int i = 0; i < node->children.size(); i++)
-				q.push(node->children[i]);
+      for (unsigned int i = 0; i < node.children.size(); i++)
+        q.push(node.children[i]);
 			n--;
 		}
 

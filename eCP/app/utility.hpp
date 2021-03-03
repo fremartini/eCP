@@ -16,9 +16,9 @@ void print_points(std::vector<Point>& points);
 
 void print_cluster(Node& c, unsigned int d);
 
-void print_clusters(std::vector<Node*>& clusters);
+void print_clusters(std::vector<Node>& clusters);
 
-void print_index_levels(std::vector<Node*>& root);
+void print_index_levels(std::vector<Node>& root);
 
 }
 

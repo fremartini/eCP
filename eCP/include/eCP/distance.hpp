@@ -17,7 +17,7 @@ namespace distance
  */
 extern float (*g_distance_function)(const float*, const float*);
 
-Node* get_closest_node(std::vector<Node*>& nodes, float* query);
+Node* get_closest_node(std::vector<Node>& nodes, float* query);
 float euclidean_distance(const float* a, const float* b);
 float angular_distance(const float* a, const float* b);
 
