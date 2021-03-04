@@ -13,31 +13,36 @@ namespace eCP
  * Entry point for ANN-Benchmarks fit function. Partitions the data set before creating
  * the empty index. The distance function is also set globally.
  */
-Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int L, unsigned int metric)
+Index* eCP_Index(std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric)
 {
 	//set dimension globally to avoid duplication
 	globals::g_vector_dimensions = descriptors[0].size();
 
 	//internal data structure uses pointers, translate floats from ANN-Benchmarks to something usable
 	std::vector<Point> descriptor_points;
-	for (unsigned int i = 0; i < descriptors.size(); i++) {
-		float* desc_p = new float[globals::g_vector_dimensions];
+  descriptor_points.reserve(descriptors.size());
 
-		for (unsigned int d = 0; d < globals::g_vector_dimensions; d++) {
-			desc_p[d] = descriptors[i][d];
-		}
+//	for (unsigned int i = 0; i < descriptors.size(); i++) {
+//    float* desc_p = new float[globals::g_vector_dimensions];
 
-		descriptor_points.emplace_back(desc_p, i);
-	}
+//		for (unsigned int d = 0; d < globals::g_vector_dimensions; d++) {
+//			desc_p[d] = descriptors[i][d];
+//		}
+
+//		descriptor_points.emplace_back(desc_p, i);
+//	}
+
+  unsigned i{0};
+  for (auto &desc : descriptors) {
+    descriptor_points.emplace_back(Point{desc.data(), i++});
+  }
 
 	//set metric function
-	if (metric == 1) {
+  if (metric == 1) {
         distance::set_distance_function(distance::Metrics::ANGULAR);
-	}
-	else
-	{
+  } else {
         distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-	}
+  }
 
 	//initial sample size for building index - n^L/L+1 for initial representatives
 	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elems is used as leaders for the bottom level
@@ -55,7 +60,7 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b)
 {
 	//internal data structure uses float pointer instead of vectors
-	float* q = &query[0];
+  float* q = query.data();
 
 	auto nearest_points = query_processing::k_nearest_neighbors(index->top_level, q, k, b, index->L);
 

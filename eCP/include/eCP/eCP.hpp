@@ -23,7 +23,7 @@ namespace eCP
   * @param metric distance function for index creation and querying. 0 = euclidean, 1 = angular
   * @return pointer to created index
   */
-Index* eCP_Index(std::vector<std::vector<float>> descriptors, unsigned int L, unsigned int metric);
+Index* eCP_Index(std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric);
 
 /**
  * ANN search in index

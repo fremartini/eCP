@@ -54,7 +54,7 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 		print_point(p);
 		std::cout << ", " << result.second[i] << "\n";
 	}
-	std::cout << "\nreturned " << result.first.size() << " points, wanted " << k;
+  std::cout << "\nreturned " << result.first.size() << " points, wanted " << k << std::endl;
 	delete[] q;
 }
 

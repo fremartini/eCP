@@ -49,7 +49,7 @@ namespace pre_processing
 	* @param points collection of points to be inserted into the index
 	* @param from_index index insertion starts from
 	*/
-  std::vector<Node> insert_points(std::vector<Node>& index_top_level, std::vector<Point>& points, unsigned from_index = 0);
+  std::vector<Node>& insert_points(std::vector<Node>& index_top_level, std::vector<Point>& points, unsigned from_index = 0);
 
 }
 
