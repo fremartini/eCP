@@ -7,24 +7,24 @@
 int main()
 {
     /* For vtune params */
-//    const int L = 3;           // L parameter - number of levels in index
-//    const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular
-//    const int k = 100;         // number points to return
-//    const int b = 40;          // number clusters to search
-//    const int p = 150000;      // number of vectors
-//    const int d = 128;         // dimensions of vector
-//    const int r = 1000;        // upper bound of generated vectors
-//    const int qs = 15000;      // queries to make on created index
+    const int L = 3;           // L parameter - number of levels in index
+    const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular
+    const int k = 100;         // number points to return
+    const int b = 40;          // number clusters to search
+    const int p = 150000;      // number of vectors
+    const int d = 128;         // dimensions of vector
+    const int r = 1000;        // upper bound of generated vectors
+    const int qs = 15000;      // queries to make on created index
 
     /* For debugging params */
-     const int L = 3;            // L parameter - number of levels in index
-     const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
-     const int k = 2;            // number points to return
-     const int b = 2;            // number clusters to search
-     const int p = 12;           // number of vectors
-     const int d = 128;          // dimensions of vector
-     const int r = 1000;         // upper bound of generated vectors
-     const int qs = 15;          // queries to make on created index
+//     const int L = 3;            // L parameter - number of levels in index
+//     const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
+//     const int k = 2;            // number points to return
+//     const int b = 2;            // number clusters to search
+//     const int p = 120000;           // number of vectors
+//     const int d = 128;          // dimensions of vector
+//     const int r = 1000;         // upper bound of generated vectors
+//     const int qs = 15;          // queries to make on created index
 
     /* Setup ITTAPI instrumentation domain */
     __itt_domain *domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -45,13 +45,13 @@ int main()
     __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
     for (auto& q : queries) {
         auto result = eCP::query(index, q, k, b);
-//        utility::print_query_results(result, q, k, index->dataset);
     }
     __itt_task_end(domain_query);
 
     /* Debugging */
-    utility::print_clusters(index->top_level);
-    utility::print_index_levels(index->top_level);
+//    utility::print_clusters(index->top_level);
+//    utility::print_index_levels(index->top_level);
+//    utility::print_query_results(result, q, k, index->dataset);
 
     /* Clean up */
     delete index;

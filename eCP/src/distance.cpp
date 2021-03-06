@@ -30,19 +30,17 @@ inline float euclidean_distance(const float* a, const float* b)
 // Assumes the given vector of nodes is not empty
 Node* get_closest_node(std::vector<Node>& nodes, float* query)
 {
-  auto dist_f = g_distance_function;
   float max = globals::FLOAT_MAX;
   Node* closest = &nodes[0];
 
-  for (auto &node : nodes) {
-    const float distance = dist_f(query, node.points[0].descriptor);
+  for (std::size_t i = 1; i < nodes.size(); ++i) {
+    const float distance = g_distance_function(query, nodes[i].points[0].descriptor);
 
     if (distance < max) {
       max = distance;
-      closest = &node;
+      closest = &nodes[i];
     }
   }
-
   return closest;
 }
 

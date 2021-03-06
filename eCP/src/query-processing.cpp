@@ -15,16 +15,16 @@ namespace query_processing
 std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
 {
   //find b nearest clusters
-  //  std::vector<Node> b_nearest_clusters; //accumulator for b clusters
-  //	b_nearest_clusters.reserve(b);
-  std::vector<Node> b_nearest_clusters = find_b_nearest_clusters(root, query, b, L);
+//  std::vector<Node> b_nearest_clusters; //accumulator for b clusters
+//  b_nearest_clusters.reserve(b);
+  std::vector<Node*> b_nearest_clusters = find_b_nearest_clusters(root, query, b, L);
 
   //go trough b clusters to obtain k nearest neighbors
   std::vector<std::pair<unsigned int, float>> k_nearest_points;
   k_nearest_points.reserve(k);
-  for (Node cluster : b_nearest_clusters)
+  for (Node* cluster : b_nearest_clusters)
   {
-    scan_leaf_node(query, cluster.points, k, k_nearest_points);
+    scan_leaf_node(query, cluster->points, k, k_nearest_points);
   }
 
   //sort by distance - O(N * log(N)) where N = smallest_distance(a,b) comparisons
@@ -36,21 +36,21 @@ std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node
 /*
  * Traverses node children one level at a time to find b nearest
  */
-std::vector<Node> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b, unsigned int L)
+std::vector<Node*> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b, unsigned int L)
 {
   // Scan nodes in root
-  std::vector<Node> b_best;
+  std::vector<Node*> b_best;
   b_best.reserve(b);
   scan_node(query, root, b, b_best);
 
   //if L > 1 go down index, if L == 1 simply return the b_best
   while (L > 1)
   {
-    std::vector<Node> new_best_nodes;
+    std::vector<Node*> new_best_nodes;
     new_best_nodes.reserve(b);
-    for (auto &node : b_best)
+    for (auto *node : b_best)
     {
-      scan_node(query, node.children, b, new_best_nodes);
+      scan_node(query, node->children, b, new_best_nodes);
     }
     L = L - 1;
     b_best = new_best_nodes;
@@ -62,7 +62,7 @@ std::vector<Node> find_b_nearest_clusters(std::vector<Node>& root, float*& query
 /*
  * Compares vector of nodes to query and returns b closest nodes in given accumulator vector.
  */
-void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::vector<Node>& nodes_accumulated)
+void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::vector<Node*>& nodes_accumulated)
 {
   std::pair<int, float> furthest_node = std::make_pair(-1, -1.0);                                             // (index, distance from q to node)
 
@@ -70,9 +70,9 @@ void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::ve
     furthest_node = find_furthest_node(query, nodes_accumulated);   //if we already have enough nodes to start replacing, find the furthest node
   }
 
-  for (Node node : nodes) {
+  for (Node& node : nodes) {
     if (nodes_accumulated.size() < b) {
-      nodes_accumulated.emplace_back(node);   //not enough nodes yet, just add
+      nodes_accumulated.emplace_back(&node);   //not enough nodes yet, just add
 
       if (nodes_accumulated.size() == b) {
         furthest_node = find_furthest_node(query, nodes_accumulated);   //next iteration we will start replacing, compute the furthest cluster
@@ -82,7 +82,7 @@ void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::ve
     else {
       //only replace if better
       if (distance::g_distance_function(query, node.points[0].descriptor) < furthest_node.second) {
-        nodes_accumulated[furthest_node.first] = node;
+        nodes_accumulated[furthest_node.first] = &node;
         furthest_node = find_furthest_node(query, nodes_accumulated);   //the furthest node has been replaced, find the new furthest
       }
     }
@@ -94,11 +94,12 @@ void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::ve
  * O(b) where b is requested number of clusters to do k-nn on.
  * Returns tuple containing (index, worst_distance)
  */
-std::pair<int, float> find_furthest_node(float*& query, std::vector<Node>& nodes)
+std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& nodes)
 {
   std::pair<int, float> worst = std::make_pair(-1, -1.0);
+
   for (unsigned int i = 0; i < nodes.size(); i++) {
-    const float dst = distance::g_distance_function(query, nodes[i].points[0].descriptor);
+    const float dst = distance::g_distance_function(query, nodes[i]->points[0].descriptor);
 
     if (dst > worst.second) {
       worst.first = i;

@@ -41,7 +41,7 @@ namespace query_processing
 	* @param b number of leaf clusters to return
 	* @return b leaf clusters
 	*/
-  std::vector<Node> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b, unsigned int L);
+  std::vector<Node*> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b, unsigned int L);
 
 	/*
 	* scan nodes for b nearest clusters
@@ -50,14 +50,14 @@ namespace query_processing
 	* @param b number of clusters to obtain
 	* @param node_accumulator accumulator for b nearest nodes
 	*/
-  void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::vector<Node>& node_accumulator);
+  void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::vector<Node*>& node_accumulator);
 
 	/**
 	* find the furthest cluster to a query point
 	* @param query query point
 	* @param nodes vector of nodes to search
 	*/
-  std::pair<int, float> find_furthest_node(float*& query, std::vector<Node>& nodes);
+  std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& nodes);
 
 	/**
 	* find k the nearest (point,distances) to the query point

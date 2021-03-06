@@ -141,7 +141,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_b_1_returns_single_
     auto actual = query_processing::find_b_nearest_clusters(root, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[0].points[0].descriptor == *query);
+    EXPECT_TRUE(*actual[0]->points[0].descriptor == *query);
 }
 
 TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_closest_cluster)
@@ -155,7 +155,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_clo
     auto actual = query_processing::find_b_nearest_clusters(top_level, query, b, L);
 
     EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[1].points[0].descriptor == *query);
+    EXPECT_TRUE(*actual[1]->points[0].descriptor == *query);
 }
 
 TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_closest_element)
@@ -174,14 +174,14 @@ TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_clos
         Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
-    std::vector<Node> next_level_best_nodes = {};
+    std::vector<Node*> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
     float *expected = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0].points[0].descriptor == *expected);
+    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *expected);
     delete[] expected;  // circumventing possible leak-warning.
 }
 
@@ -199,7 +199,7 @@ TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everyt
         Node{Point(new float[3]{4, 4, 4}, 2)},
     };
 
-    std::vector<Node> next_level_best_nodes = {};
+    std::vector<Node*> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
@@ -222,7 +222,7 @@ TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
         Node{Point(new float[3]{9, 9, 9}, 4)},
     };
 
-    std::vector<Node> next_level_best_nodes = {};
+    std::vector<Node*> next_level_best_nodes = {};
 
     query_processing::scan_node(query, root, b, next_level_best_nodes);
 
@@ -230,6 +230,6 @@ TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
     float *second_element = new float[3]{3, 3, 3};
 
     EXPECT_TRUE(next_level_best_nodes.size() == b);
-    EXPECT_TRUE(*next_level_best_nodes[0].points[0].descriptor == *first_element);
-    EXPECT_TRUE(*next_level_best_nodes[1].points[0].descriptor == *second_element);
+    EXPECT_TRUE(*next_level_best_nodes[0]->points[0].descriptor == *first_element);
+    EXPECT_TRUE(*next_level_best_nodes[1]->points[0].descriptor == *second_element);
 }
