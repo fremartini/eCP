@@ -8,6 +8,7 @@
 build*
 env
 files_generated
+*.autosave
 
 # User-specific files
 *.out

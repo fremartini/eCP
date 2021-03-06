@@ -29,47 +29,45 @@ struct Point {
   explicit Point(const float* descriptor_, unsigned id_)
     : descriptor(new float[globals::g_vector_dimensions]), id(id_)
   {
-//    std::cout << "default ctor called" << std::endl;
-    std::memcpy(descriptor, descriptor_, globals::g_vector_dimensions);
+    std::copy(descriptor_, descriptor_ + globals::g_vector_dimensions, descriptor);
   }
 
   ~Point()
   {
-//    std::cout << "destructor called" << std::endl;
     delete[] descriptor;
   }
 
   // Copy constructor.
   Point(const Point& other)
     : Point(other.descriptor, other.id)
-  {
-//    std::cout << "copy ctor called" << std::endl;
-  }
-
-  // Copy assingment operator.
-  Point& operator=(const Point& other)
-  {
-//    std::cout << "copy assignement called" << std::endl;
-    return *this = Point(other);
-  }
+  {}
 
   // Move constructor.
   Point(Point&& other) noexcept
-//    : descriptor(std::exchange(other.descriptor, nullptr)), id(std::exchange(other.id, 0))
     : descriptor(nullptr), id(0)
   {
-//    std::cout << "move ctor called" << std::endl;
     swap(*this, other);
   }
 
-  // Move assignment operator.
-  Point& operator=(Point&& other) noexcept
+  // Copy+Move assignment operator. Notice takes concrete instance.
+  Point& operator=(Point other) noexcept
   {
-//    std::cout << "move assignement called" << std::endl;
     swap(*this, other);
     return *this;
   }
 
+  // Copy assingment operator.
+//  Point& operator=(const Point& other)
+//  {
+//    return *this = Point(other);
+//    if (this != &other) {
+//      delete[] descriptor;
+//      descriptor = new float[globals::g_vector_dimensions];
+//      id = other.id;
+//      std::copy(other.descriptor, other.descriptor + globals::g_vector_dimensions, descriptor);
+//    }
+//    return *this;
+//  }
 
   // Copy assingment operator. Point passed by-value gives us a copied local version of 'other'.
 //  Point& operator=(Point other)

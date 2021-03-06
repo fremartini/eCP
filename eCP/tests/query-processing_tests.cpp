@@ -66,12 +66,6 @@ TEST(query_processing_tests, index_to_max_element_given_morethan_elem_returns_in
     EXPECT_TRUE(expected_index == actual_index);
 }
 
-TEST(query_processing_tests, index_to_max_element_given_vector_with_zero_elems_throws)
-{
-    std::vector<std::pair<unsigned int, float>> point_pairs;
-    EXPECT_THROW(query_processing::index_to_max_element(point_pairs), std::range_error);
-}
-
 TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_points)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);

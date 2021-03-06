@@ -13,7 +13,7 @@ namespace eCP
  * Entry point for ANN-Benchmarks fit function. Partitions the data set before creating
  * the empty index. The distance function is also set globally.
  */
-Index* eCP_Index(std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric)
+Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric)
 {
 	//set dimension globally to avoid duplication
 	globals::g_vector_dimensions = descriptors[0].size();
@@ -32,9 +32,9 @@ Index* eCP_Index(std::vector<std::vector<float>> &descriptors, unsigned int L, u
 //		descriptor_points.emplace_back(desc_p, i);
 //	}
 
-  unsigned i{0};
+  unsigned id{0};
   for (auto &desc : descriptors) {
-    descriptor_points.emplace_back(Point{desc.data(), i++});
+    descriptor_points.emplace_back(Point{desc.data(), id++});
   }
 
 	//set metric function

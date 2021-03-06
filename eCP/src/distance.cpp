@@ -31,14 +31,14 @@ inline float euclidean_distance(const float* a, const float* b)
 Node* get_closest_node(std::vector<Node>& nodes, float* query)
 {
   float max = globals::FLOAT_MAX;
-  Node* closest = &nodes[0];
+  Node* closest = nullptr;
 
-  for (std::size_t i = 1; i < nodes.size(); ++i) {
-    const float distance = g_distance_function(query, nodes[i].points[0].descriptor);
+  for (Node& node : nodes) {
+    const float distance = g_distance_function(query, node.points[0].descriptor);
 
     if (distance < max) {
       max = distance;
-      closest = &nodes[i];
+      closest = &node;
     }
   }
   return closest;

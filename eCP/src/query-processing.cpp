@@ -147,14 +147,13 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
   }
 }
 
-unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
+// Assumes point_pairs contains at least 1 point.
+unsigned index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
-  if (point_pairs.size() < 1) { throw std::range_error("Vector must contain at least one element."); }
-
   int index = 0;
   float current_max = point_pairs[0].second;
 
-  for (unsigned int i = 0; i < point_pairs.size(); ++i) {
+  for (unsigned int i = 1; i < point_pairs.size(); ++i) {
     if (point_pairs[i].second > current_max) {
       current_max = point_pairs[i].second;
       index = i;
