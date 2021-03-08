@@ -33,7 +33,7 @@ TEST(distance_tests, euclidean_distance_given_1d_vectors_returns_correct_distanc
     float* b = new float[2]{3, 3};
 
     float expected = 1.41;
-    float actual = std::sqrt(distance::euclidean_distance(a, b));
+    float actual = std::sqrt(distance::euclidean_distance(a, b, globals::FLOAT_MAX));
     
     EXPECT_NEAR(expected, actual, EPSILON_)
         << "actual: " << actual << " should be eq to expected: " << expected;
@@ -48,7 +48,7 @@ TEST(distance_tests, euclidean_distance_given_2_4d_vectors_returns_accurate_dist
 
     //act
     float expected = 6.0;
-    float actual = std::sqrt(distance::euclidean_distance(a, b));
+    float actual = std::sqrt(distance::euclidean_distance(a, b, globals::FLOAT_MAX));
     
     //assert
     EXPECT_FLOAT_EQ(expected, actual)
@@ -63,7 +63,7 @@ TEST(distance_tests, euclidean_distance_given_2_18d_vectors_returns_accurate_dis
     float* b = new float[18]{ 1,7,4,5,6,8,8,2,7,2,9,1,5,8,2,7,2,7 };
 
     //act
-    float actual = std::sqrt(distance::euclidean_distance(a, b));
+    float actual = std::sqrt(distance::euclidean_distance(a, b, globals::FLOAT_MAX));
     float expected = 7.0;
 
     //assert
@@ -74,7 +74,7 @@ TEST(distance_tests, angular_distance_given_same_vectors_returns_0) {
     globals::g_vector_dimensions = 3;
     float* a = new float[3]{ 1, 1, 1 };
 
-    float actual = distance::angular_distance(a, a);
+    float actual = distance::angular_distance(a, a, globals::FLOAT_MAX);
 
     EXPECT_FLOAT_EQ(0, actual);
 }
@@ -84,7 +84,7 @@ TEST(distance_tests, angular_distance_given_opposite_vectors_returns_1) {
     float* a = new float[3]{ 1, 1, 1 };
     float* b = new float[3]{ -1, -1, -1 };
 
-    float actual = distance::angular_distance(a, b) / M_PI;
+    float actual = distance::angular_distance(a, b, globals::FLOAT_MAX) / M_PI;
 
     EXPECT_FLOAT_EQ(1, actual);
 }
@@ -94,7 +94,7 @@ TEST(distance_tests, angular_distance_given_perpendicular_vectors_returns_correc
     float* a = new float[2]{ 0, 1 };
     float* b = new float[2]{ 1, 0 };
 
-    float actual = distance::angular_distance(a, b) / M_PI;
+    float actual = distance::angular_distance(a, b, globals::FLOAT_MAX) / M_PI;
 
     EXPECT_FLOAT_EQ(0.5, actual);
 }
@@ -104,7 +104,7 @@ TEST(distance_tests, angular_distance_given_2_dimensions_returns_correct_value) 
     float* a = new float[2]{ 5, 4 };
     float* b = new float[2]{ 1, 1 };
 
-    float actual = distance::angular_distance(a, b) / M_PI;
+    float actual = distance::angular_distance(a, b, globals::FLOAT_MAX) / M_PI;
 
     EXPECT_TRUE(cmpf(0.03, actual));
 }
@@ -115,7 +115,7 @@ TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) 
     float* b = new float[3]{ 9, 9, 7 };
 
     float expected = 0.16;
-    float actual = distance::angular_distance(a, b) / M_PI;
+    float actual = distance::angular_distance(a, b, globals::FLOAT_MAX) / M_PI;
 
     EXPECT_NEAR(actual, 0.16, EPSILON_);
 }

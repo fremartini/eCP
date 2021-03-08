@@ -90,7 +90,7 @@ Node* find_nearest_leaf(float*& query, std::vector<Node*>& nodes)
 			return distance::get_closest_node(best_cluster->children, query);
 		}
 
-		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor);
+		const auto dist = distance::g_distance_function(query, cluster->points[0].descriptor,closest);
 
 		if (dist < closest)
 		{
@@ -115,4 +115,26 @@ std::vector<Node*> insert_points(std::vector<Node*>& index_top_level, std::vecto
 	return index_top_level;
 }
 
+void set_metric(unsigned int metric) {
+	if(metric == 1) {
+        distance::set_distance_function(distance::Metrics::ANGULAR);
+	} else if(metric == 2) {
+		if (globals::g_vector_dimensions % 8) {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
+		} else {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN_HALT);
+		}
+	}
+	else if (metric == 0)
+	{
+		if (globals::g_vector_dimensions % 8) {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
+		} else {
+			distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+		}
+	} else {
+		std::__throw_invalid_argument("Invalid metric.");
+	}
+}
+	
 }
