@@ -7,6 +7,7 @@ add_library(eCP_library ${SOURCE_LIST} ${HEADER_LIST})
 
 target_include_directories(eCP_library
   PUBLIC
+  ./
   ../include/
   )
 
