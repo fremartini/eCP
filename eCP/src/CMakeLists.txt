@@ -7,10 +7,9 @@ add_library(eCP_library ${SOURCE_LIST} ${HEADER_LIST})
 
 target_include_directories(eCP_library
   PUBLIC
-  ./
-  ../include/
+    ./
+    ../include/
   )
-
 
 # -- Utilities Library --
 add_library(utilLib eCP/utilities/utility.cpp)
@@ -18,7 +17,8 @@ add_library(utilLib eCP/utilities/utility.cpp)
 # To find headers for utilLib
 target_include_directories(utilLib
   PUBLIC
-  ../include/
+    ./
+    ../include/
   )
 
 target_link_libraries(utilLib
