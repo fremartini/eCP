@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <stdexcept>
 
-#include <eCP/query-processing.hpp>
-#include <eCP/pre-processing.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/query-processing.hpp>
+#include <eCP/index/pre-processing.hpp>
+#include <eCP/index/distance.hpp>
+#include <eCP/index/globals.hpp>
 
 /*
  * Traverse the index to find the nearest leaf at the bottom level.

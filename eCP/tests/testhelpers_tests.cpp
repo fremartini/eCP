@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <testhelpers.hpp>
-#include <eCP/data_structure.hpp>
+#include <eCP/index/data_structure.hpp>
 
 TEST(testhelpers_tests, measure_depth_given_vector_containing_1_levels_returns_1) {
   globals::g_vector_dimensions = 3;

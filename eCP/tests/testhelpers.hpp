@@ -1,7 +1,7 @@
 #ifndef TEST_HELPERS_H
 #define TEST_HELPERS_H
 
-#include <eCP/data_structure.hpp>
+#include <eCP/index/data_structure.hpp>
 
 /**
  * This namespace contains various test helper functions.

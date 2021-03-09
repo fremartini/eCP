@@ -2,8 +2,8 @@
 #include <cmath>
 #include <iostream>
 
-#include <utility.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/utilities/utility.hpp>
+#include <eCP/index/globals.hpp>
 
 /**
  * creates count, dimension dimensional random float descriptor from 0 to upperBound

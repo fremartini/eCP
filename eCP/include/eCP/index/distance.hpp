@@ -4,7 +4,7 @@
 #include <cmath>
 #include <vector>
 
-#include <eCP/data_structure.hpp>
+#include <eCP/index/data_structure.hpp>
 
 /**
  * Distance functions defined for global use here. Can be imported and used.

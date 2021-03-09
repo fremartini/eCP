@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
-#include <eCP/eCP.hpp>
-#include <eCP/query-processing.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/index/query-processing.hpp>
+#include <eCP/index/distance.hpp>
+#include <eCP/index/globals.hpp>
 
 /* Helpers */
 Index *get_index(unsigned int L, int descriptors_amount = 10)

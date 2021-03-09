@@ -1,9 +1,9 @@
 #include <cmath>
 #include <gtest/gtest.h>
 
-#include <eCP/eCP.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/index/distance.hpp>
+#include <eCP/index/globals.hpp>
 
 /* HELPER FUNCTIONS */
 

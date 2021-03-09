@@ -11,7 +11,7 @@
  */
 
 #include <vector>
-#include <eCP/data_structure.hpp>
+#include <eCP/index/data_structure.hpp>
 
  /*
   * Dontains functions for the preprocessing phase of the eCP algorithm.

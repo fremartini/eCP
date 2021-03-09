@@ -2,13 +2,13 @@
 #define UTILITY_H
 
 #include <vector>
-#include <eCP/eCP.hpp>
+#include <eCP/index/eCP.hpp>
 
 namespace utility {
 
-void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& res, std::vector<float>& query, unsigned int k, const std::vector<Point>& S);
-
 std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigned int dimension, unsigned int upper_bound);
+
+void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& res, std::vector<float>& query, unsigned int k, const std::vector<Point>& S);
 
 void print_point(Point& p);
 

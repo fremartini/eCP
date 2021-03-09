@@ -1,11 +1,11 @@
 #include <cmath>
 
-#include <eCP/eCP.hpp>
-#include <eCP/pre-processing.hpp>
-#include <eCP/query-processing.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/data_structure.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/index/pre-processing.hpp>
+#include <eCP/index/query-processing.hpp>
+#include <eCP/index/distance.hpp>
+#include <eCP/index/data_structure.hpp>
+#include <eCP/index/globals.hpp>
 
 namespace eCP 
 {

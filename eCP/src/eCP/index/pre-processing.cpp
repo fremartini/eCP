@@ -2,10 +2,10 @@
 #include <algorithm>
 
 #include <iostream>
-#include <eCP/pre-processing.hpp>
-#include <eCP/query-processing.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/pre-processing.hpp>
+#include <eCP/index/query-processing.hpp>
+#include <eCP/index/distance.hpp>
+#include <eCP/index/globals.hpp>
 
 namespace pre_processing 
 {

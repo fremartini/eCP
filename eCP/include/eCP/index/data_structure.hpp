@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 #include <limits>
-#include <eCP/globals.hpp>
+#include <eCP/index/globals.hpp>
 
 /*
  * Internal data structures and distance functions for the eCP algorithm.

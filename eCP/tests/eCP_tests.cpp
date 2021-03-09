@@ -1,8 +1,8 @@
 ﻿#include <gtest/gtest.h>
 
-#include <eCP/eCP.hpp>
-#include <eCP/pre-processing.hpp>
-#include <eCP/data_structure.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/index/pre-processing.hpp>
+#include <eCP/index/data_structure.hpp>
 #include <testhelpers.hpp>
 
 /* Helpers */
