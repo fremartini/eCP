@@ -2,8 +2,8 @@
 
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
-#include <eCP/index/data_structure.hpp>
-#include <testhelpers.hpp>
+#include <eCP/index/shared/data_structure.hpp>
+#include <helpers/testhelpers.hpp>
 
 /* Helpers */
 

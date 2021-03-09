@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include <eCP/debugging/debug_tools.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace debugging {
 

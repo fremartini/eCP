@@ -4,8 +4,8 @@
 #include <iostream>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
-#include <eCP/index/distance.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace pre_processing 
 {

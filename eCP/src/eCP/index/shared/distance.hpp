@@ -3,8 +3,7 @@
 
 #include <cmath>
 #include <vector>
-
-#include <eCP/index/data_structure.hpp>
+#include <eCP/index/shared/data_structure.hpp>
 
 /**
  * Distance functions defined for global use here. Can be imported and used.

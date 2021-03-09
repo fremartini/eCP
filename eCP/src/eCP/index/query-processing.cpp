@@ -3,8 +3,8 @@
 
 #include <eCP/index/query-processing.hpp>
 #include <eCP/index/pre-processing.hpp>
-#include <eCP/index/distance.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 /*
  * Traverse the index to find the nearest leaf at the bottom level.

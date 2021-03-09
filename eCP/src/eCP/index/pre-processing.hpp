@@ -1,17 +1,8 @@
 #ifndef PRE_PROCESSING_H
 #define PRE_PROCESSING_H
 
-/**
- * @file distance.cpp
- * static functions for the eCP algorithm preprocessing phase
- *
- * @author Nikolaj Mertz
- * @author Frederik Martini
- * @date 15/5/2020
- */
-
 #include <vector>
-#include <eCP/index/data_structure.hpp>
+#include <eCP/index/shared/data_structure.hpp>
 
  /*
   * Dontains functions for the preprocessing phase of the eCP algorithm.

@@ -1,19 +1,19 @@
 #ifndef ECP_H
 #define ECP_H
 
+#include <vector>
+#include <eCP/index/shared/data_structure.hpp>
+
 /**
  * @file eCP.cpp
- * Static library for the extended cluster pruning algorithm
+ * Library for the extended cluster pruning algorithm.
  *
  * @author Nikolaj Mertz
  * @author Frederik Martini
- * @date 15/5/2020
+ * @author Morten Skøtt
+ * @date 09/03/2021
  */
-
-#include <vector>
-#include <eCP/index/data_structure.hpp>
-
-namespace eCP 
+namespace eCP
 {
 
  /**

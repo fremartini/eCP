@@ -1,4 +1,4 @@
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace globals 
 {

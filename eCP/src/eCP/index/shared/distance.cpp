@@ -1,10 +1,9 @@
 #include <cmath>
 #include <stdexcept>
 
-#include <eCP/index/distance.hpp>
-#include <eCP/index/eCP.hpp>
-#include <eCP/index/data_structure.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/data_structure.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 /**
  * Distance functions defined for global use here. Can be imported and used

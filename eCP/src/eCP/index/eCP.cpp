@@ -3,9 +3,9 @@
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
-#include <eCP/index/distance.hpp>
-#include <eCP/index/data_structure.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/data_structure.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace eCP 
 {

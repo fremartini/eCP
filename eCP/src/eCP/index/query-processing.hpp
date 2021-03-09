@@ -1,17 +1,8 @@
 #ifndef QUERY_PROCESSING_H
 #define QUERY_PROCESSING_H
 
-/**
- * @file query-processing.cpp
- * static functions for the eCP algorithm query-processing phase
- *
- * @author Nikolaj Mertz
- * @author Frederik Martini
- * @date 15/5/2020
- */
-
 #include <vector>
-#include <eCP/index/data_structure.hpp>
+#include <eCP/index/shared/data_structure.hpp>
 
 namespace query_processing 
 {

@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 
 #include <eCP/index/pre-processing.hpp>
-#include <eCP/index/distance.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 /* Helpers */
 std::vector<Node> get_empty_index(unsigned int L = 2)

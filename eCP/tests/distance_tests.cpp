@@ -2,8 +2,8 @@
 #include <gtest/gtest.h>
 
 #include <eCP/index/eCP.hpp>
-#include <eCP/index/distance.hpp>
-#include <eCP/index/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 /* HELPER FUNCTIONS */
 

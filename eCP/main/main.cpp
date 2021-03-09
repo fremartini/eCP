@@ -34,8 +34,8 @@ int main()
     __itt_string_handle *handle_query = __itt_string_handle_create("ecp_query");
 
     /* Generate dummy data */
-    std::vector<std::vector<float>> S = utility::generate_descriptors(p, d, r);
-    std::vector<std::vector<float>> queries = utility::generate_descriptors(qs, d, r);
+    std::vector<std::vector<float>> S = utilities::generate_descriptors(p, d, r);
+    std::vector<std::vector<float>> queries = utilities::generate_descriptors(qs, d, r);
 
     /* Index build instrumentation */
     __itt_task_begin(domain_build, __itt_null, __itt_null, handle_build);
@@ -46,13 +46,13 @@ int main()
     __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
     for (auto& q : queries) {
         auto result = eCP::query(index, q, k, b);
+//        debugging::print_query_results(result, q, k, index->dataset);   // debugging
     }
     __itt_task_end(domain_query);
 
     /* Debugging */
-    debugging::print_clusters(index->top_level);
-    debugging::print_index_levels(index->top_level);
-//    utility::print_query_results(result, q, k, index->dataset);
+    debugging::print_clusters(index->top_level);      // debugging
+    debugging::print_index_levels(index->top_level);  // debugging
 
     /* Clean up */
     delete index;
