@@ -2,12 +2,22 @@
 #define UTILITY_H
 
 #include <vector>
-#include <eCP/index/eCP.hpp>
+#include <unordered_set>
 
 /**
  * Namespace contains utility functions used by the eCP implementation.
  */
-namespace utility {
+namespace utilities {
+
+/**
+ * @brief get_random_unique_indexes returns a set of uniquely sampled indexes from
+ * the range 0..container_size.
+ * It is assumed that amount < container_size. An empty unordered_list is returned if
+ * an errors occurs.
+ * @param amount number of samples to get.
+ * @param container_size limit of the range of samples to pick from.
+ */
+std::unordered_set<unsigned> get_random_unique_indexes(unsigned amount, unsigned container_size);
 
 /**
  * @brief generate_descriptors generates a set of multidimensional feature vectors.

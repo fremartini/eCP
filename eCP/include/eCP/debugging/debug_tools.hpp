@@ -2,7 +2,7 @@
 #define DEBUG_H
 
 #include <vector>
-#include <eCP/index/eCP.hpp>
+#include <eCP/index/shared/data_structure.hpp>
 
 /**
  * Namespace contains functions to investigate the implementation and to help verify behaviour of the index.

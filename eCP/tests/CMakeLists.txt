@@ -1,6 +1,6 @@
 include(GoogleTest)
 
-# The individual test files
+# -- The individual test files --
 add_executable(eCP_tests
   # library
     distance_tests.cpp
@@ -14,8 +14,11 @@ add_executable(eCP_tests
 )
 
 
-# Link required libraries to the test suite
+# -- Link required libraries to the test suite --
 target_link_libraries(eCP_tests
+  debugLib
+  utilLib
+  sharedLib
   eCPLib
   gtest_main
   testHelperLib
@@ -26,15 +29,13 @@ target_include_directories(eCP_tests
     ./
 )
 
-# Adding the test helper lib
+# -- Adding the test helper lib --
 add_library(testHelperLib helpers/testhelpers.cpp)
 
 target_include_directories(testHelperLib
-    PUBLIC
-        ./
-        ../../include
-        ../../src/
-)
+  PUBLIC
+  ./
+  )
 
 target_link_libraries(testHelperLib eCPLib)
 

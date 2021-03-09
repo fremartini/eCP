@@ -43,20 +43,16 @@ target_include_directories(utilLib
     ../include/
 )
 
-target_link_libraries(utilLib
-  eCPLib
-)
-
 # -- Debugging Library --
 add_library(debugLib
   ./eCP/debugging/debug_tools.cpp
 )
 
-target_include_directories(utilLib
+target_include_directories(debugLib
   PUBLIC
     ../include/
 )
 
 target_link_libraries(debugLib
-  eCPLib
+  sharedLib
 )
