@@ -2,7 +2,8 @@
 #include <ittnotify.h>
 
 #include <eCP/index/eCP.hpp>
-#include <eCP/utilities/utility.hpp>
+#include <eCP/debugging/debug_tools.hpp>
+#include <eCP/utilities/utilities.hpp>
 
 int main()
 {
@@ -49,8 +50,8 @@ int main()
     __itt_task_end(domain_query);
 
     /* Debugging */
-    utility::print_clusters(index->top_level);
-    utility::print_index_levels(index->top_level);
+    debugging::print_clusters(index->top_level);
+    debugging::print_index_levels(index->top_level);
 //    utility::print_query_results(result, q, k, index->dataset);
 
     /* Clean up */

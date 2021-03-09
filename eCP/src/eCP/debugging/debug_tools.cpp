@@ -2,34 +2,10 @@
 #include <cmath>
 #include <iostream>
 
-#include <eCP/utilities/utility.hpp>
+#include <eCP/debugging/debug_tools.hpp>
 #include <eCP/index/globals.hpp>
 
-/**
- * creates count, dimension dimensional random float descriptor from 0 to upperBound
- * @param count the amount of vectors to be generated
- * @param dimension the dimension of each vector
- * @param upper_bound the upperBound of the numbers in the vectors
- * @return vector of generated descriptor
- */
-
-namespace utility {
-
-std::vector<std::vector<float>> generate_descriptors(const unsigned int count, const unsigned int dimension, const unsigned int upper_bound)
-{
-	std::vector<std::vector<float>> vector_list;
-	for (unsigned int i = 0; i < count; i++) {
-		std::vector<float> point_vector;
-
-		for (unsigned int j = 0; j < dimension; j++) {
-			point_vector.push_back(static_cast<float>(rand() % upper_bound));
-		}
-		vector_list.push_back(point_vector);
-	}
-
-	vector_list.shrink_to_fit();
-	return vector_list;
-}
+namespace debugging {
 
 void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result, std::vector<float>& query, unsigned int k, const std::vector<Point>& S)
 {

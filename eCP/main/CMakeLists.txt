@@ -1,4 +1,3 @@
-
 add_executable(main main.cpp)
 
 # To find headers for main
@@ -9,7 +8,8 @@ target_include_directories(main
 
 target_link_libraries(main 
     PUBLIC
-        eCP_library
+        eCPLib
         utilLib
+        debugLib
         ittnotify
 )

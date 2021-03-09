@@ -12,9 +12,9 @@ add_executable(eCP_tests
 
 # Link required libraries to the test suite
 target_link_libraries(eCP_tests
-  eCP_library
+  eCPLib
   gtest_main
-  testhelperLib
+  testHelperLib
 )
 
 target_include_directories(eCP_tests
@@ -23,15 +23,16 @@ target_include_directories(eCP_tests
 )
 
 # Adding the test helper lib
-add_library(testhelperLib testhelpers.cpp)
+add_library(testHelperLib testhelpers.cpp)
 
-target_include_directories(testhelperLib
+target_include_directories(testHelperLib
     PUBLIC
         ./
         ../include
+        ../src/
 )
 
-target_link_libraries(testhelperLib eCP_library)
+target_link_libraries(testHelperLib eCPLib)
 
 add_test(
     NAME eCP_tests
