@@ -3,7 +3,7 @@ float:
     eCP-org:
       disabled: false
       docker-tag: ann-benchmarks-ecp-org
-      module: ann_benchmarks.algorithms.eCP-org
+      module: ann_benchmarks.algorithms.eCP
       constructor: eCP
       base-args: ["@metric"]
       run-groups:

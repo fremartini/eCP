@@ -5,13 +5,7 @@ RUN apt-get install -y swig
 RUN apt-get install -y python3-venv
 
 # cmake install on ubuntu... tsk
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y wget
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-RUN apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
-RUN apt-get update
-RUN apt-get -y install cmake protobuf-compiler
-RUN cmake --version
+RUN apt-get update && apt-get -y install cmake protobuf-compiler
 
 RUN git clone -b 3_random_sampling_restructure_project https://github.com/mortenskoett/dynamic_eCP.git eCP
 WORKDIR "/home/app/eCP/scripts"

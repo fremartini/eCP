@@ -4,4 +4,9 @@
 
 #cmake --build ../build --config Debug
 #cmake --build ../build -- VERBOSE=1
-cmake --build ../build
+
+echo "Building Cmake..."
+
+cd ..
+[ ! -d ./build ] && echo "Creating build directory..." && mkdir ./build
+cmake --configure --build ./build

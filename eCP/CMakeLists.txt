@@ -16,6 +16,7 @@ add_subdirectory(src)
 add_subdirectory(main)
 add_subdirectory(extern)
 add_subdirectory(tests)
+add_subdirectory(swig)
 
 # Setting build flags
 list(APPEND flags "-fPIC" "-Wall")

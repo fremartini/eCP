@@ -12,13 +12,10 @@
 #   eCp/
 #     scripts/
 
+REPO_DIR_NAME="dynamic_eCP"
 DATASET="random-xs-20-euclidean"
 
-echo "Did you remember to
-    1) push changes to remote?
-    2) start docker daemon?
-    3) login to Dockerhub?"
-
+echo "Will install eCP docker-image into ann-benchmarks..."
 read -p "Press enter to continue"
 
 cd ../..
@@ -28,7 +25,7 @@ cd ../..
     && git clone https://github.com/mortenskoett/ann-benchmarks/
 
 echo "Copy eCP necessary files"
-cp -r eCP/ann-benchmarks/* ann-benchmarks/
+cp -r ${REPO_DIR_NAME}/ann-benchmarks/* ann-benchmarks/
 
 echo "Setup python 3.6 env inside ann-benchmarks"
 cd ann-benchmarks

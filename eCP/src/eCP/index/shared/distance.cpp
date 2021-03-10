@@ -1,6 +1,5 @@
 #include <cmath>
 #include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/data_structure.hpp>
 #include <eCP/index/shared/globals.hpp>
 
 /**
