@@ -15,7 +15,7 @@
 REPO_DIR_NAME="dynamic_eCP"
 DATASET="random-xs-20-euclidean"
 
-echo "Will install eCP docker-image into ann-benchmarks..."
+echo "Will install eCP docker image into ann-benchmarks..."
 read -p "Press enter to continue"
 
 cd ../..
@@ -37,7 +37,3 @@ pip install -r requirements.txt
 
 echo "Building ONLY eCP docker image"
 python install.py --algorithm ecp
-
-# echo "Run test on ${DATASET}"
-# python run.py --algorithm eCP --dataset ${DATASET}
-# sudo python plot.py --dataset ${DATASET}

@@ -4,6 +4,7 @@ file(GLOB SHARED_SRC_LIST CONFIGURE_DEPENDS "${ECP_SOURCE_DIR}/src/eCP/index/sha
 file(GLOB SHARED_HDR_LIST CONFIGURE_DEPENDS "${ECP_SOURCE_DIR}/src/eCP/index/shared/*.hpp")
 
 add_library(sharedLib
+  SHARED
   ${SHARED_SRC_LIST}
   ${SHARED_HDR_LIST}
 )
@@ -19,6 +20,7 @@ file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "${ECP_SOURCE_DIR}/src/eCP/index/*.cpp")
 file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${ECP_SOURCE_DIR}/include/eCP/index/*.hpp")
 
 add_library(eCPLib
+  SHARED
   ${SOURCE_LIST}
   ${HEADER_LIST}
 )
