@@ -9,11 +9,6 @@ include_directories(${PYTHON_INCLUDE_PATH})
 set_property(SOURCE eCP.i PROPERTY CPLUSPLUS ON)
 set_property(SOURCE eCP.i PROPERTY SWIG_MODULE_NAME eCP_wrapper)
 
-set_property(SOURCE eCP.i PROPERTY SWIG_COMPILE_OPTIONS
-  "-O3; -pthread; -Wno-unused-result; -Wsign-compare; -DNDEBUG; -g; -fwrapv; -O3;
-  -Wall; -DOPENSSL_NO_SSL2; -march=x86-64; -mtune=generic; -O2; -pipe; -fno-plt; -fPIC"
-)
-
 swig_add_library(eCP_wrapper
   TYPE SHARED
   LANGUAGE python

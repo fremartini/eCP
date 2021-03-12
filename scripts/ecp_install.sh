@@ -13,7 +13,6 @@
 #     scripts/
 
 REPO_DIR_NAME="dynamic_eCP"
-DATASET="random-xs-20-euclidean"
 
 echo "Will install eCP docker image into ann-benchmarks..."
 read -p "Press enter to continue"
