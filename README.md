@@ -7,12 +7,13 @@ This project is currently a work in progress. See [CONTRIBUTING.md](CONTRIBUTING
 
 ## Project dependencies
 ```
-C++, cmake, python3.6, swig, docker
+gcc, c++, cmake, python3.6, swig, docker
 ```
 
 # How-to's
 ## How to compile eCP
 - If you have CMake installed it should not be problematic using your favorite IDE. Load the `CMakeLists.txt` file in the root dir and CMake will take care of the rest.
+Currently only GNU/GCC is known to be supported.
 
 - In case you are interested in manually running commands visit `./eCP/scripts/` where there are examples of different basic interactions with CMake from the command line.
 
@@ -31,9 +32,15 @@ It is also assumed that `./` is the root of this repository.
 
 # Documentation
 ## Wrapper interface
-Currently the wrapper is built by collecting all C++ declarations in one file and all definitions in another file and then these two files are used by Swig to compile the shared library used by the Python wrapper by eCP.
+SWIG is used to construct the Python-based wrapper around the C++ code. SWIG is
+handled by Cmake which will recompile the wrapper every time the code base is
+recompiled. This will also happen inside the docker container, when the code is
+sent to the Ann-Benchmarks framework for testing.
 
-The wrapper interface exposes two functions from the C++ source code:
+The wrapper interface is described in `./eCP/swig/eCP.i` and exposes two 
+functions from the C++ source code as outlined below. The interface file is
+used to describe exactly what part of the C++ code is exposed through the
+Python API:
 
 ### eCP_Index(S, L, m)
 Builds an index with the provided dataset.
