@@ -2,26 +2,27 @@
 #include <cmath>
 #include <iostream>
 #include <random>
+#include <cassert>
 
 #include <eCP/utilities/utilities.hpp>
 
 namespace utilities {
 
-std::unordered_set<unsigned> get_random_unique_indexes(unsigned amount, unsigned container_size)
+std::unordered_set<int> get_random_unique_indexes(int amount, int container_size)
 {
-  if (amount < 0) return std::unordered_set<unsigned>{};
-  if (container_size < amount) return std::unordered_set<unsigned>{};
+  assert (amount > -1);   // FIXME: Use NDEBUG to have asserts only in debug builds.
+  assert (amount < container_size);
 
-  std::unordered_set<unsigned> samples;
+  std::unordered_set<int> samples;
   std::random_device random_seed;   // Will be used to obtain a seed for the random number engine
   std::mt19937 generator(random_seed());  // Standard mersenne_twister_engine seeded with rd()
   int start = container_size - amount;
 
-  for (unsigned j = start; j < container_size; ++j) {
+  for (int j = start; j < container_size; ++j) {
     std::uniform_int_distribution<> distribution(0, j);  // To-from inclusive
     unsigned t = distribution(generator);
 
-    std::unordered_set<unsigned>::const_iterator iter = samples.find(t);
+    std::unordered_set<int>::const_iterator iter = samples.find(t);
     if (iter == samples.end()) {  // not found
       samples.insert(t);
     }

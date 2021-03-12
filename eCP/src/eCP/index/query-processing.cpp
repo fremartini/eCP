@@ -16,9 +16,7 @@ namespace query_processing
 std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query, const unsigned int k, const unsigned int b = 1, unsigned int L = 1)
 {
   //find b nearest clusters
-//  std::vector<Node> b_nearest_clusters; //accumulator for b clusters
-//  b_nearest_clusters.reserve(b);
-  std::vector<Node*> b_nearest_clusters = find_b_nearest_clusters(root, query, b, L);
+  std::vector<Node*> b_nearest_clusters {find_b_nearest_clusters(root, query, b, L)};
 
   //go trough b clusters to obtain k nearest neighbors
   std::vector<std::pair<unsigned int, float>> k_nearest_points;
@@ -151,7 +149,7 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
 // Assumes point_pairs contains at least 1 point.
 unsigned index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
-  assert(point_pairs.size() > 0 && "point_pairs must contain at least a single element.");
+  assert(point_pairs.size() > 0 && "point_pairs must contain at least a single element.");    // FIXME: Make sure that asserts are not part of release builds somehow
 
   int index = 0;
   float current_max = point_pairs[0].second;

@@ -14,4 +14,4 @@ target_link_libraries(main
         ittnotify
 )
 
-target_compile_options(main PUBLIC ${cflags})
+target_compile_options(main PUBLIC "-O3" "-g" "-Wall")

@@ -38,7 +38,7 @@ std::vector<Node> create_index(std::vector<Point>& dataset, unsigned int L)
     const unsigned int avg_representatives = ceil(pow(dataset.size(), (1.00 / (L + 1.00))));                        // Each leaf cluster always represents, on average, n^( 1/(L+1) ) point
 
     for (unsigned int i = 0; i < level_sizes[level]; ++i) {                                                         // Add each representative for current level
-      auto* top_level_nearest = distance::get_closest_node(top_level, dataset[i].descriptor);
+      auto* top_level_nearest = get_closest_node(top_level, dataset[i].descriptor);
       auto* lower_level_nearest = find_nearest_leaf_from_level(dataset[i].descriptor, top_level_nearest, level-1);  // -1 since top level has to be compared with
 
       auto node = Node{dataset[i]};                                                                                 // Setting representative to be dataset[i] here
@@ -68,15 +68,13 @@ Node* find_nearest_leaf_from_level(float*& query, Node *node, unsigned int depth
 	}
 
 	// continue down to next level
-  Node* nearest = distance::get_closest_node(node->children, query);
+  Node* nearest = get_closest_node(node->children, query);
 	return find_nearest_leaf_from_level(query, nearest, depth - 1);
 }
 
-// TODO: This simpler and more effective function is not correct while the tree is not constructed correctly.
-// Correct would be: For every node there is a path through the tree that leads to a cluster.
 Node* find_nearest_leaf(float*& query, std::vector<Node>& nodes)
 {
-  Node* closest_cluster = distance::get_closest_node(nodes, query);
+  Node* closest_cluster = get_closest_node(nodes, query);
 
   if (!closest_cluster->children.empty()) {
     return find_nearest_leaf(query, closest_cluster->children);
@@ -85,30 +83,24 @@ Node* find_nearest_leaf(float*& query, std::vector<Node>& nodes)
   return closest_cluster;
 }
 
-/**
- * 
+/*
+ * Assumes the given vector of nodes is not empty
  */
-//Node* find_nearest_leaf(float*& query, std::vector<Node>& nodes)
-//{
-//  Node* closest_cluster = distance::get_closest_node(nodes, query);
-//  float closest_distance = globals::FLOAT_MAX;
+Node* get_closest_node(std::vector<Node>& nodes, float* query)
+{
+  float max = globals::FLOAT_MAX;
+  Node* closest = nullptr;
 
-//  for (Node node : closest_cluster->children) {
-//    if (node.children.empty()) {
-//      return distance::get_closest_node(closest_cluster->children, query);
-//    }
-//  std::cout << "GOTHERE" << std::endl;
+  for (Node& node : nodes) {
+    const float distance = distance::g_distance_function(query, node.points[0].descriptor);
 
-//    const auto dist = distance::g_distance_function(query, node.points[0].descriptor);
-
-//    if (dist < closest_distance)
-//    {
-//      closest_distance = dist;
-//      closest_cluster = find_nearest_leaf(query, node.children);
-//    }
-//  }
-//  return closest_cluster;
-//}
+    if (distance < max) {
+      max = distance;
+      closest = &node;
+    }
+  }
+  return closest;
+}
 
 std::vector<Node>& insert_points(std::vector<Node>& index_top_level, std::vector<Point>& points, unsigned int from_index)
 {

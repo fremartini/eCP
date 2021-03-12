@@ -23,23 +23,6 @@ inline float euclidean_distance(const float* a, const float* b)
   return sums[0] + sums[1] + sums[2] + sums[3];
 }
 
-// Assumes the given vector of nodes is not empty
-Node* get_closest_node(std::vector<Node>& nodes, float* query)
-{
-  float max = globals::FLOAT_MAX;
-  Node* closest = nullptr;
-
-  for (Node& node : nodes) {
-    const float distance = g_distance_function(query, node.points[0].descriptor);
-
-    if (distance < max) {
-      max = distance;
-      closest = &node;
-    }
-  }
-  return closest;
-}
-
 inline float angular_distance(const float* a, const float* b)
 {
   float mul = 0.0, d_a = 0.0, d_b = 0.0;

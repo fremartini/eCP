@@ -22,16 +22,6 @@ Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned in
 	std::vector<Point> descriptor_points;
   descriptor_points.reserve(descriptors.size());
 
-//	for (unsigned int i = 0; i < descriptors.size(); i++) {
-//    float* desc_p = new float[globals::g_vector_dimensions];
-
-//		for (unsigned int d = 0; d < globals::g_vector_dimensions; d++) {
-//			desc_p[d] = descriptors[i][d];
-//		}
-
-//		descriptor_points.emplace_back(desc_p, i);
-//	}
-
   unsigned id{0};
   for (auto &desc : descriptors) {
     descriptor_points.emplace_back(Point{desc.data(), id++});

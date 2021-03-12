@@ -64,7 +64,7 @@ target_compile_options(utilLib PRIVATE ${cflags})
 
 target_include_directories(utilLib
   PUBLIC
-    ../include/
+    ./
 )
 
 # -- Debugging Library --
@@ -76,7 +76,7 @@ target_compile_options(debugLib PRIVATE ${cflags})
 
 target_include_directories(debugLib
   PUBLIC
-    ../include/
+    ./
 )
 
 target_link_libraries(debugLib

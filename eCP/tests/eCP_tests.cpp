@@ -34,7 +34,7 @@ Index* get_index(unsigned int L = 2) {
 
 /* Tests */
 
-// FIXME: This test is complete garbage
+// FIXME: Rewrite this test
 //TEST(ecp_tests, index_given_descriptors_has_correct_depth) {
 //    std::vector<std::vector<float>> descriptors = {
 //        {59, 59, 59},

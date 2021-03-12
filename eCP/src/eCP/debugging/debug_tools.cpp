@@ -16,7 +16,7 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 	for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
 		q[i] = query[i];
 	}
-	Point pq = Point(q, -1);    // TODO: Misuse of unsigned int
+  Point pq = Point(q, -1);    // FIXME: Misuse of unsigned int
 
 	print_point(pq);
 
