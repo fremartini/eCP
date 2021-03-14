@@ -21,18 +21,18 @@ Currently only GNU/GCC is known to be supported.
 - In case you are interested in manually running commands visit `./eCP/scripts/` where there are examples of different basic interactions with CMake from the command line.
 
 ## How to run eCP in ANN-Benchmarks
-1. To build the Python based wrapper around the C++ eCP implementation:
-    - Install SWIG: on Debian based distros: `sudo apt-get install -y swig`. Assert version 3.6 or greater.
+1. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change the line describing what repository is cloned when the eCP docker container 
+is build by Ann-Benchmarks (AB).
+Make it point to the current working branch e.g. `git clone -b <branch_name> <url_to_repo> eCP`, where 'eCP will be local name of repo dir to help build scripts. 
 
-2. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change what repository is cloned when eCP is installed into Ann-Benchmarks.
-Make it point to the current working branch e.g. `git clone -b <branch_name> <path_to_repo> eCP`, where 'eCP is required to help build scripts. 
-The for this step is that ANN-Benchmarks (AB) will pull in and build the given repository before running tests on it.
+2. Push your work to the designated branch.
 
-3. Now it is possible to install eCP into ANN-Benchmarks by executing the script `./scipts/ecp_install.sh`, 
-which will pull down AB repository and copy the eCP integration into the newly cloned repository. 
-Here the Python requirements will be installed and finally the AB install script will be called to 
+3. Execute the script `./scipts/ecp_install.sh` which will pull down AB repository and copy the needed files into the newly cloned AB repository. 
+Here the Python requirements will be installed and finally an AB install script will be called to 
 setup the eCP algorithm with AB, i.e. build a Docker image containing a compiled executable of the code 
 from the designated branch from earlier.
+
+4. Goto AB directory and follow the guide to run tests found at `https://github.com/erikbern/ann-benchmarks`.
 
 # Documentation
 ## Wrapper interface
