@@ -1,26 +1,17 @@
 FROM ann-benchmarks
 
-RUN apt-get update
-RUN apt-get install -y swig
-RUN apt-get install -y python3-venv
+RUN apt-get update && apt-get install -y swig python3-venv software-properties-common wget
 
-# cmake install on ubuntu... tsk
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y wget
+# Install newer version of CMake
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
 RUN apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
-RUN apt-get update
-RUN apt-get -y install cmake protobuf-compiler
+RUN apt-get update && apt-get install -y cmake protobuf-compiler
 RUN cmake --version
 
+# Clone project
 RUN git clone -b 3_random_sampling_restructure_project https://github.com/mortenskoett/dynamic_eCP.git eCP
 WORKDIR "/home/app/eCP/scripts"
 RUN ./gen_wrapper.sh
-# RUN ./generate_wrapper.sh
-WORKDIR "/home/app"
 RUN mv "/home/app/eCP/eCP/build/swig/_eCP_wrapper.so" "/home/app/"
 RUN mv "/home/app/eCP/eCP/build/swig/eCP_wrapper.py" "/home/app/"
-
-# RUN mv "/home/app/eCP/wrapper/files_generated/_eCP_wrapper.cpython-36m-x86_64-linux-gnu.so" "/home/app/"
-# RUN mv "/home/app/eCP/wrapper/files_generated/eCP_wrapper.py" "/home/app/"
 WORKDIR "/home/app"
