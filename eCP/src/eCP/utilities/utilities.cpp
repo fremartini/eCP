@@ -3,6 +3,7 @@
 #include <iostream>
 #include <random>
 #include <cassert>
+#include <stdexcept>
 
 #include <eCP/utilities/utilities.hpp>
 

@@ -9,10 +9,10 @@ project(
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
-# - Must be in main file -
+# Must be in main file
 enable_testing()
 
-# - The compiled library code, executable code, external libs and tests -
+# - The compiled library code, executable code, external libs, swig config and tests -
 add_subdirectory(src)
 add_subdirectory(main)
 add_subdirectory(extern)
