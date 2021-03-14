@@ -3,15 +3,17 @@
 set -e
 set -o pipefail
 
-# Script to construct a python wrapper around the C++ code using SWIG.
-# SWIG configuration resides in `<repo_root>/eCP/swig/``.
-# This code is called inside docker image when built alongside other 
-# algorithms in the ann-benchmarks repo.
+# This script is called from the 'Dockerfile.ecp' docker image, when ann-benchmarks 
+# installs ecp into the framework.
 
-# This script creates a `<repo_root>/eCP/build/` dir and asks Cmake to build inside.
-# Currently .so and .py can be found both in: '<repo_root>/eCP/build/swig/'.
+# The script creates a `<eCP_root>/eCP/build/` dir and asks CMake to build the
+# C++ source code + the SWIG wrapper inside inside that directory.
 
-# Dependencies: cmake
+# SWIG configuration is found in `<eCP_root>/eCP/swig/``.
+# Python wrapper is found in: '<eCP_root>/eCP/build/swig/' and consist of a 
+# shared library '_eCP_wrapper.so' and a Python-based wrapper 'eCP_wrapper.py'.
+
+# Dependencies: cmake3.8 <, swig3.6 <
 
 NAME="gen_wrapper"
 

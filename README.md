@@ -11,6 +11,9 @@ gcc, c++, cmake, python3.6, swig, docker
 ```
 
 # How-to's
+The following descriptions assumes some sort of Linux distribution even if the eCP source code will compile on e.g. Windows.
+It is also assumed that `./` is the root of this repository.
+
 ## How to compile eCP
 - If you have CMake installed it should not be problematic using your favorite IDE. Load the `CMakeLists.txt` file in the root dir and CMake will take care of the rest.
 Currently only GNU/GCC is known to be supported.
@@ -18,24 +21,25 @@ Currently only GNU/GCC is known to be supported.
 - In case you are interested in manually running commands visit `./eCP/scripts/` where there are examples of different basic interactions with CMake from the command line.
 
 ## How to run eCP in ANN-Benchmarks
-The following descriptions assumes some sort of Linux distribution even if the eCP source code will compile on e.g. Windows.
-It is also assumed that `./` is the root of this repository.
-
 1. To build the Python based wrapper around the C++ eCP implementation:
-    - Install Swig e.g. on Debian based distros: ```sudo apt-get install -y swig```.
-    - Goto `./scripts/`
-    - Run `./generate_wrapper.sh`.
-2. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change what repository is cloned. Make it point to the current working branch or whichever branch you are working on. The reason is that ANN-Benchmarks will pull in and build the given repository before running tests on it.
+    - Install SWIG: on Debian based distros: `sudo apt-get install -y swig`. Assert version 3.6 or greater.
 
-3. Now it is possible to install eCP into ANN-Benchmarks by executing the script `./scipts/ecp_install.sh`, which will pull down ANN-Benchmarks repository and copy the eCP integration into the newly cloned repository. Here the Python requirements will be installed and finally the ANN-Benchmarks install script will be called to setup only the eCP algorithm, i.e. build a Docker image containing a compiled executable of the code from the designated branch from earlier.
+2. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change what repository is cloned when eCP is installed into Ann-Benchmarks.
+Make it point to the current working branch e.g. `git clone -b <branch_name> <path_to_repo> eCP`, where 'eCP is required to help build scripts. 
+The for this step is that ANN-Benchmarks (AB) will pull in and build the given repository before running tests on it.
 
+3. Now it is possible to install eCP into ANN-Benchmarks by executing the script `./scipts/ecp_install.sh`, 
+which will pull down AB repository and copy the eCP integration into the newly cloned repository. 
+Here the Python requirements will be installed and finally the AB install script will be called to 
+setup the eCP algorithm with AB, i.e. build a Docker image containing a compiled executable of the code 
+from the designated branch from earlier.
 
 # Documentation
 ## Wrapper interface
 SWIG is used to construct the Python-based wrapper around the C++ code. SWIG is
-handled by Cmake which will recompile the wrapper every time the code base is
+handled by CMake which will recompile the wrapper every time the code base is
 recompiled. This will also happen inside the docker container, when the code is
-sent to the Ann-Benchmarks framework for testing.
+send to the Ann-Benchmarks framework for testing.
 
 The wrapper interface is described in `./eCP/swig/eCP.i` and exposes two 
 functions from the C++ source code as outlined below. The interface file is
