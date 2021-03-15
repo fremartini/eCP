@@ -1,8 +1,9 @@
 #include <iostream>
 #include <ittnotify.h>
 
-#include <eCP/eCP.hpp>
-#include <utility.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/debugging/debug_tools.hpp>
+#include <eCP/utilities/utilities.hpp>
 
 int main()
 {
@@ -17,17 +18,14 @@ int main()
 //    const int qs = 15000;      // queries to make on created index
 
     /* For debugging params */
-     const int L = 2;            // L parameter - number of levels in index
-     const int metric = 2;       // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean with early halting
+     const int L = 3;            // L parameter - number of levels in index
+     const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
      const int k = 2;            // number points to return
      const int b = 2;            // number clusters to search
-     const int p = 10000;           // number of vectors
+     const int p = 12000;           // number of vectors
      const int d = 128;          // dimensions of vector
      const int r = 1000;         // upper bound of generated vectors
      const int qs = 15;          // queries to make on created index
-
-    /* Debugging prints */
-    // const bool debug = true;   // print debugging of index
 
     /* Setup ITTAPI instrumentation domain */
     __itt_domain *domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -36,8 +34,8 @@ int main()
     __itt_string_handle *handle_query = __itt_string_handle_create("ecp_query");
 
     /* Generate dummy data */
-    std::vector<std::vector<float>> S = utility::generate_descriptors(p, d, r);
-    std::vector<std::vector<float>> queries = utility::generate_descriptors(qs, d, r);
+    std::vector<std::vector<float>> S = utilities::generate_descriptors(p, d, r);
+    std::vector<std::vector<float>> queries = utilities::generate_descriptors(qs, d, r);
 
     /* Index build instrumentation */
     __itt_task_begin(domain_build, __itt_null, __itt_null, handle_build);
@@ -48,15 +46,13 @@ int main()
     __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
     for (auto& q : queries) {
         auto result = eCP::query(index, q, k, b);
+//        debugging::print_query_results(result, q, k, index->dataset);   // debugging
     }
     __itt_task_end(domain_query);
 
     /* Debugging */
-    // if (debug) {
-    //     utility::print_clusters(index->top_level);
-    //     utility::print_index_levels(index->top_level);
-    //     // if (debug) { utility::print_query_results(result, q, k, index->dataset); }
-    // }
+    debugging::print_clusters(index->top_level);      // debugging
+    debugging::print_index_levels(index->top_level);  // debugging
 
     /* Clean up */
     delete index;

@@ -1,17 +1,14 @@
 #include <cmath>
-
-#include <eCP/distance.hpp>
-#include <eCP/eCP.hpp>
-#include <eCP/data_structure.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 /**
- * Distance functions defined for global use here. Can be imported and used 
+ * Distance functions defined for global use here. Can be imported and used
  * and will only be
  */
 namespace distance
 {
-    // Definition of global distance function, extern in header
+/// Definition of global distance function, extern in header
     float (*g_distance_function)(const float*, const float*, const float&);
 
     inline float euclidean_distance_unroll_halt(const float* a, const float* b, const float& threshold)
@@ -115,5 +112,4 @@ namespace distance
         if(func == Metrics::EUCLIDEAN_UNROLL_HALT) g_distance_function = &euclidean_distance_unroll_halt;
         if (func == Metrics::ANGULAR) g_distance_function = &angular_distance;
     }
-
 }

@@ -2,34 +2,10 @@
 #include <cmath>
 #include <iostream>
 
-#include <utility.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/debugging/debug_tools.hpp>
+#include <eCP/index/shared/globals.hpp>
 
-/**
- * creates count, dimension dimensional random float descriptor from 0 to upperBound
- * @param count the amount of vectors to be generated
- * @param dimension the dimension of each vector
- * @param upper_bound the upperBound of the numbers in the vectors
- * @return vector of generated descriptor
- */
-
-namespace utility {
-
-std::vector<std::vector<float>> generate_descriptors(const unsigned int count, const unsigned int dimension, const unsigned int upper_bound)
-{
-	std::vector<std::vector<float>> vector_list;
-	for (unsigned int i = 0; i < count; i++) {
-		std::vector<float> point_vector;
-
-		for (unsigned int j = 0; j < dimension; j++) {
-			point_vector.push_back(static_cast<float>(rand() % upper_bound));
-		}
-		vector_list.push_back(point_vector);
-	}
-
-	vector_list.shrink_to_fit();
-	return vector_list;
-}
+namespace debugging {
 
 void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result, std::vector<float>& query, unsigned int k, const std::vector<Point>& S)
 {
@@ -40,7 +16,7 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 	for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
 		q[i] = query[i];
 	}
-	Point pq = Point(q, -1);    // TODO: Misuse of unsigned int
+  Point pq = Point(q, -1);    // FIXME: Misuse of unsigned int
 
 	print_point(pq);
 
@@ -54,7 +30,7 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 		print_point(p);
 		std::cout << ", " << result.second[i] << "\n";
 	}
-	std::cout << "\nreturned " << result.first.size() << " points, wanted " << k;
+  std::cout << "\nreturned " << result.first.size() << " points, wanted " << k << std::endl;
 	delete[] q;
 }
 
@@ -110,9 +86,9 @@ void print_cluster(Node& c, const unsigned int d)
 
 	std::cout << "\n";
 
-	for (Node*& i : c.children) {
+  for (Node& i : c.children) {
 		auto space = std::string(d * 4, ' ');
-		if (!is_leaf(*i))
+    if (!is_leaf(i))
 		{
 			std::cout << space << "C";
 		}
@@ -121,15 +97,15 @@ void print_cluster(Node& c, const unsigned int d)
 			std::cout << space << "L";
 		}
 
-		print_cluster(*i, d + 1);
+    print_cluster(i, d + 1);
 	}
 }
 
-void print_clusters(std::vector<Node*>& clusters)
+void print_clusters(std::vector<Node>& clusters)
 {
-	for (Node*& i : clusters) {
+  for (Node& i : clusters) {
 		std::cout << "R";
-		print_cluster(*i, 1);
+    print_cluster(i, 1);
 	}
 
 	std::cout << "--------------\n";
@@ -139,13 +115,13 @@ void print_clusters(std::vector<Node*>& clusters)
  * Levels prints for small levels sizes
  * @param root Top level of index
  */
-void print_index_levels(std::vector<Node*>& root)
+void print_index_levels(std::vector<Node>& root)
 {
 	// Standard level order traversal code
 	// using queue
-	std::queue<Node*> q;  // Create a queue
+  std::queue<Node> q;  // Create a queue
 	// Enqueue top_level
-	for (auto cluster : root)
+  for (auto &cluster : root)
 	{
 		q.push(cluster);
 	}
@@ -158,19 +134,19 @@ void print_index_levels(std::vector<Node*>& root)
 		while (n > 0)
 		{
 			// Dequeue an item from queue and print it
-			Node* node = q.front();
+      Node node = q.front();
 			q.pop();
 
-			if (is_leaf(*node))
+      if (is_leaf(node))
 			{
-				std::cout << " [L: " << node->points.size() << " ]";
+        std::cout << " [L: " << node.points.size() << " ]";
 			}
 			else
-				std::cout << " [N: " << node->children.size() << "] ";
+        std::cout << " [N: " << node.children.size() << "] ";
 
 			// Enqueue all children of the dequeued item
-			for (unsigned int i = 0; i < node->children.size(); i++)
-				q.push(node->children[i]);
+      for (unsigned int i = 0; i < node.children.size(); i++)
+        q.push(node.children[i]);
 			n--;
 		}
 

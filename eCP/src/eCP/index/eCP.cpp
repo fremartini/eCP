@@ -1,12 +1,12 @@
 #include <cmath>
 #include <stdexcept>
 
-#include <eCP/eCP.hpp>
-#include <eCP/pre-processing.hpp>
-#include <eCP/query-processing.hpp>
-#include <eCP/distance.hpp>
-#include <eCP/data_structure.hpp>
-#include <eCP/globals.hpp>
+#include <eCP/index/eCP.hpp>
+#include <eCP/index/pre-processing.hpp>
+#include <eCP/index/query-processing.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/data_structure.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace eCP 
 {
@@ -14,22 +14,19 @@ namespace eCP
  * Entry point for ANN-Benchmarks fit function. Partitions the data set before creating
  * the empty index. The distance function is also set globally.
  */
-Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int L, unsigned int metric)
+Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric)
 {
 	//set dimension globally to avoid duplication
 	globals::g_vector_dimensions = descriptors[0].size();
 
 	//internal data structure uses pointers, translate floats from ANN-Benchmarks to something usable
 	std::vector<Point> descriptor_points;
-	for (unsigned int i = 0; i < descriptors.size(); i++) {
-		float* desc_p = new float[globals::g_vector_dimensions];
+  descriptor_points.reserve(descriptors.size());
 
-		for (unsigned int d = 0; d < globals::g_vector_dimensions; d++) {
-			desc_p[d] = descriptors[i][d];
-		}
-
-		descriptor_points.emplace_back(desc_p, i);
-	}
+  unsigned id{0};
+  for (auto &desc : descriptors) {
+    descriptor_points.emplace_back(Point{desc.data(), id++});
+  }
 
 	//set metric function
 	//TODO move to preprocessing
@@ -56,11 +53,11 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 	//initial sample size for building index - n^L/L+1 for initial representatives
 	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elems is used as leaders for the bottom level
 
-	std::vector<Node*> empty_index_root = pre_processing::create_index(descriptor_points, L);
+  std::vector<Node> empty_index_root = pre_processing::create_index(descriptor_points, L);
 
-	auto index_root = pre_processing::insert_points(empty_index_root, descriptor_points, sample_size);
+  auto index_root = pre_processing::insert_points(empty_index_root, descriptor_points, sample_size);
 
-	return new Index(L, index_root, descriptor_points);
+  return new Index(L, index_root, descriptor_points);
 }
 
 /*
@@ -69,7 +66,7 @@ Index* eCP_Index(const std::vector<std::vector<float>> descriptors, unsigned int
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query, unsigned int k, unsigned int b)
 {
 	//internal data structure uses float pointer instead of vectors
-	float* q = &query[0];
+  float* q = query.data();
 
 	auto nearest_points = query_processing::k_nearest_neighbors(index->top_level, q, k, b, index->L);
 
