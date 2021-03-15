@@ -35,7 +35,7 @@ Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned in
 
   auto index_root = pre_processing::insert_points(empty_index_root, descriptor_points, sample_size);
 
-  return new Index(L, index_root, descriptor_points);
+  return new Index(L, index_root);
 }
 
 /*

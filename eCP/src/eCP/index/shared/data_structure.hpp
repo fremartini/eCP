@@ -49,7 +49,6 @@ struct Point {
   friend void swap(Point& fst, Point& snd);
 };
 
-
 /**
  * Represents nodes and clusters in index. Will not have children at bottom level.
  * First element of points is always the representative.
@@ -71,8 +70,7 @@ struct Node {
 struct Index {
   unsigned L;
   std::vector<Node> top_level;
-  std::vector<Point> dataset;
-  Index(unsigned L_, std::vector<Node>& top_level_, std::vector<Point>& dataset_);
+  Index(unsigned L_, std::vector<Node>& top_level_);
 };
 
 #endif // DATA_STRUCTURE_H

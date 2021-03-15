@@ -63,33 +63,35 @@ Index* get_index(unsigned int L = 2) {
 ////    EXPECT_TRUE(index.top_level[0].children[0].points.size() != 0);
 //}
 
-TEST(ecp_tests, index_given_descriptors_inserts_descriptors) {
-    std::vector<std::vector<float>> descriptors = {
-        {1, 1, 1},
-        {2, 2, 2},
-        {3, 3, 3},
-    };
+// FIXME: Rewrite test to test what the title says
+//TEST(ecp_tests, index_given_descriptors_inserts_descriptors) {
+//    std::vector<std::vector<float>> descriptors = {
+//        {1, 1, 1},
+//        {2, 2, 2},
+//        {3, 3, 3},
+//    };
 
-    unsigned int L = 1;
+//    unsigned int L = 1;
 
-    Index index = *eCP::eCP_Index(descriptors, L, 0);
+//    Index index = *eCP::eCP_Index(descriptors, L, 0);
 
-    EXPECT_TRUE(index.dataset.size() == descriptors.size());
-}
+//    EXPECT_TRUE(index.dataset.size() == descriptors.size());
+//}
 
-TEST(ecp_tests, query_given_k_1_returns_query_point) {
-    Index* index = get_index();
-    std::vector<float> q = { 5, 5, 5 };
-    unsigned int k = 1;
-    unsigned int b = 1;
+// FIXME: Rewrite or remove test
+//TEST(ecp_tests, query_given_k_1_returns_query_point) {
+//    Index* index = get_index();
+//    std::vector<float> q = { 5, 5, 5 };
+//    unsigned int k = 1;
+//    unsigned int b = 1;
 
-    auto actual = eCP::query(index, q, k, b);
+//    auto actual = eCP::query(index, q, k, b);
 
-    EXPECT_TRUE(actual.first.size() == 1);
-    EXPECT_TRUE(actual.second.size() == 1);
+//    EXPECT_TRUE(actual.first.size() == 1);
+//    EXPECT_TRUE(actual.second.size() == 1);
 
-    EXPECT_TRUE(*index->dataset[actual.first[0]].descriptor == (*new float[3]{ 6, 6, 6 }));
-}
+//    EXPECT_TRUE(*index->dataset[actual.first[0]].descriptor == (*new float[3]{ 6, 6, 6 }));
+//}
 
 TEST(ecp_tests, query_given_k_2_returns_closest_points) {
     Index* index = get_index(1);

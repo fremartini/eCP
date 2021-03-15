@@ -52,6 +52,6 @@ Node::Node(Point p)
 /*
  * Index data type
  */
-Index::Index(unsigned L_, std::vector<Node>& top_level_, std::vector<Point>& dataset_)
-  : L(L_), top_level(top_level_), dataset(dataset_)
+Index::Index(unsigned L_, std::vector<Node>& top_level_)
+  : L(L_), top_level(top_level_)
 {}
