@@ -12,11 +12,12 @@ namespace utilities {
 /**
  * @brief get_random_unique_indexes returns a set of uniquely sampled indexes from
  * the range 0..container_size.
- * It is assumed that amount is non-negative and greater than container_size.
- * @param amount number of samples to get.
- * @param container_size limit of the range of samples to pick from.
+ * It is assumed that amount is greater than zero but less than or equal to container_size.
+ * @param amount is the number of samples to get.
+ * @param container_size is the limit of the range of samples to pick from.
+ * @return a vector containing the unique samples obtained from container_size.
  */
-std::unordered_set<int> get_random_unique_indexes(int amount, int container_size);
+std::vector<unsigned> get_random_unique_indexes(int amount, int container_size);
 
 /**
  * @brief generate_descriptors generates a set of multidimensional feature vectors.

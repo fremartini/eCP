@@ -9,29 +9,37 @@
 
 namespace utilities {
 
-std::unordered_set<int> get_random_unique_indexes(int amount, int container_size)
+// Uses a set when checking for seen samples but returns a vector for convenience.
+// Time complexity is O(amount), space complexity is 2*amount due to the convenience
+// vector as return type.
+std::vector<unsigned> get_random_unique_indexes(int amount, int container_size)
 {
-  assert (amount > -1);   // FIXME: Use NDEBUG to have asserts only in debug builds.
-  assert (amount <= container_size);
+  assert(amount > 0 && "Amount must be greater than zero.");
+  assert(amount <= container_size && "Amount must be less than or equal to container_size");
 
-  std::unordered_set<int> samples;
-  std::random_device random_seed;   // Will be used to obtain a seed for the random number engine
-  std::mt19937 generator(random_seed());  // Standard mersenne_twister_engine seeded with rd()
+  std::vector<unsigned> collected_samples;
+  collected_samples.reserve(amount);
+
+  std::unordered_set<int> visited_samples;
+  std::random_device random_seed;   // Will be used to obtain a seed for the random number engine.
+  std::mt19937 generator(random_seed());  // Standard mersenne_twister_engine seeded with rd().
   int start = container_size - amount;
 
   for (int j = start; j < container_size; ++j) {
-    std::uniform_int_distribution<> distribution(0, j);  // To-from inclusive
+    std::uniform_int_distribution<> distribution(0, j);  // To-from inclusive.
     unsigned t = distribution(generator);
 
-    std::unordered_set<int>::const_iterator iter = samples.find(t);
-    if (iter == samples.end()) {  // not found
-      samples.insert(t);
+    std::unordered_set<int>::const_iterator iter = visited_samples.find(t);
+    if (iter == visited_samples.end()) {  // Not found.
+      visited_samples.insert(t);
+      collected_samples.emplace_back(t);
     }
     else {
-      samples.insert(j);    // found
+      visited_samples.insert(j);    // Found.
+      collected_samples.emplace_back(j);
     }
   }
-  return samples;
+  return collected_samples;
 }
 
 std::vector<std::vector<float>> generate_descriptors(const unsigned int count, const unsigned int dimension, const unsigned int upper_bound)
