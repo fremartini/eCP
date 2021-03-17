@@ -40,6 +40,11 @@ add_library(utilLib
   ./eCP/utilities/utilities.cpp
 )
 
+target_compile_options(utilLib
+  PRIVATE
+    "-fPIC"
+)
+
 target_link_libraries(utilLib
   PRIVATE
     HDF5::HDF5

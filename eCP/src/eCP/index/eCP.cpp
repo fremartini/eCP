@@ -4,38 +4,37 @@
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
+#include <eCP/index/shared/distance.hpp>
+#include <eCP/index/shared/data_structure.hpp>
+#include <eCP/index/shared/globals.hpp>
 
 namespace eCP 
 {
+
 /*
- * Entry point for ANN-Benchmarks fit function. Partitions the data set before creating
- * the empty index. The distance function is also set globally.
+ * Entry point for ANN-Benchmarks fit function.
  */
 Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned int L, unsigned int metric)
 {
-	//set dimension globally to avoid duplication
+  if (L < 1) { throw std::invalid_argument("L >= 1 to build a valid index."); }
+
+  // Set descriptor dimension globally.
 	globals::g_vector_dimensions = descriptors[0].size();
-
-	//internal data structure uses pointers, translate floats from ANN-Benchmarks to something usable
-	std::vector<Point> descriptor_points;
-  descriptor_points.reserve(descriptors.size());
-
-  unsigned id{0};
-  for (auto &desc : descriptors) {
-    descriptor_points.emplace_back(Point{desc.data(), id++});
-  }
 
 	//set metric function
     pre_processing::setMetric(metric);
 
-    //initial sample size for building index - n^L/L+1 for initial representatives
-	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elements are used as leaders for the bottom level
+  // Set metric function globally.
+  if (metric == 1) {
+        distance::set_distance_function(distance::Metrics::ANGULAR);
+  } else {
+        distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+  }
 
-  std::vector<Node> empty_index_root = pre_processing::create_index(descriptor_points, L);
+  // Build index
+  std::vector<Node> index = pre_processing::create_index(descriptors, L);
 
-  auto index_root = pre_processing::insert_points(empty_index_root, descriptor_points, sample_size);
-
-  return new Index(L, index_root);
+  return new Index(L, index);
 }
 
 /*
