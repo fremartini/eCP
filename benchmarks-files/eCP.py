@@ -35,4 +35,4 @@ class eCP(BaseANN):
         self.b = b
 
     def __str__(self):
-        return 'eCP(L=%s, b=%s)' % (self.L, self.b)
+        return 'eCP(L=%s, b=%s, early_halt=%s)' % (self.L, self.b, self.early_halt)

@@ -48,7 +48,7 @@ do
     echo -e "HALT:      $HALT"
 
     #move files from benchmarks-files into ann-benchmarks
-    rm ann-benchmarks/install/Dockerfile.*
+    #rm ann-benchmarks/install/Dockerfile.*
     cp benchmarks-files/eCP.py 		    ann-benchmarks/ann_benchmarks/algorithms/eCP.py
     cp benchmarks-files/Dockerfile.ecp 	ann-benchmarks/install/Dockerfile.ecp
     cp benchmarks-files/algos.yaml		ann-benchmarks/algos.yaml
@@ -65,7 +65,7 @@ do
         docker rmi ann-benchmarks-ecp:latest --force
     fi
 
-    python3.6 install.py
+    python3.6 install.py --algorithm ecp
     python3.6 run.py --algorithm $NAME --dataset $DATASET
 
     cd ..
