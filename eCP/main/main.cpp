@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 //    const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean with early halting
 //    const int k = 100;         // number points to return
 //    const int b = 40;          // number clusters to search
-//    const int p = 150000;      // number of vectors
+//    int p = 150000;            // number of vectors
 //    const int d = 128;         // dimensions of vector
 //    const int r = 1000;        // upper bound of generated vectors
 //    const int qs = 15000;      // queries to make on created index
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
      const int metric = 2;       // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean with early halting
      const int k = 2;            // number points to return
      const int b = 2;            // number clusters to search
-     unsigned int p = 1000;           // number of vectors
+     unsigned p = 1000;          // number of vectors
      const int d = 128;          // dimensions of vector
      const int r = 1000;         // upper bound of generated vectors
      const int qs = 15;          // queries to make on created index
@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
     /* Generate dummy data */
     std::vector<std::vector<float>> S;
     std::vector<std::vector<float>> queries;
+
     /* If hdf5 file path is given as program argument */
     if(argc == 2) {
         std::cout << "Running with hdf5 file: " << argv[1] << std::endl;
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
     __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
     for (auto& q : queries) {
         auto result = eCP::query(index, q, k, b);
-//        debugging::print_query_results(result, q, k, index->dataset);   // debugging
+//        debugging::print_query_results(result, q, k, S);   // debugging
     }
     __itt_task_end(domain_query);
 
