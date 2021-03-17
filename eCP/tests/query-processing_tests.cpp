@@ -17,7 +17,7 @@ Index *get_index(unsigned int L, int descriptors_amount = 10)
 
     Index *index = eCP::eCP_Index(descriptors, L, 0);
     return index;
-};
+}
 
 /* Tests */
 
@@ -118,7 +118,7 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_p
     EXPECT_TRUE(actual[1].second == 3);
 }
 
-TEST(query_processing_tests, find_b_nearest_clusters_given_l_b_1_returns_single_closest_cluster)
+TEST(query_processing_tests, find_b_nearest_clusters_given_L_b_1_returns_single_closest_cluster)
 {
     float *query = new float[3]{3, 3, 3};
     unsigned int b = 1;
@@ -138,19 +138,20 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_l_b_1_returns_single_
     EXPECT_TRUE(*actual[0]->points[0].descriptor == *query);
 }
 
-TEST(query_processing_tests, find_b_nearest_clusters_given_l_2_b_2_returns_2_closest_cluster)
-{
-    float *query = new float[3]{9, 9, 9};
-    unsigned int b = 2;
-    unsigned int L = 2;
+// FIXME: Need to be re-implemented with a helper func that goes through children lists and assert that elements are there
+//TEST(query_processing_tests, find_b_nearest_clusters_given_L_2_b_2_returns_2_closest_cluster_containing_query)
+//{
+//    float *query = new float[3]{9.f, 9.f, 9.f};
+//    unsigned int b = 2;
+//    unsigned int L = 2;
 
-    std::vector<Node> top_level = get_index(L, 42)->top_level;
+//    std::vector<Node> top_level = get_index(L, 9)->top_level;
 
-    auto actual = query_processing::find_b_nearest_clusters(top_level, query, b, L);
+//    auto actual = query_processing::find_b_nearest_clusters(top_level, query, b, L);
 
-    EXPECT_TRUE(actual.size() == b);
-    EXPECT_TRUE(*actual[1]->points[0].descriptor == *query);
-}
+//    EXPECT_EQ(actual.size(), b);
+//    EXPECT_EQ(*actual[1]->points[0].descriptor, *query);
+//}
 
 TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_closest_element)
 {
