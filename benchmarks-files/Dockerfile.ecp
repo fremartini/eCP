@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install -y cmake protobuf-compiler
 RUN cmake --version
 
 # Clone project
-RUN git clone  https://github.com/fremartini/eCP -b develop eCP
+RUN git clone  https://github.com/fremartini/eCP
+WORKDIR "/home/app/eCP"
+#ECP_COMMIT
 WORKDIR "/home/app/eCP/scripts"
 RUN ./gen_wrapper.sh
 RUN mv "/home/app/eCP/eCP/build/swig/_eCP_wrapper.so" "/home/app/"

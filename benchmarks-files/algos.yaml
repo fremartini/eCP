@@ -1,11 +1,11 @@
 float:
   any:
-    eCP:
+    %ECP_NAME%:
       disabled: false
       docker-tag: ann-benchmarks-ecp
       module: ann_benchmarks.algorithms.eCP
       constructor: eCP
-      base-args: ["@metric",True]
+      base-args: ["@metric",%ECP_EA%]
       run-groups:
         eCP:
           args: [[1,2,3]]
@@ -689,3 +689,5 @@ bit:
             - {"n_neighbors": [120], "diversify_epsilon": [0.0, 1.0],
                "pruning_degree_multiplier":[2.0, 2.5], leaf_size: 80}
           query-args: [[0.08, 0.16, 0.20, 0.24, 0.28, 0.32, 0.36]]
+
+
