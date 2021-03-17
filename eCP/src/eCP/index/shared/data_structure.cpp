@@ -11,6 +11,12 @@ Point::Point(const float* descriptor_, unsigned id_)
   std::copy(descriptor_, descriptor_ + globals::g_vector_dimensions, descriptor);
 }
 
+Point::Point(const std::vector<float> descriptor_, unsigned id_)
+  : descriptor(new float[globals::g_vector_dimensions]), id(id_)
+{
+  std::copy(descriptor_.begin(), descriptor_.end(), descriptor);
+}
+
 Point::~Point()
 {
   delete[] descriptor;
@@ -49,9 +55,13 @@ Node::Node(Point p)
   : points{std::move(p)}
 {}
 
+Point* Node::get_leader() {
+  return &points[0];
+}
+
 /*
  * Index data type
  */
-Index::Index(unsigned L_, std::vector<Node>& top_level_)
-  : L(L_), top_level(top_level_)
+Index::Index(unsigned L_, std::vector<Node> top_level_)
+  : L(L_), top_level(std::move(top_level_))
 {}
