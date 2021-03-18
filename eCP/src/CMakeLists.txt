@@ -33,6 +33,7 @@ target_include_directories(eCPLib
 
 target_link_libraries(eCPLib
   sharedLib
+  utilLib
 )
 
 # -- Utilities Library --
