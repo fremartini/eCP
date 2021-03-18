@@ -7,8 +7,16 @@
 
 namespace debugging {
 
-void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result, std::vector<float>& query, unsigned int k, const std::vector<Point>& S)
+void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& result, std::vector<float>& query, unsigned int k, const std::vector<std::vector<float>>& dataset)
 {
+
+  // FIXME: !!! This quick fix will be very expensive for large data sets
+  std::vector<Point> dataset_points;
+  unsigned id{0};
+  for (auto &descriptor : dataset) {
+    dataset_points.emplace_back(Point{descriptor.data(), id++});
+  }
+
 	std::cout << "k = " << k << "\nQuery: ";
 
 	//Print query
@@ -16,18 +24,18 @@ void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>
 	for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
 		q[i] = query[i];
 	}
-  Point pq = Point(q, -1);    // FIXME: Misuse of unsigned int
+  Point pq = Point(q, 0);
 
 	print_point(pq);
 
-	std::cout << "\n\nresult from " << S.size() << " points\n";
+  std::cout << "\n\n" << "Result from dataset of " << dataset_points.size() << " points:\n";
 
 	//Print results
 	for (unsigned int i = 0; i < result.first.size(); ++i)
 	{
 		unsigned int id = result.first[i];
-		Point p = S[id];
-		print_point(p);
+    Point p = dataset_points[id];
+    print_point(p);
 		std::cout << ", " << result.second[i] << "\n";
 	}
   std::cout << "\nreturned " << result.first.size() << " points, wanted " << k << std::endl;
