@@ -7,7 +7,7 @@ This project is currently a work in progress. See [CONTRIBUTING.md](CONTRIBUTING
 
 ## Project dependencies
 ```
-gcc, c++, cmake, python3.6, swig, docker
+gcc, c++, cmake, python3.6, swig, hdf5, docker
 ```
 
 # How-to's
@@ -15,10 +15,14 @@ The following descriptions assumes some sort of Linux distribution even if the e
 It is also assumed that `./` is the root of this repository.
 
 ## How to compile eCP
-- If you have CMake installed it should not be problematic using your favorite IDE. Load the `CMakeLists.txt` file in the root dir and CMake will take care of the rest.
-Currently only GNU/GCC is known to be supported.
+1. Install dependencies outlined above.
 
-- In case you are interested in manually running commands visit `./eCP/scripts/` where there are examples of different basic interactions with CMake from the command line.
+2. Afterwards, to configure and compile project load the `CMakeLists.txt` file in the root dir using your favorite IDE, OR go to `./eCP/scripts` and execute:
+```
+configure.sh
+build.sh
+```
+This will build the project in Release mode. To change this see `configure.sh` script. Currently only GNU/GCC is known to be supported.
 
 ## How to run eCP in ANN-Benchmarks
 1. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change the line describing what repository is cloned when the eCP docker container 
