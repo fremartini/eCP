@@ -12,6 +12,10 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 # Must be in main file
 enable_testing()
 
+# External dependencies not resolved by CMake
+find_package(SWIG COMPONENTS python)
+find_package(HDF5 REQUIRED COMPONENTS CXX)
+
 # - The compiled library code, executable code, external libs, swig config and tests -
 add_subdirectory(src)
 add_subdirectory(main)
