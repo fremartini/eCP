@@ -3,16 +3,16 @@
 #include <iostream>
 #include <random>
 #include <cassert>
-#include <stdexcept>
 
 #include <eCP/utilities/utilities.hpp>
+#include <eCP/utilities/H5Easy/H5Easy.h>
 
 namespace utilities {
 
 std::unordered_set<int> get_random_unique_indexes(int amount, int container_size)
 {
   assert (amount > -1);   // FIXME: Use NDEBUG to have asserts only in debug builds.
-  assert (amount < container_size);
+  assert (amount <= container_size);
 
   std::unordered_set<int> samples;
   std::random_device random_seed;   // Will be used to obtain a seed for the random number engine
