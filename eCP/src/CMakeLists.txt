@@ -60,6 +60,11 @@ add_library(utilLib
   ./eCP/utilities/utilities.cpp
 )
 
+target_link_libraries(utilLib
+  PRIVATE
+    HDF5::HDF5
+)
+
 target_compile_options(utilLib PRIVATE ${cflags})
 
 target_include_directories(utilLib

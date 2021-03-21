@@ -3,9 +3,9 @@
 #include <iostream>
 #include <random>
 #include <cassert>
-#include <stdexcept>
 
 #include <eCP/utilities/utilities.hpp>
+#include <eCP/utilities/H5Easy/H5Easy.h>
 
 namespace utilities {
 
