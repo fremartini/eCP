@@ -5,7 +5,7 @@
 #include <eCP/debugging/debug_tools.hpp>
 #include <eCP/utilities/utilities.hpp>
 
-int main()
+int main(int argc, char* argv[])
 {
     /* For vtune params */
 //    const int L = 3;           // L parameter - number of levels in index
@@ -18,11 +18,11 @@ int main()
 //    const int qs = 15000;      // queries to make on created index
 
     /* For debugging params */
-     const int L = 3;            // L parameter - number of levels in index
+     const int L = 2;            // L parameter - number of levels in index
      const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
      const int k = 2;            // number points to return
      const int b = 2;            // number clusters to search
-     const int p = 12000;           // number of vectors
+     const int p = 1000;           // number of vectors
      const int d = 128;          // dimensions of vector
      const int r = 1000;         // upper bound of generated vectors
      const int qs = 15;          // queries to make on created index
@@ -34,8 +34,17 @@ int main()
     __itt_string_handle *handle_query = __itt_string_handle_create("ecp_query");
 
     /* Generate dummy data */
-    std::vector<std::vector<float>> S = utilities::generate_descriptors(p, d, r);
+    std::vector<std::vector<float>> S;
+    if(argc == 1) {
+        std::cout << "generating descriptors..."<< std::endl;
+        S = utilities::generate_descriptors(p,d,r);
+    } else {
+        std::cout << "running with hdf5 file: " << argv[1] << std::endl;
+        std::string file = std::string(argv[1]);
+        S = utilities::load_hdf5_file(file);
+    }
     std::vector<std::vector<float>> queries = utilities::generate_descriptors(qs, d, r);
+
 
     /* Index build instrumentation */
     __itt_task_begin(domain_build, __itt_null, __itt_null, handle_build);
@@ -53,9 +62,6 @@ int main()
     /* Debugging */
     //debugging::print_clusters(index->top_level);      // debugging
     //debugging::print_index_levels(index->top_level);  // debugging
-
-    std::string file = "fashion-mnist-784-euclidean.hdf5";
-    utilities::load_hdf5_file(file);
 
     /* Clean up */
     delete index;

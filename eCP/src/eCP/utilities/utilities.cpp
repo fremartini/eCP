@@ -53,8 +53,9 @@ std::vector<std::vector<float>> generate_descriptors(const unsigned int count, c
 std::vector<std::vector<float>> load_hdf5_file(std::string& path) {
     LoadH5 data;
     data.setFileName(path);
+    data.setVarName("train");
     std::vector<std::vector<float>> loaded_data = data.getData();
-    std::cout << loaded_data.size() << std::endl;
+    return loaded_data;
 }
 
 
