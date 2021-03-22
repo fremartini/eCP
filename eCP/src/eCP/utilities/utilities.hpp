@@ -26,6 +26,10 @@ std::unordered_set<int> get_random_unique_indexes(int amount, int container_size
  * @return
  */
 std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigned int dimension, unsigned int upper_bound);
+
+
+std::vector<std::vector<float>> load_hdf5_file(std::string& path);
+
 }
 
 #endif // UTILITY_H

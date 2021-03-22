@@ -51,8 +51,11 @@ int main()
     __itt_task_end(domain_query);
 
     /* Debugging */
-    debugging::print_clusters(index->top_level);      // debugging
-    debugging::print_index_levels(index->top_level);  // debugging
+    //debugging::print_clusters(index->top_level);      // debugging
+    //debugging::print_index_levels(index->top_level);  // debugging
+
+    std::string file = "fashion-mnist-784-euclidean.hdf5";
+    utilities::load_hdf5_file(file);
 
     /* Clean up */
     delete index;
