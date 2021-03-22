@@ -1,6 +1,5 @@
 #include <cmath>
 #include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 /**
  * Distance functions defined for global use here. Can be imported and used
@@ -98,7 +97,7 @@ namespace distance
 
         const float cosine_similarity = (mul / sqrt(d_a * d_b));
 
-        return acos(cosine_similarity);
+        return std::acos(cosine_similarity);
     }
 
     /**

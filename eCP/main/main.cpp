@@ -19,10 +19,10 @@ int main(int argc, char* argv[])
 
     /* For debugging params */
      const int L = 2;            // L parameter - number of levels in index
-     const int metric = 0;       // Distance metric - 0 = euclidean - 1 = angular
+     const int metric = 2;       // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean with early halting
      const int k = 2;            // number points to return
      const int b = 2;            // number clusters to search
-     const int p = 1000;           // number of vectors
+     unsigned int p = 1000;           // number of vectors
      const int d = 128;          // dimensions of vector
      const int r = 1000;         // upper bound of generated vectors
      const int qs = 15;          // queries to make on created index
@@ -35,15 +35,21 @@ int main(int argc, char* argv[])
 
     /* Generate dummy data */
     std::vector<std::vector<float>> S;
-    if(argc == 1) {
-        std::cout << "generating descriptors..."<< std::endl;
-        S = utilities::generate_descriptors(p,d,r);
-    } else {
-        std::cout << "running with hdf5 file: " << argv[1] << std::endl;
+    std::vector<std::vector<float>> queries;
+    /* If hdf5 file path is given as program argument */
+    if(argc == 2) {
+        std::cout << "Running with hdf5 file: " << argv[1] << std::endl;
         std::string file = std::string(argv[1]);
-        S = utilities::load_hdf5_file(file);
+        std::string dataset = "train";
+        S = utilities::load_hdf5_file(file,dataset);
+        dataset = "test";
+        queries = utilities::load_hdf5_file(file,dataset);
+        p = S.size();
+    } else {
+        std::cout << "Generating " << p << " descriptors with " << d << " dimensions and values up to " << r << std::endl;
+        S = utilities::generate_descriptors(p,d,r);
+        queries = utilities::generate_descriptors(qs, d, r);
     }
-    std::vector<std::vector<float>> queries = utilities::generate_descriptors(qs, d, r);
 
 
     /* Index build instrumentation */

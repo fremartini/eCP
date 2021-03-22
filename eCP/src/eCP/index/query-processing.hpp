@@ -57,7 +57,7 @@ namespace query_processing
 	* @param k amount of nearest points to return
 	* @param nearest_points accumulator of k nearest neighbors
 	*/
-	void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points);
+	void scan_leaf_node(float*& query, std::vector<Point>& points, unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points);
 
 	/*
 	 * comparator for sorting
@@ -65,6 +65,6 @@ namespace query_processing
 	 * @param b tuple b (index, distance)
 	 */
 	bool smallest_distance(std::pair<unsigned int, float>& a, std::pair<unsigned int, float>& b);
-};
+}
 
 #endif // QUERY_PROCESSING_H

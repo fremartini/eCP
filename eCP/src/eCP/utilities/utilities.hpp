@@ -27,9 +27,13 @@ std::unordered_set<int> get_random_unique_indexes(int amount, int container_size
  */
 std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigned int dimension, unsigned int upper_bound);
 
-
-std::vector<std::vector<float>> load_hdf5_file(std::string& path);
-
+/**
+ * @brief Opens .hdf5 or .h5 files and outputs the specified dataset as multidimensional vectors
+ * @param path path for hdf5 file
+ * @param dataset name
+ * @return  multidimensional vectors of type float
+ */
+std::vector<std::vector<float>> load_hdf5_file(std::string& path, std::string& dataset);
 }
 
 #endif // UTILITY_H
