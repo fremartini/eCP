@@ -4,9 +4,6 @@
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
-#include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/data_structure.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 namespace eCP 
 {
@@ -29,29 +26,10 @@ Index* eCP_Index(const std::vector<std::vector<float>> &descriptors, unsigned in
   }
 
 	//set metric function
-	//TODO move to preprocessing
-	if (metric == 1) {
-        distance::set_distance_function(distance::Metrics::ANGULAR);
-	} else if(metric == 2) {
-		if (globals::g_vector_dimensions % 8) {
-			distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
-		} else {
-			distance::set_distance_function(distance::Metrics::EUCLIDEAN_HALT);
-		}
-	}
-	else if (metric == 0)
-	{
-		if (globals::g_vector_dimensions % 8) {
-			distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
-		} else {
-			distance::set_distance_function(distance::Metrics::EUCLIDEAN);
-		}
-	} else {
-		std::invalid_argument("Invalid metric.");
-	}
+    pre_processing::setMetric(metric);
 
-	//initial sample size for building index - n^L/L+1 for initial representatives
-	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elems is used as leaders for the bottom level
+    //initial sample size for building index - n^L/L+1 for initial representatives
+	const auto sample_size = std::ceil(std::pow(descriptors.size(), ((L / (L + 1.00)))));               // The first 'sample_size' elements are used as leaders for the bottom level
 
   std::vector<Node> empty_index_root = pre_processing::create_index(descriptor_points, L);
 

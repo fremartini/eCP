@@ -1,10 +1,6 @@
 #include <iostream>
-#include <cstring>
-#include <utility>
 #include <vector>
-#include <limits>
 #include <eCP/index/shared/data_structure.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Point data type
@@ -50,7 +46,7 @@ void swap(Point& fst, Point& snd)
  * Node data type
  */
 Node::Node(Point p)
-  : points{p}
+  : points{std::move(p)}
 {}
 
 /*

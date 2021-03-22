@@ -5,7 +5,7 @@
 #include <eCP/index/shared/data_structure.hpp>
 
  /*
-  * Dontains functions for the preprocessing phase of the eCP algorithm.
+  * Contains functions for the preprocessing phase of the eCP algorithm.
   */
 namespace pre_processing 
 {
@@ -39,7 +39,7 @@ namespace pre_processing
    * and returns the one that is closest.
    * The function assumes that the vector of nodes is not empty.
    * @param nodes is a vector nodes.
-   * @param query is the query feacture vector.
+   * @param query is the query feature vector.
    * @return a pointer to the closest node.
    */
   Node* get_closest_node(std::vector<Node>& nodes, float* query);
@@ -52,6 +52,11 @@ namespace pre_processing
 	*/
   std::vector<Node>& insert_points(std::vector<Node>& index_top_level, std::vector<Point>& points, unsigned from_index = 0);
 
+  /**
+   *
+   * @param metric distance function metric
+   */
+  void setMetric(unsigned int& metric);
 }
 
 #endif // PRE_PROCESSING_H

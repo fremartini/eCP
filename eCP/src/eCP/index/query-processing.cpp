@@ -1,11 +1,9 @@
 #include <algorithm>
-#include <stdexcept>
 #include <cassert>
 
 #include <eCP/index/query-processing.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Traverse the index to find the nearest leaf at the bottom level.
@@ -149,9 +147,9 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
 // Assumes point_pairs contains at least 1 point.
 unsigned index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
-  assert(point_pairs.size() > 0 && "point_pairs must contain at least a single element.");    // FIXME: Make sure that asserts are not part of release builds somehow
+  assert(!point_pairs.empty() && "point_pairs must contain at least a single element.");    // FIXME: Make sure that asserts are not part of release builds somehow
 
-  int index = 0;
+  unsigned int index = 0;
   float current_max = point_pairs[0].second;
 
   for (unsigned int i = 1; i < point_pairs.size(); ++i) {
