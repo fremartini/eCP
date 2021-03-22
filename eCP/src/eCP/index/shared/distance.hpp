@@ -25,10 +25,10 @@ float angular_distance(const float* a, const float* b, const float&);
 enum class Metrics { EUCLIDEAN, ANGULAR, EUCLIDEAN_UNROLL, EUCLIDEAN_HALT,EUCLIDEAN_UNROLL_HALT };
 
 /**
- * Set the used distance function.
+ * Set the globally used distance function.
+ * @param Metrics distance function
  */
 void set_distance_function(Metrics);
-
 }
 
 #endif  // DISTANCE_H
