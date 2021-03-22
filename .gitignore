@@ -5,13 +5,14 @@
 
 # mskk
 .vscode
-build
+build*
 env
 files_generated
+*.autosave
 
 # User-specific files
 *.out
-
+ann-benchmarks/*
 *.suo
 *.user
 *.userosscache
