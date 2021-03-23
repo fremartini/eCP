@@ -59,7 +59,7 @@ struct Point {
 struct Node {
   std::vector<Node> children;
   std::vector<Point> points;
-  Node(Point p);
+  explicit Node(Point p);
 };
 
 /**

@@ -50,4 +50,13 @@ std::vector<std::vector<float>> generate_descriptors(const unsigned int count, c
 	return vector_list;
 }
 
+std::vector<std::vector<float>> load_hdf5_file(std::string& path, std::string& dataset) {
+    LoadH5 data;
+    data.setFileName(path);
+    data.setVarName(dataset);
+    return data.getData();
+}
+
+
+
 }

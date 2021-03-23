@@ -1,11 +1,9 @@
 #include <algorithm>
-#include <stdexcept>
 #include <cassert>
 
 #include <eCP/index/query-processing.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Traverse the index to find the nearest leaf at the bottom level.
@@ -80,7 +78,7 @@ void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::ve
 
     else {
       //only replace if better
-      if (distance::g_distance_function(query, node.points[0].descriptor) < furthest_node.second) {
+      if (distance::g_distance_function(query, node.points[0].descriptor,furthest_node.second) <= furthest_node.second){
         nodes_accumulated[furthest_node.first] = &node;
         furthest_node = find_furthest_node(query, nodes_accumulated);   //the furthest node has been replaced, find the new furthest
       }
@@ -98,7 +96,7 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
   std::pair<int, float> worst = std::make_pair(-1, -1.0);
 
   for (unsigned int i = 0; i < nodes.size(); i++) {
-    const float dst = distance::g_distance_function(query, nodes[i]->points[0].descriptor);
+    const float dst = distance::g_distance_function(query, nodes[i]->points[0].descriptor,globals::FLOAT_MAX);  //TODO remove redundant parameter
 
     if (dst > worst.second) {
       worst.first = i;
@@ -124,7 +122,7 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
   for (Point& point : points) {
     //not enough points yet, just add
     if (nearest_points.size() < k) {
-      float dist = distance::g_distance_function(query, point.descriptor);
+      float dist = distance::g_distance_function(query, point.descriptor,globals::FLOAT_MAX);
       nearest_points.emplace_back(point.id, dist);
 
       //next iteration we will start replacing, compute the furthest cluster
@@ -134,7 +132,7 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
     }
     else {
       //only replace if nearer
-      float dist = distance::g_distance_function(query, point.descriptor);
+      float dist = distance::g_distance_function(query, point.descriptor,max_distance);
       if (dist < max_distance) {
         const unsigned int max_index = index_to_max_element(nearest_points);
         nearest_points[max_index] = std::make_pair(point.id, dist);
@@ -149,9 +147,9 @@ void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned in
 // Assumes point_pairs contains at least 1 point.
 unsigned index_to_max_element(std::vector<std::pair<unsigned int, float>>& point_pairs)
 {
-  assert(point_pairs.size() > 0 && "point_pairs must contain at least a single element.");    // FIXME: Make sure that asserts are not part of release builds somehow
+  assert(!point_pairs.empty() && "point_pairs must contain at least a single element.");    // FIXME: Make sure that asserts are not part of release builds somehow
 
-  int index = 0;
+  unsigned int index = 0;
   float current_max = point_pairs[0].second;
 
   for (unsigned int i = 1; i < point_pairs.size(); ++i) {

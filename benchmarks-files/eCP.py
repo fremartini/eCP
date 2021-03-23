@@ -4,14 +4,18 @@ import numpy as np
 from ann_benchmarks.algorithms.base import BaseANN
 
 class eCP(BaseANN):
-    def __init__(self, metric, L):
+    def __init__(self, metric, early_halt, L):
         self.L = L
+        self.early_halt = early_halt
         self.name = "eCP"
         
         if(metric == 'angular'):
             self.metric = 1
         else:
-            self.metric = 0
+            if(early_halt): 
+                self.metric = 2
+            else:
+                self.metric = 0
 
     def fit(self, dataset):
         #dataset contains float32, we need to convert it to float64 for the eCP algorithm
@@ -31,4 +35,4 @@ class eCP(BaseANN):
         self.b = b
 
     def __str__(self):
-        return 'eCP(L=%s, b=%s)' % (self.L, self.b)
+        return 'eCP(L=%s, b=%s, early_halt=%s)' % (self.L, self.b, self.early_halt)

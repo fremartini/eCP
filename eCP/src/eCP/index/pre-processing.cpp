@@ -5,7 +5,6 @@
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
 #include <eCP/index/shared/distance.hpp>
-#include <eCP/index/shared/globals.hpp>
 
 namespace pre_processing 
 {
@@ -45,8 +44,8 @@ std::vector<Node> create_index(std::vector<Point>& dataset, unsigned int L)
 
       if (level == L-1) {
         node.points.reserve(avg_representatives);                                                                   // At bottom/leaf level
-			}
-			else {
+      }
+      else {
         node.children.reserve(avg_representatives);                                                                 // Internal node in index
       }
 
@@ -92,7 +91,7 @@ Node* get_closest_node(std::vector<Node>& nodes, float* query)
   Node* closest = nullptr;
 
   for (Node& node : nodes) {
-    const float distance = distance::g_distance_function(query, node.points[0].descriptor);
+    const float distance = distance::g_distance_function(query, node.points[0].descriptor, max);
 
     if (distance < max) {
       max = distance;
@@ -109,6 +108,28 @@ std::vector<Node>& insert_points(std::vector<Node>& index_top_level, std::vector
     nearest->points.emplace_back(points[i]);
 	}
   return index_top_level;
+}
+
+void setMetric(unsigned int& metric) {
+    if (metric == 1) {
+        distance::set_distance_function(distance::Metrics::ANGULAR);
+    } else if(metric == 2) {
+        if (globals::g_vector_dimensions % 8) {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
+        } else {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN_HALT);
+        }
+    }
+    else if (metric == 0)
+    {
+        if (globals::g_vector_dimensions % 8) {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
+        } else {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+        }
+    } else {
+        throw std::invalid_argument("Invalid metric.");
+    }
 }
 
 }
