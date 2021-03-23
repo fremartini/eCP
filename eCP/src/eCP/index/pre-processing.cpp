@@ -115,17 +115,17 @@ void setMetric(unsigned int& metric) {
         distance::set_distance_function(distance::Metrics::ANGULAR);
     } else if(metric == 2) {
         if (globals::g_vector_dimensions % 8) {
-            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
-        } else {
             distance::set_distance_function(distance::Metrics::EUCLIDEAN_HALT);
+        } else {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
         }
     }
     else if (metric == 0)
     {
         if (globals::g_vector_dimensions % 8) {
-            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
-        } else {
             distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+        } else {
+            distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
         }
     } else {
         throw std::invalid_argument("Invalid metric.");
