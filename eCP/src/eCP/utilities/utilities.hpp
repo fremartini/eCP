@@ -1,8 +1,8 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#include <vector>
 #include <unordered_set>
+#include <vector>
 
 /**
  * Namespace contains utility functions used by the eCP implementation.
@@ -34,6 +34,6 @@ std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigne
  * @return  multidimensional vectors of type float
  */
 std::vector<std::vector<float>> load_hdf5_file(std::string& path, std::string& dataset);
-}
+}  // namespace utilities
 
-#endif // UTILITY_H
+#endif  // UTILITY_H

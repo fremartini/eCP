@@ -9,4 +9,4 @@ unsigned measure_depth(Node root) {
   return 1;
 }
 
-}
+}  // namespace testhelpers

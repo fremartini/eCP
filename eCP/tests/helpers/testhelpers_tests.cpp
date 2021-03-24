@@ -1,10 +1,10 @@
+#include <eCP/index/shared/data_structure.hpp>
 #include <gtest/gtest.h>
 #include <helpers/testhelpers.hpp>
-#include <eCP/index/shared/data_structure.hpp>
 
 TEST(testhelpers_tests, measure_depth_given_vector_containing_1_levels_returns_1) {
   globals::g_vector_dimensions = 3;
-  Point dummy{Point{new float[3] {2,2,2}, 2}};
+  Point dummy{Point{new float[3]{2, 2, 2}, 2}};
 
   Node root{dummy};
 
@@ -15,7 +15,7 @@ TEST(testhelpers_tests, measure_depth_given_vector_containing_1_levels_returns_1
 
 TEST(testhelpers_tests, measure_depth_given_vector_containing_2_levels_returns_2) {
   globals::g_vector_dimensions = 3;
-  Point dummy{Point{new float[3] {2,2,2}, 2}};
+  Point dummy{Point{new float[3]{2, 2, 2}, 2}};
 
   Node node{dummy};
   Node root{dummy};
@@ -28,7 +28,7 @@ TEST(testhelpers_tests, measure_depth_given_vector_containing_2_levels_returns_2
 
 TEST(testhelpers_tests, measure_depth_given_vector_containing_3_levels_returns_3) {
   globals::g_vector_dimensions = 3;
-  Point dummy{Point{new float[3] {2,2,2}, 2}};
+  Point dummy{Point{new float[3]{2, 2, 2}, 2}};
 
   Node node1{dummy};
   Node node2{dummy};
@@ -41,4 +41,3 @@ TEST(testhelpers_tests, measure_depth_given_vector_containing_3_levels_returns_3
 
   EXPECT_EQ(result, 3);
 }
-

@@ -1,12 +1,12 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
-#include <iostream>
+#include <eCP/index/shared/globals.hpp>
 #include <cstring>
+#include <iostream>
+#include <limits>
 #include <utility>
 #include <vector>
-#include <limits>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Internal data structures and distance functions for the eCP algorithm.
@@ -49,7 +49,6 @@ struct Point {
   friend void swap(Point& fst, Point& snd);
 };
 
-
 /**
  * Represents nodes and clusters in index. Will not have children at bottom level.
  * First element of points is always the representative.
@@ -75,4 +74,4 @@ struct Index {
   Index(unsigned L_, std::vector<Node>& top_level_, std::vector<Point>& dataset_);
 };
 
-#endif // DATA_STRUCTURE_H
+#endif  // DATA_STRUCTURE_H

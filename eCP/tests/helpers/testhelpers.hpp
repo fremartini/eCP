@@ -14,6 +14,6 @@ namespace testhelpers {
  * @return unsigned integer depicting how many levels starting from 1.
  */
 unsigned measure_depth(Node root);
-}
+}  // namespace testhelpers
 
-#endif // TEST_HELPERS_H
+#endif  // TEST_HELPERS_H
