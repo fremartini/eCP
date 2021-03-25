@@ -66,21 +66,6 @@ inline float annoy_distance(const float* a, const float* b, const float& thresho
   return d;
 }
 
-Node* get_closest_node(std::vector<Node*>& nodes, float* query) {
-  float closest = globals::FLOAT_MAX;
-  Node* best = nullptr;
-
-  for (Node* node : nodes) {
-    const float distance = g_distance_function(query, node->points[0].descriptor, closest);
-
-    if (distance <= closest) {
-      closest = distance;
-      best = node;
-    }
-  }
-  return best;
-}
-
 inline float angular_distance(const float* a, const float* b, const float& max_distance = -1) {
   float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
@@ -104,6 +89,5 @@ void set_distance_function(Metrics func) {
   if (func == Metrics::EUCLIDEAN_HALT)        {g_distance_function = &euclidean_distance_halt; std::cout << "EUCLIDEAN_HALT" << std::endl;}
   if (func == Metrics::EUCLIDEAN_UNROLL_HALT) {g_distance_function = &euclidean_distance_unroll_halt; std::cout << "EUCLIDEAN_UNROLL_HALT" << std::endl;}
   if (func == Metrics::ANGULAR)               {g_distance_function = &angular_distance; std::cout << "ANGULAR" << std::endl;}
-  if (func == Metrics::ANNOY_DISTANCE)        {g_distance_function = &annoy_distance; std::cout << "ANNOY_DISTANCE" << std::endl;}
 }
 }  // namespace distance

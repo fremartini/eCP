@@ -107,7 +107,7 @@ std::vector<Node>& insert_points(std::vector<Node>& index_top_level, std::vector
 void setMetric(unsigned int& metric) {
   switch (metric) {
     case 0: {
-      if (globals::g_vector_dimensions % 8) {
+      if (globals::g_vector_dimensions % 8 == 0) {
         distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL);
       } else {
         distance::set_distance_function(distance::Metrics::EUCLIDEAN);
@@ -119,7 +119,7 @@ void setMetric(unsigned int& metric) {
       break;
     }
     case 2: {
-      if (globals::g_vector_dimensions % 8) {
+      if (globals::g_vector_dimensions % 8 == 0) {
         distance::set_distance_function(distance::Metrics::EUCLIDEAN_HALT);
       } else {
         distance::set_distance_function(distance::Metrics::EUCLIDEAN_UNROLL_HALT);
