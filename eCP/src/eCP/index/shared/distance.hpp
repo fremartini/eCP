@@ -20,8 +20,9 @@ float euclidean_distance(const float* a, const float* b, const float&);
 float euclidean_distance_halt(const float* a, const float* b, const float&);
 float euclidean_distance_unroll_halt(const float* a, const float* b, const float&);
 float angular_distance(const float* a, const float* b, const float&);
+float annoy_distance(const float* a, const float* b, const float&);
 
-enum class Metrics { EUCLIDEAN, ANGULAR, EUCLIDEAN_UNROLL, EUCLIDEAN_HALT, EUCLIDEAN_UNROLL_HALT };
+enum class Metrics { EUCLIDEAN, ANGULAR, EUCLIDEAN_UNROLL, EUCLIDEAN_HALT, EUCLIDEAN_UNROLL_HALT, ANNOY_DISTANCE };
 
 /**
  * Set the globally used distance function.
