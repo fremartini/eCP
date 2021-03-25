@@ -55,17 +55,6 @@ inline float euclidean_distance(const float* a, const float* b, const float& thr
   return sums[0] + sums[1] + sums[2] + sums[3];
 }
 
-inline float annoy_distance(const float* a, const float* b, const float& threshold = -1) {
-  float d = 0.0;
-  for (int i = 0; i < globals::g_vector_dimensions; ++i) {
-    const float tmp=*a - *b;
-    d += tmp * tmp;
-    ++a;
-    ++b;
-  }
-  return d;
-}
-
 inline float angular_distance(const float* a, const float* b, const float& max_distance = -1) {
   float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
