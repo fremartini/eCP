@@ -101,6 +101,6 @@ TEST(ecp_tests, query_given_k_2_returns_closest_points) {
 
     auto actual = eCP::query(index, q, k, b);
 
-    EXPECT_TRUE(actual.first.size() == 2);
-    EXPECT_TRUE(actual.second.size() == 2);
+    EXPECT_EQ(actual.first.size(), 2);
+    EXPECT_EQ(actual.second.size(), 2);
 }

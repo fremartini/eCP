@@ -1,11 +1,73 @@
 #include <gtest/gtest.h>
 
-#include <eCP/index/pre-processing.cpp>
 #include <eCP/index/shared/distance.hpp>
 #include <eCP/index/shared/globals.hpp>
+#include <helpers/testhelpers.hpp>
 
+// Because we need to test functions only part of the compilation unit
+#include <eCP/index/pre-processing.cpp>
 
-// FIXME: All of these tests need to be reimplemented
+/*
+ * pre_processing_tests
+ */
+
+TEST(pre_processing_tests, create_index_given_dataset_and_L_2_leaders_returns_correct_depth_of_index) {
+  // arrange
+  auto dataset_size = 4;
+  unsigned L = 2;
+  distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+  globals::g_vector_dimensions = 3;
+
+  // act
+  std::vector<std::vector<float>> dataset
+  {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+    {10, 11, 12},
+  };
+
+  auto leader_indexes = pre_processing_helpers::generate_leaders_indexes(dataset_size, L);
+  auto first_level = pre_processing::create_index(dataset, L);
+
+  auto root = Node{Point{{3,3,3}, 100}};  // FIXME: Remove this when the index uses a single Node as root node
+  root.children.swap(first_level);
+
+  auto result = testhelpers::measure_depth_from(root);
+
+  // assert
+  ASSERT_EQ(result, 2);
+}
+
+TEST(pre_processing_tests, create_index_given_dataset_with_L_2_leaders_4_points_builds_index_and_fills_clusters_with_4_points) {
+  // arrange
+  auto dataset_size = 4;
+  unsigned L = 2;
+  distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+  globals::g_vector_dimensions = 3;
+
+  std::vector<std::vector<float>> dataset
+  {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+    {10, 11, 12},
+  };
+
+  // act
+  auto leader_indexes = pre_processing_helpers::generate_leaders_indexes(dataset_size, L);
+  auto first_level = pre_processing::create_index(dataset, L);
+
+  auto root = Node{Point{{3,3,3}, 100}};  // FIXME: Remove this when the index uses a single Node as root node
+  root.children.swap(first_level);
+
+  auto result = testhelpers::count_points_in_clusters(root);
+
+  // assert
+  ASSERT_EQ(result, 4);
+}
+
+// FIXME: All of these tests need to be re-implemented
 
 /* Helpers */
 //std::vector<Node> get_empty_index(unsigned int L = 2)
@@ -83,7 +145,23 @@
 //    }
 //}
 
-TEST(pre_processing_tests, get_closest_node_returns_closest_cluster)
+/*
+ * pre-processing_helpers_tests
+ */
+
+TEST(pre_processing_helpers_tests, generate_leaders_indexes_given_dataset_12_L_3_returns_correct_number_for_each_level) {
+  auto dataset_size = 12;
+  auto L = 3;
+
+  auto leader_indexes = pre_processing_helpers::generate_leaders_indexes(dataset_size, L);
+
+  ASSERT_EQ(leader_indexes[0].size(), 2);   // 1st level
+  ASSERT_EQ(leader_indexes[1].size(), 4);   // 2nd level
+  ASSERT_EQ(leader_indexes[2].size(), 7);   // 3rd level
+}
+
+
+TEST(pre_processing_helpers_tests, get_closest_node_returns_closest_cluster)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     globals::g_vector_dimensions = 3;
@@ -103,7 +181,7 @@ TEST(pre_processing_tests, get_closest_node_returns_closest_cluster)
     EXPECT_EQ(*actual->points[0].descriptor, *expected);
 }
 
-TEST(pre_processing_tests, get_closest_node_given_query_in_clusters_returns_same)
+TEST(pre_processing_helpers_tests, get_closest_node_given_query_in_clusters_returns_same)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     globals::g_vector_dimensions = 3;
@@ -123,7 +201,7 @@ TEST(pre_processing_tests, get_closest_node_given_query_in_clusters_returns_same
     EXPECT_EQ(*actual->points[0].descriptor, *expected);
 }
 
-TEST(pre_processing_tests, find_nearest_leaf_finds_nearest_cluster_in_2_level_index)
+TEST(pre_processing_helpers_tests, find_nearest_leaf_finds_nearest_cluster_in_2_level_index)
 {
     distance::set_distance_function(distance::Metrics::EUCLIDEAN);
     globals::g_vector_dimensions = 3;
