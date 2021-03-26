@@ -126,10 +126,6 @@ void setMetric(unsigned int& metric) {
       }
       break;
     }
-    case 3: {
-      distance::set_distance_function(distance::Metrics::ANNOY_DISTANCE);
-      break;
-    }
     default: {
       throw std::invalid_argument("Invalid metric.");
     }
