@@ -20,11 +20,5 @@ fi
 echo "Configuring Cmake..."
 [ ! -d ../build ] && echo "Creating build directory..." && mkdir ../build
 
-echo "Setting up build dirs for qtcreator..."
-mkdir -p ../build/Debug
-mkdir -p ../build/Release
-mkdir -p ../build/Release_Debug
-mkdir -p ../build/Release_MinSize
-
 echo "Setting build type: ${BUILD_TYPE}"
 cmake -S ../ -B ../build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
