@@ -15,7 +15,7 @@ TEST(pre_processing_tests, create_index_given_dataset_and_L_2_leaders_returns_co
   // arrange
   auto dataset_size = 4;
   unsigned L = 2;
-  distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+  distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
   globals::g_vector_dimensions = 3;
 
   // act
@@ -43,7 +43,7 @@ TEST(pre_processing_tests, create_index_given_dataset_with_L_2_leaders_4_points_
   // arrange
   auto dataset_size = 4;
   unsigned L = 2;
-  distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+  distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
   globals::g_vector_dimensions = 3;
 
   std::vector<std::vector<float>> dataset
@@ -92,7 +92,7 @@ TEST(pre_processing_tests, create_index_given_dataset_with_L_2_leaders_4_points_
 /* Tests */
 
 //TEST(pre_processing_tests, create_index_bottom_up_creates_empty_datastructure) {
-//    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+//    distance::set_distance_function(distance::Metrics::EUCLIDEAN_OPT_UNROLL);
 //    globals::g_vector_dimensions = 3;
 
 //    std::vector<Point> S = {
@@ -117,7 +117,7 @@ TEST(pre_processing_tests, create_index_given_dataset_with_L_2_leaders_4_points_
 
 // FIXME: Rewrite this test
 //TEST(pre_processing_tests, insert_points_given_empty_index_inserts_points) {
-//    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+//    distance::set_distance_function(distance::Metrics::EUCLIDEAN_OPT_UNROLL);
 //    globals::g_vector_dimensions = 3;
 
 //    std::vector<Node> root = get_empty_index(1);
@@ -163,7 +163,7 @@ TEST(pre_processing_helpers_tests, generate_leaders_indexes_given_dataset_12_L_3
 
 TEST(pre_processing_helpers_tests, get_closest_node_returns_closest_cluster)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     std::vector<Node> clusters {
@@ -183,7 +183,7 @@ TEST(pre_processing_helpers_tests, get_closest_node_returns_closest_cluster)
 
 TEST(pre_processing_helpers_tests, get_closest_node_given_query_in_clusters_returns_same)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     std::vector<Node> clusters = {
@@ -203,7 +203,7 @@ TEST(pre_processing_helpers_tests, get_closest_node_given_query_in_clusters_retu
 
 TEST(pre_processing_helpers_tests, find_nearest_leaf_finds_nearest_cluster_in_2_level_index)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     std::vector<Node> clusters = {

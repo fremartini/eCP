@@ -68,7 +68,7 @@ TEST(query_processing_tests, index_to_max_element_given_morethan_elem_returns_in
 
 TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_points)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     std::vector<Node> root = {
@@ -93,7 +93,7 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_p
 
 TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_points)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     std::vector<Node> root = {
@@ -155,7 +155,7 @@ TEST(query_processing_tests, find_b_nearest_clusters_given_L_b_1_returns_single_
 
 TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_closest_element)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
@@ -182,7 +182,7 @@ TEST(query_processing_tests, scan_node_children_given_b_1_returns_identical_clos
 
 TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everything)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{3, 3, 3};
@@ -203,7 +203,7 @@ TEST(query_processing_tests, scan_node_given_children_less_than_b_returns_everyt
 
 TEST(query_processing_tests, scan_node_given_b_2_returns_two_closest_elements)
 {
-    distance::set_distance_function(distance::Metrics::EUCLIDEAN);
+    distance::set_distance_function(distance::Metric::EUCLIDEAN_OPT_UNROLL);
     globals::g_vector_dimensions = 3;
 
     float *query = new float[3]{1, 1, 1};

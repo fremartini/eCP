@@ -2,8 +2,10 @@
 #include <gtest/gtest.h>
 
 #include <eCP/index/eCP.hpp>
-#include <eCP/index/shared/distance.hpp>
 #include <eCP/index/shared/globals.hpp>
+
+// Bringing in compilation unit to be able to test everything
+#include <eCP/index/shared/distance.cpp>
 
 /* HELPER FUNCTIONS */
 
@@ -117,4 +119,49 @@ TEST(distance_tests, angular_distance_given_3_dimensions_returns_correct_value) 
     float actual = distance::angular_distance(a, b, globals::FLOAT_MAX) / M_PI;
 
     EXPECT_NEAR(actual, 0.16, EPSILON_);
+}
+
+TEST(distance_tests, set_distance_function_given_Metric_EUCLIDEAN_OPT_UNROLL_and_datasetsize_non_divby8_sets_normal_euclidean) {
+    globals::g_vector_dimensions = 9;
+    auto metric = distance::Metric::EUCLIDEAN_OPT_UNROLL;
+
+    distance::set_distance_function(metric);
+
+    EXPECT_EQ(distance::g_distance_function, &distance::euclidean_distance);
+}
+
+TEST(distance_tests, set_distance_function_given_Metric_EUCLIDEAN_OPT_UNROLL_and_datasetsize_divby8_ok_sets_normal_euclidean_unroll) {
+    globals::g_vector_dimensions = 8;
+    auto metric = distance::Metric::EUCLIDEAN_OPT_UNROLL;
+
+    distance::set_distance_function(metric);
+
+    EXPECT_EQ(distance::g_distance_function, &distance::euclidean_distance_unroll);
+}
+
+TEST(distance_tests, set_distance_function_given_Metric_ANGULAR_sets_normal_angular) {
+    globals::g_vector_dimensions = 9;
+    auto metric = distance::Metric::ANGULAR;
+
+    distance::set_distance_function(metric);
+
+    EXPECT_EQ(distance::g_distance_function, &distance::angular_distance);
+}
+
+TEST(distance_tests, set_distance_function_given_Metric_EUCLIDEAN_HALT_OPT_UNROLL_and_datasetsize_non_divby8_sets_euclidean_halt) {
+    globals::g_vector_dimensions = 9;
+    auto metric = distance::Metric::EUCLIDEAN_HALT_OPT_UNROLL;
+
+    distance::set_distance_function(metric);
+
+    EXPECT_EQ(distance::g_distance_function, &distance::euclidean_distance_halt);
+}
+
+TEST(distance_tests, set_distance_function_given_Metric_EUCLIDEAN_HALT_OPT_UNROLL_and_datasetsize_divby8_ok_sets_euclidean_unroll_halt) {
+    globals::g_vector_dimensions = 8;
+    auto metric = distance::Metric::EUCLIDEAN_HALT_OPT_UNROLL;
+
+    distance::set_distance_function(metric);
+
+    EXPECT_EQ(distance::g_distance_function, &distance::euclidean_distance_unroll_halt);
 }

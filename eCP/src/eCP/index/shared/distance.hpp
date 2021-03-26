@@ -6,7 +6,7 @@
 #include <eCP/index/shared/data_structure.hpp>
 
 /**
- * Distance functions defined for global use here. Can be imported and used.
+ * Namespaces contains distance functions used in the index.
  */
 namespace distance 
 {
@@ -16,19 +16,17 @@ namespace distance
  */
 extern float (*g_distance_function)(const float*, const float*, const float&);
 
-Node* get_closest_node(std::vector<Node*>& nodes, float* query);
-float euclidean_distance(const float* a, const float* b, const float&);
-float euclidean_distance_halt(const float* a, const float* b, const float&);
-float euclidean_distance_unroll_halt(const float* a, const float* b, const float&);
-float angular_distance(const float* a, const float* b, const float&);
-
-enum class Metrics { EUCLIDEAN, ANGULAR, EUCLIDEAN_UNROLL, EUCLIDEAN_HALT,EUCLIDEAN_UNROLL_HALT };
+/**
+ * @brief The Metric enum is used to define globally the type of distance function used.
+ */
+enum Metric { EUCLIDEAN_OPT_UNROLL = 0, ANGULAR, EUCLIDEAN_HALT_OPT_UNROLL };
 
 /**
  * Set the globally used distance function.
- * @param Metrics distance function
+ * @param Metric defines what functions will be used.
  */
-void set_distance_function(Metrics);
+void set_distance_function(Metric);
+
 }
 
 #endif  // DISTANCE_H
