@@ -32,7 +32,7 @@ echo "${NAME}: Configuring Cmake..."
 cmake -S . -B build
 
 echo "${NAME}: Building Cmake..."
-cmake --configure build # is currently necessary on ubuntu docker image
+#cmake --configure build # is currently necessary on ubuntu docker image
 cmake --build build
 
 echo "${NAME}: Wrapper generation successful."
