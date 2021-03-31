@@ -25,6 +25,7 @@ build.sh
 This will build the project in Release mode. To change this see `configure.sh` script. Currently only GNU/GCC is known to be supported.
 
 ## How to run eCP in ANN-Benchmarks
+### Running it manually
 1. Go to `./ann_benchmarks/install/Dockerfile.ecp` and change the line describing what repository is cloned when the eCP docker container 
 is build by Ann-Benchmarks (AB).
 Make it point to the current working branch e.g. `git clone -b <branch_name> <url_to_repo> eCP`, where 'eCP will be local name of repo dir to help build scripts. 
@@ -37,6 +38,16 @@ setup the eCP algorithm with AB, i.e. build a Docker image containing a compiled
 from the designated branch from earlier.
 
 4. Goto AB directory and follow the guide to run tests found at `https://github.com/erikbern/ann-benchmarks`.
+
+### Using the provided run script
+From within the eCP/scripts folder run the ann-benchmark.sh script, it takes arbitrarily many arguments in a array-style format depending on the amount of experiments the user wants to run. An example configuration could be ```sudo ./ann-benchmark.sh [abc123,foo,random-xs-20-euclidean,false] [def456,bar,random-xs-20-euclidean,true]``` corresponding to running the code at commit id abc123 on the random-xs-20-euclidean dataset without early halting and naming it foo whereafter commit id def456 would be run on the same dataset with early halting enabled and under the name bar. Observe there cannot be any spaces after each comma.
+
+It supports the following flags:
+* -d (--delete) delete the current local ann-benchmarks repository if it exists
+* -l (--local) run ann-benchmarks in local mode (`https://github.com/erikbern/ann-benchmarks`)
+
+### Running local changes
+TODO
 
 # Documentation
 ## Wrapper interface
