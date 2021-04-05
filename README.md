@@ -40,7 +40,7 @@ from the designated branch from earlier.
 4. Goto AB directory and follow the guide to run tests found at `https://github.com/erikbern/ann-benchmarks`.
 
 ### Using the provided run script
-From within the eCP/scripts folder run the ann-benchmark.sh script, it takes arbitrarily many arguments in a array-style format depending on the amount of experiments the user wants to run. An example configuration could be ```sudo ./ann-benchmark.sh [abc123,foo,random-xs-20-euclidean,false] [def456,bar,random-xs-20-euclidean,true]``` corresponding to running the code at commit id abc123 on the random-xs-20-euclidean dataset without early halting and naming it foo whereafter commit id def456 would be run on the same dataset with early halting enabled and under the name bar. Observe there cannot be any spaces after each comma.
+From within the eCP/scripts folder run the ann-benchmark.sh script, it takes arbitrarily many arguments in a array-style format depending on the amount of experiments the user wants to run. An example configuration could be ```sudo ./ann-benchmark.sh [abc123,foo,random-xs-20-euclidean,false] [def456,bar,random-xs-20-euclidean,true]``` corresponding to running the code at commit id abc123 on the random-xs-20-euclidean dataset without early halting and naming it foo whereafter commit id def456 would be run on the same dataset with early halting enabled and under the name bar. Observe that there cannot be any spaces after each comma.
 
 It supports the following flags:
 * -d (--delete) delete the current local ann-benchmarks repository if it exists
