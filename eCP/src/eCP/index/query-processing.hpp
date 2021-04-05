@@ -14,7 +14,9 @@ namespace query_processing {
  * @param b amount of leaves to search
  * @return vector of (index,distance) pairs sorted by lowest distance
  */
-std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query, unsigned int k, unsigned int b, unsigned int L);
+std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query,
+                                                                unsigned int k, unsigned int b,
+                                                                unsigned int L);
 
 /**
  * find the index of the pair with the largest distance
@@ -31,7 +33,8 @@ unsigned int index_to_max_element(std::vector<std::pair<unsigned int, float>>& p
  * @param b number of leaf clusters to return
  * @return b leaf clusters
  */
-std::vector<Node*> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b, unsigned int L);
+std::vector<Node*> find_b_nearest_clusters(std::vector<Node>& root, float*& query, unsigned int b,
+                                           unsigned int L);
 
 /*
  * scan nodes for b nearest clusters
@@ -40,7 +43,8 @@ std::vector<Node*> find_b_nearest_clusters(std::vector<Node>& root, float*& quer
  * @param b number of clusters to obtain
  * @param node_accumulator accumulator for b nearest nodes
  */
-void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b, std::vector<Node*>& node_accumulator);
+void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b,
+               std::vector<Node*>& node_accumulator);
 
 /**
  * find the furthest cluster to a query point
@@ -56,7 +60,8 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
  * @param k amount of nearest points to return
  * @param nearest_points accumulator of k nearest neighbors
  */
-void scan_leaf_node(float*& query, std::vector<Point>& points, unsigned int k, std::vector<std::pair<unsigned int, float>>& nearest_points);
+void scan_leaf_node(float*& query, std::vector<Point>& points, unsigned int k,
+                    std::vector<std::pair<unsigned int, float>>& nearest_points);
 
 /*
  * comparator for sorting

@@ -9,7 +9,8 @@
  */
 namespace debugging {
 
-void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& res, std::vector<float>& query, unsigned int k, const std::vector<std::vector<float>>& S);
+void print_query_results(std::pair<std::vector<unsigned int>, std::vector<float>>& res,
+                         std::vector<float>& query, unsigned int k, const std::vector<std::vector<float>>& S);
 
 void print_point(Point& p);
 

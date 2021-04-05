@@ -2,14 +2,13 @@
 #define DISTANCE_H
 
 #include <cmath>
-#include <vector>
 #include <eCP/index/shared/data_structure.hpp>
+#include <vector>
 
 /**
  * Namespaces contains distance functions used in the index.
  */
-namespace distance 
-{
+namespace distance {
 
 /**
  * External linkage. Globally scoped pointer to the used distance function.
@@ -27,6 +26,6 @@ enum Metric { EUCLIDEAN_OPT_UNROLL = 0, ANGULAR, EUCLIDEAN_HALT_OPT_UNROLL };
  */
 void set_distance_function(Metric);
 
-}
+}  // namespace distance
 
 #endif  // DISTANCE_H

@@ -27,6 +27,6 @@ unsigned count_points_in_clusters(Node root);
  */
 unsigned count_clusters(Node root, unsigned parent_children = 0);
 
-}
+}  // namespace testhelpers
 
-#endif // TEST_HELPERS_H
+#endif  // TEST_HELPERS_H

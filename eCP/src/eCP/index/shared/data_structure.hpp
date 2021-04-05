@@ -1,8 +1,8 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
-#include <eCP/index/shared/globals.hpp>
 #include <cstring>
+#include <eCP/index/shared/globals.hpp>
 #include <iostream>
 #include <limits>
 #include <utility>
