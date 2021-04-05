@@ -24,7 +24,7 @@ cd ../..
 
 [ ! -d ann-benchmarks ] \
     && echo "Cloning new ann-benchmarks repo" \
-    && git clone https://github.com/mortenskoett/ann-benchmarks/
+    && git clone https://github.com/erikbern/ann-benchmarks
 
 echo "Copy eCP necessary files"
 cp -r ${REPO_DIR_NAME}/ann-benchmarks/* ann-benchmarks/

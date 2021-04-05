@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y cmake protobuf-compiler
 RUN cmake --version
 
 # Clone project
-RUN git clone  https://github.com/fremartini/eCP
+RUN git clone  https://github.com/mortenskoett/dynamic_eCP
 WORKDIR "/home/app/eCP"
 #ECP_COMMIT
 WORKDIR "/home/app/eCP/scripts"
