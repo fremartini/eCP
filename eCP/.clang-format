@@ -1,0 +1,18 @@
+# See Clang 12 doc: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+BasedOnStyle: Google
+
+Language: Cpp
+
+# Force pointers to the type for C++.
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+ColumnLimit: 110
+IndentWidth: 2
+
+BreakBeforeBraces: Stroustrup
+
+NamespaceIndentation: None
+AlignEscapedNewlines: true
+AlignTrailingComments: true
