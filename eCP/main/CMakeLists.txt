@@ -13,5 +13,3 @@ target_link_libraries(main
         debugLib
         ittnotify
 )
-
-target_compile_options(main PUBLIC "-O3" "-g" "-Wall")

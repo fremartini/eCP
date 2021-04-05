@@ -7,12 +7,12 @@
 .vscode
 build*
 env
-files_generated
 *.autosave
 
 # User-specific files
 *.out
 ann-benchmarks/*
+eCP/cmake-build-debug/
 *.suo
 *.user
 *.userosscache

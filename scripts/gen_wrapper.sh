@@ -7,7 +7,7 @@ set -o pipefail
 # installs ecp into the framework.
 
 # The script creates a `<eCP_root>/eCP/build/` dir and asks CMake to build the
-# C++ source code + the SWIG wrapper inside inside that directory.
+# C++ source code + the SWIG wrapper as Release build inside inside that directory.
 
 # SWIG configuration is found in `<eCP_root>/eCP/swig/``.
 # Python wrapper is found in: '<eCP_root>/eCP/build/swig/' and consist of a 
@@ -17,22 +17,15 @@ set -o pipefail
 
 NAME="gen_wrapper"
 
-echo "${NAME}: Setting up python 3.6 env..."
-cd ..		# root ecp dir
-python3.6 -m venv env
-source env/bin/activate
-
-echo "${NAME}: Compiling project incl SWIG generated shared library..."
-cd eCP/
-[ ! -d build ] \
-&& echo "${NAME}: Creating build dir..." \
-&& mkdir build
+echo "${NAME}: Compiling project incl SWIG-generated shared library..."
+cd ../eCP/scripts
 
 echo "${NAME}: Configuring Cmake..."
-cmake -S . -B build
+chmod +x configure.sh
+./configure.sh Release
 
 echo "${NAME}: Building Cmake..."
-cmake --configure build # is currently necessary on ubuntu docker image
-cmake --build build
+chmod +x build.sh
+./build.sh
 
 echo "${NAME}: Wrapper generation successful."

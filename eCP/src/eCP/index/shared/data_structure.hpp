@@ -1,12 +1,12 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
-#include <iostream>
 #include <cstring>
+#include <eCP/index/shared/globals.hpp>
+#include <iostream>
+#include <limits>
 #include <utility>
 #include <vector>
-#include <limits>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Internal data structures and distance functions for the eCP algorithm.
@@ -22,11 +22,19 @@ struct Point {
   unsigned id;
 
   /**
-   * @brief Point default constructor. NB: Assumes that g_vector_dimensions is set.
+   * @brief Point constructor. NB: Assumes that g_vector_dimensions is set.
    * @param descriptor_ is a pointer to the descriptor the Point should contain.
    * @param id_ is the id of the Point.
    */
   explicit Point(const float* descriptor_, unsigned id_);
+
+  /**
+   * @brief Point constructor. NB: Assumes that g_vector_dimensions is set.
+   * @param descriptor_ is a reference to a vector of floats that will be
+   * copied into the point.
+   * @param id_ is the id of the Point.
+   */
+  explicit Point(const std::vector<float> descriptor_, unsigned id_);
 
   ~Point();
 
@@ -49,7 +57,6 @@ struct Point {
   friend void swap(Point& fst, Point& snd);
 };
 
-
 /**
  * Represents nodes and clusters in index. Will not have children at bottom level.
  * First element of points is always the representative.
@@ -60,6 +67,12 @@ struct Node {
   std::vector<Node> children;
   std::vector<Point> points;
   explicit Node(Point p);
+
+  /**
+   * @brief get_leader simply returns the leader of the Node.
+   * @return a Point* which is the leader of the node in which this Point resides.
+   */
+  Point* get_leader();
 };
 
 /**
@@ -71,8 +84,7 @@ struct Node {
 struct Index {
   unsigned L;
   std::vector<Node> top_level;
-  std::vector<Point> dataset;
-  Index(unsigned L_, std::vector<Node>& top_level_, std::vector<Point>& dataset_);
+  Index(unsigned L_, std::vector<Node> top_level_);
 };
 
-#endif // DATA_STRUCTURE_H
+#endif  // DATA_STRUCTURE_H
