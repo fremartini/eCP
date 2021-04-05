@@ -7,25 +7,16 @@
 
 int main(int argc, char* argv[])
 {
-  /* For vtune params */
-  //    const int L = 3;           // L parameter - number of levels in index
-  //    const int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
-  //    const int k = 100;         // number points to return
-  //    const int b = 40;          // number clusters to search
-  //    int p = 150000;            // number of vectors
-  //    const int d = 128;         // dimensions of vector
-  //    const int r = 1000;        // upper bound of generated vectors
-  //    const int qs = 15000;      // queries to make on created index
-
   /* For debugging params */
-  const int L = 2;       // L parameter - number of levels in index
-  const int metric = 2;  // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
-  const int k = 2;       // number points to return
-  const int b = 2;       // number clusters to search
-  unsigned p = 1000;     // number of vectors
-  const int d = 128;     // dimensions of vector
-  const int r = 1000;    // upper bound of generated vectors
-  const int qs = 15;     // queries to make on created index
+  int L = 2;           // L parameter - number of levels in index
+  int metric = 1;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
+  int k = 2;           // number points to return
+  int b = 2;           // number clusters to search
+  unsigned p = 1000;   // number of vectors
+  const int d = 128;   // dimensions of vector
+  const int r = 1000;  // upper bound of generated vectors
+  const int qs = 15;   // queries to make on created index
+  bool hdf5 = false;   // generate S and queries
 
   /* Setup ITTAPI instrumentation domain */
   __itt_domain* domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -37,17 +28,41 @@ int main(int argc, char* argv[])
   std::vector<std::vector<float>> S;
   std::vector<std::vector<float>> queries;
 
-  /* If hdf5 file path is given as program argument */
-  if (argc == 2) {
-    std::cout << "Running with hdf5 file: " << argv[1] << std::endl;
-    std::string file = std::string(argv[1]);
-    std::string dataset = "train";
-    S = utilities::load_hdf5_file(file, dataset);
-    dataset = "test";
-    queries = utilities::load_hdf5_file(file, dataset);
-    p = S.size();
+  /* Handling of program arguments */
+  if (argc > 1 && argc % 2 != 0) {
+    for (int i = 1, j = 2; j != argc + 1; i += 2, j += 2) {
+      std::string flag = argv[i];
+
+      // hdf5 file
+      if (flag == "-f") {
+        std::cout << "Running with hdf5 file: " << argv[j] << std::endl;
+        std::string file = std::string(argv[j]);
+        std::string dataset = "train";
+        S = utilities::load_hdf5_file(file, dataset);
+        dataset = "test";
+        queries = utilities::load_hdf5_file(file, dataset);
+        p = S.size();
+        hdf5 = true;
+      }
+      else if (flag == "-k") {
+        k = atoi(argv[j]);
+      }
+      else if (flag == "-b") {
+        b = atoi(argv[j]);
+      }
+      // distance metric
+      else if (flag == "-m") {
+        metric = atoi(argv[j]);
+      }
+      else if (flag == "-l") {
+        L = atoi(argv[j]);
+      }
+      else {
+        throw std::invalid_argument("Invalid flag: " + flag);
+      }
+    }
   }
-  else {
+  if (!hdf5) {
     std::cout << "Generating " << p << " descriptors with " << d << " dimensions and values up to " << r
               << std::endl;
     S = utilities::generate_descriptors(p, d, r);
@@ -73,7 +88,8 @@ int main(int argc, char* argv[])
 
   /* Clean up */
   delete index;
-  std::cout << "eCP run OK.\n";
+  std::cout << "eCP run OK with arguments: L = " << L << ", b = " << b << ", k = " << k
+            << " metric = " << metric << "\n";
   std::cout << "dataset size: " << p << "\n";
   return 0;
 }
