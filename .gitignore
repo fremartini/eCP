@@ -12,6 +12,7 @@ env
 # User-specific files
 *.out
 ann-benchmarks/*
+eCP/cmake-build-debug/
 *.suo
 *.user
 *.userosscache

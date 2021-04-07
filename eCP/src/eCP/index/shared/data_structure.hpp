@@ -1,12 +1,12 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
-#include <iostream>
 #include <cstring>
+#include <eCP/index/shared/globals.hpp>
+#include <iostream>
+#include <limits>
 #include <utility>
 #include <vector>
-#include <limits>
-#include <eCP/index/shared/globals.hpp>
 
 /*
  * Internal data structures and distance functions for the eCP algorithm.
@@ -87,4 +87,4 @@ struct Index {
   Index(unsigned L_, std::vector<Node> top_level_);
 };
 
-#endif // DATA_STRUCTURE_H
+#endif  // DATA_STRUCTURE_H

@@ -1,8 +1,9 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#include <vector>
+#include <string>
 #include <unordered_set>
+#include <vector>
 
 /**
  * Namespace contains utility functions used by the eCP implementation.
@@ -26,7 +27,8 @@ std::vector<unsigned> get_random_unique_indexes(int amount, int container_size);
  * @param upper_bound is the maximum value contained in any feature vector.
  * @return
  */
-std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigned int dimension, unsigned int upper_bound);
+std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigned int dimension,
+                                                     unsigned int upper_bound);
 
 /**
  * @brief Opens .hdf5 or .h5 files and outputs the specified dataset as multidimensional vectors
@@ -35,6 +37,6 @@ std::vector<std::vector<float>> generate_descriptors(unsigned int count, unsigne
  * @return  multidimensional vectors of type float
  */
 std::vector<std::vector<float>> load_hdf5_file(std::string& path, std::string& dataset);
-}
+}  // namespace utilities
 
-#endif // UTILITY_H
+#endif  // UTILITY_H
