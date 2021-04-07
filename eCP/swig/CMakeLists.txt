@@ -5,7 +5,7 @@ include(UseSWIG)
 find_package(PythonLibs)
 include_directories(${PYTHON_INCLUDE_PATH})
 
-set_property(SOURCE eCP.i PROPERTY CPLUSPLUS ON)
+set_property(SOURCE eCP.i PROPERTY CPLUSPLUS ON "-builtin" "-extranative" "-Wall")
 set_property(SOURCE eCP.i PROPERTY SWIG_MODULE_NAME eCP_wrapper)
 
 swig_add_library(eCP_wrapper
