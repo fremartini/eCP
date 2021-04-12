@@ -91,5 +91,6 @@ int main(int argc, char* argv[])
   std::cout << "eCP run OK with arguments: L = " << L << ", b = " << b << ", k = " << k
             << " metric = " << metric << "\n";
   std::cout << "dataset size: " << p << "\n";
+  std::cout << "distance functions called: " << globals::DIST_CALCULATIONS << "\n";
   return 0;
 }

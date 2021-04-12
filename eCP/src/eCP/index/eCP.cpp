@@ -37,6 +37,8 @@ Index* eCP_Index(const std::vector<std::vector<float>>& descriptors, unsigned in
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query,
                                                                unsigned int k, unsigned int b)
 {
+  globals::DIST_CALCULATIONS = 0;
+
   // internal data structure uses float pointer instead of vectors
   float* q = query.data();
 
@@ -54,6 +56,10 @@ std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std
   }
 
   return make_pair(nearest_indexes, nearest_dist);
+}
+
+long long get_distance_calculation_count() {
+  return globals::DIST_CALCULATIONS;
 }
 
 }  // namespace eCP

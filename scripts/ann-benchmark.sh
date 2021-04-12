@@ -114,6 +114,6 @@ if [ ! -d website ]; then
     mkdir website
 fi
 
-python3.6 create_website.py --outputdir website/
+python3.6 create_website.py --scatter  --outputdir website/
 
 chmod 777 -R ./
