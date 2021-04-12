@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
   const int r = 1000;  // upper bound of generated vectors
   const int qs = 15;   // queries to make on created index
   bool hdf5 = false;   // generate S and queries
+  unsigned int rep = 1; // query repetitions
 
   /* Setup ITTAPI instrumentation domain */
   __itt_domain* domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -57,6 +58,9 @@ int main(int argc, char* argv[])
       else if (flag == "-l") {
         L = atoi(argv[j]);
       }
+      else if( flag == "-r") {
+        rep = atoi(argv[j]);
+      }
       else {
         throw std::invalid_argument("Invalid flag: " + flag);
       }
@@ -76,9 +80,11 @@ int main(int argc, char* argv[])
 
   /* Query instrumentation */
   __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
-  for (auto& q : queries) {
-    auto result = eCP::query(index, q, k, b);
-    //        debugging::print_query_results(result, q, k, S);   // debugging
+  for (int i = 0; i < rep; ++i) {
+    for (auto& q : queries) {
+      auto result = eCP::query(index, q, k, b);
+      //debugging::print_query_results(result, q, k, S);   // debugging
+    }
   }
   __itt_task_end(domain_query);
 
@@ -92,5 +98,6 @@ int main(int argc, char* argv[])
             << " metric = " << metric << "\n";
   std::cout << "dataset size: " << p << "\n";
   std::cout << "distance functions called: " << globals::DIST_CALCULATIONS << "\n";
+  std::cout << "queries size: " << queries.size() << " - reps: " << rep;
   return 0;
 }
