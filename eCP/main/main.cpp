@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 {
   /* For debugging params */
   int L = 2;           // L parameter - number of levels in index
-  int metric = 1;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
+  int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
   int k = 2;           // number points to return
   int b = 2;           // number clusters to search
   unsigned p = 1000;   // number of vectors
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
   std::cout << "eCP run OK with arguments: L = " << L << ", b = " << b << ", k = " << k
             << " metric = " << metric << "\n";
   std::cout << "dataset size: " << p << "\n";
-  std::cout << "distance functions called: " << globals::DIST_CALCULATIONS << "\n";
+  std::cout << "distance functions called: " << eCP::get_distance_calculation_count() << "\n";
   std::cout << "queries size: " << queries.size() << " - reps: " << rep;
   return 0;
 }

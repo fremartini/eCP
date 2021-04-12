@@ -36,7 +36,7 @@ class eCP(BaseANN):
         self.b = b
         
     def get_additional(self):
-        return {"dist_comps": random.randint(1, 50)}
+        return {"dist_comps": e.get_distance_calculation_count()}
 
     def __str__(self):
         return 'eCP(L=%s, b=%s, early_halt=%s)' % (self.L, self.b, self.early_halt)

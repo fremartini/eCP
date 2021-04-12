@@ -1,4 +1,3 @@
-#include <cmath>
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
@@ -58,7 +57,7 @@ std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std
   return make_pair(nearest_indexes, nearest_dist);
 }
 
-long long get_distance_calculation_count() {
+unsigned int get_distance_calculation_count() {
   return globals::DIST_CALCULATIONS;
 }
 
