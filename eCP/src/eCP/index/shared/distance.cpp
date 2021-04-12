@@ -58,22 +58,6 @@ inline float euclidean_distance(const float* a, const float* b, const float& thr
   return sums[0] + sums[1] + sums[2] + sums[3];
 }
 
-Node* get_closest_node(std::vector<Node*>& nodes, float* query)
-{
-  float closest = globals::FLOAT_MAX;
-  Node* best = nullptr;
-
-  for (Node* node : nodes) {
-    const float distance = g_distance_function(query, node->points[0].descriptor, closest);
-
-    if (distance <= closest) {
-      closest = distance;
-      best = node;
-    }
-  }
-  return best;
-}
-
 inline float angular_distance(const float* a, const float* b, const float& max_distance = -1)
 {
   float mul = 0.0, d_a = 0.0, d_b = 0.0;
