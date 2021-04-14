@@ -44,10 +44,7 @@ From within the eCP/scripts folder run the ann-benchmark.sh script, it takes arb
 
 It supports the following flags:
 * -d (--delete) delete the current local ann-benchmarks repository if it exists
-* -l (--local) run ann-benchmarks in local mode (`https://github.com/erikbern/ann-benchmarks`)
-
-### Running local changes
-TODO
+* -l (--local) run ann-benchmarks in local mode (with local source code) (`https://github.com/erikbern/ann-benchmarks`)
 
 # Documentation
 ## Wrapper interface
