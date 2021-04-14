@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 {
   /* For debugging params */
   int L = 2;           // L parameter - number of levels in index
-  int metric = 1;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
+  int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
   int k = 2;           // number points to return
   int b = 2;           // number clusters to search
   unsigned p = 1000;   // number of vectors
@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
   const int r = 1000;  // upper bound of generated vectors
   const int qs = 15;   // queries to make on created index
   bool hdf5 = false;   // generate S and queries
-  unsigned int rep = 1; // query repetitions
+  unsigned int rep = 5; // query repetitions
 
   /* Setup ITTAPI instrumentation domain */
   __itt_domain* domain_build = __itt_domain_create("ECP.BENCHMARKING.BUILD");
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
 
   /* Query instrumentation */
   __itt_task_begin(domain_query, __itt_null, __itt_null, handle_query);
-  for (int i = 0; i < rep; ++i) {
+  for (unsigned int i = 0; i < rep; ++i) {
     for (auto& q : queries) {
       auto result = eCP::query(index, q, k, b);
       //debugging::print_query_results(result, q, k, S);   // debugging

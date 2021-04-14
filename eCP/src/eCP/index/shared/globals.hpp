@@ -10,6 +10,7 @@ namespace globals {
 
 extern const float FLOAT_MAX;
 extern const float FLOAT_MIN;
+extern unsigned int DIST_CALCULATIONS;
 
 extern unsigned int g_vector_dimensions;
 

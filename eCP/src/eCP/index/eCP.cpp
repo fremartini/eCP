@@ -1,4 +1,3 @@
-#include <cmath>
 #include <eCP/index/eCP.hpp>
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
@@ -37,6 +36,9 @@ Index* eCP_Index(const std::vector<std::vector<float>>& descriptors, unsigned in
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query,
                                                                unsigned int k, unsigned int b)
 {
+  // reset internal counter
+  globals::DIST_CALCULATIONS = 0;
+
   // internal data structure uses float pointer instead of vectors
   float* q = query.data();
 
@@ -54,6 +56,14 @@ std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std
   }
 
   return make_pair(nearest_indexes, nearest_dist);
+}
+
+/*
+ * Retrieves the number of distance calculations performed during a query call
+ * for reporting in ANN-Benchmarks
+ */
+unsigned int get_distance_calculation_count() {
+  return globals::DIST_CALCULATIONS;
 }
 
 }  // namespace eCP

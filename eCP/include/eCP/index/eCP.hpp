@@ -35,6 +35,8 @@ Index* eCP_Index(const std::vector<std::vector<float>>& descriptors, unsigned in
 std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std::vector<float> query,
                                                                unsigned int k, unsigned int b);
 
+unsigned int get_distance_calculation_count();
+
 }  // namespace eCP
 
 #endif  // ECP_H

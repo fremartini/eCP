@@ -8,6 +8,7 @@ float (*g_distance_function)(const float*, const float*, const float&);
 
 inline float euclidean_distance_unroll_halt(const float* a, const float* b, const float& threshold)
 {
+  globals::DIST_CALCULATIONS++;
   float sum = 0;
   for (unsigned int i = 0; i < globals::g_vector_dimensions; i = i + 8) {
     sum += ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i + 1] - b[i + 1]) * (a[i + 1] - b[i + 1])) +
@@ -24,6 +25,7 @@ inline float euclidean_distance_unroll_halt(const float* a, const float* b, cons
 
 inline float euclidean_distance_unroll(const float* a, const float* b, const float& threshold = -1)
 {
+  globals::DIST_CALCULATIONS++;
   float sum = 0;
   for (unsigned int i = 0; i < globals::g_vector_dimensions; i = i + 8) {
     sum += ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i + 1] - b[i + 1]) * (a[i + 1] - b[i + 1])) +
@@ -36,6 +38,7 @@ inline float euclidean_distance_unroll(const float* a, const float* b, const flo
 
 inline float euclidean_distance_halt(const float* a, const float* b, const float& threshold)
 {
+  globals::DIST_CALCULATIONS++;
   float sum = 0;
   for (unsigned int i = 0; i < globals::g_vector_dimensions; i++) {
     sum += (a[i] - b[i]) * (a[i] - b[i]);
@@ -49,6 +52,7 @@ inline float euclidean_distance_halt(const float* a, const float* b, const float
 
 inline float euclidean_distance(const float* a, const float* b, const float& threshold = -1)
 {
+  globals::DIST_CALCULATIONS++;
   float sums[] = {0.0, 0.0, 0.0, 0.0};
   for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i) {
     float delta = a[i] - b[i];
@@ -60,6 +64,7 @@ inline float euclidean_distance(const float* a, const float* b, const float& thr
 
 inline float angular_distance(const float* a, const float* b, const float& max_distance = -1)
 {
+  globals::DIST_CALCULATIONS++;
   float mul = 0.0, d_a = 0.0, d_b = 0.0;
 
   for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i) {
@@ -75,7 +80,7 @@ inline float angular_distance(const float* a, const float* b, const float& max_d
 
 void set_distance_function(Metric metric)
 {
-  auto is_dimensionality_divisable_by_8 = ((globals::g_vector_dimensions % 8) == 0) ? true : false;
+  auto is_dimensionality_divisable_by_8 = ((globals::g_vector_dimensions % 8) == 0);
 
   switch (metric) {
     case Metric::EUCLIDEAN_OPT_UNROLL:
