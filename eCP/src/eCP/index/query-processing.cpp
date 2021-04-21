@@ -118,33 +118,36 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
 void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k,
                     std::vector<std::pair<unsigned int, float>>& nearest_points)
 {
-  float max_distance = globals::FLOAT_MAX;
+  std::pair<unsigned int, float> max_nearest_point_dist = std::make_pair(-1,globals::FLOAT_MAX);
 
   // if we already have enough points to start replacing, find the furthest point
   if (nearest_points.size() >= k) {
-    max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+    unsigned int max_elem_index = index_to_max_element(nearest_points);
+    max_nearest_point_dist = std::make_pair(max_elem_index,nearest_points[max_elem_index].second);
   }
 
   for (Point& point : points) {
     // not enough points yet, just add
     if (nearest_points.size() < k) {
-      float dist = distance::g_distance_function(query, point.descriptor, globals::FLOAT_MAX);
+      float dist = distance::g_distance_function(query, point.descriptor, max_nearest_point_dist.second);
       nearest_points.emplace_back(point.id, dist);
 
       // next iteration we will start replacing, compute the furthest cluster
       if (nearest_points.size() == k) {
-        max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+        unsigned int max_elem_index = index_to_max_element(nearest_points);
+        max_nearest_point_dist = std::make_pair(max_elem_index,nearest_points[max_elem_index].second);
       }
     }
     else {
       // only replace if nearer
-      float dist = distance::g_distance_function(query, point.descriptor, max_distance);
-      if (dist < max_distance) {
-        const unsigned int max_index = index_to_max_element(nearest_points);
+      float dist = distance::g_distance_function(query, point.descriptor, max_nearest_point_dist.second);
+      if (dist < max_nearest_point_dist.second) {
+        const unsigned int max_index = max_nearest_point_dist.first;
         nearest_points[max_index] = std::make_pair(point.id, dist);
 
         // the furthest point has been replaced, find the new furthest
-        max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+        unsigned int max_elem_index = index_to_max_element(nearest_points);
+        max_nearest_point_dist = std::make_pair(max_elem_index,nearest_points[index_to_max_element(nearest_points)].second);
       }
     }
   }
