@@ -3,13 +3,14 @@
 #include <eCP/index/pre-processing.hpp>
 #include <eCP/index/query-processing.hpp>
 #include <eCP/index/shared/distance.hpp>
+#include <queue>
 
 /*
  * Traverse the index to find the nearest leaf at the bottom level.
  */
 namespace query_processing {
 
-std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query,
+std::vector<std::pair<float,unsigned int>> k_nearest_neighbors(std::vector<Node>& root, float*& query,
                                                                 const unsigned int k,
                                                                 const unsigned int b = 1, unsigned int L = 1)
 {
@@ -17,16 +18,22 @@ std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node
   std::vector<Node*> b_nearest_clusters{find_b_nearest_clusters(root, query, b, L)};
 
   // go trough b clusters to obtain k nearest neighbors
-  std::vector<std::pair<unsigned int, float>> k_nearest_points;
-  k_nearest_points.reserve(k);
+  std::vector<std::pair<float,unsigned int>> knn;
+  knn.reserve(k);
+  std::priority_queue<std::pair<float,unsigned int>> k_nearest_points;
   for (Node* cluster : b_nearest_clusters) {
     scan_leaf_node(query, cluster->points, k, k_nearest_points);
   }
 
   // sort by distance - O(N * log(N)) where N = smallest_distance(a,b) comparisons
-  sort(k_nearest_points.begin(), k_nearest_points.end(), smallest_distance);
+  //sort(k_nearest_points.begin(), k_nearest_points.end(), smallest_distance);
 
-  return k_nearest_points;
+  while(!k_nearest_points.empty()) {
+    knn.push_back(k_nearest_points.top());
+    k_nearest_points.pop();
+  }
+  std::reverse(knn.begin(), knn.end());
+  return knn;
 }
 
 /*
@@ -116,35 +123,35 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
  * Compares query point to each point in cluster and accumulates the k nearest points in 'nearest_points'.
  */
 void scan_leaf_node(float*& query, std::vector<Point>& points, const unsigned int k,
-                    std::vector<std::pair<unsigned int, float>>& nearest_points)
+                    std::priority_queue<std::pair<float,unsigned int>>& nearest_points)
 {
   float max_distance = globals::FLOAT_MAX;
 
   // if we already have enough points to start replacing, find the furthest point
   if (nearest_points.size() >= k) {
-    max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+    max_distance = nearest_points.top().first;
   }
 
   for (Point& point : points) {
     // not enough points yet, just add
     if (nearest_points.size() < k) {
       float dist = distance::g_distance_function(query, point.descriptor, globals::FLOAT_MAX);
-      nearest_points.emplace_back(point.id, dist);
+      nearest_points.emplace(std::make_pair(dist,point.id));
 
       // next iteration we will start replacing, compute the furthest cluster
       if (nearest_points.size() == k) {
-        max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+        max_distance = nearest_points.top().first;
       }
     }
     else {
       // only replace if nearer
       float dist = distance::g_distance_function(query, point.descriptor, max_distance);
       if (dist < max_distance) {
-        const unsigned int max_index = index_to_max_element(nearest_points);
-        nearest_points[max_index] = std::make_pair(point.id, dist);
+        nearest_points.pop();
+        nearest_points.emplace(std::make_pair(dist, point.id));
 
         // the furthest point has been replaced, find the new furthest
-        max_distance = nearest_points[index_to_max_element(nearest_points)].second;
+        max_distance = nearest_points.top().first;
       }
     }
   }

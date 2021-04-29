@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
   /* For debugging params */
   int L = 2;           // L parameter - number of levels in index
   int metric = 0;      // Distance metric - 0 = euclidean - 1 = angular - 2 = euclidean early halt
-  int k = 2;           // number points to return
+  int k = 100;           // number points to return
   int b = 2;           // number clusters to search
   unsigned p = 1000;   // number of vectors
   const int d = 128;   // dimensions of vector

@@ -51,8 +51,8 @@ std::pair<std::vector<unsigned int>, std::vector<float>> query(Index* index, std
   for (auto it = std::make_move_iterator(nearest_points.begin()),
             end = std::make_move_iterator(nearest_points.end());
        it != end; ++it) {
-    nearest_indexes.push_back(it->first);
-    nearest_dist.push_back(it->second);
+    nearest_indexes.push_back(it->second);
+    nearest_dist.push_back(it->first);
   }
 
   return make_pair(nearest_indexes, nearest_dist);

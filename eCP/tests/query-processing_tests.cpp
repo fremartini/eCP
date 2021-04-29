@@ -78,8 +78,8 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_1_returns_k_closest_p
   auto actual = query_processing::k_nearest_neighbors(root, q, k, b, L);
 
   EXPECT_TRUE(actual.size() == 1);
-  EXPECT_TRUE(actual[0].first == 2);
-  EXPECT_TRUE(actual[0].second == 0);
+  EXPECT_TRUE(actual[0].second == 2);
+  EXPECT_TRUE(actual[0].first == 0);
 }
 
 TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_points)
@@ -101,10 +101,10 @@ TEST(query_processing_tests, find_k_nearest_points_given_k_2_returns_k_closest_p
   auto actual = query_processing::k_nearest_neighbors(root, q, k, b, L);
 
   EXPECT_TRUE(actual.size() == 2);
-  EXPECT_TRUE(actual[0].first == 2);
-  EXPECT_TRUE(actual[0].second == 0);
-  EXPECT_TRUE(actual[1].first == 1);
-  EXPECT_TRUE(actual[1].second == 3);
+  EXPECT_TRUE(actual[0].second == 2);
+  EXPECT_TRUE(actual[0].first == 0);
+  EXPECT_TRUE(actual[1].second == 1);
+  EXPECT_TRUE(actual[1].first == 3);
 }
 
 TEST(query_processing_tests, find_b_nearest_clusters_given_L_b_1_returns_single_closest_cluster)

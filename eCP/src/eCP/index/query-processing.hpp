@@ -2,6 +2,7 @@
 #define QUERY_PROCESSING_H
 
 #include <eCP/index/shared/data_structure.hpp>
+#include <queue>
 #include <vector>
 
 namespace query_processing {
@@ -14,7 +15,7 @@ namespace query_processing {
  * @param b amount of leaves to search
  * @return vector of (index,distance) pairs sorted by lowest distance
  */
-std::vector<std::pair<unsigned int, float>> k_nearest_neighbors(std::vector<Node>& root, float*& query,
+std::vector<std::pair<float,unsigned int>> k_nearest_neighbors(std::vector<Node>& root, float*& query,
                                                                 unsigned int k, unsigned int b,
                                                                 unsigned int L);
 
@@ -61,7 +62,7 @@ std::pair<int, float> find_furthest_node(float*& query, std::vector<Node*>& node
  * @param nearest_points accumulator of k nearest neighbors
  */
 void scan_leaf_node(float*& query, std::vector<Point>& points, unsigned int k,
-                    std::vector<std::pair<unsigned int, float>>& nearest_points);
+                    std::priority_queue<std::pair<float,unsigned int>>& nearest_points);
 
 /*
  * comparator for sorting
