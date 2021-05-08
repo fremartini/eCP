@@ -84,12 +84,7 @@ void set_distance_function(Metric metric)
 
   switch (metric) {
     case Metric::EUCLIDEAN_OPT_UNROLL:
-      if (is_dimensionality_divisable_by_8) {
-        g_distance_function = &euclidean_distance_unroll;
-      }
-      else {
-        g_distance_function = &euclidean_distance;
-      }
+      g_distance_function = &euclidean_distance;
       break;
 
     case Metric::ANGULAR:
