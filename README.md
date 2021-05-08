@@ -7,7 +7,7 @@ This project is currently a work in progress. See [CONTRIBUTING.md](CONTRIBUTING
 
 ## Project dependencies
 ```
-gcc, c++, cmake, python3.6, swig, hdf5, docker
+gcc, c++, cmake, python3.6, swig, hdf5 (libhdf5-dev), docker
 ```
 
 # How-to's
