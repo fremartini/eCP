@@ -53,13 +53,13 @@ inline float euclidean_distance_halt(const float* a, const float* b, const float
 inline float euclidean_distance(const float* a, const float* b, const float& threshold = -1)
 {
   globals::DIST_CALCULATIONS++;
-  float sums[] = {0.0, 0.0, 0.0, 0.0};
+  float sum = 0;
   for (unsigned int i = 0; i < globals::g_vector_dimensions; ++i) {
-    float delta = a[i] - b[i];
-    sums[i % 4] += delta * delta;
+    auto pow = a[i] - b[i]; //dont use pow, its very slow
+    sum += pow * pow;
   }
 
-  return sums[0] + sums[1] + sums[2] + sums[3];
+  return sum;
 }
 
 inline float angular_distance(const float* a, const float* b, const float& max_distance = -1)
