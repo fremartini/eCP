@@ -80,6 +80,18 @@ index = e.eCP_Index([[41, 67, 34, 0, 69, 24],[78, 58, 62, 64, 5, 45],[81, 27, 61
 result = e.query(index, [5,5,5], 5, 1)
 ```
 
+## VTUNE
+Flags for running the main.cpp in VTune and Code Editor
+- -f HDF5 file (Sometimes the HDF5 is locked, use HDF5_USE_FILE_LOCKIN false as an environment variable)
+- -k number of nearest numbers for KNN search
+- -b clusters to search through
+- -m distance metric
+- -l levels of the index
+- -r query repetitions
+
+![ecp_configuration](https://user-images.githubusercontent.com/39860858/117532271-e557af80-afe6-11eb-8f50-2954b6879b27.png)
+
+
 # Datasets
 A little bit of information about the datasets that have been used for testing.
 | Dataset                                                           | Dimensions | Train size | Test size | Neighbors | Distance  |                                                                  
