@@ -85,7 +85,7 @@ inline float angular_distance(const float* a, const float* b, const float& max_d
 
 void set_distance_function(Metric metric)
 {
-  g_distance_function = &euclidean_distance;
+  g_distance_function = &euclidean_distance_unroll;
 }
 
 }  // namespace distance
