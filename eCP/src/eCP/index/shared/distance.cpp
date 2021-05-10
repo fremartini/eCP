@@ -26,14 +26,19 @@ inline float euclidean_distance_unroll_halt(const float* a, const float* b, cons
 inline float euclidean_distance_unroll(const float* a, const float* b, const float& threshold = -1)
 {
   globals::DIST_CALCULATIONS++;
-  float sum = 0;
+  float sums[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
   for (unsigned int i = 0; i < globals::g_vector_dimensions; i = i + 8) {
-    sum += ((a[i] - b[i]) * (a[i] - b[i])) + ((a[i + 1] - b[i + 1]) * (a[i + 1] - b[i + 1])) +
-           ((a[i + 2] - b[i + 2]) * (a[i + 2] - b[i + 2])) + ((a[i + 3] - b[i + 3]) * (a[i + 3] - b[i + 3])) +
-           ((a[i + 4] - b[i + 4]) * (a[i + 4] - b[i + 4])) + ((a[i + 5] - b[i + 5]) * (a[i + 5] - b[i + 5])) +
-           ((a[i + 6] - b[i + 6]) * (a[i + 6] - b[i + 6])) + ((a[i + 7] - b[i + 7]) * (a[i + 7] - b[i + 7]));
+    sums[0] += (a[i] - b[i]) * (a[i] - b[i]);
+    sums[1] += (a[i + 1] - b[i + 1]) * (a[i + 1] - b[i + 1]);
+    sums[2] += (a[i + 2] - b[i + 2]) * (a[i + 2] - b[i + 2]);
+    sums[3] += (a[i + 3] - b[i + 3]) * (a[i + 3] - b[i + 3]);
+    sums[4] += (a[i + 4] - b[i + 4]) * (a[i + 4] - b[i + 4]);
+    sums[5] += (a[i + 5] - b[i + 5]) * (a[i + 5] - b[i + 5]);
+    sums[6] += (a[i + 6] - b[i + 6]) * (a[i + 6] - b[i + 6]);
+    sums[7] += (a[i + 7] - b[i + 7]) * (a[i + 7] - b[i + 7]);
   }
-  return sum;
+
+  return sums[0] + sums[1] + sums[2] + sums[3] + sums[4] + sums[5] + sums[6] + sums[7];
 }
 
 inline float euclidean_distance_halt(const float* a, const float* b, const float& threshold)
@@ -82,25 +87,31 @@ void set_distance_function(Metric metric)
 {
   auto is_dimensionality_divisable_by_8 = ((globals::g_vector_dimensions % 8) == 0);
 
+  std::cout << "metric: ";
   switch (metric) {
     case Metric::EUCLIDEAN_OPT_UNROLL:
       if (is_dimensionality_divisable_by_8) {
+        std::cout << "euclidean_distance_unroll" << std::endl;
         g_distance_function = &euclidean_distance_unroll;
       }
       else {
+        std::cout << "euclidean_distance" << std::endl;
         g_distance_function = &euclidean_distance;
       }
       break;
 
     case Metric::ANGULAR:
+      std::cout << "angular" << std::endl;
       g_distance_function = &angular_distance;
       break;
 
     case Metric::EUCLIDEAN_HALT_OPT_UNROLL:
       if (is_dimensionality_divisable_by_8) {
+        std::cout << "euclidean_distance_unroll_halt" << std::endl;
         g_distance_function = &euclidean_distance_unroll_halt;
       }
       else {
+        std::cout << "euclidean_distance_halt" << std::endl;
         g_distance_function = &euclidean_distance_halt;
       }
       break;
