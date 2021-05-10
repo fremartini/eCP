@@ -85,40 +85,7 @@ inline float angular_distance(const float* a, const float* b, const float& max_d
 
 void set_distance_function(Metric metric)
 {
-  auto is_dimensionality_divisable_by_8 = ((globals::g_vector_dimensions % 8) == 0);
-
-  std::cout << "metric: ";
-  switch (metric) {
-    case Metric::EUCLIDEAN_OPT_UNROLL:
-      if (is_dimensionality_divisable_by_8) {
-        std::cout << "euclidean_distance_unroll" << std::endl;
-        g_distance_function = &euclidean_distance_unroll;
-      }
-      else {
-        std::cout << "euclidean_distance" << std::endl;
-        g_distance_function = &euclidean_distance;
-      }
-      break;
-
-    case Metric::ANGULAR:
-      std::cout << "angular" << std::endl;
-      g_distance_function = &angular_distance;
-      break;
-
-    case Metric::EUCLIDEAN_HALT_OPT_UNROLL:
-      if (is_dimensionality_divisable_by_8) {
-        std::cout << "euclidean_distance_unroll_halt" << std::endl;
-        g_distance_function = &euclidean_distance_unroll_halt;
-      }
-      else {
-        std::cout << "euclidean_distance_halt" << std::endl;
-        g_distance_function = &euclidean_distance_halt;
-      }
-      break;
-
-    default:
-      throw std::invalid_argument("Invalid metric.");
-  }
+  g_distance_function = &euclidean_distance;
 }
 
 }  // namespace distance
