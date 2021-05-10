@@ -79,7 +79,7 @@ void scan_node(float*& query, std::vector<Node>& nodes, unsigned int& b,
 
     else {
       // only replace if better
-      if (distance::g_distance_function(query, node.points[0].descriptor, furthest_node.second) <=
+      if (distance::g_distance_function(query, node.points[0].descriptor, furthest_node.second) <
           furthest_node.second) {
         nodes_accumulated[furthest_node.first] = &node;
         // the furthest node has been replaced, find the new furthest
