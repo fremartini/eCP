@@ -9,6 +9,8 @@ project(
 # Must be in main file
 enable_testing()
 
+find_package(HDF5 REQUIRED COMPONENTS CXX)
+
 # The compiled library code, executable code, external libs and tests
 add_subdirectory(src)
 add_subdirectory(app)

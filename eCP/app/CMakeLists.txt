@@ -10,6 +10,8 @@ target_include_directories(utilLib
 target_link_libraries(utilLib
     PUBLIC
         eCP_library
+    PRIVATE
+        HDF5::HDF5
 ) 
 
 add_executable(main main.cpp)

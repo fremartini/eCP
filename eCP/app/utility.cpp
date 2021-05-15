@@ -2,6 +2,8 @@
 #include <cmath>
 #include <iostream>
 
+#include <eCP/H5Easy/H5Easy.h>
+
 #include <utility.hpp>
 #include <eCP/globals.hpp>
 
@@ -177,6 +179,14 @@ void print_index_levels(std::vector<Node*>& root)
 		std::cout << "\n"; // Print new line between two levels
 	}
 	std::cout << "--------------\n";
+}
+
+std::vector<std::vector<float>> load_hdf5_file(std::string& path, std::string& dataset)
+{
+  LoadH5 data;
+  data.setFileName(path);
+  data.setVarName(dataset);
+  return data.getData();
 }
 
 }
