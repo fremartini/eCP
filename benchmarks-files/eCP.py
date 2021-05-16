@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import eCP_wrapper as e
 import numpy as np
 from ann_benchmarks.algorithms.base import BaseANN
+import random
 
 class eCP(BaseANN):
     def __init__(self, metric, early_halt, L):
@@ -33,6 +34,9 @@ class eCP(BaseANN):
    
     def set_query_arguments(self, b):
         self.b = b
+        
+    def get_additional(self):
+        return {"dist_comps": e.get_distance_calculation_count()}
 
     def __str__(self):
         return 'eCP(L=%s, b=%s, early_halt=%s)' % (self.L, self.b, self.early_halt)

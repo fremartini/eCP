@@ -7,7 +7,7 @@ This project is currently a work in progress. See [CONTRIBUTING.md](CONTRIBUTING
 
 ## Project dependencies
 ```
-gcc, c++, cmake, python3.6, swig, hdf5, docker
+gcc, c++, cmake, python3.6, swig, hdf5 (libhdf5-dev), docker
 ```
 
 # How-to's
@@ -44,10 +44,7 @@ From within the eCP/scripts folder run the ann-benchmark.sh script, it takes arb
 
 It supports the following flags:
 * -d (--delete) delete the current local ann-benchmarks repository if it exists
-* -l (--local) run ann-benchmarks in local mode (`https://github.com/erikbern/ann-benchmarks`)
-
-### Running local changes
-TODO
+* -l (--local) run ann-benchmarks in local mode (with local source code) (`https://github.com/erikbern/ann-benchmarks`)
 
 # Documentation
 ## Wrapper interface
@@ -82,6 +79,18 @@ import eCP_wrapper as e
 index = e.eCP_Index([[41, 67, 34, 0, 69, 24],[78, 58, 62, 64, 5, 45],[81, 27, 61, 91, 95, 42],[27, 36, 91, 4, 2, 53],[92, 82, 21, 16, 18, 95],[47, 26, 71, 38, 69, 12],[67, 99, 35, 94, 3, 11],[22, 33, 73, 64, 41, 11], [53, 68, 47, 44, 62, 57], [37, 59, 23, 41, 29, 78], [16, 35, 90, 42, 88, 6], [40, 42, 64, 48, 46, 5], [90, 29, 70, 50, 6, 1], [93, 48, 29, 23, 84, 54], [56, 40, 66, 76, 31, 8]], 2, 1)
 result = e.query(index, [5,5,5], 5, 1)
 ```
+
+## VTUNE
+Flags for running the main.cpp in VTune and Code Editor
+- -f HDF5 file (Sometimes the HDF5 is locked, use HDF5_USE_FILE_LOCKIN false as an environment variable)
+- -k number of nearest numbers for KNN search
+- -b clusters to search through
+- -m distance metric
+- -l levels of the index
+- -r query repetitions
+
+![ecp_configuration](https://user-images.githubusercontent.com/39860858/117532271-e557af80-afe6-11eb-8f50-2954b6879b27.png)
+
 
 # Datasets
 A little bit of information about the datasets that have been used for testing.

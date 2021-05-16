@@ -8,8 +8,8 @@ float:
       base-args: ["@metric",%ECP_EA%]
       run-groups:
         eCP:
-          args: [[1,2,3]]
-          query-args: [[1,2,3,4,5,10,20]]
+          args: [[1,2]]
+          query-args: [[1,2,3,4,5,10,20,40]]
     sptag:
       docker-tag: ann-benchmarks-sptag
       module: ann_benchmarks.algorithms.sptag
